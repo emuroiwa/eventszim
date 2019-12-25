@@ -1934,59 +1934,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // require styles from slick-carousel
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      events: []
+    };
   },
   methods: {
+    getEvents: function getEvents() {
+      var _this = this;
+
+      axios.get("api/events").then(function (_ref) {
+        var data = _ref.data;
+        _this.events = data;
+      })["catch"](function (error) {
+        // console.log(rror.response)
+        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
+      });
+    },
     pageSlider: function pageSlider() {
+      console.log('totalItems');
       $('#carousel-example').on('slide.bs.carousel', function (e) {
         /*
             CC 2.0 License Iatek LLC 2018 - Attribution required
@@ -1995,6 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
         var idx = $e.index();
         var itemsPerSlide = 5;
         var totalItems = $('.carousel-item').length;
+        console.log(totalItems);
 
         if (idx >= totalItems - (itemsPerSlide - 1)) {
           var it = itemsPerSlide - (totalItems - idx);
@@ -2012,6 +1981,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    this.getEvents();
     this.pageSlider();
   }
 });
@@ -63955,269 +63925,139 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "top-content" }, [
+    _c("div", { staticClass: "container-fluid catergory-container" }, [
+      _c("h3", { staticClass: "text-primary" }, [_vm._v("Popular")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "carousel slide",
+          attrs: {
+            id: "carousel-example",
+            "data-ride": "carousel",
+            "data-interval": "false"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "carousel-inner row w-100 mx-auto",
+              attrs: { role: "listbox" }
+            },
+            _vm._l(_vm.events, function(event) {
+              return _c(
+                "div",
+                {
+                  key: event.id,
+                  staticClass: "carousel-item col-12 col-sm-6 col-md-4 col-lg-3"
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "indexEvent", params: { id: event.id } }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "card" }, [
+                        _c("img", {
+                          staticClass: "card-img-top",
+                          attrs: {
+                            src: "//placehold.it/600x400?text=1",
+                            alt: "Card image cap"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(_vm._s(event.event_name))
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "Some quick example text to build on the card title and make up the bulk of the card's content."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-footer bg-info text-muted" },
+                          [
+                            _vm._v(
+                              "\r\n                                2 days ago\r\n                            "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "top-content" }, [
-      _c("div", { staticClass: "container-fluid catergory-container" }, [
-        _c("h3", { staticClass: "text-primary" }, [_vm._v("Popular")]),
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carousel-example",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "carousel slide",
-            attrs: {
-              id: "carousel-example",
-              "data-ride": "carousel",
-              "data-interval": "false"
-            }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "carousel-inner row w-100 mx-auto",
-                attrs: { role: "listbox" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active"
-                  },
-                  [
-                    _c("div", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: "//placehold.it/600x400?text=1",
-                          alt: "Card image cap"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v("Card title")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "Some quick example text to build on the card title and make up the bulk of the card's content."
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "card-footer bg-info text-muted" },
-                        [
-                          _vm._v(
-                            "\r\n                            2 days ago\r\n                        "
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "carousel-item col-12 col-sm-6 col-md-4 col-lg-3"
-                  },
-                  [
-                    _c("div", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: "//placehold.it/600x400?text=2",
-                          alt: "Card image cap"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v("Card title")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "Some quick example text to build on the card title and make up the bulk of the card's content."
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-footer text-muted" }, [
-                        _vm._v(
-                          "\r\n                            2 days ago\r\n                        "
-                        )
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "carousel-item col-12 col-sm-6 col-md-4 col-lg-3"
-                  },
-                  [
-                    _c("div", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: "//placehold.it/600x400?text=3",
-                          alt: "Card image cap"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v("Card title")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "Some quick example text to build on the card title and make up the bulk of the card's content."
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-footer text-muted" }, [
-                        _vm._v(
-                          "\r\n                            2 days ago\r\n                        "
-                        )
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "carousel-item col-12 col-sm-6 col-md-4 col-lg-3"
-                  },
-                  [
-                    _c("div", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: "//placehold.it/600x400?text=4",
-                          alt: "Card image cap"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v("Card title")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "Some quick example text to build on the card title and make up the bulk of the card's content."
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-footer text-muted" }, [
-                        _vm._v(
-                          "\r\n                            2 days ago\r\n                        "
-                        )
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "carousel-item col-12 col-sm-6 col-md-4 col-lg-3"
-                  },
-                  [
-                    _c("div", { staticClass: "card" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src: "//placehold.it/600x400?text=5",
-                          alt: "Card image cap"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v("Card title")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "Some quick example text to build on the card title and make up the bulk of the card's content."
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-footer text-muted" }, [
-                        _vm._v(
-                          "\r\n                            2 days ago\r\n                        "
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "carousel-control-prev",
-                attrs: {
-                  href: "#carousel-example",
-                  role: "button",
-                  "data-slide": "prev"
-                }
-              },
-              [
-                _c("span", {
-                  staticClass: "carousel-control-prev-icon",
-                  attrs: { "aria-hidden": "true" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "carousel-control-next",
-                attrs: {
-                  href: "#carousel-example",
-                  role: "button",
-                  "data-slide": "next"
-                }
-              },
-              [
-                _c("span", {
-                  staticClass: "carousel-control-next-icon",
-                  attrs: { "aria-hidden": "true" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-              ]
-            )
-          ]
-        )
-      ])
-    ])
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carousel-example",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
   }
 ]
 render._withStripped = true

@@ -16,8 +16,11 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+         props: ['id'],
+        data(){
+            return{
+
+            }
         },
         created(){
             //$(this).css('background-image','url(../images/compra_normal.png)');

@@ -4,67 +4,21 @@
         <h3 class="text-primary">Popular</h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                    <div class="card" >
-                        <img class="card-img-top" src="//placehold.it/600x400?text=1" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" v-for="event in events" :key="event.id">
+                    <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
+                        <div class="card" >
+                            <img class="card-img-top" src="//placehold.it/600x400?text=1" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{event.event_name}}</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-footer bg-info text-muted">
+                                2 days ago
+                            </div>
                         </div>
-                        <div class="card-footer bg-info text-muted">
-                            2 days ago
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card" >
-                        <img class="card-img-top" src="//placehold.it/600x400?text=2" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            2 days ago
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card" >
-                        <img class="card-img-top" src="//placehold.it/600x400?text=3" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            2 days ago
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card" >
-                        <img class="card-img-top" src="//placehold.it/600x400?text=4" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            2 days ago
-                        </div>
-                    </div>
+                    </router-link>
                 </div>
 
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card" >
-                        <img class="card-img-top" src="//placehold.it/600x400?text=5" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            2 days ago
-                        </div>
-                    </div>
-                </div>
             </div>
             <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -88,11 +42,21 @@
   export default {
         data(){
             return {
+                events:[],
             }
         },
         methods: {
+            getEvents(){
+                 axios.get("api/events").then(({ data }) => {
+                        this.events = data;
+                    }).catch((error)=>{
+                    // console.log(rror.response)
+                    swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                    })
+            },
             pageSlider(){
 
+            console.log('totalItems')
                 $('#carousel-example').on('slide.bs.carousel', function (e) {
                     /*
                         CC 2.0 License Iatek LLC 2018 - Attribution required
@@ -101,6 +65,7 @@
                     var idx = $e.index();
                     var itemsPerSlide = 5;
                     var totalItems = $('.carousel-item').length;
+                    console.log(totalItems)
                 
                     if (idx >= totalItems-(itemsPerSlide-1)) {
                         var it = itemsPerSlide - (totalItems - idx);
@@ -118,7 +83,9 @@
             }, 
         },
         created(){
+            this.getEvents();
             this.pageSlider();
+
         }              
 
         
