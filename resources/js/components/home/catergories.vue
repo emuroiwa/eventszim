@@ -1,7 +1,7 @@
 <template>
 <div class="top-content">
     <div class="container-fluid catergory-container">
-        <h3 class="section__title">Popular</h3>
+        <h3 class="text-primary">Popular</h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">

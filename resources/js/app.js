@@ -35,8 +35,10 @@ window.swal = swal;
 
 
 let routes = [
-    { path: '/example', component: require('./components/ExampleComponent.vue') }
-    ];
+    { path: '/', component: require('./components/home/indexComponent.vue').default },
+    { path: '/home', component: require('./components/home/indexComponent.vue').default },
+    { path: '/test', component: require('./components/ExampleComponent.vue').default }
+    ]; 
 
 const router = new VueRouter({
     mode: 'history',
@@ -60,18 +62,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 const app = new Vue({
     el: '#app',
-    router,
-    data:{
-        search: ''
-    },
-    methods:{
-        searchit: _.debounce(() => {
-            Fire.$emit('searching');
-        },1000),
-
-        printme() {
-            window.print();
-        }
-    }
+    router
 });
 

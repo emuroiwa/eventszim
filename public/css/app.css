@@ -17281,6 +17281,11 @@ readers do not read off random characters that represent icons */
   padding-bottom: 15px;
 }
 
+.gm58-header {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(3.36%, #6CB2EB), color-stop(19.33%, #6CB2EB), color-stop(67.23%, #6CB2EB), color-stop(100%, transparent), to(transparent));
+  background-image: linear-gradient(#6CB2EB 3.36%, #6CB2EB 19.33%, #6CB2EB 67.23%, transparent 100%, transparent);
+}
+
 .search-element {
   width: 60%;
 }
@@ -17293,5 +17298,10 @@ readers do not read off random characters that represent icons */
 
 .search-nav-element {
   width: 100%;
+}
+
+.gm58-caption {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))) !important;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%) !important;
 }
 

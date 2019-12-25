@@ -63,23 +63,10 @@ export default {
   },
 
   methods: {
-    // The callback function which is triggered when the user hits on an item
-    // (required)
-    data () {
-      return {
-        src: 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search',
-        limit: 5,
-        minChars: 3
-      }
-    },
-  methods: {
     onHit (item) {
       window.location.href = 'http://twitter.com/' + item.screen_name
-    }
-  },
-
-    // The callback function which is triggered when the response data are received
-    // (optional)
+    },
+  
     prepareResponseData (data) {
       // data = ...
       return data

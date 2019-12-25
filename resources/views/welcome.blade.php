@@ -1,13 +1,11 @@
     <div id="app">
         @include('layouts.header')        
-        <main>
-            <slider></slider>
-            <catergories></catergories>
-            
+        <main id="main">
+            <router-view></router-view>
         </main>
       
     </div>
 
 
-<script src="/js/app.js"></script>
 @include('layouts.footer')
+<script src="/js/app.js"></script>
