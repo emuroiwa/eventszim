@@ -19,14 +19,59 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import moment from 'moment';
+import { Form, HasError, AlertError } from 'vform';
+import Gate from "./Gate";
+import swal from 'sweetalert2'
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import slider from './components/home/slider';
+import search from './components/home/search';
+import catergories from './components/home/catergories';
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+Vue.prototype.$gate = new Gate(window.user);
+window.swal = swal;
+
+
+let routes = [
+    { path: '/example', component: require('./components/ExampleComponent.vue') }
+    ];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+  })
+const toast = swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+window.toast = toast;
+window.Form = Form;
+
+Vue.component('slider', slider)
+Vue.component('search', search)
+Vue.component('catergories', catergories)
+Vue.component('not-found',require('./components/NotFound.vue'));
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
     el: '#app',
+    router,
+    data:{
+        search: ''
+    },
+    methods:{
+        searchit: _.debounce(() => {
+            Fire.$emit('searching');
+        },1000),
+
+        printme() {
+            window.print();
+        }
+    }
 });
+
