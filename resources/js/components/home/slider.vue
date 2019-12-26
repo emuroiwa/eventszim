@@ -2,24 +2,25 @@
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators"  v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }" :data-slide-to="{idx}"></li>
+
             </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
+            <div class="carousel-inner gm58-carousel-inner">
+                <div class="carousel-item" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
                     <div class="overlay"></div>
-                    <img class="d-block w-100" src="img/slide.jpg" alt="First slide">
+                    <img class="d-block w-100" :src="event.event_img" :alt="event.event_name">
                     <div class="carousel-caption d-none d-md-block">
-                        <h2>Testttttt</h2>
-                        <h3>{{}}</h3>
-                            <router-link :to="{ name: 'indexEvent', params: { id: 1 } }">
+                        
+                        <h2>{{event.event_name}}</h2>
+                        <h3>{{event.start_date | myDate}}</h3>
+                            <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
                                 <button class="btn-lg btn-primary">
                                     Get tickets <i class="fas fa-ticket-alt"></i>
                                 </button>
                             </router-link>
                     </div>
                 </div>
+
                 
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -37,13 +38,15 @@
 
 <script>
     export default {
+        props: {
+            eventData: Array
+        },
         mounted() {
             console.log('Component mounted.')
         },
         data(){
             return{
-                sliders:{},
-
+                
             }
         },
         methods: {
@@ -61,17 +64,18 @@ a{
 /* .carousel-caption {
     padding-bottom: 140px;
 }  */
+
 .overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 2;
     background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);
-    opacity: .5;
+    opacity: .27;
 }
 .carousel-caption  {
     position: absolute;
-    top: 56%;
+    top: 46%;
     left: 50%;
     z-index: 3;
     color: #fff;
@@ -90,7 +94,12 @@ a{
     margin: 0;
     padding: 0;
 }
-
+.carousel-control-prev{
+    z-index: 3
+}
+.carousel-control-next{
+    z-index: 3;
+}
 
 </style>
 

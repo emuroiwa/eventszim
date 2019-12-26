@@ -58,6 +58,15 @@ const toast = swal.mixin({
 
 window.toast = toast;
 window.Form = Form;
+
+Vue.filter('myDate',function(created){
+  return moment(created).format('Do MMMM YYYY');
+});
+Vue.filter('formatNumber', function(value){
+  let val = (value/1).toFixed(2).replace(' ', ',');
+  return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+});
+
 Vue.component('Loading',Loading)
 
 Vue.component('slider', slider)

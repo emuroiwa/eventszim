@@ -2179,25 +2179,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 // require styles from slick-carousel
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    eventData: Array
+  },
   data: function data() {
-    return {
-      events: []
-    };
+    return {};
   },
   methods: {
-    getEvents: function getEvents() {
-      var _this = this;
-
-      axios.get("api/events").then(function (_ref) {
-        var data = _ref.data;
-        _this.events = data;
-      })["catch"](function (error) {
-        // console.log(rror.response)
-        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
-      });
-    },
     pageSlider: function pageSlider() {
       console.log('totalItems');
       $('#carousel-example').on('slide.bs.carousel', function (e) {
@@ -2226,7 +2220,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.getEvents();
     this.pageSlider();
   }
 });
@@ -2251,8 +2244,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('sss');
+  data: function data() {
+    return {
+      eventData: []
+    };
+  },
+  methods: {
+    getEvents: function getEvents() {
+      var _this = this;
+
+      axios.get("api/events").then(function (_ref) {
+        var data = _ref.data;
+        _this.eventData = data;
+      })["catch"](function (error) {
+        // console.log(rror.response)
+        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
+      });
+    }
+  },
+  created: function created() {
+    this.getEvents();
   }
 });
 
@@ -2385,14 +2396,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    eventData: Array
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   data: function data() {
-    return {
-      sliders: {}
-    };
+    return {};
   },
   methods: {},
   created: function created() {}
@@ -9181,7 +9194,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -25%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.1);\r\n        transform: scale(1.1);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -25%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -9200,7 +9213,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px rgba(0,0,0,.4);\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\r\n", ""]);
+exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px #3490dc;\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\r\n", ""]);
 
 // exports
 
@@ -9219,7 +9232,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .5;\n}\n.carousel-caption[data-v-75bc62d4]  {\r\n    position: absolute;\r\n    top: 56%;\r\n    left: 50%;\r\n    z-index: 3;\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    text-shadow: 1px 1px 0 rgba(0,0,0,.75);\r\n      -webkit-transform: translate3d(-50%,-50%,0);\r\n              transform: translate3d(-50%,-50%,0);\n}\n.carousel-caption  h2[data-v-75bc62d4] {\r\n    font-size: 4em;    \r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-caption[data-v-75bc62d4]  {\r\n    position: absolute;\r\n    top: 46%;\r\n    left: 50%;\r\n    z-index: 3;\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    text-shadow: 1px 1px 0 rgba(0,0,0,.75);\r\n      -webkit-transform: translate3d(-50%,-50%,0);\r\n              transform: translate3d(-50%,-50%,0);\n}\n.carousel-caption  h2[data-v-75bc62d4] {\r\n    font-size: 4em;    \r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -64325,7 +64338,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [_vm._v("\n    hdfsjdhj\n")])
+  return _c("div", { staticClass: "container" }, [
+    _vm._v("\n    " + _vm._s(_vm.eventData.description) + "\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -64723,12 +64738,14 @@ var render = function() {
               staticClass: "carousel-inner row w-100 mx-auto",
               attrs: { role: "listbox" }
             },
-            _vm._l(_vm.events, function(event) {
+            _vm._l(_vm.eventData, function(event, idx) {
               return _c(
                 "div",
                 {
                   key: event.id,
-                  staticClass: "carousel-item col-12 col-sm-6 col-md-4 col-lg-3"
+                  staticClass:
+                    "carousel-item col-12 col-sm-6 col-md-4 col-lg-3",
+                  class: { active: idx == 0 }
                 },
                 [
                   _c(
@@ -64739,33 +64756,44 @@ var render = function() {
                       }
                     },
                     [
-                      _c("div", { staticClass: "card" }, [
-                        _c("img", {
-                          staticClass: "card-img-top",
-                          attrs: {
-                            src: "//placehold.it/600x400?text=1",
-                            alt: "Card image cap"
-                          }
-                        }),
+                      _c("div", { staticClass: "card grow" }, [
+                        _c("div", [
+                          _c("img", {
+                            staticClass: "card-img-top",
+                            attrs: {
+                              src: event.event_img,
+                              alt: event.event_name
+                            }
+                          })
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
+                          _c("h5", { staticClass: "card-title text-center" }, [
                             _vm._v(_vm._s(event.event_name))
                           ]),
                           _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "Some quick example text to build on the card title and make up the bulk of the card's content."
-                            )
+                          _c(
+                            "h5",
+                            { staticClass: "card-title  text-center mt-1" },
+                            [_vm._v(_vm._s(event.venue))]
+                          ),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text  text-center" }, [
+                            _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
                           ])
                         ]),
                         _vm._v(" "),
                         _c(
                           "div",
-                          { staticClass: "card-footer bg-info text-muted" },
+                          {
+                            staticClass:
+                              "card-footer gm58-footer footer-caption"
+                          },
                           [
                             _vm._v(
-                              "\r\n                                2 days ago\r\n                            "
+                              "\r\n                                From " +
+                                _vm._s(_vm._f("formatNumber")(event.price)) +
+                                "\r\n                            "
                             )
                           ]
                         )
@@ -64858,7 +64886,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("slider"), _vm._v(" "), _c("catergories")], 1)
+  return _c(
+    "div",
+    [
+      _c("slider", { attrs: { eventData: this.eventData } }),
+      _vm._v(" "),
+      _c("catergories", { attrs: { eventData: this.eventData } })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -64927,7 +64963,7 @@ var render = function() {
         staticClass: "Typeahead__input",
         attrs: {
           type: "text",
-          placeholder: "Search Events",
+          placeholder: "Search Events, Team, Artist...",
           autocomplete: "off"
         },
         domProps: { value: _vm.query },
@@ -65058,76 +65094,81 @@ var render = function() {
       attrs: { id: "carouselExampleIndicators", "data-ride": "carousel" }
     },
     [
-      _vm._m(0),
+      _c(
+        "ol",
+        { staticClass: "carousel-indicators" },
+        _vm._l(_vm.eventData, function(event, idx) {
+          return _c("li", {
+            key: event.id,
+            class: { active: idx == 0 },
+            attrs: {
+              "data-target": "#carouselExampleIndicators",
+              "data-slide-to": { idx: idx }
+            }
+          })
+        }),
+        0
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "carousel-inner" }, [
-        _c("div", { staticClass: "carousel-item active" }, [
-          _c("div", { staticClass: "overlay" }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "d-block w-100",
-            attrs: { src: "img/slide.jpg", alt: "First slide" }
-          }),
-          _vm._v(" "),
-          _c(
+      _c(
+        "div",
+        { staticClass: "carousel-inner gm58-carousel-inner" },
+        _vm._l(_vm.eventData, function(event, idx) {
+          return _c(
             "div",
-            { staticClass: "carousel-caption d-none d-md-block" },
+            {
+              key: event.id,
+              staticClass: "carousel-item",
+              class: { active: idx == 0 }
+            },
             [
-              _c("h2", [_vm._v("Testttttt")]),
+              _c("div", { staticClass: "overlay" }),
               _vm._v(" "),
-              _c("h3", [_vm._v("{{}}")]),
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: { src: event.event_img, alt: event.event_name }
+              }),
               _vm._v(" "),
               _c(
-                "router-link",
-                { attrs: { to: { name: "indexEvent", params: { id: 1 } } } },
+                "div",
+                { staticClass: "carousel-caption d-none d-md-block" },
                 [
-                  _c("button", { staticClass: "btn-lg btn-primary" }, [
-                    _vm._v("\n                            Get tickets "),
-                    _c("i", { staticClass: "fas fa-ticket-alt" })
-                  ])
-                ]
+                  _c("h2", [_vm._v(_vm._s(event.event_name))]),
+                  _vm._v(" "),
+                  _c("h3", [
+                    _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "indexEvent", params: { id: event.id } }
+                      }
+                    },
+                    [
+                      _c("button", { staticClass: "btn-lg btn-primary" }, [
+                        _vm._v("\n                            Get tickets "),
+                        _c("i", { staticClass: "fas fa-ticket-alt" })
+                      ])
+                    ]
+                  )
+                ],
+                1
               )
-            ],
-            1
+            ]
           )
-        ])
-      ]),
+        }),
+        0
+      ),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(1)
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "carousel-indicators" }, [
-      _c("li", {
-        staticClass: "active",
-        attrs: {
-          "data-target": "#carouselExampleIndicators",
-          "data-slide-to": "0"
-        }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: {
-          "data-target": "#carouselExampleIndicators",
-          "data-slide-to": "1"
-        }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: {
-          "data-target": "#carouselExampleIndicators",
-          "data-slide-to": "2"
-        }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -80546,6 +80587,13 @@ var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
 });
 window.toast = toast;
 window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
+Vue.filter('myDate', function (created) {
+  return moment__WEBPACK_IMPORTED_MODULE_0___default()(created).format('Do MMMM YYYY');
+});
+Vue.filter('formatNumber', function (value) {
+  var val = (value / 1).toFixed(2).replace(' ', ',');
+  return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+});
 Vue.component('Loading', vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default.a);
 Vue.component('slider', _components_home_slider__WEBPACK_IMPORTED_MODULE_5__["default"]);
 Vue.component('search', _components_home_search__WEBPACK_IMPORTED_MODULE_6__["default"]);

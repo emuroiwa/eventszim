@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        hdfsjdhj
+        {{eventData.description}}
     </div>
 </template>
 

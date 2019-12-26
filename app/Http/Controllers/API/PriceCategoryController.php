@@ -4,9 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\ZimEvents;
 
-class EventsController extends Controller
+class PriceCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
-        ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        ->orderby('zim_events.id', 'DESC')
-        ->get();
-
+        //
     }
 
     /**
@@ -41,11 +36,7 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        return ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
-        ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        ->where('zim_events.id','=',$id)
-        ->orderby('zim_events.id', 'DESC')
-        ->get();
+        //
     }
 
     /**

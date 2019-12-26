@@ -2,3 +2,28 @@
     background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%) !important;
 
 }
+.gm58-carousel-inner{
+    width:100%;
+    max-height: 200px !important;
+    /* Smaller than standard 960 (devices and browsers) */
+      @media only screen and (max-width: 959px) {
+        max-height: 100% !important;
+      }
+  
+      /* Tablet Portrait size to standard 960 (devices and browsers) */
+      @media only screen and (min-width: 768px) and (max-width: 959px) {}
+  
+      /* All Mobile Sizes (devices and browser) */
+      @media only screen and (max-width: 767px) {}
+  
+      /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+      @media only screen and (min-width: 480px) and (max-width: 767px) {}
+  
+      /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+      @media only screen and (max-width: 479px) {}
+      @media (min-width: 1200px){
+        max-height: 75% !important;
+
+    }
+    
+  }

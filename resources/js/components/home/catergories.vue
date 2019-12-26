@@ -4,16 +4,20 @@
         <h3 class="text-primary">Popular</h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" v-for="event in events" :key="event.id">
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
-                        <div class="card" >
-                            <img class="card-img-top" src="//placehold.it/600x400?text=1" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{event.event_name}}</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="card grow" >
+                            <div> 
+                                <!-- <div class="overlay"></div> -->
+                                <img class="card-img-top" :src="event.event_img" :alt="event.event_name">
                             </div>
-                            <div class="card-footer bg-info text-muted">
-                                2 days ago
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{event.event_name}}</h5>
+                                <h5 class="card-title  text-center mt-1">{{event.venue}}</h5>
+                                <p class="card-text  text-center">{{event.start_date | myDate}}</p>
+                            </div>
+                            <div class="card-footer gm58-footer footer-caption">
+                                From {{event.price | formatNumber}}
                             </div>
                         </div>
                     </router-link>
@@ -40,20 +44,16 @@
  
 
   export default {
+        props: {
+            eventData: Array
+        },
         data(){
             return {
-                events:[],
+               
             }
         },
         methods: {
-            getEvents(){
-                 axios.get("api/events").then(({ data }) => {
-                        this.events = data;
-                    }).catch((error)=>{
-                    // console.log(rror.response)
-                    swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
-                    })
-            },
+            
             pageSlider(){
 
             console.log('totalItems')
@@ -83,7 +83,6 @@
             }, 
         },
         created(){
-            this.getEvents();
             this.pageSlider();
 
         }              
@@ -92,6 +91,35 @@
   }
 </script>
 <style scoped>
+.footer-caption{
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.4em;    
+    font-weight: bold;
+}
+.grow:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
+a:hover{
+     color: #000 !important;
+     text-decoration: none !important;
+}
+a{
+     color: #000 !important;
+     text-decoration: none !important;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);
+    opacity: .1;
+}
 @media (min-width: 768px) and (max-width: 991px) {
     /* Show 4th slide on md if col-md-4*/
     .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {

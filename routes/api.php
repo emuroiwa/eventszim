@@ -18,3 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResources(['events' => 'API\EventsController']);
+Route::apiResources(['locations' => 'API\EventLocationController ']);
+Route::apiResources(['pricecategory' => 'API\PriceCategoryController']);
+Route::apiResources(['eventinfo' => 'API\EventInfoController']);

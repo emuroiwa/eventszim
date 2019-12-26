@@ -8,7 +8,7 @@
 
     <input type="text"
            class="Typeahead__input"
-           placeholder="Search Events"
+           placeholder="Search Events, Team, Artist..."
            autocomplete="off"
            v-model="query"
            @keydown.down="down"
@@ -83,7 +83,7 @@ export default {
   font-size: 14px;
   color: #2c3e50;
   line-height: 1.42857143;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,.4);
+  box-shadow: inset 0 1px 4px #3490dc;
   -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   font-weight: 300;

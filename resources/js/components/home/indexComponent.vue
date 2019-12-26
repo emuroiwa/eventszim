@@ -1,16 +1,31 @@
 <template>
     <div>
-        <slider></slider>
-        <catergories></catergories>
+        <slider :eventData="this.eventData"></slider>
+        <catergories :eventData="this.eventData"></catergories>
     </div>
 
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('sss')
-        }
+       data(){
+           return{
+                eventData:[],
+           }
+       },
+       methods: {
+           getEvents(){
+                 axios.get("api/events").then(({ data }) => {
+                        this.eventData = data;
+                    }).catch((error)=>{
+                    // console.log(rror.response)
+                    swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                    })
+            },
+       },
+       created(){
+            this.getEvents();
+       }
     }
 </script>
 <style scoped>
