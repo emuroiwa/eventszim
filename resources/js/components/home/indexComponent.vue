@@ -2,6 +2,7 @@
     <div>
         <slider :eventData="this.eventData"></slider>
         <catergories :eventData="this.eventData"></catergories>
+        <thisWeek :eventData="this.eventData"></thisWeek>
     </div>
 
 </template>

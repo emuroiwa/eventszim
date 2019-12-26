@@ -28,6 +28,7 @@ import Loading from 'vue-loading-overlay';
 import slider from './components/home/slider';
 import search from './components/home/search';
 import catergories from './components/home/catergories';
+import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
@@ -72,6 +73,7 @@ Vue.component('Loading',Loading)
 Vue.component('slider', slider)
 Vue.component('search', search)
 Vue.component('catergories', catergories)
+Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
 Vue.component('priceCategory', priceCategory)
