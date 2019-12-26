@@ -1,8 +1,11 @@
 .search-element{
     @media (min-width: 768px) and (max-width: 991px) {
-    width: 100%;
+        width: 100%;
     }
-    width: 60%;
+    @media (min-width: 1200px){
+        width: 60%;
+    }
+   
 
 }
 .search-nav-element{
