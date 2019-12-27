@@ -1915,7 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Object
+    eventData: Array
   },
   data: function data() {
     return {};
@@ -1944,7 +1944,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Object
+    eventData: Array
   },
   data: function data() {
     return {};
@@ -2024,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['id'],
   data: function data() {
     return {
-      eventData: {}
+      eventData: []
     };
   },
   methods: {
@@ -2112,7 +2112,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Object
+    eventData: Array
   },
   data: function data() {
     return {
@@ -2193,14 +2193,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     pageSlider: function pageSlider() {
-      console.log('totalItems');
       $('#carousel-example').on('slide.bs.carousel', function (e) {
         /*
             CC 2.0 License Iatek LLC 2018 - Attribution required
         */
+        console.log('totalItems');
         var $e = $(e.relatedTarget);
         var idx = $e.index();
-        var itemsPerSlide = 5;
+        var itemsPerSlide = 6;
         var totalItems = $('.carousel-item').length;
         console.log(totalItems);
 
@@ -2244,19 +2244,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      eventData: []
+      eventData: [],
+      isLoading: false,
+      fullPage: true
     };
   },
   methods: {
     getEvents: function getEvents() {
       var _this = this;
 
+      this.isLoading = true;
       axios.get("api/events").then(function (_ref) {
         var data = _ref.data;
         _this.eventData = data;
+        _this.isLoading = false;
       })["catch"](function (error) {
         // console.log(rror.response)
         swal("Failed!", "There was something wrong in getEvents " + error, "warning");
@@ -2317,33 +2328,40 @@ __webpack_require__.r(__webpack_exports__);
   // mixins: [VueTypeahead], // vue@1.0.21-
   data: function data() {
     return {
-      // The source url
-      // (required)
-      src: 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search',
-      // The data that would be sent by request
-      // (optional)
-      data: {},
-      // Limit the number of items which is shown at the list
-      // (optional)
+      // // The source url
+      // // (required)
+      // src: 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search',
+      // // The data that would be sent by request
+      // // (optional)
+      // data: {},
+      // // Limit the number of items which is shown at the list
+      // // (optional)
+      // limit: 5,
+      // // The minimum character length needed before triggering
+      // // (optional)
+      // minChars: 3,
+      // // Highlight the first item in the list
+      // // (optional)
+      // selectFirst: false,
+      // // Override the default value (`q`) of query parameter name
+      // // Use a falsy value for RESTful query
+      // // (optional)
+      // queryParamName: 'search'
+      src: 'api/findEvents',
       limit: 5,
-      // The minimum character length needed before triggering
-      // (optional)
-      minChars: 3,
-      // Highlight the first item in the list
-      // (optional)
-      selectFirst: false,
-      // Override the default value (`q`) of query parameter name
-      // Use a falsy value for RESTful query
-      // (optional)
-      queryParamName: 'search'
+      minChars: 3
     };
   },
   methods: {
     onHit: function onHit(item) {
-      window.location.href = 'http://twitter.com/' + item.screen_name;
+      this.$router.push({
+        name: 'indexEvent',
+        params: {
+          id: item.id
+        }
+      });
     },
     prepareResponseData: function prepareResponseData(data) {
-      // data = ...
       return data;
     }
   }
@@ -9288,7 +9306,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.1);\r\n        transform: scale(1.1);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -25%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -25%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -64482,7 +64500,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm._v("\n    " + _vm._s(_vm.eventData.description) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.eventData[0].event_details) + "\n")
   ])
 }
 var staticRenderFns = []
@@ -64683,8 +64701,6 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h5", [_vm._v("Price Categories")]),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
     _c(
       "form",
       {
@@ -64695,79 +64711,73 @@ var render = function() {
         }
       },
       [
+        _c("div", { staticClass: "card card-body  border-primary" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { id: "tickects" },
+                  on: {
+                    change: function($event) {
+                      return _vm.onChangeTickets($event)
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.tickets, function(ticket) {
+                    return _c(
+                      "option",
+                      {
+                        key: ticket.id,
+                        attrs: {
+                          "data-id": ticket.name,
+                          "data-id2": ticket.transaction_type
+                        },
+                        domProps: { value: ticket.id }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(ticket.default_description) +
+                            "\n                                "
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
         _c(
           "div",
-          { staticClass: "collapse mt-1", attrs: { id: "priceCategory" } },
+          { staticClass: "collapse mt-1", attrs: { id: "priceOverview" } },
           [
-            _c("div", { staticClass: "card card-body  border-primary" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-3" }, [
-                  _c(
-                    "select",
-                    {
-                      staticClass: "form-control",
-                      attrs: { id: "tickects" },
-                      on: {
-                        change: function($event) {
-                          return _vm.onChangeTickets($event)
-                        }
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
-                      _vm._v(" "),
-                      _vm._l(_vm.tickets, function(ticket) {
-                        return _c(
-                          "option",
-                          {
-                            key: ticket.id,
-                            attrs: {
-                              "data-id": ticket.name,
-                              "data-id2": ticket.transaction_type
-                            },
-                            domProps: { value: ticket.id }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(ticket.default_description) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ])
+            _c("ul", { staticClass: "timeline" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    attrs: { type: "button" },
+                    on: { click: _vm.checkAvaliablity }
+                  },
+                  [_vm._v("Check Avaliablity ")]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "collapse mt-1", attrs: { id: "priceOverview" } },
-              [
-                _c("ul", { staticClass: "timeline" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-warning",
-                        attrs: { type: "button" },
-                        on: { click: _vm.checkAvaliablity }
-                      },
-                      [_vm._v("Check Avaliablity ")]
-                    )
-                  ])
-                ])
-              ]
-            )
+            ])
           ]
         )
       ]
@@ -64775,35 +64785,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "card card-body border-primary",
-        attrs: {
-          "data-toggle": "collapse",
-          href: "#priceCategory",
-          role: "button",
-          "aria-expanded": "false",
-          "aria-controls": "priceCategory"
-        }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-9" }, [
-            _vm._v("\n                    Price Category"),
-            _c("br"),
-            _vm._v("\n                    Price\n                ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [_c("p", [_vm._v("Status")])])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -64886,8 +64867,7 @@ var render = function() {
                 "div",
                 {
                   key: event.id,
-                  staticClass:
-                    "carousel-item col-12 col-sm-6 col-md-4 col-lg-3",
+                  staticClass: "carousel-item gm58-slider-item",
                   class: { active: idx == 0 }
                 },
                 [
@@ -64899,7 +64879,7 @@ var render = function() {
                       }
                     },
                     [
-                      _c("div", { staticClass: "card grow" }, [
+                      _c("div", { staticClass: "card grow gm58-slider-card" }, [
                         _c("div", [
                           _c("img", {
                             staticClass: "card-img-top",
@@ -65032,11 +65012,28 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("loading", {
+        attrs: {
+          active: _vm.isLoading,
+          "can-cancel": false,
+          loader: "spinner",
+          "is-full-page": _vm.fullPage,
+          color: "#3490DC",
+          height: 150,
+          width: 150
+        },
+        on: {
+          "update:active": function($event) {
+            _vm.isLoading = $event
+          }
+        }
+      }),
+      _vm._v(" "),
       _c("slider", { attrs: { eventData: this.eventData } }),
       _vm._v(" "),
       _c("catergories", { attrs: { eventData: this.eventData } }),
       _vm._v(" "),
-      _c("thisWeek", { attrs: { eventData: this.eventData } })
+      _c("catergories", { attrs: { eventData: this.eventData } })
     ],
     1
   )
@@ -65108,7 +65105,7 @@ var render = function() {
         staticClass: "Typeahead__input",
         attrs: {
           type: "text",
-          placeholder: "Search Events, Team, Artist...",
+          placeholder: "Search Events, Team, Artist, City...",
           autocomplete: "off"
         },
         domProps: { value: _vm.query },
@@ -65192,14 +65189,18 @@ var render = function() {
               }
             },
             [
-              _c("span", {
-                staticClass: "name",
-                domProps: { textContent: _vm._s(item.name) }
-              }),
+              _c(
+                "span",
+                {
+                  staticClass: "name",
+                  domProps: { textContent: _vm._s(item.event_name) }
+                },
+                [_vm._v("1")]
+              ),
               _vm._v(" "),
               _c("span", {
                 staticClass: "screen-name",
-                domProps: { textContent: _vm._s(item.screen_name) }
+                domProps: { textContent: _vm._s(item.event_name) }
               })
             ]
           )
@@ -65423,48 +65424,57 @@ var render = function() {
                       }
                     },
                     [
-                      _c("div", { staticClass: "card grow" }, [
-                        _c("div", [
-                          _c("img", {
-                            staticClass: "card-img-top",
-                            attrs: {
-                              src: event.event_img,
-                              alt: event.event_name
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title text-center" }, [
-                            _vm._v(_vm._s(event.event_name))
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card grow",
+                          staticStyle: { width: "18rem" }
+                        },
+                        [
+                          _c("div", [
+                            _c("img", {
+                              staticClass: "card-img-top",
+                              attrs: {
+                                src: event.event_img,
+                                alt: event.event_name
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c(
+                              "h5",
+                              { staticClass: "card-title text-center" },
+                              [_vm._v(_vm._s(event.event_name))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "h5",
+                              { staticClass: "card-title  text-center mt-1" },
+                              [_vm._v(_vm._s(event.venue))]
+                            ),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text  text-center" }, [
+                              _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
+                            ])
                           ]),
                           _vm._v(" "),
                           _c(
-                            "h5",
-                            { staticClass: "card-title  text-center mt-1" },
-                            [_vm._v(_vm._s(event.venue))]
-                          ),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text  text-center" }, [
-                            _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "card-footer gm58-footer footer-caption"
-                          },
-                          [
-                            _vm._v(
-                              "\r\n                                From " +
-                                _vm._s(_vm._f("formatNumber")(event.price)) +
-                                "\r\n                            "
-                            )
-                          ]
-                        )
-                      ])
+                            "div",
+                            {
+                              staticClass:
+                                "card-footer gm58-footer footer-caption"
+                            },
+                            [
+                              _vm._v(
+                                "\r\n                                From " +
+                                  _vm._s(_vm._f("formatNumber")(event.price)) +
+                                  "\r\n                            "
+                              )
+                            ]
+                          )
+                        ]
+                      )
                     ]
                   )
                 ],
@@ -80833,14 +80843,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
 /* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_home_slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/home/slider */ "./resources/js/components/home/slider.vue");
-/* harmony import */ var _components_home_search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/home/search */ "./resources/js/components/home/search.vue");
-/* harmony import */ var _components_home_catergories__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/home/catergories */ "./resources/js/components/home/catergories.vue");
-/* harmony import */ var _components_home_thisWeek__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/home/thisWeek */ "./resources/js/components/home/thisWeek.vue");
-/* harmony import */ var _components_events_eventDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/events/eventDetails */ "./resources/js/components/events/eventDetails.vue");
-/* harmony import */ var _components_events_eventAddtional__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/events/eventAddtional */ "./resources/js/components/events/eventAddtional.vue");
-/* harmony import */ var _components_events_priceCategory__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/events/priceCategory */ "./resources/js/components/events/priceCategory.vue");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_home_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/home/slider */ "./resources/js/components/home/slider.vue");
+/* harmony import */ var _components_home_search__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/home/search */ "./resources/js/components/home/search.vue");
+/* harmony import */ var _components_home_catergories__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/home/catergories */ "./resources/js/components/home/catergories.vue");
+/* harmony import */ var _components_home_thisWeek__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/home/thisWeek */ "./resources/js/components/home/thisWeek.vue");
+/* harmony import */ var _components_events_eventDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/events/eventDetails */ "./resources/js/components/events/eventDetails.vue");
+/* harmony import */ var _components_events_eventAddtional__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/events/eventAddtional */ "./resources/js/components/events/eventAddtional.vue");
+/* harmony import */ var _components_events_priceCategory__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/events/priceCategory */ "./resources/js/components/events/priceCategory.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -80872,7 +80884,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_12__["default"]);
+
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_13__["default"]);
 Vue.prototype.$gate = new _Gate__WEBPACK_IMPORTED_MODULE_2__["default"](window.user);
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 var routes = [{
@@ -80890,7 +80903,7 @@ var routes = [{
   props: true,
   name: 'indexEvent'
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_12__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_13__["default"]({
   mode: 'history',
   routes: routes // short for `routes: routes`
 
@@ -80911,15 +80924,16 @@ Vue.filter('formatNumber', function (value) {
   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 });
 Vue.component('Loading', vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default.a);
-Vue.component('slider', _components_home_slider__WEBPACK_IMPORTED_MODULE_5__["default"]);
-Vue.component('search', _components_home_search__WEBPACK_IMPORTED_MODULE_6__["default"]);
-Vue.component('catergories', _components_home_catergories__WEBPACK_IMPORTED_MODULE_7__["default"]);
-Vue.component('thisWeek', _components_home_thisWeek__WEBPACK_IMPORTED_MODULE_8__["default"]);
-Vue.component('eventDetails', _components_events_eventDetails__WEBPACK_IMPORTED_MODULE_9__["default"]);
-Vue.component('eventAddtional', _components_events_eventAddtional__WEBPACK_IMPORTED_MODULE_10__["default"]);
-Vue.component('priceCategory', _components_events_priceCategory__WEBPACK_IMPORTED_MODULE_11__["default"]);
+Vue.component('slider', _components_home_slider__WEBPACK_IMPORTED_MODULE_6__["default"]);
+Vue.component('search', _components_home_search__WEBPACK_IMPORTED_MODULE_7__["default"]);
+Vue.component('catergories', _components_home_catergories__WEBPACK_IMPORTED_MODULE_8__["default"]);
+Vue.component('thisWeek', _components_home_thisWeek__WEBPACK_IMPORTED_MODULE_9__["default"]);
+Vue.component('eventDetails', _components_events_eventDetails__WEBPACK_IMPORTED_MODULE_10__["default"]);
+Vue.component('eventAddtional', _components_events_eventAddtional__WEBPACK_IMPORTED_MODULE_11__["default"]);
+Vue.component('priceCategory', _components_events_priceCategory__WEBPACK_IMPORTED_MODULE_12__["default"]);
 Vue.component('not-found', __webpack_require__(/*! ./components/NotFound.vue */ "./resources/js/components/NotFound.vue"));
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
+Vue.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_5___default.a;
 var app = new Vue({
   el: '#app',
   router: router

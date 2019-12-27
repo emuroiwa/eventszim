@@ -70,4 +70,22 @@ class EventsController extends Controller
     {
         //
     }
+    public function search(){
+        if ($search = \Request::get('q')) {
+        //     ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
+        // ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        // ->where('zim_events.id','=',$id)
+        // ->orderby('zim_events.id', 'DESC')
+        // ->get();
+            $events = ZimEvents::where(function($query) use ($search){
+                $query->where('event_name','LIKE',"%$search%")
+                        ->orWhere('popular_rank','LIKE',"%$search%");
+            })->get();
+        }else{
+            $events = ZimEvents::latest()->get();
+        }
+
+        return $events;
+
+    }
 }

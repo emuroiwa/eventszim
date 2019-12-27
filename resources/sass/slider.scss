@@ -25,5 +25,24 @@
         max-height: 75% !important;
 
     }
-    
-  }
+}
+    .gm58-slider-item{
+        @media screen and (min-width: 880px){
+            width: 160px;
+        }
+        @media (min-width: 1200px){
+            width: 300px;
+        }
+    }
+    .card-img-top{
+        max-height: 9rem;
+    }
+    .gm58-slider-card{
+        @media screen and (min-width: 880px){
+            width: 10rem;
+        }
+        @media (min-width: 1200px){
+            width: 18rem;
+        }
+    }
+  

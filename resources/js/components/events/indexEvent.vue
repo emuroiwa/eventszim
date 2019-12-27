@@ -58,7 +58,7 @@
          props: ['id'],
         data(){
             return{
-                eventData:{}
+                eventData:[]
 
             }
         },

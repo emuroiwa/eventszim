@@ -17,7 +17,7 @@
 <script>
     export default {
         props: {
-            eventData: Object
+            eventData: Array
         },
         data(){
             return{

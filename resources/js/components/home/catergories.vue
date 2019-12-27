@@ -4,9 +4,9 @@
         <h3 class="text-primary">Popular</h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
+                <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
-                        <div class="card grow" >
+                        <div class="card grow gm58-slider-card" >
                             <div> 
                                 <!-- <div class="overlay"></div> -->
                                 <img class="card-img-top" :src="event.event_img" :alt="event.event_name">
@@ -56,14 +56,15 @@
             
             pageSlider(){
 
-            console.log('totalItems')
+            
                 $('#carousel-example').on('slide.bs.carousel', function (e) {
                     /*
                         CC 2.0 License Iatek LLC 2018 - Attribution required
                     */
+                   console.log('totalItems')
                     var $e = $(e.relatedTarget);
                     var idx = $e.index();
-                    var itemsPerSlide = 5;
+                    var itemsPerSlide = 6;
                     var totalItems = $('.carousel-item').length;
                     console.log(totalItems)
                 
@@ -100,9 +101,9 @@
 }
 .grow:hover
 {
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
 }
 a:hover{
      color: #000 !important;

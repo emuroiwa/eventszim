@@ -6,7 +6,7 @@
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
-                        <div class="card grow" >
+                        <div class="card grow"  style="width: 18rem;">
                             <div> 
                                 <!-- <div class="overlay"></div> -->
                                 <img class="card-img-top" :src="event.event_img" :alt="event.event_name">

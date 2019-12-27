@@ -24,6 +24,7 @@ import { Form, HasError, AlertError } from 'vform';
 import Gate from "./Gate";
 import swal from 'sweetalert2'
 import Loading from 'vue-loading-overlay';
+import Axios from 'axios'
 
 import slider from './components/home/slider';
 import search from './components/home/search';
@@ -79,6 +80,8 @@ Vue.component('eventAddtional', eventAddtional)
 Vue.component('priceCategory', priceCategory)
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
+Vue.prototype.$http = Axios
 
 const app = new Vue({
     el: '#app',

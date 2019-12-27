@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h5>Price Categories</h5>
-        <div class="card card-body border-primary" data-toggle="collapse" href="#priceCategory" role="button" aria-expanded="false" aria-controls="priceCategory">
+        <!-- <div class="card card-body border-primary" data-toggle="collapse" href="#priceCategory" role="button" aria-expanded="false" aria-controls="priceCategory">
                  <div class="row">
                     <div class="col-md-9">
                         Price Category<br>
@@ -11,9 +11,9 @@
                         <p>Status</p>
                     </div>
                 </div>
-        </div>
+        </div> -->
         <form @submit.prevent="">
-            <div class="collapse mt-1" id="priceCategory">
+            <!-- <div class="collapse mt-1" id="priceCategory"> -->
                 <div class="card card-body  border-primary">
                     <div class="row">
                         <div class="col-md-9">
@@ -45,7 +45,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            <!-- </div> -->
 
         </form>
     </div>
@@ -54,7 +54,7 @@
 <script>
     export default {
         props: {
-            eventData: Object
+            eventData: Array
         },
         data(){
             return{
