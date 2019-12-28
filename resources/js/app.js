@@ -33,6 +33,8 @@ import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
+import cartItems from './components/events/cartItems';
+import shoppingCart from './components/events/shoppingCart';
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -79,6 +81,8 @@ Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
 Vue.component('priceCategory', priceCategory)
+Vue.component('cartItems', cartItems)
+Vue.component('shoppingCart', shoppingCart)
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 

@@ -44,6 +44,9 @@
                         </li>
                         <li>
                             <button type="button" class="btn btn-danger" @click="addToCart">Add To Cart </button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            Open modal
+                            </button>
                         </li>
                     </ul>
                 </div>

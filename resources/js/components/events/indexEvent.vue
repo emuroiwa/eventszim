@@ -2,7 +2,7 @@
     <div class="event">
             <div class="row gm58-event">
                 
-                <div class="col-md-5 start-event">
+                <div class="col-md-5">
                     <div class="card h-100 border-primary mb-3">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
