@@ -2118,13 +2118,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     eventData: Object
   },
   data: function data() {
     return {
-      tickets: {}
+      tickets: {},
+      orders: {},
+      form: new Form({
+        quantity: '',
+        category_id: ''
+      })
     };
   },
   methods: {
@@ -2132,37 +2139,32 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       Fire.$emit('checkAvaliablity');
-      this.form.post('api/payslip').then(function (data) {
-        Fire.$emit('AfterCreate');
-        $('#addNew1').modal('hide');
+      this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
+      this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
+      this.form.post('api/orders').then(function (data) {
+        Fire.$emit('orderCreated');
 
-        if (typeof data.data.message != "undefined" && data.data.message == 'fail') {
-          toast({
-            type: 'warning',
-            title: 'Payslip transaction already added'
-          });
-        } else {
-          _this.reloadTransactions();
+        _this.getOrders();
 
-          toast({
-            type: 'success',
-            title: 'Saved successfully'
-          });
-        }
-
-        _this.$Progress.finish();
+        $('#priceOverview').collapse('show');
       });
-      $('#priceOverview').collapse('show');
     },
-    checkAvaliablity: function checkAvaliablity() {
+    addToCart: function addToCart() {// axios.get("api/payments").then(({ data }) => {
+      //         this.eventData = data;
+      //     }).catch((error)=>{
+      //     // console.log(rror.response)
+      //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+      //     })
+    },
+    getOrders: function getOrders() {
       var _this2 = this;
 
-      axios.get("api/payments").then(function (_ref) {
+      axios.get("api/orders").then(function (_ref) {
         var data = _ref.data;
-        _this2.eventData = data;
+        _this2.orders = data;
       })["catch"](function (error) {
         // console.log(rror.response)
-        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
+        swal("Failed!", "There was something wrong in getOrders " + error, "warning");
       });
     }
   },
@@ -64774,9 +64776,17 @@ var render = function() {
                       _c("option", [_vm._v("0")]),
                       _vm._v(" "),
                       _vm._l(event.max_tickets, function(index) {
-                        return _c("option", { key: index }, [
-                          _vm._v(_vm._s(index))
-                        ])
+                        return _c(
+                          "option",
+                          { key: index, attrs: { "data-id": event.id } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(index) +
+                                "\n                            "
+                            )
+                          ]
+                        )
                       })
                     ],
                     2
@@ -64791,21 +64801,58 @@ var render = function() {
           "div",
           { staticClass: "collapse mt-1", attrs: { id: "priceOverview" } },
           [
-            _c("ul", { staticClass: "timeline" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-warning",
-                    attrs: { type: "button" },
-                    on: { click: _vm.checkAvaliablity }
-                  },
-                  [_vm._v("Check Avaliablity ")]
-                )
-              ])
-            ])
+            _c(
+              "ul",
+              { staticClass: "timeline" },
+              [
+                _c("h3", [_vm._v("Tickets Selected")]),
+                _vm._v(" "),
+                _vm._l(_vm.orders, function(order) {
+                  return _c(
+                    "li",
+                    { key: order.id, staticClass: "font-weight-bold" },
+                    [
+                      _vm._v(
+                        "\n                        \n                        " +
+                          _vm._s(order.quantity) +
+                          " X " +
+                          _vm._s(order.description) +
+                          " "
+                      ),
+                      _c("span", { staticClass: "badge badge-info" }, [
+                        _vm._v("ZWL")
+                      ]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm._f("formatNumber")(order.price_zwl)) +
+                          " "
+                      ),
+                      _c("span", { staticClass: "badge badge-success" }, [
+                        _vm._v("USD")
+                      ]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm._f("formatNumber")(order.price_usd)) +
+                          " \n                    "
+                      )
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: { click: _vm.addToCart }
+                    },
+                    [_vm._v("Add To Cart ")]
+                  )
+                ])
+              ],
+              2
+            )
           ]
         )
       ],
@@ -64813,30 +64860,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        { attrs: { target: "_blank", href: "https://www.totoprayogo.com/#" } },
-        [_vm._v("New Web Design")]
-      ),
-      _vm._v(" "),
-      _c("a", { staticClass: "float-right", attrs: { href: "#" } }, [
-        _vm._v("21 March, 2014")
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula...."
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

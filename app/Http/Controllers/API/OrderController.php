@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Orders;
+use Illuminate\Support\Str;
+use Cookie;
+use DB;
 
 class OrderController extends Controller
 {
@@ -15,7 +18,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $request = new \Illuminate\Http\Request;
+        $value = $request->cookie('eventszim_session');
+        return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl'))
+        ->where('user_id','=',$value)
+        ->orderby('orders.id', 'DESC')->get();
     }
 
     /**
@@ -26,21 +34,21 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+       
+
+        $response = new \Illuminate\Http\Response('Hello World');
+
+        //Call the withCookie() method with the response method
+        $response->withCookie(cookie('gm58_orders', Str::random(10),60));
+        $value = $request->cookie('eventszim_session');
+        print_r($value);
 
         Orders::create([
-            'employee' => $request['employee'],
-            'units' => $request['units'],
-            'units_type' => $request['units_type'],
-            'amount' => $request['amount'],
-            'percentage' => $request['percentage'],
-            'months' => $request['months'],
-            'transaction' => $request['transaction'],
-            'company' => getUserPref('company'),
-            'payslip_defination' => $request['payslip_defination'],
-            'tax_period' => getUserPref('tax_period'),
-            'start_date_payment' => $request['start_date_payment'],
-            'calculated_on_table' => $request['calculated_on_table'],
-            'calculated_on_id' => $request['calculated_on_id'],
+            'category_id' => $request['category_id'],
+            'quantity' => $request['quantity'],
+            'user_id' => $value,
+            'status' => 0,
+         
         ]);
 
     }

@@ -27,7 +27,9 @@
                         <div class="col-md-3">
                             <select class="form-control" id="tickects" @change="onChangeTickets($event)">
                                 <option>0</option>
-                                <option v-for="index in event.max_tickets" :key="index">{{index}}</option>
+                                <option v-for="index in event.max_tickets" :key="index" :data-id="event.id">
+                                    {{index}}
+                                </option>
                                
                             </select>
                         </div>
@@ -35,13 +37,13 @@
                 </div>
                 <div class="collapse mt-1" id="priceOverview">
                     <ul class="timeline">
-                        <li>
-                            <a target="_blank" href="https://www.totoprayogo.com/#">New Web Design</a>
-                            <a href="#" class="float-right">21 March, 2014</a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
+                        <h3>Tickets Selected</h3>
+                        <li v-for="order in orders" :key="order.id" class="font-weight-bold">
+                            
+                            {{order.quantity}} X {{order.description}} <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}} <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}} 
                         </li>
                         <li>
-                            <button type="button" class="btn btn-warning" @click="checkAvaliablity">Check Avaliablity </button>
+                            <button type="button" class="btn btn-danger" @click="addToCart">Add To Cart </button>
                         </li>
                     </ul>
                 </div>
@@ -58,42 +60,43 @@
         },
         data(){
             return{
-                tickets:{}
+                tickets:{},
+                orders:{},
+                 form: new Form({
+                    quantity:'',
+                    category_id:'',
+                    }),
                 
             }
         },
         methods: {
             onChangeTickets(e){
-                 Fire.$emit('checkAvaliablity');
-                 this.form.post('api/payslip')
+                Fire.$emit('checkAvaliablity');
+                this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
+                this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
+                this.form.post('api/orders')
                 .then((data)=>{
-                    Fire.$emit('AfterCreate');
-                    $('#addNew1').modal('hide');
-
-                    if(typeof data.data.message  != "undefined" && data.data.message=='fail'){
-                         toast({
-                            type: 'warning',
-                            title: 'Payslip transaction already added'
-                            })
-                    }else{
-                        this.reloadTransactions();
-                        toast({
-                            type: 'success',
-                            title: 'Saved successfully'
-                            })
-                    }
-                    this.$Progress.finish();
+                    Fire.$emit('orderCreated');
+                    this.getOrders();
+                    $('#priceOverview').collapse('show');
 
                 })
-                $('#priceOverview').collapse('show');
             },
-            checkAvaliablity(){
+            addToCart(){
                
-                axios.get("api/payments").then(({ data }) => {
-                        this.eventData = data;
+                // axios.get("api/payments").then(({ data }) => {
+                //         this.eventData = data;
+                //     }).catch((error)=>{
+                //     // console.log(rror.response)
+                //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                //     })
+            },
+            getOrders(){
+                axios.get("api/orders").then(({ data }) => {
+                        this.orders = data;
                     }).catch((error)=>{
                     // console.log(rror.response)
-                    swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                    swal("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
             }
         },
