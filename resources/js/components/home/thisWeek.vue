@@ -45,7 +45,7 @@
 
   export default {
         props: {
-            eventData: Array
+            eventData: Object
         },
         data(){
             return {

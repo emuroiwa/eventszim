@@ -1,13 +1,12 @@
 <template>
     <div class="event">
-        <div class="container-xl" id="container">
-            <div class="row">
+            <div class="row gm58-event">
                 
-                <div class="col-md-5">
+                <div class="col-md-5 start-event">
                     <div class="card h-100 border-primary mb-3">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
-                            <h5>Choose Venue & Date/Time</h5>
+                            <!-- <h5>Choose Venue & Date/Time</h5> -->
                         </div>
                         <div class="card-body">
                             <priceCategory :eventData="this.eventData"></priceCategory>
@@ -18,16 +17,16 @@
                 <div class="col-md-7">
                     <div class="card h-100 border-primary mb-3">
                         <div class="card-header event-card-header mb-1">
-                            <h4 class="card-title">Event</h4>
+                            <h4 class="card-title">{{eventData.events[0].event_name}}</h4>
                         </div>
                         <div class="card-body">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Event Details</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Additional Info</a>
-                                </li>
+                                </li> -->
                                 <!-- <li class="nav-item">
                                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Show Map</a>
                                 </li> -->
@@ -50,7 +49,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -58,7 +56,8 @@
          props: ['id'],
         data(){
             return{
-                eventData:[]
+                
+                eventData:{}
 
             }
         },
@@ -70,17 +69,27 @@
                     // console.log(rror.response)
                     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
                     })
-            }, 
+            },
+            selectedEvent(){
+                $('html, body').animate({
+                    scrollTop: $("div.gm58-event").offset().top
+                }, 1000)
+            }
         },
         created(){
+
+            Fire.$on('checkAvaliablity',() =>{
+                this.selectedEvent()
+            });
+
             this.getEvent();
-            $('#container').css('background-image','url(img/event.jpg)');
+            $('.event').css('background-image','url(img/slide/event.jpg) !important');
         }
     }
 </script>
 <style scoped>
 .event{
-    background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg);
+    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */
     background-attachment: fixed;
 }
 </style>

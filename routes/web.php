@@ -19,6 +19,7 @@ Route::get('/home', function () {
     return view('welcome');
 });
 Auth::routes();
-Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
+//Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
 
-//Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );

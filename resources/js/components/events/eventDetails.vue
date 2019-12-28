@@ -1,13 +1,13 @@
 <template>
     <div class="container">
-        {{eventData[0].event_details}}
+        {{eventData.events[0].event_details}}
     </div>
 </template>
 
 <script>
     export default {
         props: {
-            eventData: Array
+            eventData: Object
         },
         data(){
             return{

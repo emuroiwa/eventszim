@@ -14,21 +14,21 @@
         </div> -->
         <form @submit.prevent="">
             <!-- <div class="collapse mt-1" id="priceCategory"> -->
-                <div class="card card-body  border-primary">
+                <!-- {{eventData.events[0].price_categories}} -->
+                <div class="card card-body  border-primary mt-1" v-for="event in eventData.events[0].price_categories" :key="event.id">
                     <div class="row">
-                        <div class="col-md-9">
-                            10 Or More Dsc (Woc) R495.00<br>
-                            Between 10 and 20 tickets.
+                        <div class="col-md-6 font-weight-bold">
+                            {{event.description}}
+                        </div>
+                        <div class="col-md-3">
+                            <span class="badge badge-info">ZWL</span> {{event.price_zwl | formatNumber}}<br/>
+                            <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
                         </div>
                         <div class="col-md-3">
                             <select class="form-control" id="tickects" @change="onChangeTickets($event)">
-                                <option value="0">0</option>
-                                <option value="0">0</option>
-                                <option v-for="ticket in tickets" :key="ticket.id" :value="ticket.id" 
-                                    :data-id="ticket.name"
-                                    :data-id2="ticket.transaction_type">
-                                        {{ ticket.default_description }}
-                                    </option>
+                                <option>0</option>
+                                <option v-for="index in event.max_tickets" :key="index">{{index}}</option>
+                               
                             </select>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
 <script>
     export default {
         props: {
-            eventData: Array
+            eventData: Object
         },
         data(){
             return{
@@ -64,10 +64,37 @@
         },
         methods: {
             onChangeTickets(e){
+                 Fire.$emit('checkAvaliablity');
+                 this.form.post('api/payslip')
+                .then((data)=>{
+                    Fire.$emit('AfterCreate');
+                    $('#addNew1').modal('hide');
+
+                    if(typeof data.data.message  != "undefined" && data.data.message=='fail'){
+                         toast({
+                            type: 'warning',
+                            title: 'Payslip transaction already added'
+                            })
+                    }else{
+                        this.reloadTransactions();
+                        toast({
+                            type: 'success',
+                            title: 'Saved successfully'
+                            })
+                    }
+                    this.$Progress.finish();
+
+                })
                 $('#priceOverview').collapse('show');
             },
             checkAvaliablity(){
-                 swal("Failed!", "There was something wrong in getEvents ", "warning");
+               
+                axios.get("api/payments").then(({ data }) => {
+                        this.eventData = data;
+                    }).catch((error)=>{
+                    // console.log(rror.response)
+                    swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                    })
             }
         },
         created(){

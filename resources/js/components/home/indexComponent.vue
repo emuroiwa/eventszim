@@ -6,7 +6,7 @@
         :is-full-page="fullPage"
         :color="'#3490DC'"
         :height="150"
-        :width="150"></loading>
+        :width="150" class="text-center"></loading>
         <slider :eventData="this.eventData"></slider>
         <catergories :eventData="this.eventData"></catergories>
         <catergories :eventData="this.eventData"></catergories>
@@ -18,7 +18,7 @@
     export default {
        data(){
            return{
-                eventData:[],
+                eventData:{},
                 isLoading: false,
                 fullPage: true,
            }

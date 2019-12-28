@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ZimEvents;
+use DB;
+use Response;
 
 class EventsController extends Controller
 {
@@ -15,10 +17,43 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
-        ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        ->orderby('zim_events.id', 'DESC')
-        ->get();
+        // return ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
+        // ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        // ->orderby('zim_events.id', 'DESC')
+        // ->get();
+        
+        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id`  ORDER BY `zim_events`.`id` DESC"));
+        $jsonResult = array();
+
+        for($i = 0;$i < count($tableIds);$i++)
+        {
+            $jsonResult[$i]["catergory_id"] = $tableIds[$i]->catergory_id;
+            $jsonResult[$i]["event_name"] = $tableIds[$i]->event_name;
+            $jsonResult[$i]["start_date"] = $tableIds[$i]->start_date;
+            $jsonResult[$i]["end_date"] = $tableIds[$i]->end_date;
+            $jsonResult[$i]["popular_rank"] = $tableIds[$i]->popular_rank;
+            $jsonResult[$i]["discounts"] = $tableIds[$i]->discounts;
+            $jsonResult[$i]["ticket_collection"] = $tableIds[$i]->ticket_collection;
+            $jsonResult[$i]["refund_cancel"] = $tableIds[$i]->refund_cancel;
+            $jsonResult[$i]["exchange_upgrade"] = $tableIds[$i]->exchange_upgrade;
+            $jsonResult[$i]["duration"] = $tableIds[$i]->duration;
+            $jsonResult[$i]["gps"] = $tableIds[$i]->gps;
+            $jsonResult[$i]["event_details"] = $tableIds[$i]->event_details;
+            $jsonResult[$i]["is_slider"] = $tableIds[$i]->is_slider;
+            $jsonResult[$i]["event_img"] = $tableIds[$i]->event_img;
+            $jsonResult[$i]["youtube"] = $tableIds[$i]->youtube;
+            $jsonResult[$i]["instagram"] = $tableIds[$i]->instagram;
+            $jsonResult[$i]["twitter"] = $tableIds[$i]->twitter;
+            $jsonResult[$i]["id"] = $tableIds[$i]->event_id;
+            $id = $tableIds[$i]->event_id;
+            $jsonResult[$i]["price_categories"] = DB::select( DB::raw("SELECT * FROM `price_sub_categories` WHERE event_id = $id"));
+        }
+
+        return Response::json(array(
+                    'error'     =>  false,
+                    'events'    =>  $jsonResult),
+                    200
+            );
 
     }
 
@@ -41,11 +76,43 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        return ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
-        ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        ->where('zim_events.id','=',$id)
-        ->orderby('zim_events.id', 'DESC')
-        ->get();
+        
+          
+        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` WHERE zim_events.id = $id   ORDER BY `zim_events`.`id` DESC"));
+        $jsonResult = array();
+
+        for($i = 0;$i < count($tableIds);$i++)
+        {
+            $jsonResult[$i]["catergory_id"] = $tableIds[$i]->catergory_id;
+            $jsonResult[$i]["event_name"] = $tableIds[$i]->event_name;
+            $jsonResult[$i]["start_date"] = $tableIds[$i]->start_date;
+            $jsonResult[$i]["end_date"] = $tableIds[$i]->end_date;
+            $jsonResult[$i]["popular_rank"] = $tableIds[$i]->popular_rank;
+            $jsonResult[$i]["discounts"] = $tableIds[$i]->discounts;
+            $jsonResult[$i]["ticket_collection"] = $tableIds[$i]->ticket_collection;
+            $jsonResult[$i]["refund_cancel"] = $tableIds[$i]->refund_cancel;
+            $jsonResult[$i]["exchange_upgrade"] = $tableIds[$i]->exchange_upgrade;
+            $jsonResult[$i]["duration"] = $tableIds[$i]->duration;
+            $jsonResult[$i]["gps"] = $tableIds[$i]->gps;
+            $jsonResult[$i]["event_details"] = $tableIds[$i]->event_details;
+            $jsonResult[$i]["is_slider"] = $tableIds[$i]->is_slider;
+            $jsonResult[$i]["event_img"] = $tableIds[$i]->event_img;
+            $jsonResult[$i]["youtube"] = $tableIds[$i]->youtube;
+            $jsonResult[$i]["instagram"] = $tableIds[$i]->instagram;
+            $jsonResult[$i]["twitter"] = $tableIds[$i]->twitter;
+            $jsonResult[$i]["id"] = $tableIds[$i]->event_id;
+            $id = $tableIds[$i]->event_id;
+            $jsonResult[$i]["price_categories"] = DB::select( DB::raw("SELECT * FROM `price_sub_categories` WHERE event_id = $id"));
+        }
+
+        return Response::json(array(
+                    'error'     =>  false,
+                    'events'    =>  $jsonResult),
+                    200
+            );
+
+
+
     }
 
     /**

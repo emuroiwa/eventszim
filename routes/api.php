@@ -21,4 +21,6 @@ Route::apiResources(['events' => 'API\EventsController']);
 Route::apiResources(['locations' => 'API\EventLocationController ']);
 Route::apiResources(['pricecategory' => 'API\PriceCategoryController']);
 Route::apiResources(['eventinfo' => 'API\EventInfoController']);
+Route::apiResources(['payments' => 'API\PaymentsController']);
+Route::apiResources(['orders' => 'API\OrderController']);
 Route::get('findEvents', 'API\EventsController@search');

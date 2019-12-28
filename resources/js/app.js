@@ -60,6 +60,7 @@ const toast = swal.mixin({
 
 window.toast = toast;
 window.Form = Form;
+window.Fire =  new Vue();
 
 Vue.filter('myDate',function(created){
   return moment(created).format('Do MMMM YYYY');

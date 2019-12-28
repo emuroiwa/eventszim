@@ -4,7 +4,7 @@
         <h3 class="text-primary">Popular</h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
+                <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
                         <div class="card grow gm58-slider-card" >
                             <div> 
@@ -12,12 +12,12 @@
                                 <img class="card-img-top" :src="event.event_img" :alt="event.event_name">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-center">{{event.event_name}}</h5>
+                                <h5 class="card-title text-center">{{event.event_name}} </h5>
                                 <h5 class="card-title  text-center mt-1">{{event.venue}}</h5>
                                 <p class="card-text  text-center">{{event.start_date | myDate}}</p>
                             </div>
                             <div class="card-footer gm58-footer footer-caption">
-                                From {{event.price | formatNumber}}
+                                From {{event.price_categories[0].price | formatNumber}}
                             </div>
                         </div>
                     </router-link>
@@ -45,7 +45,7 @@
 
   export default {
         props: {
-            eventData: Array
+            eventData: Object
         },
         data(){
             return {

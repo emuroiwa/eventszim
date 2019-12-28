@@ -1915,7 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Array
+    eventData: Object
   },
   data: function data() {
     return {};
@@ -1944,7 +1944,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Array
+    eventData: Object
   },
   data: function data() {
     return {};
@@ -2018,13 +2018,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   data: function data() {
     return {
-      eventData: []
+      eventData: {}
     };
   },
   methods: {
@@ -2038,11 +2036,21 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(rror.response)
         swal("Failed!", "There was something wrong in getEvents " + error, "warning");
       });
+    },
+    selectedEvent: function selectedEvent() {
+      $('html, body').animate({
+        scrollTop: $("div.gm58-event").offset().top
+      }, 1000);
     }
   },
   created: function created() {
+    var _this2 = this;
+
+    Fire.$on('checkAvaliablity', function () {
+      _this2.selectedEvent();
+    });
     this.getEvent();
-    $('#container').css('background-image', 'url(img/event.jpg)');
+    $('.event').css('background-image', 'url(img/slide/event.jpg) !important');
   }
 });
 
@@ -2112,7 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Array
+    eventData: Object
   },
   data: function data() {
     return {
@@ -2121,10 +2129,41 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onChangeTickets: function onChangeTickets(e) {
+      var _this = this;
+
+      Fire.$emit('checkAvaliablity');
+      this.form.post('api/payslip').then(function (data) {
+        Fire.$emit('AfterCreate');
+        $('#addNew1').modal('hide');
+
+        if (typeof data.data.message != "undefined" && data.data.message == 'fail') {
+          toast({
+            type: 'warning',
+            title: 'Payslip transaction already added'
+          });
+        } else {
+          _this.reloadTransactions();
+
+          toast({
+            type: 'success',
+            title: 'Saved successfully'
+          });
+        }
+
+        _this.$Progress.finish();
+      });
       $('#priceOverview').collapse('show');
     },
     checkAvaliablity: function checkAvaliablity() {
-      swal("Failed!", "There was something wrong in getEvents ", "warning");
+      var _this2 = this;
+
+      axios.get("api/payments").then(function (_ref) {
+        var data = _ref.data;
+        _this2.eventData = data;
+      })["catch"](function (error) {
+        // console.log(rror.response)
+        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
+      });
     }
   },
   created: function created() {//this.getEvent();
@@ -2186,7 +2225,7 @@ __webpack_require__.r(__webpack_exports__);
 // require styles from slick-carousel
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Array
+    eventData: Object
   },
   data: function data() {
     return {};
@@ -2254,7 +2293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      eventData: [],
+      eventData: {},
       isLoading: false,
       fullPage: true
     };
@@ -2416,9 +2455,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Array
+    eventData: Object
+  },
+  computed: {
+    totalDeductions: function totalDeductions() {
+      var sliders = this.eventData.filter(function (eventData) {
+        return eventData.is_slider = 0;
+      });
+    }
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2485,7 +2532,7 @@ __webpack_require__.r(__webpack_exports__);
 // require styles from slick-carousel
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    eventData: Array
+    eventData: Object
   },
   data: function data() {
     return {};
@@ -9268,7 +9315,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg);\r\n    background-attachment: fixed;\n}\r\n", ""]);
+exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */\r\n    background-attachment: fixed;\n}\r\n", ""]);
 
 // exports
 
@@ -64500,7 +64547,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm._v("\n    " + _vm._s(_vm.eventData[0].event_details) + "\n")
+    _vm._v("\n    " + _vm._s(_vm.eventData.events[0].event_details) + "\n")
   ])
 }
 var staticRenderFns = []
@@ -64526,82 +64573,79 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "event" }, [
-    _c("div", { staticClass: "container-xl", attrs: { id: "container" } }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-5" }, [
-          _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
-            _vm._m(0),
+    _c("div", { staticClass: "row gm58-event" }, [
+      _c("div", { staticClass: "col-md-5 start-event" }, [
+        _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [_c("priceCategory", { attrs: { eventData: this.eventData } })],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-7" }, [
+        _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+          _c("div", { staticClass: "card-header event-card-header mb-1" }, [
+            _c("h4", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.eventData.events[0].event_name))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "card-body" },
-              [_c("priceCategory", { attrs: { eventData: this.eventData } })],
-              1
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-7" }, [
-          _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "tab-content",
-                  attrs: { id: "pills-tabContent" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane fade show active",
-                      attrs: {
-                        id: "pills-home",
-                        role: "tabpanel",
-                        "aria-labelledby": "pills-home-tab"
-                      }
-                    },
-                    [
-                      _c("eventDetails", {
-                        attrs: { eventData: this.eventData }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane fade",
-                      attrs: {
-                        id: "pills-profile",
-                        role: "tabpanel",
-                        "aria-labelledby": "pills-profile-tab"
-                      }
-                    },
-                    [
-                      _c("eventAddtional", {
-                        attrs: { eventData: this.eventData }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", {
+              { staticClass: "tab-content", attrs: { id: "pills-tabContent" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane fade show active",
+                    attrs: {
+                      id: "pills-home",
+                      role: "tabpanel",
+                      "aria-labelledby": "pills-home-tab"
+                    }
+                  },
+                  [
+                    _c("eventDetails", { attrs: { eventData: this.eventData } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
                     staticClass: "tab-pane fade",
                     attrs: {
-                      id: "pills-contact",
+                      id: "pills-profile",
                       role: "tabpanel",
-                      "aria-labelledby": "pills-contact-tab"
+                      "aria-labelledby": "pills-profile-tab"
                     }
-                  })
-                ]
-              )
-            ])
+                  },
+                  [
+                    _c("eventAddtional", {
+                      attrs: { eventData: this.eventData }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "tab-pane fade",
+                  attrs: {
+                    id: "pills-contact",
+                    role: "tabpanel",
+                    "aria-labelledby": "pills-contact-tab"
+                  }
+                })
+              ]
+            )
           ])
         ])
       ])
@@ -64614,17 +64658,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header event-card-header mb-1" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("BOOK YOUR TICKETS")]),
-      _vm._v(" "),
-      _c("h5", [_vm._v("Choose Venue & Date/Time")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header event-card-header mb-1" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("Event")])
+      _c("h4", { staticClass: "card-title" }, [_vm._v("BOOK YOUR TICKETS")])
     ])
   },
   function() {
@@ -64653,24 +64687,6 @@ var staticRenderFns = [
               }
             },
             [_vm._v("Event Details")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "nav-link",
-              attrs: {
-                id: "pills-profile-tab",
-                "data-toggle": "pill",
-                href: "#pills-profile",
-                role: "tab",
-                "aria-controls": "pills-profile",
-                "aria-selected": "false"
-              }
-            },
-            [_vm._v("Additional Info")]
           )
         ])
       ]
@@ -64711,60 +64727,72 @@ var render = function() {
         }
       },
       [
-        _c("div", { staticClass: "card card-body  border-primary" }, [
-          _c("div", { staticClass: "row" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { id: "tickects" },
-                  on: {
-                    change: function($event) {
-                      return _vm.onChangeTickets($event)
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
+        _vm._l(_vm.eventData.events[0].price_categories, function(event) {
+          return _c(
+            "div",
+            {
+              key: event.id,
+              staticClass: "card card-body  border-primary mt-1"
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 font-weight-bold" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(event.description) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("span", { staticClass: "badge badge-info" }, [
+                    _vm._v("ZWL")
+                  ]),
+                  _vm._v(" " + _vm._s(_vm._f("formatNumber")(event.price_zwl))),
+                  _c("br"),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
-                  _vm._v(" "),
-                  _vm._l(_vm.tickets, function(ticket) {
-                    return _c(
-                      "option",
-                      {
-                        key: ticket.id,
-                        attrs: {
-                          "data-id": ticket.name,
-                          "data-id2": ticket.transaction_type
-                        },
-                        domProps: { value: ticket.id }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                    " +
-                            _vm._s(ticket.default_description) +
-                            "\n                                "
-                        )
-                      ]
-                    )
-                  })
-                ],
-                2
-              )
-            ])
-          ])
-        ]),
+                  _c("span", { staticClass: "badge badge-success" }, [
+                    _vm._v("USD")
+                  ]),
+                  _vm._v(" " + _vm._s(_vm._f("formatNumber")(event.price_usd))),
+                  _c("br")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-control",
+                      attrs: { id: "tickects" },
+                      on: {
+                        change: function($event) {
+                          return _vm.onChangeTickets($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("0")]),
+                      _vm._v(" "),
+                      _vm._l(event.max_tickets, function(index) {
+                        return _c("option", { key: index }, [
+                          _vm._v(_vm._s(index))
+                        ])
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ]
+          )
+        }),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "collapse mt-1", attrs: { id: "priceOverview" } },
           [
             _c("ul", { staticClass: "timeline" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c("li", [
                 _c(
@@ -64780,23 +64808,12 @@ var render = function() {
             ])
           ]
         )
-      ]
+      ],
+      2
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-9" }, [
-      _vm._v("\n                        10 Or More Dsc (Woc) R495.00"),
-      _c("br"),
-      _vm._v(
-        "\n                        Between 10 and 20 tickets.\n                    "
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -64862,7 +64879,7 @@ var render = function() {
               staticClass: "carousel-inner row w-100 mx-auto",
               attrs: { role: "listbox" }
             },
-            _vm._l(_vm.eventData, function(event, idx) {
+            _vm._l(_vm.eventData.events, function(event, idx) {
               return _c(
                 "div",
                 {
@@ -64892,7 +64909,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "card-body" }, [
                           _c("h5", { staticClass: "card-title text-center" }, [
-                            _vm._v(_vm._s(event.event_name))
+                            _vm._v(_vm._s(event.event_name) + " ")
                           ]),
                           _vm._v(" "),
                           _c(
@@ -64915,7 +64932,11 @@ var render = function() {
                           [
                             _vm._v(
                               "\r\n                                From " +
-                                _vm._s(_vm._f("formatNumber")(event.price)) +
+                                _vm._s(
+                                  _vm._f("formatNumber")(
+                                    event.price_categories[0].price
+                                  )
+                                ) +
                                 "\r\n                            "
                             )
                           ]
@@ -65013,6 +65034,7 @@ var render = function() {
     "div",
     [
       _c("loading", {
+        staticClass: "text-center",
         attrs: {
           active: _vm.isLoading,
           "can-cancel": false,
@@ -65243,7 +65265,7 @@ var render = function() {
       _c(
         "ol",
         { staticClass: "carousel-indicators" },
-        _vm._l(_vm.eventData, function(event, idx) {
+        _vm._l(_vm.eventData.events, function(event, idx) {
           return _c("li", {
             key: event.id,
             class: { active: idx == 0 },
@@ -65259,7 +65281,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "carousel-inner gm58-carousel-inner" },
-        _vm._l(_vm.eventData, function(event, idx) {
+        _vm._l(_vm.eventData.events, function(event, idx) {
           return _c(
             "div",
             {
@@ -80916,6 +80938,7 @@ var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
 });
 window.toast = toast;
 window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
+window.Fire = new Vue();
 Vue.filter('myDate', function (created) {
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(created).format('Do MMMM YYYY');
 });

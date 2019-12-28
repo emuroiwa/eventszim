@@ -1,12 +1,13 @@
 <template>
-
+    
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <!-- {{eventData.events}} -->
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators"  v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }" :data-slide-to="{idx}"></li>
+                <li data-target="#carouselExampleIndicators"  v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }" :data-slide-to="{idx}"></li>
 
             </ol>
             <div class="carousel-inner gm58-carousel-inner">
-                <div class="carousel-item" v-for="(event,idx) in eventData" :key="event.id" :class="{ active: idx==0 }">
+                <div class="carousel-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
                     <div class="overlay"></div>
                     <img class="d-block w-100" :src="event.event_img" :alt="event.event_name">
                     <div class="carousel-caption d-none d-md-block">
@@ -39,7 +40,16 @@
 <script>
     export default {
         props: {
-            eventData: Array
+            eventData: Object
+        },
+        computed:{
+            totalDeductions: function(){
+                 var sliders = this.eventData.filter(function(eventData) {
+                    return eventData.is_slider = 0;
+                    });
+                
+            },
+           
         },
         mounted() {
             console.log('Component mounted.')
