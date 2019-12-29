@@ -155,7 +155,7 @@
              deleteTicket(id){
                 axios.delete('api/orders/'+id).then(()=>{
                                                     this.getOrders();
-
+                                                    Fire.$emit('DeletedItem');
                                                     swal(
                                                     'Deleted!',
                                                     'Your file has been deleted.',

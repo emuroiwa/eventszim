@@ -70,6 +70,7 @@
                 
                     if (idx >= totalItems-(itemsPerSlide-1)) {
                         var it = itemsPerSlide - (totalItems - idx);
+                        console.log(it)
                         for (var i=0; i<it; i++) {
                             // append slides to end
                             if (e.direction=="left") {
@@ -225,11 +226,11 @@ a{
         transition: none;
     }
     /* Show 5th slide on lg if col-lg-3 */
-    .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
+    .carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        /* position: absolute; */
         top: 0;
-        right: -25%;  /*change this with javascript in the future*/
-        z-index: -1;
+          /*change this with javascript in the future*/
+        /* z-index: -1; */
         display: block;
         visibility: visible;
     }
@@ -246,6 +247,14 @@ a{
         visibility: visible;
         display: block;
         visibility: visible;
+    }
+    .carousel-control-prev{
+        background-image: linear-gradient(-90deg, transparent , #1fc8db);
+        width: 70;
+    }
+    .carousel-control-next{
+        background-image: linear-gradient(90deg, transparent , #1fc8db);
+        width: 70;  
     }
 }
 </style>

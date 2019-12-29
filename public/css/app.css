@@ -17342,6 +17342,7 @@ readers do not read off random characters that represent icons */
 @media (min-width: 1200px) {
   .gm58-slider-item {
     width: 300px;
+    left: 35;
   }
 }
 

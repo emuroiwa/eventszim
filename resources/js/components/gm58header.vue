@@ -1,17 +1,14 @@
 <template>
-    <div class="navbar-nav mc-auto search-element">
-            <ul class="navbar-nav mc-auto inner-search-element">
-                <li class="nav-item search-nav-element">
+    <div class="row w-100">
+            <div class="col-md-9 "  align="center" >
+                <!-- <li class="nav-item search-nav-element"> -->
                     <search></search>
-                </li>
-            </ul>
+                <!-- </li> -->
+            </div>
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                <li class="nav-item">
-                    <cartItems :cartPage="this.cartPage"></cartItems>
-                </li>
-            </ul>
+            <div class="col-md-3 align-right">
+                <cartItems :cartPage="this.cartPage"></cartItems>
+            </div>
     </div>
 </template>
 
@@ -38,3 +35,12 @@
         }
     }
 </script>
+<style scoped>
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+</style>

@@ -91,7 +91,7 @@ class OrderController extends Controller
     }
     public function cartItems(){
         $request = new \Illuminate\Http\Request;
-        $value = 1;
+        $value = $request->cookie('eventszim_session');
         return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
         ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl'))
         ->where('user_id','=',$value)

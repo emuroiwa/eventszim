@@ -1963,6 +1963,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    var _this2 = this;
+
+    Fire.$on('DeletedItem', function () {
+      _this2.getCartItems();
+    });
     this.getCartItems();
   }
 });
@@ -2427,6 +2432,7 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]('api/orders/' + id).then(function () {
         _this.getOrders();
 
+        Fire.$emit('DeletedItem');
         swal('Deleted!', 'Your file has been deleted.', 'success');
       })["catch"](function () {
         swal("Failed!", "There was something wrong. " + error, "warning");
@@ -2544,9 +2550,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2639,6 +2642,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (idx >= totalItems - (itemsPerSlide - 1)) {
           var it = itemsPerSlide - (totalItems - idx);
+          console.log(it);
 
           for (var i = 0; i < it; i++) {
             // append slides to end
@@ -9755,6 +9759,25 @@ exports.push([module.i, "\n.grow[data-v-3aba163a]:hover\n{\n        -webkit-tran
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.vertical-center[data-v-55e4213e] {\r\n  margin: 0;\r\n  position: absolute;\r\n  top: 50%;\r\n  -webkit-transform: translateY(-50%);\r\n          transform: translateY(-50%);\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/home/catergories.vue?vue&type=style&index=0&id=64cbabeb&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/home/catergories.vue?vue&type=style&index=0&id=64cbabeb&scoped=true&lang=css& ***!
@@ -9767,7 +9790,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -25%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        /* position: absolute; */\r\n        top: 0;\r\n          /*change this with javascript in the future*/\r\n        /* z-index: -1; */\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -58384,6 +58407,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/home/catergories.vue?vue&type=style&index=0&id=64cbabeb&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/home/catergories.vue?vue&type=style&index=0&id=64cbabeb&scoped=true&lang=css& ***!
@@ -64934,7 +64987,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "align-middle" }, [
     this.cartPage == "header"
       ? _c(
           "a",
@@ -65947,10 +66000,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e& ***!
-  \*************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -65962,24 +66015,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "navbar-nav mc-auto search-element" }, [
-    _c("ul", { staticClass: "navbar-nav mc-auto inner-search-element" }, [
-      _c(
-        "li",
-        { staticClass: "nav-item search-nav-element" },
-        [_c("search")],
-        1
-      )
-    ]),
+  return _c("div", { staticClass: "row w-100" }, [
+    _c(
+      "div",
+      { staticClass: "col-md-9 ", attrs: { align: "center" } },
+      [_c("search")],
+      1
+    ),
     _vm._v(" "),
-    _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-      _c(
-        "li",
-        { staticClass: "nav-item" },
-        [_c("cartItems", { attrs: { cartPage: this.cartPage } })],
-        1
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "col-md-3 align-right" },
+      [_c("cartItems", { attrs: { cartPage: this.cartPage } })],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -66232,7 +66281,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "Typeahead" },
+    { staticClass: "Typeahead search-element" },
     [
       _vm.loading
         ? _c("i", { staticClass: "fa fa-spinner fa-spin" })
@@ -82853,9 +82902,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _gm58header_vue_vue_type_template_id_55e4213e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gm58header.vue?vue&type=template&id=55e4213e& */ "./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&");
+/* harmony import */ var _gm58header_vue_vue_type_template_id_55e4213e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gm58header.vue?vue&type=template&id=55e4213e&scoped=true& */ "./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&scoped=true&");
 /* harmony import */ var _gm58header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gm58header.vue?vue&type=script&lang=js& */ "./resources/js/components/gm58header.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css& */ "./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -82863,13 +82914,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _gm58header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _gm58header_vue_vue_type_template_id_55e4213e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _gm58header_vue_vue_type_template_id_55e4213e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _gm58header_vue_vue_type_template_id_55e4213e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _gm58header_vue_vue_type_template_id_55e4213e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "55e4213e",
   null
   
 )
@@ -82895,19 +82946,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=style&index=0&id=55e4213e&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_style_index_0_id_55e4213e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&scoped=true& ***!
+  \*******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_template_id_55e4213e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./gm58header.vue?vue&type=template&id=55e4213e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_template_id_55e4213e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_template_id_55e4213e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./gm58header.vue?vue&type=template&id=55e4213e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/gm58header.vue?vue&type=template&id=55e4213e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_template_id_55e4213e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_template_id_55e4213e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_gm58header_vue_vue_type_template_id_55e4213e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

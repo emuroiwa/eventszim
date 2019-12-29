@@ -1,5 +1,5 @@
 <template>
-  <div class="Typeahead">
+  <div class="Typeahead search-element">
     <i class="fa fa-spinner fa-spin" v-if="loading"></i>
     <template v-else>
       <i class="fa fa-search" v-show="isEmpty"></i>
