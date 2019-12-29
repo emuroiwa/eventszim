@@ -26,7 +26,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        @extends('layouts.footer') 
+        <gm58footer></gm58footer>
     </div>
 </body>
 </html>

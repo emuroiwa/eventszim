@@ -11,6 +11,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
+        <search></search>
         <shoppingCart></shoppingCart>
       </div>
 

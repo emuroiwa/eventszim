@@ -3,7 +3,6 @@
         <main id="main">
             <router-view></router-view>
         </main>
-        @include('layouts.footer')
     </div>
 
 

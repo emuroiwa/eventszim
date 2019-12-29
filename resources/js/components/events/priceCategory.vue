@@ -25,7 +25,7 @@
                             <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
                         </div>
                         <div class="col-md-3">
-                            <select class="form-control" id="tickects" @change="onChangeTickets($event)">
+                            <select class="form-control"  @change="onChangeTickets($event)">
                                 <option>0</option>
                                 <option v-for="index in event.max_tickets" :key="index" :data-id="event.id">
                                     {{index}}
@@ -43,10 +43,7 @@
                             {{order.quantity}} X {{order.description}} <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}} <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}} 
                         </li>
                         <li>
-                            <button type="button" class="btn btn-danger" @click="addToCart">Add To Cart </button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            Open modal
-                            </button>
+                            <cartItems :cartPage="this.cartPage"></cartItems>
                         </li>
                     </ul>
                 </div>
@@ -65,6 +62,7 @@
             return{
                 tickets:{},
                 orders:{},
+                cartPage:'priceCategory',
                  form: new Form({
                     quantity:'',
                     category_id:'',

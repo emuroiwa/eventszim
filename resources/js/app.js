@@ -27,14 +27,16 @@ import Loading from 'vue-loading-overlay';
 import Axios from 'axios'
 
 import slider from './components/home/slider';
+import cartItems from './components/events/cartItems';
+import gm58footer from './components/gm58footer';
+import gm58header from './components/gm58header';
+import shoppingCart from './components/events/shoppingCart';
 import search from './components/home/search';
 import catergories from './components/home/catergories';
 import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
-import cartItems from './components/events/cartItems';
-import shoppingCart from './components/events/shoppingCart';
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -74,15 +76,17 @@ Vue.filter('formatNumber', function(value){
 
 Vue.component('Loading',Loading)
 
+Vue.component('gm58footer', gm58footer)
+Vue.component('gm58header', gm58header)
 Vue.component('slider', slider)
+Vue.component('cartItems', cartItems)
+Vue.component('shoppingCart', shoppingCart)
 Vue.component('search', search)
 Vue.component('catergories', catergories)
 Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
 Vue.component('priceCategory', priceCategory)
-Vue.component('cartItems', cartItems)
-Vue.component('shoppingCart', shoppingCart)
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 

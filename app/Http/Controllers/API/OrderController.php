@@ -21,7 +21,9 @@ class OrderController extends Controller
         $request = new \Illuminate\Http\Request;
         $value = $request->cookie('eventszim_session');
         return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
-        ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl'))
+        ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
         ->where('user_id','=',$value)
         ->orderby('orders.id', 'DESC')->get();
     }
@@ -84,6 +86,15 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+            $Orders = Orders::findOrFail($id);
+            $Orders->delete();
+    }
+    public function cartItems(){
+        $request = new \Illuminate\Http\Request;
+        $value = 1;
+        return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl'))
+        ->where('user_id','=',$value)
+        ->count();
     }
 }

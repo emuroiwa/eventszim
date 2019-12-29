@@ -17298,6 +17298,10 @@ readers do not read off random characters that represent icons */
   }
 }
 
+.inner-search-element {
+  width: 100%;
+}
+
 .search-nav-element {
   width: 100%;
 }

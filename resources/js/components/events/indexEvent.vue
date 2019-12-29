@@ -1,5 +1,6 @@
 <template>
-    <div class="event">
+    <div>
+        <div class="event">
             <div class="row gm58-event">
                 
                 <div class="col-md-5">
@@ -49,6 +50,9 @@
                 </div>
             </div>
         </div>
+        <gm58footer></gm58footer>
+    </div>
+
 </template>
 
 <script>
