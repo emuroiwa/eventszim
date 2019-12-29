@@ -17,7 +17,7 @@
                                 <p class="card-text  text-center">{{event.start_date | myDate}}</p>
                             </div>
                             <div class="card-footer gm58-footer footer-caption">
-                                From {{event.price_categories[0].price | formatNumber}}
+                                From {{event.price_categories[0].price_usd | formatNumber}}
                             </div>
                         </div>
                     </router-link>

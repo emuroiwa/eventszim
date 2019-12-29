@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card card-body border-info">
+        <div class="card card-body border-info table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>

@@ -6,7 +6,7 @@
                 <!-- </li> -->
             </div>
             <!-- Right Side Of Navbar -->
-            <div class="col-md-3 align-right">
+            <div class="col-md-3 float-right haya">
                 <cartItems :cartPage="this.cartPage"></cartItems>
             </div>
     </div>
@@ -36,6 +36,9 @@
     }
 </script>
 <style scoped>
+.haya{
+    top: 10 
+}
 .vertical-center {
   margin: 0;
   position: absolute;

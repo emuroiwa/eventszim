@@ -1,5 +1,5 @@
 <template>
-    <div class="align-middle">
+    <div class="float-right">
 
         <a class="nav-link font-weight-bold" href="#"  data-toggle="modal" data-target="#shoppingCartModal" v-if="this.cartPage=='header'">
             <i class="fas fa-shopping-cart d-inline "></i> Cart<span class="badge badge-danger d-inline">{{itemsInCart}}</span>

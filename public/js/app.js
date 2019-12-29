@@ -2509,6 +2509,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9771,7 +9868,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.vertical-center[data-v-55e4213e] {\r\n  margin: 0;\r\n  position: absolute;\r\n  top: 50%;\r\n  -webkit-transform: translateY(-50%);\r\n          transform: translateY(-50%);\n}\r\n", ""]);
+exports.push([module.i, "\n.haya[data-v-55e4213e]{\r\n    top: 10\n}\n.vertical-center[data-v-55e4213e] {\r\n  margin: 0;\r\n  position: absolute;\r\n  top: 50%;\r\n  -webkit-transform: translateY(-50%);\r\n          transform: translateY(-50%);\n}\r\n", ""]);
 
 // exports
 
@@ -9828,7 +9925,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-caption[data-v-75bc62d4]  {\r\n    position: absolute;\r\n    top: 46%;\r\n    left: 50%;\r\n    z-index: 3;\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    text-shadow: 1px 1px 0 rgba(0,0,0,.75);\r\n      -webkit-transform: translate3d(-50%,-50%,0);\r\n              transform: translate3d(-50%,-50%,0);\n}\n.carousel-caption  h2[data-v-75bc62d4] {\r\n    font-size: 4em;    \r\n    font-weight: bold;\r\n    margin: 0;\r\n    padding: 0;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -64987,7 +65084,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "align-middle" }, [
+  return _c("div", { staticClass: "float-right" }, [
     this.cartPage == "header"
       ? _c(
           "a",
@@ -65506,7 +65603,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card card-body border-info" }, [
+    _c("div", { staticClass: "card card-body border-info table-responsive" }, [
       _c("table", { staticClass: "table table-hover" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -65971,26 +66068,255 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "footer",
+      {
+        staticClass: "py-4 text-white-50 gm58-main-footer",
+        attrs: { id: "sticky-footer" }
+      },
+      [
+        _c("div", { staticClass: "container" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("section", { staticClass: "widget widget-light-skin" }, [
+            _c("h3", { staticClass: "widget-title" }, [
+              _vm._v("Safe & Secure")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-lg-9 col-md-7 padding-bottom-1x" },
+                [
+                  _c("div", { staticClass: "pt-2 margin-bottom-1x" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/img/paymentlogo/payments.png",
+                        alt: "Payment Methods"
+                      }
+                    })
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "footer-copyright" }, [
+            _vm._v("© All content is property of GM58")
+          ])
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "footer",
-        {
-          staticClass: "py-4 bg-info text-white-50 gm58-footer",
-          attrs: { id: "sticky-footer" }
-        },
-        [
-          _c("div", { staticClass: "container text-center" }, [
-            _c("small", [_vm._v("Copyright © Your Website")])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("section", { staticClass: "widget widget-light-skin" }, [
+          _c("h3", { staticClass: "widget-title" }, [
+            _vm._v("Sell Tickets With Us")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-white opacity-90" }, [
+            _vm._v("The leader in online ticket sales in Zimbabwe.")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "btn btn-primary", attrs: { href: "" } }, [
+            _vm._v("Sell With Us")
           ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c(
+          "section",
+          { staticClass: "widget widget-links widget-light-skin" },
+          [
+            _c("h3", { staticClass: "widget-title" }, [_vm._v("Find Events")]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Browse")])])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c(
+          "section",
+          { staticClass: "widget widget-links widget-light-skin" },
+          [
+            _c("h3", { staticClass: "widget-title" }, [_vm._v("Help & Info")]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("Terms and Condtions")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("Get Help")])
+              ]),
+              _vm._v(" "),
+              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("FAQs")])]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("About us")])
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c(
+          "section",
+          { staticClass: "widget widget-links widget-light-skin" },
+          [
+            _c("h3", { staticClass: "widget-title" }, [_vm._v("My Account")]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("My Profile")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("My Tickets")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("My Alerts")])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+        _c("section", { staticClass: "widget widget-light-skin" }, [
+          _c("h3", { staticClass: "widget-title" }, [
+            _vm._v("Follow Us For Updates")
+          ]),
+          _c(
+            "a",
+            {
+              staticClass:
+                "social-button shape-circle sb-facebook sb-light-skin",
+              attrs: {
+                target: "_blank",
+                href: "https://www.facebook.com/gm58",
+                "data-toggle": "tooltip",
+                title: "",
+                "data-original-title": "Facebook"
+              }
+            },
+            [_c("i", { staticClass: "fab fa-facebook-f" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "social-button shape-circle sb-twitter sb-light-skin",
+              attrs: {
+                href: "https://twitter.com/gm58",
+                target: "_blank",
+                "data-toggle": "tooltip",
+                title: "",
+                "data-original-title": "Twitter"
+              }
+            },
+            [_c("i", { staticClass: "fab fa-twitter" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "social-button shape-circle sb-instagram sb-light-skin",
+              attrs: {
+                href: "https://www.instagram.com/gm58/",
+                target: "_blank",
+                "data-toggle": "tooltip",
+                title: "",
+                "data-original-title": "Instagram"
+              }
+            },
+            [_c("i", { staticClass: "fab fa-instagram" })]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-lg-9 col-md-6", staticStyle: { display: "none" } },
+        [
+          _c(
+            "section",
+            { staticClass: "widget widget-links widget-light-skin" },
+            [
+              _c("h3", { staticClass: "widget-title" }, [
+                _vm._v("Get The Best Events In Your Inbox")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-4" }, [
+                  _c("p", { staticClass: "text-white opacity-90" }, [
+                    _vm._v(
+                      "Subscribe to our Newsletter to receive early discount offers, latest news, sales and promo information."
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: {
+                        href: "http://eepurl.com/gDCfAP",
+                        target: "_blank"
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-check" }),
+                      _vm._v(" Sign up")
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-8" })
+              ])
+            ]
+          )
         ]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-3 col-md-5 padding-bottom-1x" }, [
+      _c("p", { staticClass: "text-white opacity-90" }, [
+        _vm._v(
+          "We accept Ecocash and OneMoney mobile money payments as well as all major credit cards, as well as Visa Checkout, Masterpass and "
+        )
+      ])
     ])
   }
 ]
@@ -66025,7 +66351,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "col-md-3 align-right" },
+      { staticClass: "col-md-3 float-right haya" },
       [_c("cartItems", { attrs: { cartPage: this.cartPage } })],
       1
     )
@@ -66129,7 +66455,7 @@ var render = function() {
                               "\r\n                                From " +
                                 _vm._s(
                                   _vm._f("formatNumber")(
-                                    event.price_categories[0].price
+                                    event.price_categories[0].price_usd
                                   )
                                 ) +
                                 "\r\n                            "

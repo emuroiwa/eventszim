@@ -83,27 +83,7 @@ a{
     background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);
     opacity: .27;
 }
-.carousel-caption  {
-    position: absolute;
-    top: 46%;
-    left: 50%;
-    z-index: 3;
-    color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
-      -webkit-transform: translate3d(-50%,-50%,0);
-         -moz-transform: translate3d(-50%,-50%,0);
-          -ms-transform: translate3d(-50%,-50%,0);
-           -o-transform: translate3d(-50%,-50%,0);
-              transform: translate3d(-50%,-50%,0);
-}
-.carousel-caption  h2 {
-    font-size: 4em;    
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-}
+
 .carousel-control-prev{
     z-index: 3
 }
