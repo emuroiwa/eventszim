@@ -1940,6 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     cartPage: String
@@ -2392,19 +2393,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       orders: {},
       paymentMethod: '',
+      isLoading: false,
+      fullPage: true,
       form: new Form({
-        location: '',
-        address: '',
-        street: '',
-        suburb: '',
-        country: '',
-        company: '',
-        currency_id: ''
+        user_id: '',
+        order_id: '',
+        fullname: '',
+        contact: '',
+        email: '',
+        payment_type: ''
       })
     };
   },
@@ -2458,6 +2469,22 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    submitPayment: function submitPayment() {
+      var _this2 = this;
+
+      this.isLoading = true;
+      this.form.order_id = this.company;
+      this.form.post('api/customers').then(function () {
+        Fire.$emit('Payment'); // toast({
+        //     type: 'success',
+        //     title: 'Created in successfully'
+        //     })
+
+        _this2.isLoading = true;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     selectPayment: function selectPayment(payment, e) {
       if (e != "") {
         $('card').removeClass('gm58-active');
@@ -2470,11 +2497,11 @@ __webpack_require__.r(__webpack_exports__);
       this.paymentMethod = payment;
     },
     getOrders: function getOrders() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("api/orders").then(function (_ref) {
         var data = _ref.data;
-        _this2.orders = data;
+        _this3.orders = data;
       })["catch"](function (error) {
         // console.log(rror.response)
         swal("Failed!", "There was something wrong in getOrders " + error, "warning");
@@ -65605,93 +65632,124 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card card-body border-info table-responsive" }, [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "card card-body border-info table-responsive" },
+      [
+        _c("loading", {
+          staticClass: "text-center",
+          attrs: {
+            active: _vm.isLoading,
+            "can-cancel": false,
+            loader: "spinner",
+            "is-full-page": _vm.fullPage,
+            color: "#3490DC",
+            height: 150,
+            width: 150
+          },
+          on: {
+            "update:active": function($event) {
+              _vm.isLoading = $event
+            }
+          }
+        }),
         _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.orders, function(order) {
-            return _c("tr", { key: order.id }, [
-              _c("td", { staticStyle: { width: "40%" } }, [
-                _vm._v(_vm._s(order.event_name) + "\n                        "),
-                order.venue && order.town
-                  ? _c("p", { staticClass: "font-weight-bold" }, [
-                      _vm._v(
-                        "Venue " +
-                          _vm._s(order.venue) +
-                          " " +
-                          _vm._s(order.town)
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("td", { staticStyle: { width: "5%" } }, [
-                _vm._v(_vm._s(order.quantity) + " ")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticStyle: { width: "26%" } }, [
-                _c("span", { staticClass: "badge badge-info" }, [
-                  _vm._v("ZWL")
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.orders, function(order) {
+              return _c("tr", { key: order.id }, [
+                _c("td", { staticStyle: { width: "40%" } }, [
+                  _vm._v(
+                    _vm._s(order.event_name) + "\n                        "
+                  ),
+                  order.venue && order.town
+                    ? _c("p", { staticClass: "font-weight-bold" }, [
+                        _vm._v(
+                          "Venue " +
+                            _vm._s(order.venue) +
+                            " " +
+                            _vm._s(order.town)
+                        )
+                      ])
+                    : _vm._e()
                 ]),
-                _vm._v(
-                  " " +
-                    _vm._s(_vm._f("formatNumber")(order.price_zwl)) +
-                    "\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c("td", { staticStyle: { width: "26%" } }, [
+                _vm._v(" "),
+                _c("td", { staticStyle: { width: "5%" } }, [
+                  _vm._v(_vm._s(order.quantity) + " ")
+                ]),
+                _vm._v(" "),
+                _c("td", { staticStyle: { width: "26%" } }, [
+                  _c("span", { staticClass: "badge badge-info" }, [
+                    _vm._v("ZWL")
+                  ]),
+                  _vm._v(
+                    " " +
+                      _vm._s(_vm._f("formatNumber")(order.price_zwl)) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { staticStyle: { width: "26%" } }, [
+                  _c("span", { staticClass: "badge badge-success" }, [
+                    _vm._v("USD")
+                  ]),
+                  _vm._v(
+                    " " +
+                      _vm._s(_vm._f("formatNumber")(order.price_usd)) +
+                      "\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { staticStyle: { width: "3%" } }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteTicket(order.id)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-trash-alt" })]
+                  )
+                ])
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticStyle: { width: "20%" } }, [_vm._v("Total")]),
+            _vm._v(" "),
+            _c("th", { staticStyle: { width: "5%" } }, [
+              _vm._v(_vm._s(_vm.totalTickets))
+            ]),
+            _vm._v(" "),
+            _c("th", { staticStyle: { width: "35%" } }, [
+              _c("span", { staticClass: "badge badge-info" }, [_vm._v("ZWL")]),
+              _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
+            ]),
+            _vm._v(" "),
+            _c(
+              "th",
+              { staticStyle: { width: "35%" }, attrs: { colspan: "2" } },
+              [
                 _c("span", { staticClass: "badge badge-success" }, [
                   _vm._v("USD")
                 ]),
-                _vm._v(
-                  " " +
-                    _vm._s(_vm._f("formatNumber")(order.price_usd)) +
-                    "\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("td", { staticStyle: { width: "3%" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteTicket(order.id)
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fas fa-trash-alt" })]
-                )
-              ])
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("tr", [
-          _c("th", { staticStyle: { width: "20%" } }, [_vm._v("Total")]),
-          _vm._v(" "),
-          _c("th", { staticStyle: { width: "5%" } }, [
-            _vm._v(_vm._s(_vm.totalTickets))
-          ]),
-          _vm._v(" "),
-          _c("th", { staticStyle: { width: "35%" } }, [
-            _c("span", { staticClass: "badge badge-info" }, [_vm._v("ZWL")]),
-            _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
-          ]),
-          _vm._v(" "),
-          _c("th", { staticStyle: { width: "35%" }, attrs: { colspan: "2" } }, [
-            _c("span", { staticClass: "badge badge-success" }, [_vm._v("USD")]),
-            _vm._v(" " + _vm._s(_vm._f("formatNumber")(_vm.totalUSD)))
+                _vm._v(" " + _vm._s(_vm._f("formatNumber")(_vm.totalUSD)))
+              ]
+            )
           ])
         ])
-      ])
-    ]),
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "card card-body  border-success mt-1" }, [
       _c("h4", [_vm._v("Select Payment Method")]),
@@ -65792,7 +65850,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.create()
+                    return _vm.submitPayment()
                   }
                 }
               },

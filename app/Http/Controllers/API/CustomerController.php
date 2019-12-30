@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Customer;
+use Illuminate\Support\Str;
 
 class CustomerController extends Controller
 {
@@ -32,15 +33,21 @@ class CustomerController extends Controller
         //Call the withCookie() method with the response method
         $response->withCookie(cookie('gm58_orders', Str::random(10),60));
         $value = $request->cookie('eventszim_session');
-        print_r($value);
+       // print_r($value);
+        $this->validate($request,[
+            'fullname' => 'required|max:255',
+            'contact' => 'required|max:50',
+            'email_ticket' => 'required|email',
 
+            
+        ]);
         Customer::create([
-            'user_id' => $request['category_id'],
-            'order_id' => $request['quantity'],
-            'fullname' => $value,
-            'contact' => 0,
-            'email' => $request['quantity'],
-            'payment_type' => $request['quantity'],
+            'user_id' => $value,
+            'order_id' => $request['order_id'],
+            'fullname' => $request['fullname'],
+            'contact' => $request['contact'],
+            'email' => $request['email_ticket'],
+            'payment_type' => $request['payment_type'],
          
         ]);
     }

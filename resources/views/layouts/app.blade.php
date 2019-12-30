@@ -21,6 +21,13 @@
 </head>
 <body>
     <div id="app">
+        <loading :active.sync="isLoading" 
+        :can-cancel="false" 
+        :loader="'spinner'"
+        :is-full-page="fullPage"
+        :color="'#3490DC'"
+        :height="150"
+        :width="150" class="text-center"></loading>
         @include('layouts.nav')  
 
         <main class="py-4">

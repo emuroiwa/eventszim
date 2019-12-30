@@ -1,6 +1,15 @@
 <template>
     <div>
+
+
         <div class="card card-body border-info table-responsive">
+            <loading :active.sync="isLoading" 
+            :can-cancel="false" 
+            :loader="'spinner'"
+            :is-full-page="fullPage"
+            :color="'#3490DC'"
+            :height="150"
+            :width="150" class="text-center"></loading>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -20,7 +29,7 @@
                             <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}}
                         </td>
                         <td style="width:26%">
-                            <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}}
+                           <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}}
                             </td>
                         <td style="width:3%"><a href="#"  class="btn btn-danger" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
@@ -68,7 +77,7 @@
         </div>
         <div class="card card-body border-info mt-1" id="customer" v-if="paymentMethod">
             <h5> Complete the payment details below to secure your tickets.</h5>
-            <form @submit.prevent="create()">
+            <form @submit.prevent="submitPayment()">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -122,14 +131,15 @@
             return{
                 orders:{},
                 paymentMethod:'',
+                isLoading: false,
+                fullPage: true,
                 form: new Form({
-                    location:'',
-                    address:'',
-                    street:'',
-                    suburb:'',
-                    country:'',
-                    company:'',
-                    currency_id:'',
+                    user_id:'',
+                    order_id:'',
+                    fullname:'',
+                    contact:'',
+                    email:'',
+                    payment_type:'',
                     }),
             }
         },
@@ -188,6 +198,26 @@
                                     swal("Failed!", "There was something wrong. "+error, "warning");
                                 });
                          }
+                    })
+            },
+            submitPayment(){
+                this.isLoading = true;
+                    this.form.order_id = this.company;
+                    
+                    this.form.post('api/customers')
+                    .then(()=>{
+                        Fire.$emit('Payment');
+
+                        // toast({
+                        //     type: 'success',
+                        //     title: 'Created in successfully'
+                        //     })
+                        this.isLoading = true;
+
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                        
                     })
             },
             selectPayment(payment,e){
