@@ -97,7 +97,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="confirm_email">Confirm Email</label>
-                            <input v-model="form.confirm_email" type="email" name="Confirm Email" placeholder="confirm_email" class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
+                            <input v-model="form.confirm_email" type="email" name="confirm_email" placeholder="Confirm Email" class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
                             <has-error :form="form" field="confirm_email"></has-error>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
             <!-- Modal footer -->
                 <div class="form-group">
                     
-                    <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fas fa-shopping-cart"></i> Check Out</button>
+                    <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Check Out</button>
                     <a href="#" class="text-danger" data-dismiss="modal">Cancel</a>
                     
                 </div>

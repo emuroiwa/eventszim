@@ -65970,8 +65970,8 @@ var render = function() {
                           },
                           attrs: {
                             type: "email",
-                            name: "Confirm Email",
-                            placeholder: "confirm_email"
+                            name: "confirm_email",
+                            placeholder: "Confirm Email"
                           },
                           domProps: { value: _vm.form.confirm_email },
                           on: {
@@ -66029,14 +66029,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-info",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_c("i", { staticClass: "fas fa-shopping-cart" }), _vm._v(" Check Out")]
-      ),
+      _c("button", { staticClass: "btn btn-info", attrs: { type: "submit" } }, [
+        _c("i", { staticClass: "fas fa-shopping-cart" }),
+        _vm._v(" Check Out")
+      ]),
       _vm._v(" "),
       _c(
         "a",
