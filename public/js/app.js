@@ -2647,6 +2647,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2827,6 +2828,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_typeahead__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-typeahead */ "./node_modules/vue-typeahead/dist/vue-typeahead.common.js");
 /* harmony import */ var vue_typeahead__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_typeahead__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -9906,7 +9908,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px #3490dc;\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\r\n", ""]);
+exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px #3490dc;\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-style: italic;\n}\r\n", ""]);
 
 // exports
 
@@ -66344,7 +66346,7 @@ var render = function() {
   return _c("div", { staticClass: "row w-100" }, [
     _c(
       "div",
-      { staticClass: "col-md-9 ", attrs: { align: "center" } },
+      { staticClass: "col-md-9", attrs: { align: "center" } },
       [_c("search")],
       1
     ),
@@ -66745,7 +66747,12 @@ var render = function() {
               _vm._v(" "),
               _c("span", {
                 staticClass: "screen-name",
-                domProps: { textContent: _vm._s(item.event_name) }
+                domProps: { textContent: _vm._s(item.start_date) }
+              }),
+              _vm._v(" "),
+              _c("span", {
+                staticClass: "venue",
+                domProps: { textContent: _vm._s(item.venue) }
               })
             ]
           )

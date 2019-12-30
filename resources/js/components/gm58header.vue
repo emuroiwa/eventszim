@@ -1,6 +1,6 @@
 <template>
     <div class="row w-100">
-            <div class="col-md-9 "  align="center" >
+            <div class="col-md-9"   align="center" >
                 <!-- <li class="nav-item search-nav-element"> -->
                     <search></search>
                 <!-- </li> -->
@@ -9,6 +9,7 @@
             <div class="col-md-3 float-right haya">
                 <cartItems :cartPage="this.cartPage"></cartItems>
             </div>
+            
     </div>
 </template>
 

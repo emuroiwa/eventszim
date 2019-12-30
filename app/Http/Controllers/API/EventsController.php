@@ -144,7 +144,9 @@ class EventsController extends Controller
         // ->where('zim_events.id','=',$id)
         // ->orderby('zim_events.id', 'DESC')
         // ->get();
-            $events = ZimEvents::where(function($query) use ($search){
+            $events = ZimEvents::leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+            ->select(DB::raw('DATE_FORMAT(start_date, "%M %d %Y") as start_date'),'event_name','zim_events.id','venue','town')
+                ->where(function($query) use ($search){
                 $query->where('event_name','LIKE',"%$search%")
                         ->orWhere('popular_rank','LIKE',"%$search%");
             })->get();

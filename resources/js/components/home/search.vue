@@ -21,7 +21,8 @@
     <ul v-show="hasItems">
       <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
         <span class="name" v-text="item.event_name">1</span>
-        <span class="screen-name" v-text="item.event_name"></span>
+        <span class="screen-name" v-text="item.start_date"></span>
+        <span class="venue" v-text="item.venue"></span>
       </li>
     </ul>
   </div>
@@ -150,6 +151,10 @@ span {
   font-size: 18px;
 }
 .screen-name {
+  font-style: italic;
+}
+.screen-name {
+  font-weight: 700;
   font-style: italic;
 }
 </style>

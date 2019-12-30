@@ -17524,3 +17524,7 @@ figure {
   vertical-align: middle;
 }
 
+.navbar-toggler {
+  width: 100%;
+}
+

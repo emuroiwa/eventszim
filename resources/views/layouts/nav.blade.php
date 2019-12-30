@@ -4,8 +4,12 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
+        {{--  header for mobile  --}}
+        {{-- <div class="navbar-toggler">
+            <gm58header></gm58header>
+        </div> --}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
+            <span class="fas fa-search"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
