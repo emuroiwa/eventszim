@@ -83,7 +83,6 @@ class PaymentsController extends Controller
 
         $response = $paynow->send($payment);
        // $response = $paynow->sendMobile($payment, '0771111111', 'ecocash');
-        print_r($response);
         if($response->success()) {
             print_r('success');
             // Or if you prefer more control, get the link to redirect the user to, then use it as you see fit

@@ -53,8 +53,8 @@
            }
        },
        methods: {
-           getCartItems(){
-                axios.get("api/cartItems").then(({ data }) => {
+           getCartItems(user){
+                axios.get("api/cartItems/"+ user).then(({ data }) => {
                     this.itemsInCart = data;
                 }).catch((error)=>{
                     // console.log(rror.response)
@@ -64,10 +64,10 @@
 
        },
        created(){
-            Fire.$on('DeletedItem',() =>{
-                this.getCartItems()
+
+            Fire.$on('user',(user) =>{
+                this.getCartItems(user);
             });
-           this.getCartItems();
        }
     }
 </script>

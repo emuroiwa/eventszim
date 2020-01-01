@@ -72,9 +72,12 @@
         },
         methods: {
             onChangeTickets(e){
+                var user = this.getCookie('gm58baba');
                 Fire.$emit('checkAvaliablity');
+                Fire.$emit('user',user);
                 this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
                 this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
+                this.form.user_id = user
                 this.form.post('api/orders')
                 .then((data)=>{
                     Fire.$emit('orderCreated');
@@ -82,6 +85,22 @@
                     $('#priceOverview').collapse('show');
 
                 })
+            },
+            getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                console.log(decodedCookie)
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
             },
             addToCart(){
                
@@ -93,7 +112,7 @@
                 //     })
             },
             getOrders(){
-                axios.get("api/orders").then(({ data }) => {
+                axios.get("api/orders/"+ this.getCookie('gm58baba')).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
                     // console.log(rror.response)
@@ -102,6 +121,9 @@
             }
         },
         created(){
+            Fire.$on('user',(user) =>{
+               this.getOrders() 
+            })
             //this.getEvent();
         }
     }

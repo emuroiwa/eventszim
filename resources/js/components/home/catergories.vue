@@ -1,7 +1,7 @@
 <template>
 <div class="top-content">
     <div class="container-fluid catergory-container">
-        <h3 class="text-primary">Popular</h3>
+        <h3 class="text-primary">Trending</h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">

@@ -1,16 +1,19 @@
 <template>
     <div>
 
-
-        <div class="card card-body border-info table-responsive">
-            <loading :active.sync="isLoading" 
+        <loading :active.sync="isLoading" 
             :can-cancel="false" 
             :loader="'spinner'"
             :is-full-page="fullPage"
             :color="'#3490DC'"
             :height="150"
             :width="150" class="text-center"></loading>
-            <table class="table table-hover">
+        <div class="card card-body border-danger table-responsive  align-items-center" v-if="!orders.length" >
+            <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
+        </div>
+        <div class="card card-body border-info table-responsive" v-if="orders.length">
+    
+            <table class="table table-hover table-responsive">
                 <thead>
                     <tr>
                         <th style="width:40%">Description</th>
@@ -44,7 +47,7 @@
                     </tr>
             </table>
         </div>
-        <div class="card card-body  border-success mt-1">
+        <div class="card card-body  border-success mt-1" v-if="orders.length">
             <h4>Select Payment Method</h4>
             <div class="row">
                 
@@ -163,9 +166,10 @@
         },
         methods: {
              deleteTicket(id){
+                var user =this.checkCookie();
                 axios.delete('api/orders/'+id).then(()=>{
                                                     this.getOrders();
-                                                    Fire.$emit('DeletedItem');
+                                                    Fire.$emit('user',this.user);
                                                     swal(
                                                     'Deleted!',
                                                     'Your file has been deleted.',
@@ -202,7 +206,7 @@
             },
             submitPayment(){
                 this.isLoading = true;
-                    this.form.order_id = this.company;
+                    this.form.user_id = this.checkCookie();
                     
                     this.form.post('api/customers')
                     .then(()=>{
@@ -220,6 +224,43 @@
                         
                     })
             },
+            getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                //sconsole.log(decodedCookie)
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            },
+            setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            },
+            checkCookie() {
+                var user = this.getCookie("gm58baba");
+                if(user != ""){
+                    console.log(user)
+                    return user
+                } 
+                else {
+                    user = new Date().valueOf();
+                    if (user != "" && user != null) {
+                        this.setCookie("gm58baba", user, 365);
+                        return user
+
+                    }
+                }
+            },
             selectPayment(payment,e){
                 if(e!=""){
                     $('card').removeClass('gm58-active')
@@ -232,17 +273,24 @@
                 
             },
             
-             getOrders(){
-                axios.get("api/orders").then(({ data }) => {
+            getOrders(){
+                var user = this.checkCookie();
+                Fire.$emit('user',user);
+                  axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
                     // console.log(rror.response)
                     swal("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
-            }
+            },
+            
         },
         created(){
+            Fire.$on('checkAvaliablity',() =>{
+                this.getOrders()
+            });
             this.getOrders()
+
         }
     }
 </script>
@@ -273,5 +321,9 @@ a{
     z-index: 2;
     background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);
     opacity: .1;
+}
+.empty-cart {
+    align-items: center;
+    max-width: 60%;
 }
 </style>

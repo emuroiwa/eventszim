@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Orders;
 use Illuminate\Support\Str;
 
 class CustomerController extends Controller
@@ -41,7 +42,10 @@ class CustomerController extends Controller
 
             
         ]);
-        Customer::create([
+        $order = Orders::find($id);
+        $order->status = 1;
+        $order->save();
+       return  Customer::create([
             'user_id' => $value,
             'order_id' => $request['order_id'],
             'fullname' => $request['fullname'],
@@ -50,6 +54,7 @@ class CustomerController extends Controller
             'payment_type' => $request['payment_type'],
          
         ]);
+
     }
 
     /**

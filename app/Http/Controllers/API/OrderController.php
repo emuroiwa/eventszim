@@ -25,6 +25,7 @@ class OrderController extends Controller
         ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
         ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
         ->where('user_id','=',$value)
+        ->where('orders.status','=',0)
         ->orderby('orders.id', 'DESC')->get();
     }
 
@@ -36,19 +37,10 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-       
-
-        $response = new \Illuminate\Http\Response('Hello World');
-
-        //Call the withCookie() method with the response method
-        $response->withCookie(cookie('gm58_orders', Str::random(10),60));
-        $value = $request->cookie('eventszim_session');
-        print_r($value);
-
         Orders::create([
             'category_id' => $request['category_id'],
             'quantity' => $request['quantity'],
-            'user_id' => $value,
+            'user_id' => $request['user_id'],
             'status' => 0,
          
         ]);
@@ -63,7 +55,14 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
+        ->where('user_id','=',$id)
+        ->where('orders.status','=',0)
+        ->orderby('orders.id', 'DESC')->get();
     }
 
     /**
@@ -75,7 +74,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $order = Orders::find($id);
+        $order->status = 1;
+        $order->save();
+
     }
 
     /**
@@ -89,12 +92,13 @@ class OrderController extends Controller
             $Orders = Orders::findOrFail($id);
             $Orders->delete();
     }
-    public function cartItems(){
-        $request = new \Illuminate\Http\Request;
-        $value = $request->cookie('eventszim_session');
+    public function cartItems($id){
+       
         return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
         ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl'))
-        ->where('user_id','=',$value)
+        ->where('user_id','=',$id)
+        ->where('orders.status','=',0)
         ->count();
     }
+    
 }

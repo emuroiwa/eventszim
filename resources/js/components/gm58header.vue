@@ -1,6 +1,6 @@
 <template>
     <div class="row w-100">
-            <div class="col-md-9"   align="center" >
+            <div class="col-md-9">
                 <!-- <li class="nav-item search-nav-element"> -->
                     <search></search>
                 <!-- </li> -->

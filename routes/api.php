@@ -24,5 +24,5 @@ Route::apiResources(['eventinfo' => 'API\EventInfoController']);
 Route::apiResources(['payments' => 'API\PaymentsController']);
 Route::apiResources(['orders' => 'API\OrderController']);
 Route::apiResources(['customers' => 'API\CustomerController']);
-Route::get('cartItems' , 'API\OrderController@cartItems');
+Route::get('cartItems/{id}' , 'API\OrderController@cartItems');
 Route::get('findEvents', 'API\EventsController@search');
