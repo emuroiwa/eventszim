@@ -41,8 +41,8 @@
                     <tr>
                         <th style="width:20%">Total</th>
                         <th style="width:5%">{{totalTickets}}</th>
-                        <th style="width:35%"><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
-                        <th style="width:35%" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
+                        <th style="width:35%"><span class="badge badge-info">ZWL</span>{{totalZWL * totalTickets | formatNumber }}</th>
+                        <th style="width:35%" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD * totalTickets | formatNumber }}</th>
 
                     </tr>
             </table>
@@ -265,6 +265,14 @@
                 if(e!=""){
                     $('card').removeClass('gm58-active')
                     $(e.currentTarget).addClass('gm58-active')
+                }
+                if(payment=='paynow'){
+                    axios.get("api/paynow").then(({ data }) => {
+                        console.log(data)
+                    }).catch((error)=>{
+                    // console.log(rror.response)
+                    swal("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                    })
                 }
                 //  $('html, modal').animate({
                 //     scrollTop: $("div#customer").offset().top

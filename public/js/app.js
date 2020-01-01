@@ -2561,6 +2561,16 @@ __webpack_require__.r(__webpack_exports__);
       if (e != "") {
         $('card').removeClass('gm58-active');
         $(e.currentTarget).addClass('gm58-active');
+      }
+
+      if (payment == 'paynow') {
+        axios.get("api/paynow").then(function (_ref) {
+          var data = _ref.data;
+          console.log(data);
+        })["catch"](function (error) {
+          // console.log(rror.response)
+          swal("Failed!", "There was something wrong in getOrders " + error, "warning");
+        });
       } //  $('html, modal').animate({
       //     scrollTop: $("div#customer").offset().top
       // }, 1000)
@@ -2573,8 +2583,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var user = this.checkCookie();
       Fire.$emit('user', user);
-      axios.get("api/orders/" + user).then(function (_ref) {
-        var data = _ref.data;
+      axios.get("api/orders/" + user).then(function (_ref2) {
+        var data = _ref2.data;
         _this3.orders = data;
       })["catch"](function (error) {
         // console.log(rror.response)
@@ -65838,7 +65848,13 @@ var render = function() {
                       _c("span", { staticClass: "badge badge-info" }, [
                         _vm._v("ZWL")
                       ]),
-                      _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
+                      _vm._v(
+                        _vm._s(
+                          _vm._f("formatNumber")(
+                            _vm.totalZWL * _vm.totalTickets
+                          )
+                        )
+                      )
                     ]),
                     _vm._v(" "),
                     _c(
@@ -65852,7 +65868,12 @@ var render = function() {
                           _vm._v("USD")
                         ]),
                         _vm._v(
-                          " " + _vm._s(_vm._f("formatNumber")(_vm.totalUSD))
+                          " " +
+                            _vm._s(
+                              _vm._f("formatNumber")(
+                                _vm.totalUSD * _vm.totalTickets
+                              )
+                            )
                         )
                       ]
                     )

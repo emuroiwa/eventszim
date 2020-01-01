@@ -5,8 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-
-class PaymentsController extends Controller
+class PayPalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-       // $this->Paynow();
+        //
     }
 
     /**
@@ -62,5 +61,4 @@ class PaymentsController extends Controller
     {
         //
     }
-    
 }
