@@ -82,7 +82,7 @@
         },
         created(){
 
-            Fire.$on('checkAvaliablity',() =>{
+             Fire.$on('user',(user) =>{
                 this.selectedEvent()
             });
 

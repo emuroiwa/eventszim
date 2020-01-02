@@ -29,10 +29,10 @@
                             <p v-if="order.venue && order.town" class="font-weight-bold">Venue {{order.venue}} {{order.town}}</p></td>
                         <td style="width:5%">{{order.quantity}} </td>
                         <td style="width:26%">  
-                            <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}}
+                            <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
                         </td>
                         <td style="width:26%">
-                           <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}}
+                           <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
                             </td>
                         <td style="width:3%"><a href="#"  class="btn btn-danger" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
@@ -41,8 +41,8 @@
                     <tr>
                         <th style="width:20%">Total</th>
                         <th style="width:5%">{{totalTickets}}</th>
-                        <th style="width:35%"><span class="badge badge-info">ZWL</span>{{totalZWL * totalTickets | formatNumber }}</th>
-                        <th style="width:35%" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD * totalTickets | formatNumber }}</th>
+                        <th style="width:35%"><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
+                        <th style="width:35%" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
 
                     </tr>
             </table>
@@ -167,20 +167,13 @@
         methods: {
              deleteTicket(id){
                 var user =this.checkCookie();
-                axios.delete('api/orders/'+id).then(()=>{
-                                                    this.getOrders();
-                                                    Fire.$emit('user',this.user);
-                                                    swal(
-                                                    'Deleted!',
-                                                    'Your file has been deleted.',
-                                                    'success'
-                                                    )
-                                            }).catch(()=> {
-                                                swal("Failed!", "There was something wrong. "+error, "warning");
-                                            });
-                swal({
+                console.log('ssss')
+                // swal.fire("Failed!", "There was something wrong in getOrders ", "warning");
+                
+                swal.fire({
+                    icon: 'info',
                     title: 'Are you sure?',
-                    text: 'You want this item',
+                    text: 'You want to delete this item',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -190,34 +183,39 @@
 
                         // Send request to the server
                          if (result.value) {
-                                axios.delete('api/orders/'+id).then(()=>{
+                             axios.delete('api/orders/'+id).then(()=>{
                                         this.getOrders();
-
-                                        swal(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                        )
-                                }).catch(()=> {
-                                    swal("Failed!", "There was something wrong. "+error, "warning");
-                                });
+                                        Fire.$emit('user',this.user);
+                                        swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                            )
+                                        }).catch(()=> {
+                                                swal.fire("Failed!", "There was something wrong. "+error, "warning");
+                                        });
                          }
                     })
-            },
+            
+             },
             submitPayment(){
                 this.isLoading = true;
                     this.form.user_id = this.checkCookie();
                     
                     this.form.post('api/customers')
                     .then(()=>{
-                        Fire.$emit('Payment');
+                        
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                        
+                    })
 
-                        // toast({
-                        //     type: 'success',
-                        //     title: 'Created in successfully'
-                        //     })
-                        this.isLoading = true;
-
+                    //paynow endpoint
+                    this.form.post('api/paynow')
+                    .then((response)=>{
+                        console.log(response) 
+                        window.location = response
                     })
                     .catch((error)=>{
                         console.log(error)
@@ -249,7 +247,7 @@
             checkCookie() {
                 var user = this.getCookie("gm58baba");
                 if(user != ""){
-                    console.log(user)
+                    // console.log(user)
                     return user
                 } 
                 else {
@@ -271,30 +269,27 @@
                         console.log(data)
                     }).catch((error)=>{
                     // console.log(rror.response)
-                    swal("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
                 }
-                //  $('html, modal').animate({
-                //     scrollTop: $("div#customer").offset().top
-                // }, 1000)
                 this.paymentMethod=payment
                 
             },
             
             getOrders(){
                 var user = this.checkCookie();
-                Fire.$emit('user',user);
+               // Fire.$emit('user',user);
                   axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
                     // console.log(rror.response)
-                    swal("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
             },
             
         },
         created(){
-            Fire.$on('checkAvaliablity',() =>{
+             Fire.$on('user',(user) =>{
                 this.getOrders()
             });
             this.getOrders()

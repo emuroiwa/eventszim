@@ -49,16 +49,32 @@
         },
        data(){
            return{
-               itemsInCart:{}
+               itemsInCart:'0'
            }
        },
        methods: {
-           getCartItems(user){
-                axios.get("api/cartItems/"+ user).then(({ data }) => {
+            getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                //sconsole.log(decodedCookie)
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            },
+           getCartItems(){
+                axios.get("api/cartItems/"+ this.getCookie('gm58baba')).then(({ data }) => {
                     this.itemsInCart = data;
                 }).catch((error)=>{
                     // console.log(rror.response)
-                swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
                 })
            },
 
@@ -66,7 +82,10 @@
        created(){
 
             Fire.$on('user',(user) =>{
-                this.getCartItems(user);
+                this.getCartItems();
+            });
+            Fire.$on('indexLoaded',() => {
+                this.getCartItems();
             });
        }
     }

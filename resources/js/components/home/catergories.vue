@@ -61,16 +61,13 @@
                     /*
                         CC 2.0 License Iatek LLC 2018 - Attribution required
                     */
-                   console.log('totalItems')
                     var $e = $(e.relatedTarget);
                     var idx = $e.index();
                     var itemsPerSlide = 6;
                     var totalItems = $('.carousel-item').length;
-                    console.log(totalItems)
                 
                     if (idx >= totalItems-(itemsPerSlide-1)) {
                         var it = itemsPerSlide - (totalItems - idx);
-                        console.log(it)
                         for (var i=0; i<it; i++) {
                             // append slides to end
                             if (e.direction=="left") {

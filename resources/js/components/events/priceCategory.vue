@@ -116,7 +116,7 @@
                         this.orders = data;
                     }).catch((error)=>{
                     // console.log(rror.response)
-                    swal("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
             }
         },

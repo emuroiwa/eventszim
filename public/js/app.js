@@ -1947,19 +1947,39 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      itemsInCart: {}
+      itemsInCart: '0'
     };
   },
   methods: {
-    getCartItems: function getCartItems(user) {
+    getCookie: function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie); //sconsole.log(decodedCookie)
+
+      var ca = decodedCookie.split(';');
+
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+
+      return "";
+    },
+    getCartItems: function getCartItems() {
       var _this = this;
 
-      axios.get("api/cartItems/" + user).then(function (_ref) {
+      axios.get("api/cartItems/" + this.getCookie('gm58baba')).then(function (_ref) {
         var data = _ref.data;
         _this.itemsInCart = data;
       })["catch"](function (error) {
         // console.log(rror.response)
-        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
+        swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
       });
     }
   },
@@ -1967,7 +1987,10 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     Fire.$on('user', function (user) {
-      _this2.getCartItems(user);
+      _this2.getCartItems();
+    });
+    Fire.$on('indexLoaded', function () {
+      _this2.getCartItems();
     });
   }
 });
@@ -2136,7 +2159,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    Fire.$on('checkAvaliablity', function () {
+    Fire.$on('user', function (user) {
       _this2.selectedEvent();
     });
     this.getEvent();
@@ -2278,7 +2301,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.orders = data;
       })["catch"](function (error) {
         // console.log(rror.response)
-        swal("Failed!", "There was something wrong in getOrders " + error, "warning");
+        swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
       });
     }
   },
@@ -2471,17 +2494,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var user = this.checkCookie();
-      axios["delete"]('api/orders/' + id).then(function () {
-        _this.getOrders();
+      console.log('ssss'); // swal.fire("Failed!", "There was something wrong in getOrders ", "warning");
 
-        Fire.$emit('user', _this.user);
-        swal('Deleted!', 'Your file has been deleted.', 'success');
-      })["catch"](function () {
-        swal("Failed!", "There was something wrong. " + error, "warning");
-      });
-      swal({
+      swal.fire({
+        icon: 'info',
         title: 'Are you sure?',
-        text: 'You want this item',
+        text: 'You want to delete this item',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -2493,25 +2511,24 @@ __webpack_require__.r(__webpack_exports__);
           axios["delete"]('api/orders/' + id).then(function () {
             _this.getOrders();
 
-            swal('Deleted!', 'Your file has been deleted.', 'success');
+            Fire.$emit('user', _this.user);
+            swal.fire('Deleted!', 'Your file has been deleted.', 'success');
           })["catch"](function () {
-            swal("Failed!", "There was something wrong. " + error, "warning");
+            swal.fire("Failed!", "There was something wrong. " + error, "warning");
           });
         }
       });
     },
     submitPayment: function submitPayment() {
-      var _this2 = this;
-
       this.isLoading = true;
       this.form.user_id = this.checkCookie();
-      this.form.post('api/customers').then(function () {
-        Fire.$emit('Payment'); // toast({
-        //     type: 'success',
-        //     title: 'Created in successfully'
-        //     })
+      this.form.post('api/customers').then(function () {})["catch"](function (error) {
+        console.log(error);
+      }); //paynow endpoint
 
-        _this2.isLoading = true;
+      this.form.post('api/paynow').then(function (response) {
+        console.log(response);
+        window.location = response;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2546,7 +2563,7 @@ __webpack_require__.r(__webpack_exports__);
       var user = this.getCookie("gm58baba");
 
       if (user != "") {
-        console.log(user);
+        // console.log(user)
         return user;
       } else {
         user = new Date().valueOf();
@@ -2569,34 +2586,31 @@ __webpack_require__.r(__webpack_exports__);
           console.log(data);
         })["catch"](function (error) {
           // console.log(rror.response)
-          swal("Failed!", "There was something wrong in getOrders " + error, "warning");
+          swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
         });
-      } //  $('html, modal').animate({
-      //     scrollTop: $("div#customer").offset().top
-      // }, 1000)
-
+      }
 
       this.paymentMethod = payment;
     },
     getOrders: function getOrders() {
-      var _this3 = this;
+      var _this2 = this;
 
-      var user = this.checkCookie();
-      Fire.$emit('user', user);
+      var user = this.checkCookie(); // Fire.$emit('user',user);
+
       axios.get("api/orders/" + user).then(function (_ref2) {
         var data = _ref2.data;
-        _this3.orders = data;
+        _this2.orders = data;
       })["catch"](function (error) {
         // console.log(rror.response)
-        swal("Failed!", "There was something wrong in getOrders " + error, "warning");
+        swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
       });
     }
   },
   created: function created() {
-    var _this4 = this;
+    var _this3 = this;
 
-    Fire.$on('checkAvaliablity', function () {
-      _this4.getOrders();
+    Fire.$on('user', function (user) {
+      _this3.getOrders();
     });
     this.getOrders();
   }
@@ -2847,16 +2861,13 @@ __webpack_require__.r(__webpack_exports__);
         /*
             CC 2.0 License Iatek LLC 2018 - Attribution required
         */
-        console.log('totalItems');
         var $e = $(e.relatedTarget);
         var idx = $e.index();
         var itemsPerSlide = 6;
         var totalItems = $('.carousel-item').length;
-        console.log(totalItems);
 
         if (idx >= totalItems - (itemsPerSlide - 1)) {
           var it = itemsPerSlide - (totalItems - idx);
-          console.log(it);
 
           for (var i = 0; i < it; i++) {
             // append slides to end
@@ -2922,11 +2933,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.isLoading = false;
       })["catch"](function (error) {
         // console.log(rror.response)
-        swal("Failed!", "There was something wrong in getEvents " + error, "warning");
+        swal.fire("Failed!", "There was something wrong in getEvents " + error, "warning");
       });
     }
   },
   created: function created() {
+    Fire.$emit('indexLoaded');
     this.getEvents();
   }
 });
@@ -59289,7 +59301,7 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.5.3
+* sweetalert2 v9.5.4
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -61529,16 +61541,11 @@ function setParameters(params) {
   init(params);
 }
 
-function swalOpenAnimationFinished(popup, container) {
-  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
-  container.style.overflowY = 'auto';
-}
 /**
  * Open popup, add necessary classes and styles, fix scrollbar
  *
  * @param {Array} params
  */
-
 
 var openPopup = function openPopup(params) {
   var container = getContainer();
@@ -61567,14 +61574,22 @@ var openPopup = function openPopup(params) {
   }
 };
 
+function swalOpenAnimationFinished(event) {
+  var popup = getPopup();
+
+  if (event.target !== popup) {
+    return;
+  }
+
+  var container = getContainer();
+  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+  container.style.overflowY = 'auto';
+}
+
 var setScrollingVisibility = function setScrollingVisibility(container, popup) {
   if (animationEndEvent && hasCssAnimation(popup)) {
     container.style.overflowY = 'hidden';
-    popup.addEventListener(animationEndEvent, function (e) {
-      if (e.target === popup) {
-        swalOpenAnimationFinished.bind(null, popup, container);
-      }
-    });
+    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
   } else {
     container.style.overflowY = 'auto';
   }
@@ -62281,7 +62296,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.5.3';
+SweetAlert.version = '9.5.4';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -65799,7 +65814,11 @@ var render = function() {
                           ]),
                           _vm._v(
                             " " +
-                              _vm._s(_vm._f("formatNumber")(order.price_zwl)) +
+                              _vm._s(
+                                _vm._f("formatNumber")(
+                                  order.price_zwl * order.quantity
+                                )
+                              ) +
                               "\n                    "
                           )
                         ]),
@@ -65810,7 +65829,11 @@ var render = function() {
                           ]),
                           _vm._v(
                             " " +
-                              _vm._s(_vm._f("formatNumber")(order.price_usd)) +
+                              _vm._s(
+                                _vm._f("formatNumber")(
+                                  order.price_usd * order.quantity
+                                )
+                              ) +
                               "\n                        "
                           )
                         ]),
@@ -65848,13 +65871,7 @@ var render = function() {
                       _c("span", { staticClass: "badge badge-info" }, [
                         _vm._v("ZWL")
                       ]),
-                      _vm._v(
-                        _vm._s(
-                          _vm._f("formatNumber")(
-                            _vm.totalZWL * _vm.totalTickets
-                          )
-                        )
-                      )
+                      _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -65868,12 +65885,7 @@ var render = function() {
                           _vm._v("USD")
                         ]),
                         _vm._v(
-                          " " +
-                            _vm._s(
-                              _vm._f("formatNumber")(
-                                _vm.totalUSD * _vm.totalTickets
-                              )
-                            )
+                          " " + _vm._s(_vm._f("formatNumber")(_vm.totalUSD))
                         )
                       ]
                     )

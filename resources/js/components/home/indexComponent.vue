@@ -33,11 +33,12 @@
                         this.isLoading = false;
                     }).catch((error)=>{
                     // console.log(rror.response)
-                    swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
+                    swal.fire("Failed!", "There was something wrong in getEvents "+ error, "warning");
                     })
             },
        },
        created(){
+            Fire.$emit('indexLoaded') 
             this.getEvents();
        }
     }

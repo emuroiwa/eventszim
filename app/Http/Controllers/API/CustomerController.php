@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Payments;
 use App\Orders;
 use Illuminate\Support\Str;
 
@@ -29,31 +30,33 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         
-        $response = new \Illuminate\Http\Response('Hello World');
-
-        //Call the withCookie() method with the response method
-        $response->withCookie(cookie('gm58_orders', Str::random(10),60));
-        $value = $request->cookie('eventszim_session');
-       // print_r($value);
         $this->validate($request,[
             'fullname' => 'required|max:255',
             'contact' => 'required|max:50',
             'email_ticket' => 'required|email',
-
+            'confirm_email' => 'required|email',
+       
+        ]);
+        
+        $randxx = sha1(time());
+        Orders::where('user_id', $request['user_id'])->update( array('status'=>1, 'reference'=>$randxx) );
+        Payments::create([
+            'order_ref' => $randxx,
+            'amount' => $request['amount'],
+            'currency' => $request['currency'],
+            'paygate' => $request['paygate'],
+            'status' => 0,
+        
+        ]);
+        return  Customer::create([
+                'user_id' => $request['user_id'],
+                'order_id' => $request['order_id'],
+                'fullname' => $request['fullname'],
+                'contact' => $request['contact'],
+                'email' => $request['email_ticket'],
+                'payment_type' => $request['payment_type'],
             
-        ]);
-        $order = Orders::find($id);
-        $order->status = 1;
-        $order->save();
-       return  Customer::create([
-            'user_id' => $value,
-            'order_id' => $request['order_id'],
-            'fullname' => $request['fullname'],
-            'contact' => $request['contact'],
-            'email' => $request['email_ticket'],
-            'payment_type' => $request['payment_type'],
-         
-        ]);
+            ]);
 
     }
 

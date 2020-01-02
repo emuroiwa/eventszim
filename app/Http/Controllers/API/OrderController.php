@@ -95,7 +95,7 @@ class OrderController extends Controller
     public function cartItems($id){
        
         return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
-        ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl'))
+        ->select(DB::raw('COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl1'))
         ->where('user_id','=',$id)
         ->where('orders.status','=',0)
         ->count();

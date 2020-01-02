@@ -21,5 +21,5 @@ Route::get('/home', function () {
 Auth::routes();
 //Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('paynow/{id}', 'PaynowController@show')->name('paynow');
 Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );

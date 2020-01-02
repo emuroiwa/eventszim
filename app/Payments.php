@@ -13,7 +13,9 @@ class Payments extends Model implements Auditable
         'amount',
         'currency',
         'paygate',
-        'status'
+        'status',
+        'pollURL',
+        'order_ref',
         
     ];
 }
