@@ -69,7 +69,9 @@ class PaynowController extends Controller
             $pollUrl = $response->pollUrl();
             //print_r($response);
 
-            Orders::where('user_id', $request['user_id'])->update( array('status'=>1, 'reference'=>$paymentRef) );
+            Orders::where('user_id', $request['user_id'])
+            ->where('status', 0)
+            ->update( array('status'=>1, 'reference'=>$paymentRef) );
             Payments::create([
                 'order_ref' => $paymentRef,
                 'amount' => $total,

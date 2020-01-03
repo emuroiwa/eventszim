@@ -2925,12 +2925,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     verifyPayment: function verifyPayment(ref) {
+      var _this2 = this;
+
+      this.ticketsEmail('data');
       axios.get("api/paynow/" + ref).then(function (_ref2) {
         var data = _ref2.data;
-        console.log(data);
+
+        _this2.ticketsEmail(data);
       })["catch"](function (error) {
         // console.log(rror.response)
         swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
+      });
+    },
+    ticketsEmail: function ticketsEmail(response) {
+      axios.post('api/sendemail', {
+        email: 'emuroiwa@gmail.com',
+        client_name: 'Test',
+        subject: 'Test'
+      }).then(function (response) {
+        swal.fire("Failed!", "There was something wrong in ticketsEmail " + error, "warning");
       });
     }
   },
