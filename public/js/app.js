@@ -1986,7 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    Fire.$on('user', function (user) {
+    Fire.$on('checkAvaliablity', function () {
       _this2.getCartItems();
     });
     Fire.$on('indexLoaded', function () {
@@ -9956,7 +9956,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */\r\n    background-attachment: fixed;\n}\r\n", ""]);
+exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */\r\n    background-position: center; /* Center the image */\r\n    background-repeat: no-repeat; /* Do not repeat the image */\r\n    background-size: cover;\n}\r\n", ""]);
 
 // exports
 
@@ -65439,90 +65439,107 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("div", { staticClass: "event" }, [
-        _c("div", { staticClass: "row gm58-event" }, [
-          _c("div", { staticClass: "col-md-5" }, [
-            _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "card-body" },
-                [_c("priceCategory", { attrs: { eventData: this.eventData } })],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-7" }, [
-            _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
-              _c("div", { staticClass: "card-header event-card-header mb-1" }, [
-                _c("h4", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(_vm.eventData.events[0].event_name))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _vm._m(1),
+      _c(
+        "div",
+        {
+          staticClass: "event",
+          style: {
+            "background-image": "url(" + _vm.eventData.events[0].event_img + ")"
+          }
+        },
+        [
+          _c("div", { staticClass: "row gm58-event" }, [
+            _c("div", { staticClass: "col-md-5" }, [
+              _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "div",
-                  {
-                    staticClass: "tab-content",
-                    attrs: { id: "pills-tabContent" }
-                  },
+                  { staticClass: "card-body" },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active",
-                        attrs: {
-                          id: "pills-home",
-                          role: "tabpanel",
-                          "aria-labelledby": "pills-home-tab"
-                        }
-                      },
-                      [
-                        _c("eventDetails", {
-                          attrs: { eventData: this.eventData }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
+                    _c("priceCategory", {
+                      attrs: { eventData: this.eventData }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-7" }, [
+              _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-header event-card-header mb-1" },
+                  [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(_vm.eventData.events[0].event_name))
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "pills-tabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active",
+                          attrs: {
+                            id: "pills-home",
+                            role: "tabpanel",
+                            "aria-labelledby": "pills-home-tab"
+                          }
+                        },
+                        [
+                          _c("eventDetails", {
+                            attrs: { eventData: this.eventData }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: {
+                            id: "pills-profile",
+                            role: "tabpanel",
+                            "aria-labelledby": "pills-profile-tab"
+                          }
+                        },
+                        [
+                          _c("eventAddtional", {
+                            attrs: { eventData: this.eventData }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("div", {
                         staticClass: "tab-pane fade",
                         attrs: {
-                          id: "pills-profile",
+                          id: "pills-contact",
                           role: "tabpanel",
-                          "aria-labelledby": "pills-profile-tab"
+                          "aria-labelledby": "pills-contact-tab"
                         }
-                      },
-                      [
-                        _c("eventAddtional", {
-                          attrs: { eventData: this.eventData }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "tab-pane fade",
-                      attrs: {
-                        id: "pills-contact",
-                        role: "tabpanel",
-                        "aria-labelledby": "pills-contact-tab"
-                      }
-                    })
-                  ]
-                )
+                      })
+                    ]
+                  )
+                ])
               ])
             ])
           ])
-        ])
-      ]),
+        ]
+      ),
       _vm._v(" "),
       _c("gm58footer")
     ],

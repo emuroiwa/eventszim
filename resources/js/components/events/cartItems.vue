@@ -81,7 +81,7 @@
        },
        created(){
 
-            Fire.$on('user',(user) =>{
+            Fire.$on('checkAvaliablity',() =>{
                 this.getCartItems();
             });
             Fire.$on('indexLoaded',() => {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="event">
+        <div class="event" :style="{ 'background-image': 'url(' + eventData.events[0].event_img + ')' }">
             <div class="row gm58-event">
                 
                 <div class="col-md-5">
@@ -60,7 +60,6 @@
          props: ['id'],
         data(){
             return{
-                
                 eventData:{}
 
             }
@@ -94,6 +93,8 @@
 <style scoped>
 .event{
     /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */
-    background-attachment: fixed;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
 }
 </style>

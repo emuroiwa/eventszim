@@ -4,9 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 use DateTime;
 use PDF;
-use Mail;
+// use Mail;
 use File;
 use DB;
 
@@ -67,7 +69,15 @@ class PaymentsController extends Controller
     {
         //
     }
+    public function mail()
+    {
+    $name = 'Krunal';
+    Mail::to('emuroiwa@gmail.com')->from('emuroiwa@gmail.com')->send(new SendMailable($name));
+    
+    return 'Email was sent';
+    }
     public function sendmail(Request $request){
+        $this->mail();
         $data["email"]=$request['email'];
         $data["subject"]=$request['subject'];
         $data["client_name"]=$request['client_name'];
