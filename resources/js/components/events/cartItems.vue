@@ -14,7 +14,7 @@
             </a>
         </div>
                <!-- The Modal -->
-        <div class="modal" id="shoppingCartModal">
+        <div class="modal" id="shoppingCartModal" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog  modal-lg">
                 <div class="modal-content">
 

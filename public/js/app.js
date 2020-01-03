@@ -65286,17 +65286,28 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "modal", attrs: { id: "shoppingCartModal" } }, [
-      _c("div", { staticClass: "modal-dialog  modal-lg" }, [
-        _c("div", { staticClass: "modal-content" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-body" }, [_c("shoppingCart")], 1),
-          _vm._v(" "),
-          _vm._m(1)
+    _c(
+      "div",
+      {
+        staticClass: "modal",
+        attrs: {
+          id: "shoppingCartModal",
+          "data-backdrop": "static",
+          "data-keyboard": "false"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog  modal-lg" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [_c("shoppingCart")], 1),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
         ])
-      ])
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
