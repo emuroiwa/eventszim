@@ -89,7 +89,6 @@
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
-                console.log(decodedCookie)
                 var ca = decodedCookie.split(';');
                 for(var i = 0; i <ca.length; i++) {
                     var c = ca[i];
@@ -115,7 +114,6 @@
                 axios.get("api/orders/"+ this.getCookie('gm58baba')).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
-                    // console.log(rror.response)
                     swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
             }

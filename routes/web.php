@@ -23,3 +23,4 @@ Auth::routes();
 
 Route::get('paynow/{id}', 'PaynowController@show')->name('paynow');
 Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
+

@@ -62,13 +62,14 @@ export default {
       // queryParamName: 'search'
       src: 'api/findEvents',
       limit: 5,
-      minChars: 3
+      minChars: 1
     }
   },
 
   methods: {
     onHit (item) {
-      this.$router.push({ name: 'indexEvent', params: { id: item.id } })
+      this.$router.push({ path: 'indexEvent', query: { event: item.id } })
+      Fire.$emit('user','');
     },
   
     prepareResponseData (data) {
@@ -100,6 +101,7 @@ export default {
   border-color: #3490dc;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;
+  width: 100% !important;
 }
 .fa-times {
   cursor: pointer;

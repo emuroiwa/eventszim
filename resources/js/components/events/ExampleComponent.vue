@@ -17,7 +17,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+           // console.log('Component mounted.')
         },
         created(){
             //$(this).css('background-image','url(../images/compra_normal.png)');

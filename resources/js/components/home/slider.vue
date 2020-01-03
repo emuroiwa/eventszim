@@ -14,7 +14,7 @@
                         
                         <h2>{{event.event_name}}</h2>
                         <h3>{{event.start_date | myDate}}</h3>
-                            <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
+                            <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
                                 <button class="btn-lg btn-primary">
                                     Get tickets <i class="fas fa-ticket-alt"></i>
                                 </button>

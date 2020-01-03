@@ -5,7 +5,7 @@
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
-                    <router-link :to="{ name: 'indexEvent', params: { id: event.id } }">
+                    <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
                         <div class="card grow gm58-slider-card" >
                             <div> 
                                 <!-- <div class="overlay"></div> -->

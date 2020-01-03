@@ -2142,7 +2142,7 @@ __webpack_require__.r(__webpack_exports__);
     getEvent: function getEvent() {
       var _this = this;
 
-      axios.get("api/events/" + this.id).then(function (_ref) {
+      axios.get("api/events/" + this.$route.query.event).then(function (_ref) {
         var data = _ref.data;
         _this.eventData = data;
       })["catch"](function (error) {
@@ -2269,7 +2269,6 @@ __webpack_require__.r(__webpack_exports__);
     getCookie: function getCookie(cname) {
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
-      console.log(decodedCookie);
       var ca = decodedCookie.split(';');
 
       for (var i = 0; i < ca.length; i++) {
@@ -2300,7 +2299,6 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         _this2.orders = data;
       })["catch"](function (error) {
-        // console.log(rror.response)
         swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
       });
     }
@@ -2447,14 +2445,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2468,7 +2458,10 @@ __webpack_require__.r(__webpack_exports__);
         fullname: '',
         contact: '',
         email: '',
-        payment_type: ''
+        payment_type: '',
+        payment_ref: '',
+        total_ZWL: '',
+        total_USD: ''
       })
     };
   },
@@ -2493,8 +2486,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteTicket: function deleteTicket(id) {
       var _this = this;
 
-      var user = this.checkCookie();
-      console.log('ssss'); // swal.fire("Failed!", "There was something wrong in getOrders ", "warning");
+      var user = this.checkCookie(); // swal.fire("Failed!", "There was something wrong in getOrders ", "warning");
 
       swal.fire({
         icon: 'info',
@@ -2520,17 +2512,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submitPayment: function submitPayment() {
-      this.isLoading = true;
-      this.form.user_id = this.checkCookie();
-      this.form.post('api/customers').then(function () {})["catch"](function (error) {
-        console.log(error);
-      }); //paynow endpoint
+      var _this2 = this;
 
-      this.form.post('api/paynow').then(function (response) {
-        console.log(response);
-        window.location = response;
+      //this.isLoading = true;
+      this.form.user_id = this.checkCookie();
+      this.form.payment_type = this.paymentMethod;
+      this.form.total_USD = this.totalUSD;
+      this.form.total_ZWL = this.totalZWL;
+      this.form.post('api/customers').then(function () {
+        if (_this2.paymentMethod != 'paypal') {
+          //paynow endpoint
+          _this2.form.post('api/paynow').then(function (response) {
+            window.location.href = response.data;
+          })["catch"](function (error) {
+            console.log(error);
+            swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
+          });
+        }
       })["catch"](function (error) {
-        console.log(error);
+        swal.fire("Failed!", "There was something wrong customers. " + error, "warning");
       });
     },
     getCookie: function getCookie(cname) {
@@ -2576,41 +2576,29 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectPayment: function selectPayment(payment, e) {
       if (e != "") {
-        $('card').removeClass('gm58-active');
+        $('.card').removeClass('gm58-active');
         $(e.currentTarget).addClass('gm58-active');
-      }
-
-      if (payment == 'paynow') {
-        axios.get("api/paynow").then(function (_ref) {
-          var data = _ref.data;
-          console.log(data);
-        })["catch"](function (error) {
-          // console.log(rror.response)
-          swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
-        });
       }
 
       this.paymentMethod = payment;
     },
     getOrders: function getOrders() {
-      var _this2 = this;
+      var _this3 = this;
 
-      var user = this.checkCookie(); // Fire.$emit('user',user);
-
-      axios.get("api/orders/" + user).then(function (_ref2) {
-        var data = _ref2.data;
-        _this2.orders = data;
+      var user = this.checkCookie();
+      axios.get("api/orders/" + user).then(function (_ref) {
+        var data = _ref.data;
+        _this3.orders = data;
       })["catch"](function (error) {
-        // console.log(rror.response)
         swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
       });
     }
   },
   created: function created() {
-    var _this3 = this;
+    var _this4 = this;
 
     Fire.$on('user', function (user) {
-      _this3.getOrders();
+      _this4.getOrders();
     });
     this.getOrders();
   }
@@ -2935,11 +2923,24 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(rror.response)
         swal.fire("Failed!", "There was something wrong in getEvents " + error, "warning");
       });
+    },
+    verifyPayment: function verifyPayment(ref) {
+      axios.get("api/paynow/" + ref).then(function (_ref2) {
+        var data = _ref2.data;
+        console.log(data);
+      })["catch"](function (error) {
+        // console.log(rror.response)
+        swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
+      });
     }
   },
   created: function created() {
     Fire.$emit('indexLoaded');
     this.getEvents();
+
+    if (this.$route.query.z14ea26b00ad9) {
+      this.verifyPayment(this.$route.query.z14ea26b00ad9);
+    }
   }
 });
 
@@ -3014,17 +3015,18 @@ __webpack_require__.r(__webpack_exports__);
       // queryParamName: 'search'
       src: 'api/findEvents',
       limit: 5,
-      minChars: 3
+      minChars: 1
     };
   },
   methods: {
     onHit: function onHit(item) {
       this.$router.push({
-        name: 'indexEvent',
-        params: {
-          id: item.id
+        path: 'indexEvent',
+        query: {
+          event: item.id
         }
       });
+      Fire.$emit('user', '');
     },
     prepareResponseData: function prepareResponseData(data) {
       return data;
@@ -9979,7 +9981,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.grow[data-v-3aba163a]:hover\n{\n        -webkit-transform: scale(1.05);\n        transform: scale(1.05);\n}\na[data-v-3aba163a]:hover{\n     color: #000 !important;\n     text-decoration: none !important;\n}\na[data-v-3aba163a]{\n     color: #000 !important;\n     text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n        -webkit-transform: scale(1.10);\n        transform: scale(1.10);\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\n", ""]);
+exports.push([module.i, "\n.grow[data-v-3aba163a]:hover\n{\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\na[data-v-3aba163a]:hover{\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a]{\n    color: #000 !important;\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n        -webkit-transform: scale(1.10);\n        transform: scale(1.10);\n\n        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\n", ""]);
 
 // exports
 
@@ -10036,7 +10038,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px #3490dc;\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-style: italic;\n}\r\n", ""]);
+exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px #3490dc;\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\r\n  width: 100% !important;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-style: italic;\n}\r\n", ""]);
 
 // exports
 
@@ -65903,9 +65905,9 @@ var render = function() {
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-4" }, [
                 _c(
-                  "a",
+                  "div",
                   {
-                    attrs: { href: "#" },
+                    staticClass: "card card-body  border-danger grow",
                     on: {
                       click: function($event) {
                         return _vm.selectPayment("ecocash", $event)
@@ -65913,53 +65915,33 @@ var render = function() {
                     }
                   },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "card card-body  border-danger grow" },
-                      [
-                        _c("div", { staticClass: "overlay" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          attrs: { src: "/img/paymentlogo/ecocash.png" }
-                        })
-                      ]
-                    )
+                    _c("img", {
+                      attrs: { src: "/img/paymentlogo/ecocash.png" }
+                    })
                   ]
                 )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-4" }, [
                 _c(
-                  "a",
+                  "div",
                   {
-                    attrs: { href: "#" },
+                    staticClass: "card card-body  border-primary grow",
                     on: {
                       click: function($event) {
                         return _vm.selectPayment("paypal", $event)
                       }
                     }
                   },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "card card-body  border-primary grow" },
-                      [
-                        _c("div", { staticClass: "overlay" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          attrs: { src: "/img/paymentlogo/paypal.png" }
-                        })
-                      ]
-                    )
-                  ]
+                  [_c("img", { attrs: { src: "/img/paymentlogo/paypal.png" } })]
                 )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-4" }, [
                 _c(
-                  "a",
+                  "div",
                   {
-                    attrs: { href: "#" },
+                    staticClass: "card card-body  border-warning grow",
                     on: {
                       click: function($event) {
                         return _vm.selectPayment("paynow", $event)
@@ -65967,17 +65949,9 @@ var render = function() {
                     }
                   },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "card card-body  border-warning grow" },
-                      [
-                        _c("div", { staticClass: "overlay" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          attrs: { src: "/img/paymentlogo/zimswitch.jpg" }
-                        })
-                      ]
-                    )
+                    _c("img", {
+                      attrs: { src: "/img/paymentlogo/zimswitch.jpg" }
+                    })
                   ]
                 )
               ])
@@ -66066,9 +66040,17 @@ var render = function() {
                         "div",
                         { staticClass: "form-group" },
                         [
-                          _c("label", { attrs: { for: "contact" } }, [
-                            _vm._v("Contact Number")
-                          ]),
+                          _vm.paymentMethod == "ecocash"
+                            ? _c("label", { attrs: { for: "contact" } }, [
+                                _c("b", [_vm._v("ECOCASH NUMBER")])
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.paymentMethod != "ecocash"
+                            ? _c("label", { attrs: { for: "contact" } }, [
+                                _vm._v("Contact Number")
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -66086,7 +66068,8 @@ var render = function() {
                             attrs: {
                               type: "number",
                               name: "contact",
-                              placeholder: "Contact"
+                              maxlength: "10",
+                              placeholder: "eg 0771111111"
                             },
                             domProps: { value: _vm.form.contact },
                             on: {
@@ -66118,9 +66101,7 @@ var render = function() {
                         "div",
                         { staticClass: "form-group" },
                         [
-                          _c("label", { attrs: { for: "email_ticket" } }, [
-                            _vm._v("Email To Send Tickets To")
-                          ]),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -66214,7 +66195,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _vm._m(2)
                 ]
               )
             ]
@@ -66241,6 +66222,14 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticStyle: { width: "3%" } })
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "email_ticket" } }, [
+      _c("b", [_vm._v("Email To Send Tickets To")])
     ])
   },
   function() {
@@ -66625,7 +66614,7 @@ var render = function() {
                     "router-link",
                     {
                       attrs: {
-                        to: { name: "indexEvent", params: { id: event.id } }
+                        to: { path: "indexEvent", query: { event: event.id } }
                       }
                     },
                     [
@@ -67051,7 +67040,7 @@ var render = function() {
                     "router-link",
                     {
                       attrs: {
-                        to: { name: "indexEvent", params: { id: event.id } }
+                        to: { path: "indexEvent", query: { event: event.id } }
                       }
                     },
                     [

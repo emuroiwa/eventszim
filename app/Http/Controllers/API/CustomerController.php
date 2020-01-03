@@ -35,20 +35,11 @@ class CustomerController extends Controller
             'contact' => 'required|max:50',
             'email_ticket' => 'required|email',
             'confirm_email' => 'required|email',
+            'payment_type' => 'required',
        
         ]);
         
-        $randxx = sha1(time());
-        Orders::where('user_id', $request['user_id'])->update( array('status'=>1, 'reference'=>$randxx) );
-        Payments::create([
-            'order_ref' => $randxx,
-            'amount' => $request['amount'],
-            'currency' => $request['currency'],
-            'paygate' => $request['paygate'],
-            'status' => 0,
-        
-        ]);
-        return  Customer::create([
+            return Customer::create([
                 'user_id' => $request['user_id'],
                 'order_id' => $request['order_id'],
                 'fullname' => $request['fullname'],

@@ -67,7 +67,7 @@
         },
         methods: {
              getEvent(){
-                 axios.get("api/events/" + this.id).then(({ data }) => {
+                 axios.get("api/events/" + this.$route.query.event).then(({ data }) => {
                         this.eventData = data;
                     }).catch((error)=>{
                     // console.log(rror.response)

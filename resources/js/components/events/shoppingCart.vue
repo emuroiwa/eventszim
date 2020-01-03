@@ -52,29 +52,20 @@
             <div class="row">
                 
                 <div class="col-md-4">
-                    <a href="#" @click="selectPayment('ecocash',$event)">
-                        <div class="card card-body  border-danger grow">
-                            <div class="overlay"></div>
-                            <img  :src="'/img/paymentlogo/ecocash.png'" >
-                        </div>
-                    </a>
+                    <div class="card card-body  border-danger grow"  @click="selectPayment('ecocash',$event)">
+                        <img  :src="'/img/paymentlogo/ecocash.png'" >
+                    </div>
                 </div>
                 
                 <div class="col-md-4">
-                     <a href="#" @click="selectPayment('paypal',$event)">
-                        <div class="card card-body  border-primary grow">
-                            <div class="overlay"></div>
-                            <img  :src="'/img/paymentlogo/paypal.png'" >
-                        </div>
-                     </a>
+                    <div class="card card-body  border-primary grow"  @click="selectPayment('paypal',$event)">
+                        <img  :src="'/img/paymentlogo/paypal.png'" >
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" @click="selectPayment('paynow',$event)">
-                        <div class="card card-body  border-warning grow">
-                            <div class="overlay"></div>
-                            <img  :src="'/img/paymentlogo/zimswitch.jpg'" >
-                        </div>
-                    </a>
+                    <div class="card card-body  border-warning grow"  @click="selectPayment('paynow',$event)">
+                        <img  :src="'/img/paymentlogo/zimswitch.jpg'" >
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,8 +82,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="contact">Contact Number</label>
-                            <input v-model="form.contact" type="number" name="contact" placeholder="Contact" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
+                            <label for="contact" v-if="paymentMethod=='ecocash'"><b>ECOCASH NUMBER</b></label>
+                            <label for="contact" v-if="paymentMethod!='ecocash'">Contact Number</label>
+                             <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
                             <has-error :form="form" field="contact"></has-error>
                         </div>
                     </div>
@@ -101,7 +93,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email_ticket">Email To Send Tickets To</label>
+                            <label for="email_ticket"><b>Email To Send Tickets To</b></label>
                             <input v-model="form.email_ticket" type="email" name="email_ticket" placeholder="Tickets Email" class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
                             <has-error :form="form" field="email_ticket"></has-error>
                         </div>
@@ -143,6 +135,9 @@
                     contact:'',
                     email:'',
                     payment_type:'',
+                    payment_ref:'',
+                    total_ZWL:'',
+                    total_USD:'',
                     }),
             }
         },
@@ -167,7 +162,6 @@
         methods: {
              deleteTicket(id){
                 var user =this.checkCookie();
-                console.log('ssss')
                 // swal.fire("Failed!", "There was something wrong in getOrders ", "warning");
                 
                 swal.fire({
@@ -199,28 +193,34 @@
             
              },
             submitPayment(){
-                this.isLoading = true;
+                //this.isLoading = true;
                     this.form.user_id = this.checkCookie();
+                    this.form.payment_type = this.paymentMethod;
+                    this.form.total_USD = this.totalUSD;
+                    this.form.total_ZWL = this.totalZWL;
                     
                     this.form.post('api/customers')
                     .then(()=>{
-                        
+
+                        if(this.paymentMethod != 'paypal'){
+                            //paynow endpoint
+                            this.form.post('api/paynow')
+                            .then((response)=>{
+                            window.location.href = response.data
+                            })
+                            .catch((error)=>{
+                                console.log(error)
+                                swal.fire("Failed!", "There was something wrong paynow. "+error, "warning");
+                                
+                            })
+                        }      
                     })
                     .catch((error)=>{
-                        console.log(error)
-                        
+                        swal.fire("Failed!", "There was something wrong customers. "+error, "warning");
+                            
                     })
 
-                    //paynow endpoint
-                    this.form.post('api/paynow')
-                    .then((response)=>{
-                        console.log(response) 
-                        window.location = response
-                    })
-                    .catch((error)=>{
-                        console.log(error)
-                        
-                    })
+                    
             },
             getCookie(cname) {
                 var name = cname + "=";
@@ -261,34 +261,26 @@
             },
             selectPayment(payment,e){
                 if(e!=""){
-                    $('card').removeClass('gm58-active')
+                    $('.card').removeClass('gm58-active')
                     $(e.currentTarget).addClass('gm58-active')
                 }
-                if(payment=='paynow'){
-                    axios.get("api/paynow").then(({ data }) => {
-                        console.log(data)
-                    }).catch((error)=>{
-                    // console.log(rror.response)
-                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
-                    })
-                }
+
                 this.paymentMethod=payment
                 
             },
             
             getOrders(){
                 var user = this.checkCookie();
-               // Fire.$emit('user',user);
-                  axios.get("api/orders/"+ user).then(({ data }) => {
+                axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
-                    // console.log(rror.response)
                     swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
-                    })
+                })
             },
             
         },
         created(){
+
              Fire.$on('user',(user) =>{
                 this.getOrders()
             });
@@ -298,35 +290,38 @@
     }
 </script>
 <style scoped>
-.grow:hover
-{
+    .grow:hover
+    {
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
-}
-a:hover{
-     color: #000 !important;
-     text-decoration: none !important;
-}
-a{
-     color: #000 !important;
-     text-decoration: none !important;
-}
-.gm58-active{
-        -webkit-transform: scale(1.10);
-        -ms-transform: scale(1.10);
-        transform: scale(1.10);
-}
-.overlay {
-    /* position: absolute; */
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);
-    opacity: .1;
-}
-.empty-cart {
-    align-items: center;
-    max-width: 60%;
-}
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    }
+    a:hover{
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+    a{
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+    .gm58-active{
+            -webkit-transform: scale(1.10);
+            -ms-transform: scale(1.10);
+            transform: scale(1.10);
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;
+    }
+    .overlay {
+        /* position: absolute; */
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);
+        opacity: .1;
+    }
+    .empty-cart {
+        align-items: center;
+        max-width: 60%;
+    }
 </style>

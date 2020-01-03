@@ -36,10 +36,21 @@
                     swal.fire("Failed!", "There was something wrong in getEvents "+ error, "warning");
                     })
             },
+            verifyPayment(ref){
+                axios.get("api/paynow/"+ ref).then(({ data }) => {
+                    console.log(data);
+                }).catch((error)=>{
+                    // console.log(rror.response)
+                swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
+                })
+            }
        },
        created(){
             Fire.$emit('indexLoaded') 
             this.getEvents();
+            if(this.$route.query.z14ea26b00ad9){
+                this.verifyPayment(this.$route.query.z14ea26b00ad9)
+            }
        }
     }
 </script>
