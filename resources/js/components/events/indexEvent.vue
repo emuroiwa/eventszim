@@ -84,6 +84,7 @@
              Fire.$on('user',(user) =>{
                 this.selectedEvent()
             });
+            Fire.$emit('indexLoaded') 
 
             this.getEvent();
             $('.event').css('background-image','url(img/slide/event.jpg) !important');

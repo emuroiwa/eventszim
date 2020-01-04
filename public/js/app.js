@@ -1992,6 +1992,9 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('indexLoaded', function () {
       _this2.getCartItems();
     });
+    Fire.$on('orderCreated', function () {
+      _this2.getCartItems();
+    });
   }
 });
 
@@ -2162,6 +2165,7 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('user', function (user) {
       _this2.selectedEvent();
     });
+    Fire.$emit('indexLoaded');
     this.getEvent();
     $('.event').css('background-image', 'url(img/slide/event.jpg) !important');
   }
@@ -2504,6 +2508,7 @@ __webpack_require__.r(__webpack_exports__);
             _this.getOrders();
 
             Fire.$emit('user', _this.user);
+            Fire.$emit('checkAvaliablity');
             swal.fire('Deleted!', 'Your file has been deleted.', 'success');
           })["catch"](function () {
             swal.fire("Failed!", "There was something wrong. " + error, "warning");

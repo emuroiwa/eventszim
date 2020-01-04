@@ -180,6 +180,7 @@
                              axios.delete('api/orders/'+id).then(()=>{
                                         this.getOrders();
                                         Fire.$emit('user',this.user);
+                                        Fire.$emit('checkAvaliablity');
                                         swal.fire(
                                             'Deleted!',
                                             'Your file has been deleted.',

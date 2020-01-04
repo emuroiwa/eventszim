@@ -84,7 +84,11 @@
             Fire.$on('checkAvaliablity',() =>{
                 this.getCartItems();
             });
+            
             Fire.$on('indexLoaded',() => {
+                this.getCartItems();
+            });
+            Fire.$on('orderCreated',() => {
                 this.getCartItems();
             });
        }
