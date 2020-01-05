@@ -30,7 +30,8 @@ class PaynowController extends Controller
     public function store(Request $request)
     {
         $userID = $request['user_id'];
-        $paymentRef = sha1(time());
+        // $paymentRef = sha1(time());
+        $paymentRef = time();
         $paynow = new Paynow(
             env('PAYNOW_INTEGRATION_ID', '5214'),
             env('PAYNOW_INTEGRATION_KEY', '5534bfbf-30d3-408a-876e-14ea26b00ad9'),

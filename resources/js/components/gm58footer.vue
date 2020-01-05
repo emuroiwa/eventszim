@@ -8,7 +8,7 @@
                         <!-- Sell Tickets-->
                         <section class="widget widget-light-skin">
                         <h3 class="widget-title">Sell Tickets With Us</h3>
-                        <p class="text-white opacity-90">The leader in online ticket sales in Zimbabwe.</p>
+                        <p class="text-white opacity-90">TicketBook is the leader in online ticket sales in Zimbabwe.</p>
                         <a class="btn btn-primary" href="">Sell With Us</a>
                         </section>
                     </div>

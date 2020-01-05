@@ -71,18 +71,19 @@ class PaymentsController extends Controller
     }
     public function mail()
     {
-    $name = 'Krunal';
-    Mail::to('emuroiwa@gmail.com')->from('emuroiwa@gmail.com')->send(new SendMailable($name));
-    
-    return 'Email was sent';
+        $objDemo = new \stdClass();
+        $objDemo->demo_one = 'Demo One Value';
+        $objDemo->demo_two = 'Demo Two Value';
+        $objDemo->sender = 'SenderUserName';
+        $objDemo->receiver = 'ReceiverUserName';
+ 
+        Mail::to("emuroiwa@gmail.com")->send(new SendMailable($objDemo));
     }
     public function sendmail(Request $request){
-        $this->mail();
         $data["email"]=$request['email'];
         $data["subject"]=$request['subject'];
         $data["client_name"]=$request['client_name'];
         $data["from_email"]=$request['email'];
-        print_r($data);
         // $dataPDF = getPayslipDetails($request['employee'],'current');
         //  $data['PDFcaption']=$dataPDF->employee_number.$dataPDF->last_names;
         //print_r($data);

@@ -9,7 +9,7 @@
         :width="150" class="text-center"></loading>
         <slider :eventData="this.eventData"></slider>
         <catergories :eventData="this.eventData"></catergories>
-        <catergories :eventData="this.eventData"></catergories>
+        <!-- <catergories :eventData="this.eventData"></catergories> -->
         <gm58footer></gm58footer>
     </div>
 

@@ -2449,6 +2449,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2472,12 +2474,12 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     totalZWL: function totalZWL() {
       return this.orders.reduce(function (total, item) {
-        return total + item.price_zwl;
+        return total + item.total_zwl;
       }, 0);
     },
     totalUSD: function totalUSD() {
       return this.orders.reduce(function (total, item) {
-        return total + item.price_usd;
+        return total + item.total_usd;
       }, 0);
     },
     totalTickets: function totalTickets() {
@@ -2603,6 +2605,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this4 = this;
 
     Fire.$on('user', function (user) {
+      _this4.getOrders();
+    });
+    Fire.$on('checkAvaliablity', function () {
       _this4.getOrders();
     });
     this.getOrders();
@@ -65836,10 +65841,9 @@ var render = function() {
                     _vm._l(_vm.orders, function(order) {
                       return _c("tr", { key: order.id }, [
                         _c("td", { staticStyle: { width: "40%" } }, [
-                          _vm._v(
-                            _vm._s(order.event_name) +
-                              "\n                        "
-                          ),
+                          _vm._v(_vm._s(order.event_name) + " "),
+                          _c("small", [_vm._v(_vm._s(order.description))]),
+                          _vm._v(" "),
                           order.venue && order.town
                             ? _c("p", { staticClass: "font-weight-bold" }, [
                                 _vm._v(
@@ -65857,6 +65861,16 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", { staticStyle: { width: "26%" } }, [
+                          _c("p", [
+                            _c("small", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm._f("formatNumber")(order.price_zwl)
+                                ) + " each "
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
                           _c("span", { staticClass: "badge badge-info" }, [
                             _vm._v("ZWL")
                           ]),
@@ -65872,6 +65886,16 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", { staticStyle: { width: "26%" } }, [
+                          _c("p", [
+                            _c("small", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm._f("formatNumber")(order.price_usd)
+                                ) + " each "
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
                           _c("span", { staticClass: "badge badge-success" }, [
                             _vm._v("USD")
                           ]),
@@ -66379,7 +66403,9 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-white opacity-90" }, [
-            _vm._v("The leader in online ticket sales in Zimbabwe.")
+            _vm._v(
+              "TicketBook is the leader in online ticket sales in Zimbabwe."
+            )
           ]),
           _vm._v(" "),
           _c("a", { staticClass: "btn btn-primary", attrs: { href: "" } }, [
@@ -66820,8 +66846,6 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("slider", { attrs: { eventData: this.eventData } }),
-      _vm._v(" "),
-      _c("catergories", { attrs: { eventData: this.eventData } }),
       _vm._v(" "),
       _c("catergories", { attrs: { eventData: this.eventData } }),
       _vm._v(" "),

@@ -25,13 +25,15 @@
                 </thead>
                 <tbody>
                     <tr v-for="order in orders" :key="order.id">
-                        <td style="width:40%">{{order.event_name}}
+                        <td style="width:40%">{{order.event_name}} <small>{{order.description}}</small>
                             <p v-if="order.venue && order.town" class="font-weight-bold">Venue {{order.venue}} {{order.town}}</p></td>
                         <td style="width:5%">{{order.quantity}} </td>
                         <td style="width:26%">  
+                            <p><small>{{order.price_zwl | formatNumber}} each </small></p>
                             <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
                         </td>
                         <td style="width:26%">
+                           <p><small>{{order.price_usd | formatNumber}} each </small></p>
                            <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
                             </td>
                         <td style="width:3%"><a href="#"  class="btn btn-danger" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
@@ -144,12 +146,12 @@
         computed:{
             totalZWL: function(){
                 return this.orders.reduce(function(total, item){
-                return total + item.price_zwl; 
+                return total + item.total_zwl; 
                 },0);
             },
             totalUSD: function(){
                 return this.orders.reduce(function(total, item){
-                return total + item.price_usd; 
+                return total + item.total_usd; 
                 },0);
             },
             totalTickets: function(){
@@ -282,10 +284,14 @@
         },
         created(){
 
-             Fire.$on('user',(user) =>{
+            Fire.$on('user',(user) =>{
                 this.getOrders()
             });
+            
+            Fire.$on('checkAvaliablity',() =>{
             this.getOrders()
+             });
+             this.getOrders()
 
         }
     }
