@@ -56,8 +56,8 @@ class OrderController extends Controller
     public function show($id)
     {
         
-        return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
-        ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        return Orders::leftJoin('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->leftJoin('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
         ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
         ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
         ->where('user_id','=',$id)

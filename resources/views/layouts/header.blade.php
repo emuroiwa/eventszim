@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @include('meta::manager',
+    [
+        'title'         => 'Ticketbook Online tickets and events',
+        'description'   => 'This is my example description',
+        'keywords'      =>  'webtickets, webticket, online ticketing, online tickets, e-tickets, etickets, ticket, tickets, ticketing, buy tickets, ticket system, sell tickets, ticketing system, ticketing agent, ticket agent, ticket sales agent, rapid tickets, itickets, clicknpay, quicket, nutickets, events, tours',
+    ])
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

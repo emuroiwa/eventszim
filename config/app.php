@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
+        Davmixcool\MetaManager\MetaServiceProvider::class,
 
         /*
          * Package Service Providers...

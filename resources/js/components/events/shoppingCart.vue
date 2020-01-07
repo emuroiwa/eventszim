@@ -196,7 +196,11 @@
             
              },
             submitPayment(){
-                //this.isLoading = true;
+                //refactor here for v2
+                if(this.form.email_ticket != this.form.confirm_email){
+                    swal.fire("Failed!", "Make sure emails match ", "warning");
+                    return;
+                }
                     this.form.user_id = this.checkCookie();
                     this.form.payment_type = this.paymentMethod;
                     this.form.total_USD = this.totalUSD;

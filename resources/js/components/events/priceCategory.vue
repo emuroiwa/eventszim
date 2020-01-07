@@ -12,44 +12,51 @@
                     </div>
                 </div>
         </div> -->
-        <form @submit.prevent="">
-            <!-- <div class="collapse mt-1" id="priceCategory"> -->
-                <!-- {{eventData.events[0].price_categories}} -->
-                <div class="card card-body  border-primary mt-1" v-for="event in eventData.events[0].price_categories" :key="event.id">
-                    <div class="row">
-                        <div class="col-md-6 font-weight-bold">
-                            {{event.description}}
-                        </div>
-                        <div class="col-md-3">
-                            <span class="badge badge-info">ZWL</span> {{event.price_zwl | formatNumber}}<br/>
-                            <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-control"  @change="onChangeTickets($event)">
-                                <option>0</option>
-                                <option v-for="index in event.max_tickets" :key="index" :data-id="event.id">
-                                    {{index}}
-                                </option>
-                               
-                            </select>
+        <div v-if="eventData.events[0].price_categories.length > 0">
+            <form @submit.prevent="">
+                <!-- <div class="collapse mt-1" id="priceCategory"> -->
+                    <!-- {{eventData.events[0].price_categories}} -->
+                    <div class="card card-body  border-primary mt-1" v-for="event in eventData.events[0].price_categories" :key="event.id">
+                        <div class="row">
+                            <div class="col-md-6 font-weight-bold">
+                                {{event.description}}
+                            </div>
+                            <div class="col-md-3">
+                                <span class="badge badge-info">ZWL</span> {{event.price_zwl | formatNumber}}<br/>
+                                <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control"  @change="onChangeTickets($event)">
+                                    <option>0</option>
+                                    <option v-for="index in event.max_tickets" :key="index" :data-id="event.id">
+                                        {{index}}
+                                    </option>
+                                
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="collapse mt-1" id="priceOverview">
-                    <ul class="timeline">
-                        <h3>Tickets Selected</h3>
-                        <li v-for="order in orders" :key="order.id" class="font-weight-bold">
-                            
-                            {{order.quantity}} X {{order.description}} <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}} <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}} 
-                        </li>
-                        <li>
-                            <cartItems :cartPage="this.cartPage"></cartItems>
-                        </li>
-                    </ul>
-                </div>
-            <!-- </div> -->
+                    <div class="collapse mt-1" id="priceOverview">
+                        <ul class="timeline">
+                            <h3>Tickets Selected</h3>
+                            <li v-for="order in orders" :key="order.id" class="font-weight-bold">
+                                
+                                {{order.quantity}} X {{order.description}} <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}} <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}} 
+                            </li>
+                            <li>
+                                <cartItems :cartPage="this.cartPage"></cartItems>
+                            </li>
+                        </ul>
+                    </div>
+                <!-- </div> -->
 
-        </form>
+            </form>
+        </div>
+        <div v-else>
+            <div class="card card-body  border-danger mt-1">
+                <h3>No tickets for this event</h3>
+            </div>
+        </div>
     </div>
 </template>
 

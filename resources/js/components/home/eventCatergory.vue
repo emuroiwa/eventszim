@@ -1,26 +1,17 @@
 <template>
 <div class="top-content">
     <div class="container-fluid catergory-container">
-        <h3 class="text-primary">Trending</h3>
+        <h3 class="text-primary"></h3>
         <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
-                        <div class="card grow gm58-slider-card" >
-                            <div> 
-                                <!-- <div class="overlay"></div> -->
-                                <img class="card-img-top" :src="event.event_img" :alt="event.event_name">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{event.event_name}} </h5>
-                                <h5 class="card-title  text-center mt-1">{{event.venue}}</h5>
-                                <p class="card-text  text-center">{{event.start_date | myDate}}</p>
-                            </div>
-                            <div class="card-footer gm58-footer footer-caption" v-if="event.price_categories[0]">
-                                From {{event.price_categories[0].price_usd | formatNumber}}
-                            </div>
-                            <div class="card-footer gm58-footer footer-caption" v-else>
-                                Read More
+                        <div class="card bg-dark text-white">
+                            <img class="card-img" src="" alt="Card image">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
                             </div>
                         </div>
                     </router-link>

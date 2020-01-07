@@ -27,6 +27,7 @@
     "dependencies": {
         "moment": "^2.24.0",
         "sweetalert2": "^9.5.4",
+        "swiper": "^5.2.1",
         "vform": "^1.0.1",
         "vue-loading-overlay": "^3.2.0",
         "vue-router": "^3.1.3",

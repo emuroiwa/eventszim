@@ -1,4 +1,5 @@
-    <div id="app">
+    
+   <div id="app">
         @include('layouts.header')        
         <main id="main">
             <router-view></router-view>
