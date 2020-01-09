@@ -1,6 +1,9 @@
 <template>
     <div>
+        
+ 
         <div class="event" :style="{ 'background-image': 'url(' + eventData.events[0].event_img + ')' }">
+            
             <div class="row gm58-event">
                 
                 <div class="col-md-5">
@@ -60,8 +63,11 @@
     export default {
          props: ['id'],
         data(){
+
             return{
-                eventData:{}
+                eventData:{},
+                isLoading: true,
+                fullPage: true,
 
             }
         },
@@ -82,13 +88,17 @@
         },
         created(){
 
-             Fire.$on('user',(user) =>{
+            Fire.$on('user',(user) =>{
                 this.selectedEvent()
             });
             Fire.$emit('indexLoaded') 
 
+            Fire.$on('user',() =>{
+                this.selectedEvent()
+            });
+
             this.getEvent();
-            $('.event').css('background-image','url(img/slide/event.jpg) !important');
+            
         }
     }
 </script>

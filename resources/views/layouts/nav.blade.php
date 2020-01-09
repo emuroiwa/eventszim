@@ -3,7 +3,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Laravel') }} --}}
-            <img src="{{ URL::to('/img/logo.jpg') }}">
+            <img src="{{ URL::to('/img/logo.png') }}">
         </a>
         {{--  header for mobile  --}}
         {{-- <div class="navbar-toggler">

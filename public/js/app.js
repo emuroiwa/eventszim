@@ -1971,12 +1971,41 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
-    getCartItems: function getCartItems() {
+    cancelOrder: function cancelOrder() {
       var _this = this;
+
+      swal.fire({
+        icon: 'info',
+        title: 'Are you sure?',
+        text: 'You want to cancel order',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, cancel it!'
+      }).then(function (result) {
+        // Send request to the server
+        if (result.value) {
+          axios.put('api/orders/' + _this.getCookie('gm58baba'), {
+            status: 3
+          }).then(function () {
+            _this.getCartItems();
+
+            Fire.$emit('user', _this.user);
+            Fire.$emit('checkAvaliablity');
+            swal.fire('Canceled!', 'Your file has been Canceled.', 'success');
+          })["catch"](function () {
+            swal.fire("Failed!", "There was something wrong. " + error, "warning");
+          });
+        }
+      });
+    },
+    getCartItems: function getCartItems() {
+      var _this2 = this;
 
       axios.get("api/cartItems/" + this.getCookie('gm58baba')).then(function (_ref) {
         var data = _ref.data;
-        _this.itemsInCart = data;
+        _this2.itemsInCart = data;
       })["catch"](function (error) {
         // console.log(rror.response)
         swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
@@ -1984,16 +2013,19 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     Fire.$on('checkAvaliablity', function () {
-      _this2.getCartItems();
+      _this3.getCartItems();
     });
     Fire.$on('indexLoaded', function () {
-      _this2.getCartItems();
+      _this3.getCartItems();
     });
     Fire.$on('orderCreated', function () {
-      _this2.getCartItems();
+      _this3.getCartItems();
+    });
+    Fire.$on('cancelOrder', function () {
+      _this3.cancelOrder();
     });
   }
 });
@@ -2135,11 +2167,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   data: function data() {
     return {
-      eventData: {}
+      eventData: {},
+      isLoading: true,
+      fullPage: true
     };
   },
   methods: {
@@ -2167,8 +2204,10 @@ __webpack_require__.r(__webpack_exports__);
       _this2.selectedEvent();
     });
     Fire.$emit('indexLoaded');
+    Fire.$on('user', function () {
+      _this2.selectedEvent();
+    });
     this.getEvent();
-    $('.event').css('background-image', 'url(img/slide/event.jpg) !important');
   }
 });
 
@@ -2452,20 +2491,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       orders: {},
       paymentMethod: '',
-      isLoading: false,
-      fullPage: true,
       form: new Form({
         user_id: '',
         order_id: '',
@@ -2525,6 +2555,11 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
+    },
+    cancelOrder: function cancelOrder() {
+      Fire.$emit('cancelOrder');
+      $('#shoppingCartModal').modal('hide');
+      this.paymentMethod = "";
     },
     submitPayment: function submitPayment() {
       var _this2 = this;
@@ -65301,10 +65336,11 @@ var render = function() {
             "a",
             {
               staticClass: "nav-link font-weight-bold",
-              attrs: {
-                href: "#",
-                "data-toggle": "modal",
-                "data-target": "#shoppingCartModal"
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  return _vm.cancelOrder()
+                }
               }
             },
             [_vm._v(" \n            Cancel order\n        ")]
@@ -65832,492 +65868,465 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("loading", {
-        staticClass: "text-center",
-        attrs: {
-          active: _vm.isLoading,
-          "can-cancel": false,
-          loader: "spinner",
-          "is-full-page": _vm.fullPage,
-          color: "#3490DC",
-          height: 150,
-          width: 150
-        },
-        on: {
-          "update:active": function($event) {
-            _vm.isLoading = $event
-          }
-        }
-      }),
-      _vm._v(" "),
-      !_vm.orders.length
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "card card-body border-danger table-responsive  align-items-center"
-            },
-            [
-              _c("img", {
-                staticClass: "empty-cart",
-                attrs: { src: "/img/paymentlogo/emptycart.png" }
-              })
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.orders.length
-        ? _c(
-            "div",
-            { staticClass: "card card-body border-info table-responsive" },
-            [
+  return _c("div", [
+    !_vm.orders.length
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "card card-body border-danger table-responsive  align-items-center"
+          },
+          [
+            _c("img", {
+              staticClass: "empty-cart",
+              attrs: { src: "/img/paymentlogo/emptycart.png" }
+            })
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.orders.length
+      ? _c(
+          "div",
+          { staticClass: "card card-body border-info table-responsive" },
+          [
+            _c("table", { staticClass: "table table-hover table-responsive" }, [
+              _vm._m(0),
+              _vm._v(" "),
               _c(
-                "table",
-                { staticClass: "table table-hover table-responsive" },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.orders, function(order) {
-                      return _c("tr", { key: order.id }, [
-                        _c("td", { staticStyle: { width: "40%" } }, [
-                          _vm._v(_vm._s(order.event_name) + " "),
-                          _c("small", [_vm._v(_vm._s(order.description))]),
-                          _vm._v(" "),
-                          order.venue && order.town
-                            ? _c("p", { staticClass: "font-weight-bold" }, [
-                                _vm._v(
-                                  "Venue " +
-                                    _vm._s(order.venue) +
-                                    " " +
-                                    _vm._s(order.town)
-                                )
-                              ])
-                            : _vm._e()
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticStyle: { width: "5%" } }, [
-                          _vm._v(_vm._s(order.quantity) + " ")
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticStyle: { width: "26%" } }, [
-                          _c("p", [
-                            _c("small", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm._f("formatNumber")(order.price_zwl)
-                                ) + " each "
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "badge badge-info" }, [
-                            _vm._v("ZWL")
-                          ]),
+                "tbody",
+                _vm._l(_vm.orders, function(order) {
+                  return _c("tr", { key: order.id }, [
+                    _c("td", { staticStyle: { width: "40%" } }, [
+                      _vm._v(_vm._s(order.event_name) + " "),
+                      _c("small", [_vm._v(_vm._s(order.description))]),
+                      _vm._v(" "),
+                      order.venue && order.town
+                        ? _c("p", { staticClass: "font-weight-bold" }, [
+                            _vm._v(
+                              "Venue " +
+                                _vm._s(order.venue) +
+                                " " +
+                                _vm._s(order.town)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "5%" } }, [
+                      _vm._v(_vm._s(order.quantity) + " ")
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "26%" } }, [
+                      _c("p", [
+                        _c("small", [
                           _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm._f("formatNumber")(
-                                  order.price_zwl * order.quantity
-                                )
-                              ) +
-                              "\n                    "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticStyle: { width: "26%" } }, [
-                          _c("p", [
-                            _c("small", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm._f("formatNumber")(order.price_usd)
-                                ) + " each "
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "badge badge-success" }, [
-                            _vm._v("USD")
-                          ]),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm._f("formatNumber")(
-                                  order.price_usd * order.quantity
-                                )
-                              ) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticStyle: { width: "3%" } }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-danger",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteTicket(order.id)
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-trash-alt" })]
+                            _vm._s(_vm._f("formatNumber")(order.price_zwl)) +
+                              " each "
                           )
                         ])
-                      ])
-                    }),
-                    0
-                  ),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("th", { staticStyle: { width: "20%" } }, [
-                      _vm._v("Total")
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticStyle: { width: "5%" } }, [
-                      _vm._v(_vm._s(_vm.totalTickets))
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticStyle: { width: "35%" } }, [
+                      ]),
+                      _vm._v(" "),
                       _c("span", { staticClass: "badge badge-info" }, [
                         _vm._v("ZWL")
                       ]),
-                      _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
+                      _vm._v(
+                        " " +
+                          _vm._s(
+                            _vm._f("formatNumber")(
+                              order.price_zwl * order.quantity
+                            )
+                          ) +
+                          "\n                    "
+                      )
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "th",
-                      {
-                        staticStyle: { width: "35%" },
-                        attrs: { colspan: "2" }
-                      },
-                      [
-                        _c("span", { staticClass: "badge badge-success" }, [
-                          _vm._v("USD")
-                        ]),
-                        _vm._v(
-                          " " + _vm._s(_vm._f("formatNumber")(_vm.totalUSD))
-                        )
-                      ]
-                    )
+                    _c("td", { staticStyle: { width: "26%" } }, [
+                      _c("p", [
+                        _c("small", [
+                          _vm._v(
+                            _vm._s(_vm._f("formatNumber")(order.price_usd)) +
+                              " each "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "badge badge-success" }, [
+                        _vm._v("USD")
+                      ]),
+                      _vm._v(
+                        " " +
+                          _vm._s(
+                            _vm._f("formatNumber")(
+                              order.price_usd * order.quantity
+                            )
+                          ) +
+                          "\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { width: "3%" } }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteTicket(order.id)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fas fa-trash-alt" })]
+                      )
+                    ])
                   ])
-                ]
-              )
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.orders.length
-        ? _c("div", { staticClass: "card card-body  border-success mt-1" }, [
-            _c("h4", [_vm._v("Select Payment Method")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card card-body  border-danger grow",
-                    on: {
-                      click: function($event) {
-                        return _vm.selectPayment("ecocash", $event)
-                      }
-                    }
-                  },
-                  [
-                    _c("img", {
-                      attrs: { src: "/img/paymentlogo/ecocash.png" }
-                    })
-                  ]
-                )
-              ]),
+                }),
+                0
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("tr", [
+                _c("th", { staticStyle: { width: "20%" } }, [_vm._v("Total")]),
+                _vm._v(" "),
+                _c("th", { staticStyle: { width: "5%" } }, [
+                  _vm._v(_vm._s(_vm.totalTickets))
+                ]),
+                _vm._v(" "),
+                _c("th", { staticStyle: { width: "35%" } }, [
+                  _c("span", { staticClass: "badge badge-info" }, [
+                    _vm._v("ZWL")
+                  ]),
+                  _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
+                ]),
+                _vm._v(" "),
                 _c(
-                  "div",
-                  {
-                    staticClass: "card card-body  border-primary grow",
-                    on: {
-                      click: function($event) {
-                        return _vm.selectPayment("paypal", $event)
-                      }
-                    }
-                  },
-                  [_c("img", { attrs: { src: "/img/paymentlogo/paypal.png" } })]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card card-body  border-warning grow",
-                    on: {
-                      click: function($event) {
-                        return _vm.selectPayment("paynow", $event)
-                      }
-                    }
-                  },
+                  "th",
+                  { staticStyle: { width: "35%" }, attrs: { colspan: "2" } },
                   [
-                    _c("img", {
-                      attrs: { src: "/img/paymentlogo/zimswitch.jpg" }
-                    })
+                    _c("span", { staticClass: "badge badge-success" }, [
+                      _vm._v("USD")
+                    ]),
+                    _vm._v(" " + _vm._s(_vm._f("formatNumber")(_vm.totalUSD)))
                   ]
                 )
               ])
             ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.paymentMethod
-        ? _c(
-            "div",
-            {
-              staticClass: "card card-body border-info mt-1",
-              attrs: { id: "customer" }
-            },
-            [
-              _c("h5", [
-                _vm._v(
-                  " Complete the payment details below to secure your tickets."
-                )
-              ]),
-              _vm._v(" "),
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.orders.length
+      ? _c("div", { staticClass: "card card-body  border-success mt-1" }, [
+          _c("h4", [_vm._v("Select Payment Method")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-4" }, [
               _c(
-                "form",
+                "div",
                 {
+                  staticClass: "card card-body  border-danger grow",
                   on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.submitPayment()
+                    click: function($event) {
+                      return _vm.selectPayment("ecocash", $event)
+                    }
+                  }
+                },
+                [_c("img", { attrs: { src: "/img/paymentlogo/ecocash.png" } })]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card card-body  border-primary grow",
+                  on: {
+                    click: function($event) {
+                      return _vm.selectPayment("paypal", $event)
+                    }
+                  }
+                },
+                [_c("img", { attrs: { src: "/img/paymentlogo/paypal.png" } })]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card card-body  border-warning grow",
+                  on: {
+                    click: function($event) {
+                      return _vm.selectPayment("paynow", $event)
                     }
                   }
                 },
                 [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-6" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", { attrs: { for: "fullname" } }, [
-                            _vm._v("Full Name")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.fullname,
-                                expression: "form.fullname"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("fullname")
-                            },
-                            attrs: {
-                              type: "text",
-                              name: "fullname",
-                              placeholder: "Full Name"
-                            },
-                            domProps: { value: _vm.form.fullname },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "fullname",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "fullname" }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _vm.paymentMethod == "ecocash"
-                            ? _c("label", { attrs: { for: "contact" } }, [
-                                _c("b", [_vm._v("ECOCASH NUMBER")])
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.paymentMethod != "ecocash"
-                            ? _c("label", { attrs: { for: "contact" } }, [
-                                _vm._v("Contact Number")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.contact,
-                                expression: "form.contact"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("contact")
-                            },
-                            attrs: {
-                              type: "number",
-                              name: "contact",
-                              maxlength: "10",
-                              placeholder: "eg 0771111111"
-                            },
-                            domProps: { value: _vm.form.contact },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "contact",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "contact" }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-6" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.email_ticket,
-                                expression: "form.email_ticket"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("email_ticket")
-                            },
-                            attrs: {
-                              type: "email",
-                              name: "email_ticket",
-                              placeholder: "Tickets Email"
-                            },
-                            domProps: { value: _vm.form.email_ticket },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "email_ticket",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "email_ticket" }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", { attrs: { for: "confirm_email" } }, [
-                            _vm._v("Confirm Email")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.confirm_email,
-                                expression: "form.confirm_email"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("confirm_email")
-                            },
-                            attrs: {
-                              type: "email",
-                              name: "confirm_email",
-                              placeholder: "Confirm Email"
-                            },
-                            domProps: { value: _vm.form.confirm_email },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "confirm_email",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "confirm_email" }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(2)
+                  _c("img", {
+                    attrs: { src: "/img/paymentlogo/zimswitch.jpg" }
+                  })
                 ]
               )
-            ]
-          )
-        : _vm._e()
-    ],
-    1
-  )
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.paymentMethod
+      ? _c(
+          "div",
+          {
+            staticClass: "card card-body border-info mt-1",
+            attrs: { id: "customer" }
+          },
+          [
+            _c("h5", [
+              _vm._v(
+                " Complete the payment details below to secure your tickets."
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submitPayment()
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "fullname" } }, [
+                          _vm._v("Full Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.fullname,
+                              expression: "form.fullname"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("fullname")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "fullname",
+                            placeholder: "Full Name"
+                          },
+                          domProps: { value: _vm.form.fullname },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "fullname",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "fullname" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _vm.paymentMethod == "ecocash"
+                          ? _c("label", { attrs: { for: "contact" } }, [
+                              _c("b", [_vm._v("ECOCASH NUMBER")])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.paymentMethod != "ecocash"
+                          ? _c("label", { attrs: { for: "contact" } }, [
+                              _vm._v("Contact Number")
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.contact,
+                              expression: "form.contact"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("contact")
+                          },
+                          attrs: {
+                            type: "number",
+                            name: "contact",
+                            maxlength: "10",
+                            placeholder: "eg 0771111111"
+                          },
+                          domProps: { value: _vm.form.contact },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "contact", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "contact" }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.email_ticket,
+                              expression: "form.email_ticket"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("email_ticket")
+                          },
+                          attrs: {
+                            type: "email",
+                            name: "email_ticket",
+                            placeholder: "Tickets Email"
+                          },
+                          domProps: { value: _vm.form.email_ticket },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "email_ticket",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "email_ticket" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", { attrs: { for: "confirm_email" } }, [
+                          _vm._v("Confirm Email")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.confirm_email,
+                              expression: "form.confirm_email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("confirm_email")
+                          },
+                          attrs: {
+                            type: "email",
+                            name: "confirm_email",
+                            placeholder: "Confirm Email"
+                          },
+                          domProps: { value: _vm.form.confirm_email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "confirm_email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "confirm_email" }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "text-danger",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.cancelOrder()
+                        }
+                      }
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -66350,21 +66359,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("button", { staticClass: "btn btn-info", attrs: { type: "submit" } }, [
-        _c("i", { staticClass: "fas fa-shopping-cart" }),
-        _vm._v(" Check Out")
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "text-danger",
-          attrs: { href: "#", "data-dismiss": "modal" }
-        },
-        [_vm._v("Cancel")]
-      )
-    ])
+    return _c(
+      "button",
+      { staticClass: "btn btn-info", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fas fa-shopping-cart" }), _vm._v(" Check Out")]
+    )
   }
 ]
 render._withStripped = true

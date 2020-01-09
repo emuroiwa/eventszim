@@ -9,7 +9,7 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shoppingCartModal">
             {{itemsInCart}} <i class="fas fa-shopping-cart d-inline "></i> Checkout 
             </button>
-            <a class="nav-link font-weight-bold" href="#"  data-toggle="modal" data-target="#shoppingCartModal"> 
+            <a class="nav-link font-weight-bold" href="#"  @click="cancelOrder()"> 
                 Cancel order
             </a>
         </div>
@@ -69,6 +69,37 @@
                 }
                 return "";
             },
+            cancelOrder(){
+                swal.fire({
+                    icon: 'info',
+                    title: 'Are you sure?',
+                    text: 'You want to cancel order',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, cancel it!'
+                    }).then((result) => {
+                          // Send request to the server
+                         if (result.value) {
+                             axios.put('api/orders/'+ this.getCookie('gm58baba'), {
+                                        status: 3
+                                    }).then(()=>{
+                                        this.getCartItems();
+                                        
+                                        Fire.$emit('user',this.user);
+                                        Fire.$emit('checkAvaliablity');
+                                        swal.fire(
+                                            'Canceled!',
+                                            'Your file has been Canceled.',
+                                            'success'
+                                            )
+                                        }).catch(()=> {
+                                                swal.fire("Failed!", "There was something wrong. "+error, "warning");
+                                        });
+                         }
+                    })
+            },
            getCartItems(){
                 axios.get("api/cartItems/"+ this.getCookie('gm58baba')).then(({ data }) => {
                     this.itemsInCart = data;
@@ -90,6 +121,9 @@
             });
             Fire.$on('orderCreated',() => {
                 this.getCartItems();
+            });
+            Fire.$on('cancelOrder',() => {
+                this.cancelOrder();
             });
        }
     }

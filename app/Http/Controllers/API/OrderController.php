@@ -74,10 +74,18 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $order = Orders::find($id);
-        $order->status = 1;
-        $order->save();
+        //print_r($request['status']);
+       
+        if($request['status'] == 1){
+            Orders::where('user_id', $id)
+            ->where('status', 0)
+            ->update( array('status'=>1) );
+        }else{
+            Orders::where('user_id', $id)
+            ->where('status', 0)
+            ->update( array('status'=> $request['status']));
+        }
+        
 
     }
 

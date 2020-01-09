@@ -1,6 +1,6 @@
     
    <div id="app">
-        @include('layouts.header')        
+         @include('layouts.header')        
         <main id="main">
             <router-view></router-view>
         </main>

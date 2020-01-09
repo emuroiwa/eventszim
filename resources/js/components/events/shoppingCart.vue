@@ -1,13 +1,6 @@
 <template>
     <div>
 
-        <loading :active.sync="isLoading" 
-            :can-cancel="false" 
-            :loader="'spinner'"
-            :is-full-page="fullPage"
-            :color="'#3490DC'"
-            :height="150"
-            :width="150" class="text-center"></loading>
         <div class="card card-body border-danger table-responsive  align-items-center" v-if="!orders.length" >
             <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
         </div>
@@ -114,7 +107,7 @@
                 <div class="form-group">
                     
                     <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Check Out</button>
-                    <a href="#" class="text-danger" data-dismiss="modal">Cancel</a>
+                    <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
                     
                 </div>
             </form>
@@ -128,8 +121,7 @@
             return{
                 orders:{},
                 paymentMethod:'',
-                isLoading: false,
-                fullPage: true,
+
                 form: new Form({
                     user_id:'',
                     order_id:'',
@@ -195,6 +187,11 @@
                     })
             
              },
+            cancelOrder(){
+                Fire.$emit('cancelOrder');
+                $('#shoppingCartModal').modal('hide');
+                this.paymentMethod="";
+            },
             submitPayment(){
                 //refactor here for v2
                 if(this.form.email_ticket != this.form.confirm_email){
