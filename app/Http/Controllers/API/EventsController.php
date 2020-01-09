@@ -100,6 +100,9 @@ class EventsController extends Controller
             $jsonResult[$i]["youtube"] = $tableIds[$i]->youtube;
             $jsonResult[$i]["instagram"] = $tableIds[$i]->instagram;
             $jsonResult[$i]["twitter"] = $tableIds[$i]->twitter;
+            $jsonResult[$i]["whatsapp"] = $tableIds[$i]->whatsapp;
+            $jsonResult[$i]["email"] = $tableIds[$i]->email;
+            $jsonResult[$i]["website"] = $tableIds[$i]->website;
             $jsonResult[$i]["id"] = $tableIds[$i]->event_id;
             $id = $tableIds[$i]->event_id;
             $jsonResult[$i]["price_categories"] = DB::select( DB::raw("SELECT * FROM `price_sub_categories` WHERE event_id = $id"));

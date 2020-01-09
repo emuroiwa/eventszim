@@ -20,7 +20,9 @@ Route::get('/home', function () {
 });
 Auth::routes();
 //Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
-
+Route::get('/email', function () {
+    return view('email.emailbody');
+});
 Route::get('paynow/{id}', 'PaynowController@show')->name('paynow');
 Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
 
