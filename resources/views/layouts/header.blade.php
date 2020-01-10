@@ -4,8 +4,8 @@
     @include('meta::manager',
     [
         'title'         => 'Ticketbook Online tickets and events',
-        'description'   => 'This is my example description',
-        'keywords'      =>  'webtickets, webticket, online ticketing, online tickets, e-tickets, etickets, ticket, tickets, ticketing, buy tickets, ticket system, sell tickets, ticketing system, ticketing agent, ticket agent, ticket sales agent, rapid tickets, itickets, clicknpay, quicket, nutickets, events, tours',
+        'description'   => 'Ticketbook offers the most secure and reliable ticketing and e-commerce platform in Zimbabwe.Ecocash,Telecash,Vpayments,Visa and Mastercard are all Accepted.',
+        'keywords'      =>  'webtickets, webticket, online ticketing, online tickets, e-tickets, etickets, ticket, tickets, ticketing, buy tickets, ticket system, sell tickets, ticketing system, ticketing agent, ticket agent, ticket sales agent, rapid tickets, itickets, ClicknPay,Ticketing,Ticket,e-commerce,e-ticketing,event,music,events,ClicknPay Zimbabwe,clicknpay, ticketing , event accreditation, ticketing partner',
     ])
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

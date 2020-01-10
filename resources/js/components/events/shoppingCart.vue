@@ -102,6 +102,13 @@
                     </div>
                         
                 </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="checkbox" id="terms" v-model="form.terms"> <a href="#" @click="terms()"> I accept terms and conditions </a>
+                        </div>
+                    </div>
+                 </div>
 
             <!-- Modal footer -->
                 <div class="form-group">
@@ -132,6 +139,7 @@
                     payment_ref:'',
                     total_ZWL:'',
                     total_USD:'',
+                    terms:false,
                     }),
             }
         },
@@ -187,6 +195,10 @@
                     })
             
              },
+            terms(){
+                let routeData = this.$router.resolve({name: 'terms'});
+                window.open(routeData.href, '_blank');
+            },
             cancelOrder(){
                 Fire.$emit('cancelOrder');
                 $('#shoppingCartModal').modal('hide');
@@ -196,6 +208,10 @@
                 //refactor here for v2
                 if(this.form.email_ticket != this.form.confirm_email){
                     swal.fire("Failed!", "Make sure emails match ", "warning");
+                    return;
+                }
+                if(!this.form.terms){
+                    swal.fire("Failed!", "Please accept terms and condtions to proceed with transactions ", "warning");
                     return;
                 }
                     this.form.user_id = this.checkCookie();
@@ -310,8 +326,9 @@
         text-decoration: none !important;
     }
     a{
-        color: #000 !important;
+        /* color: #000 !important; */
         text-decoration: none !important;
+        
     }
     .gm58-active{
             -webkit-transform: scale(1.10);

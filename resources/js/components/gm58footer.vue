@@ -9,7 +9,9 @@
                         <section class="widget widget-light-skin">
                         <h3 class="widget-title">Sell Tickets With Us</h3>
                         <p class="text-white opacity-90">TicketBook is the leader in online ticket sales in Zimbabwe.</p>
-                        <a class="btn btn-primary" href="">Sell With Us</a>
+                        <router-link to="/sell">
+                            <button class="btn btn-primary" href="">Sell With Us</button>
+                        </router-link>
                         </section>
                     </div>
                         <!-- Find Events-->
@@ -28,10 +30,11 @@
                         <section class="widget widget-links widget-light-skin">
                         <h3 class="widget-title">Help &amp; Info</h3>
                         <ul>
-                            <li><a href="#">Terms and Condtions</a></li>
-                            <li><a href="#">Get Help</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="#">About us</a></li>
+                            <li><router-link to="/terms">Terms and Condtions</router-link ></li>
+                            <li><router-link to="/help">Get Help</router-link ></li>
+                            <li><router-link to="/help">FAQs</router-link ></li>
+                            <li><router-link to="/about">About us</router-link ></li>
+                            <li><router-link to="/contact">Contact us</router-link ></li>
                         </ul>
                         </section>
                     </div>

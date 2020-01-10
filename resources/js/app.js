@@ -49,6 +49,11 @@ let routes = [
     { path: '/home', component: require('./components/home/indexComponent.vue').default },
     { path: '/test', component: require('./components/ExampleComponent.vue').default },
     { path: '/indexEvent', component: require('./components/events/indexEvent.vue').default,props: true,name: 'indexEvent' },
+    { path: '/terms', component: require('./components/company/terms.vue').default,props: true,name: 'terms' },
+    { path: '/contact', component: require('./components/company/contact.vue').default,props: true,name: 'contact' },
+    { path: '/about', component: require('./components/company/about.vue').default,props: true,name: 'about' },
+    { path: '/howto', component: require('./components/company/howto.vue').default,props: true,name: 'howto' },
+    { path: '/sell', component: require('./components/company/sell.vue').default,props: true,name: 'sell' },
     ]; 
 
 const router = new VueRouter({

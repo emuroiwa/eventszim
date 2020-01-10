@@ -5,11 +5,38 @@
 <title>Ticketbook Email</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
+<style>
+	.customers {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	.customers td, .customers th {
+		border: 1px solid whitesmoke;
+		padding: 8px;
+	}
+	
+	.customers th {background-color: grey;}
+	
+	
+	.customers th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: ;
+		
+	}
+	  
+	  .gm58-td {
+		color: red; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 16px;
+	  }
+</style>
 <body style="margin: 0; padding: 0;">
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">	
 		<tr>
 			<td style="padding: 10px 0 30px 0;">
-				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="border: 1px solid #cccccc; border-collapse: collapse;">
 					<tr>
 						<td align="center">
 		
@@ -26,54 +53,38 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
 											Thank you for using Ticketbook,
 									</td>
 								</tr>
 								<tr>
-									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
 										The total cost of the transaction has been debited from your account. Details of your booking appear below. Please check all details carefully, especially dates, times, venues and quantities. If the ticket details are incorrect, please phone our call centre on 0861 915 4000 (calls charged at 65 cent per minute).
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<table border="0" class="customers" cellpadding="0" cellspacing="0" width="100%">
 											<tr>
-												<td width="260" valign="top">
-													<table border="0" cellpadding="0" cellspacing="0" width="100%">
-														<tr>
-															<td>
-																<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/left.gif" alt="" width="100%" height="140" style="display: block;" />
-															</td>
-														</tr>
-														<tr>
-															<td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-																	Company Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert here
-															</td>
-														</tr>
-													</table>
-												</td>
-												<td style="font-size: 0; line-height: 0;" width="20">
-													&nbsp;
-												</td>
-												<td width="260" valign="top">
-													<table border="0" cellpadding="0" cellspacing="0" width="100%">
-														<tr>
-															<td>
-																<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/right.gif" alt="" width="100%" height="140" style="display: block;" />
-															</td>
-														</tr>
-														<tr>
-															<td style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-																	Company Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert hereCompany Advert here
-															</td>
-														</tr>
-													</table>
-												</td>
+												<th>Ticket Reference</th>
+												<th>Ticket Details</th>
+												<th>Number of tickets</th>
+												<th>Cost</th>
+
+											</tr>
+											<tr>
+												<td  class="gm58-td">Ticket Reference</td>
+												<td class="gm58-td">Ticket Details</td>
+												<td class="gm58-td">Number of tickets</td>
+												<td class="gm58-td">Cost</td>
+
 											</tr>
 										</table>
 									</td>
 								</tr>
+								<td style="padding: 20px 0 30px 0; color: red; font-family: Arial, sans-serif; font-size: 9px; line-height: 20px;">
+									PLEASE NOTE: Tickets booked cannot be cancelled, changed or refunded.
+								</td>
 							</table>
 						</td>
 					</tr>
