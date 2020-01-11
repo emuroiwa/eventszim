@@ -20,7 +20,7 @@
                                         Get tickets <i class="fas fa-ticket-alt"></i>
                                     </button>
                                     <button class="btn btn-primary mobile-on">
-                                        Get tickets
+                                        Get tickets <i class="fas fa-ticket-alt"></i>
                                     </button>
                         </div>
                      </router-link>

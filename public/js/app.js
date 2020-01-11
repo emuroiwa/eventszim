@@ -68299,8 +68299,9 @@ var render = function() {
                         { staticClass: "btn btn-primary mobile-on" },
                         [
                           _vm._v(
-                            "\n                                Get tickets\n                            "
-                          )
+                            "\n                                Get tickets "
+                          ),
+                          _c("i", { staticClass: "fas fa-ticket-alt" })
                         ]
                       )
                     ]
