@@ -1,11 +1,18 @@
 <template>
-  
-          <div class="event" :style="{ 'background-image': 'url(' + eventData.events[0].event_img + ')' }">
+    <div class="container" :style="{ 'background-image': 'url(' + eventData.events[0].event_img + ')' }">
+        <loading :active.sync="isLoading" 
+        :can-cancel="false" 
+        :loader="'spinner'"
+        :is-full-page="fullPage"
+        :color="'#3490DC'"
+        :height="150"
+        :width="150" class="text-center"></loading>
+        <div class="event">
             
             <div class="row gm58-event">
                 
                 <div class="col-md-5">
-                    <div class="card h-100 border-primary mb-4 mt-3">
+                    <div class="card h-75 border-primary mt-3">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
                             <!-- <h5>Choose Venue & Date/Time</h5> -->
@@ -52,6 +59,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
 </template>
 
@@ -69,8 +77,10 @@
         },
         methods: {
              getEvent(){
+                 this.isLoading = true;
                  axios.get("api/events/" + this.$route.query.event).then(({ data }) => {
                         this.eventData = data;
+                        this.isLoading = false;
                     }).catch((error)=>{
                     // console.log(rror.response)
                     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
@@ -104,5 +114,8 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; 
+}
+.container{
+    max-width: 100%;
 }
 </style>

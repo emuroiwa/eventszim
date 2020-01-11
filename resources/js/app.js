@@ -37,6 +37,7 @@ import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
+import addCustomer from './components/events/customerDetails';
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -49,6 +50,7 @@ let routes = [
     { path: '/home', component: require('./components/home/indexComponent.vue').default },
     { path: '/test', component: require('./components/ExampleComponent.vue').default },
     { path: '/indexEvent', component: require('./components/events/indexEvent.vue').default,props: true,name: 'indexEvent' },
+    { path: '/cart', component: require('./components/events/shoppingCart.vue').default,props: true,name: 'cart' },
     { path: '/terms', component: require('./components/company/terms.vue').default,props: true,name: 'terms' },
     { path: '/contact', component: require('./components/company/contact.vue').default,props: true,name: 'contact' },
     { path: '/about', component: require('./components/company/about.vue').default,props: true,name: 'about' },
@@ -79,9 +81,14 @@ Vue.filter('formatNumber', function(value){
   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 });
 
+Vue.filter('isMobile', function(){
+  let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+  return isMobile;
+});
 Vue.component('Loading',Loading)
 
 Vue.component('gm58footer', gm58footer)
+Vue.component('addCustomer', addCustomer)
 Vue.component('gm58header', gm58header)
 Vue.component('slider', slider)
 Vue.component('cartItems', cartItems)

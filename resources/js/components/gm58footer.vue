@@ -20,7 +20,7 @@
                             <section class="widget widget-links widget-light-skin">
                                 <h3 class="widget-title">Find Events</h3>
                                 <ul>
-                                    <li><a href="#">Browse</a></li>
+                                    <li><router-link to="/home">Browse</router-link></li>
 
                                 </ul>
                             </section>

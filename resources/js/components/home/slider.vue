@@ -16,12 +16,13 @@
                             <h2>{{event.event_name}}</h2>
                             <h3>{{event.start_date | myDate}}</h3>
                                 
-                                    <button class="btn-lg btn-primary mobile-off">
+                                    <button class="btn btn-primary" v-if="isMobile">
+                                        Get tickets <i class="fas fa-ticket-alt"></i> {{isMobile}}
+                                    </button>
+                                    <button class="btn-lg btn-primary" v-else>
                                         Get tickets <i class="fas fa-ticket-alt"></i>
                                     </button>
-                                    <button class="btn btn-primary mobile-on">
-                                        Get tickets <i class="fas fa-ticket-alt"></i>
-                                    </button>
+                            
                         </div>
                      </router-link>
                 </div>
@@ -46,6 +47,11 @@
         props: {
             eventData: Object
         },
+        data(){
+            return {
+                isMobile:false,
+            }
+        },
         computed:{
             totalDeductions: function(){
                  var sliders = this.eventData.filter(function(eventData) {
@@ -56,7 +62,8 @@
            
         },
         mounted() {
-            console.log('Component mounted.')
+            isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+            console.log(isMobile)
         },
         data(){
             return{
@@ -67,7 +74,7 @@
             
         },
         created(){
-
+           
         }
     }
 </script>

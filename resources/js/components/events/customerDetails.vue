@@ -1,158 +1,179 @@
 <template>
-    <div class="container">
+    <div>
+        <loading :active.sync="isLoading" 
+        :can-cancel="false" 
+        :loader="'spinner'"
+        :is-full-page="fullPage"
+        :color="'#3490DC'"
+        :height="150"
+        :width="150" class="text-center"></loading>
+        <h5> Complete the payment details below to secure your tickets.</h5>
+                        <form @submit.prevent="submitPayment()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullname">Full Name</label>
+                                        <input v-model="form.fullname" type="text" name="fullname"  class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }">
+                                        <has-error :form="form" field="fullname"></has-error>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
+                                        <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>
+                                        <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
+                                        <has-error :form="form" field="contact"></has-error>
+                                    </div>
+                                </div>
 
-        <form @submit.prevent="create()">
-            <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email_ticket"><b>Email To Send Tickets To</b></label>
+                                        <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
+                                        <has-error :form="form" field="email_ticket"></has-error>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="confirm_email">Confirm Email</label>
+                                        <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
+                                        <has-error :form="form" field="confirm_email"></has-error>
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="checkbox" id="terms" v-model="form.terms"> <a href="#" @click="terms()"> I accept terms and conditions </a>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input v-model="form.fullname" type="text" name="fullname" placeholder="Full Name" class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }">
-                    <has-error :form="form" field="fullname"></has-error>
-                </div>
-
-                <div class="form-group">
-                    <label for="contact">Contact Number</label>
-                    <input v-model="form.contact" type="number" name="contact" placeholder="Contact" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
-                    <has-error :form="form" field="contact"></has-error>
-                </div>
-
-            </div>
-            <div class="row">
-
-                <div class="form-group">
-                    <label for="email_ticket">Email To send tickets to</label>
-                    <input v-model="form.email_ticket" type="email" name="email_ticket" placeholder="Full Name" class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
-                    <has-error :form="form" field="email_ticket"></has-error>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirm_email">Confirm Email</label>
-                    <input v-model="form.confirm_email" type="email" name="confirm_email" placeholder="confirm_email" class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
-                    <has-error :form="form" field="confirm_email"></has-error>
-                </div>
-                
-            </div>
-
- 
-        </form>
+                            <div class="form-group">
+                                
+                                <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Check Out</button>
+                                <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
+                                
+                            </div>
+                        </form>
     </div>
 </template>
 <script>
     export default {
-
+        props: {
+            paymentType: String,
+            total_USD: Number,
+            total_ZWL: Number
+        },
         data() {
             return {
-                company:1,
-                tax_period:1,
-                locations : {},
-                editmode:false,
+                isLoading: false,
+                fullPage: true,
                 form: new Form({
-                    location:'',
-                    address:'',
-                    street:'',
-                    suburb:'',
-                    country:'',
-                    company:'',
-                    currency_id:'',
+                    user_id:'',
+                    order_id:'',
+                    fullname:'',
+                    contact:'',
+                    email:'',
+                    payment_type:'',
+                    payment_ref:'',
+                    total_ZWL:'',
+                    total_USD:'',
+                    terms:false,
                     }),
             }
         },
         methods: {
-            getSelectedDetails(data,e){
-                this.clearForm();
-                this.editmode=true;
-                this.form.fill(data);
-                $('a').removeClass('active')
-                $('input').removeClass('is-invalid');
-                $(e.currentTarget).addClass('active')
-
+            terms(){
+                let routeData = this.$router.resolve({name: 'terms'});
+                window.open(routeData.href, '_blank');
             },
-             clearForm(){
-                this.form.reset();
-                this.editmode=false;
-                $('a').removeClass('active') ;              
-
-                $('input').removeClass('is-invalid');
-            },
-            getData(){
-                   if(this.$gate.isAdminOrAuthor()){
-                    axios.get("api/locations").then(({ data }) => {
-                        this.locations = data
-                        }
-                    );
+            submitPayment(){
+                //refactor here for v2
+                if(this.form.email_ticket != this.form.confirm_email){
+                    swal.fire("Failed!", "Make sure emails match ", "warning");
+                    return;
                 }
-            },
-                create(){
-                    this.$Progress.start();
-                    this.form.company = this.company;
-                    this.form.calculated_on = JSON.stringify(this.value);
-                    this.form.calc_on_type = this.picked;
-                    this.form.tax_period = this.tax_period;
-                
-                    this.form.post('api/locations')
+                if(!this.form.terms){
+                    swal.fire("Failed!", "Please accept terms and condtions to proceed with transactions ", "warning");
+                    return;
+                }
+                    this.form.user_id = this.checkCookie();
+                    this.form.payment_type = this.paymentType;
+                    this.form.total_USD = this.total_USD;
+                    this.form.total_ZWL = this.total_ZWL;
+                    
+                    this.isLoading = true;
+                    this.form.post('api/customers')
                     .then(()=>{
-                        Fire.$emit('AfterCreate');
-                        $('#addNew').modal('hide')
 
-                        toast({
-                            type: 'success',
-                            title: 'Created in successfully'
+                        if(this.paymentType != 'paypal'){
+                            //paynow endpoint
+                            this.form.post('api/paynow')
+                            .then((response)=>{
+                            window.location.href = response.data
                             })
-                        this.$Progress.finish();
-                        
-                        this.getData();
-                        this.clearForm();
+                            .catch((error)=>{
+                                console.log(error)
+                                swal.fire("Failed!", "There was something wrong paynow. "+error, "warning");
+                                
+                            })
+                        }      
                     })
                     .catch((error)=>{
-                        console.log(error)
-                        this.$Progress.fail();
+                        swal.fire("Failed!", "There was something wrong customers. "+error, "warning");
+                            
                     })
-                },            
-            update(){
-                this.$Progress.start();
-                this.form.company = this.company;
-                this.form.calculated_on = JSON.stringify(this.value);
-                this.form.calc_on_type = this.picked;
-                this.form.tax_period = this.tax_period;
 
-                this.form.put('api/locations/'+this.form.id)
-                .then(() => {
-                    // success
-                     swal(
-                        'Updated!',
-                        'Information has been updated.',
-                        'success'
-                        )
-                        this.$Progress.finish();
-                })
-                .catch((error) => {
-                    console.log(error)
-                    this.$Progress.fail();
-                });
+                    
             },
-            getSelectedDetails(data,e){
-                this.clearForm();
-                this.editmode=true;
-                this.form.fill(data);
-                $('a').removeClass('active')
-                $('input').removeClass('is-invalid');
-                $(e.currentTarget).addClass('active')
-                
-                var calculated_on=JSON.parse(data.calculated_on);
+            getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                //sconsole.log(decodedCookie)
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            },
+            setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            },
+            checkCookie() {
+                var user = this.getCookie("gm58baba");
+                if(user != ""){
+                    // console.log(user)
+                    return user
+                } 
+                else {
+                    user = new Date().valueOf();
+                    if (user != "" && user != null) {
+                        this.setCookie("gm58baba", user, 365);
+                        return user
 
-                calculated_on.forEach(element => {
-                    this.value.push(element)
-                });
-                
-                this.picked=data.contri_calc_type
+                    }
+                }
             },
+        
         },
         computed: {
 
         },
         created() {
-          this.getData()
-
+         
         }
 
     }

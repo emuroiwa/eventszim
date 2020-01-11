@@ -2,13 +2,17 @@
 
     <div class="float-right gm58-hack">
         
-        <a class="nav-link font-weight-bold" href="#"  data-toggle="modal" data-target="#shoppingCartModal" v-if="this.cartPage=='header'">
-            <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger d-inline">{{itemsInCart}}</span>
-        </a>
+        <div class="nav-link font-weight-bold" href="#" v-if="this.cartPage=='header'">
+            <router-link to="/cart">
+                <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger d-inline">{{itemsInCart}}</span>
+            </router-link>
+        </div>
         <div v-else-if="this.cartPage=='priceCategory'">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shoppingCartModal">
-            {{itemsInCart}} <i class="fas fa-shopping-cart d-inline "></i> Checkout 
-            </button>
+            <router-link to="/cart"> 
+                <button type="button" class="btn btn-primary" >
+                {{itemsInCart}} <i class="fas fa-shopping-cart d-inline "></i> Checkout 
+                </button>
+            </router-link>
             <a class="nav-link font-weight-bold" href="#"  @click="cancelOrder()"> 
                 Cancel order
             </a>
