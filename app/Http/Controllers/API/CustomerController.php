@@ -59,7 +59,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        return Customer::where('user_id','=',$id)
+        ->latest('id')->first();
     }
 
     /**

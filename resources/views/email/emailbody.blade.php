@@ -40,7 +40,7 @@
 					<tr>
 						<td align="center">
 		
-							<img src="{{url('/img/email/emailheader.jpg')}}" alt="Creating Email Magic" width="100%" height="230" style="display: block;"/>
+							<img src="{{url('http://209.97.129.235/img/email/emailheader.jpg')}}" alt="Creating Email Magic" width="100%" height="230" style="display: block;"/>
 						</td>
 					</tr>
 					<tr>

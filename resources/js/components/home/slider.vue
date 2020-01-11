@@ -17,7 +17,7 @@
                             <h3>{{event.start_date | myDate}}</h3>
                                 
                                     <button class="btn btn-primary" v-if="isMobile">
-                                        Get tickets <i class="fas fa-ticket-alt"></i> {{isMobile}}
+                                        Get tickets <i class="fas fa-ticket-alt"></i> 
                                     </button>
                                     <button class="btn-lg btn-primary" v-else>
                                         Get tickets <i class="fas fa-ticket-alt"></i>
@@ -62,7 +62,7 @@
            
         },
         mounted() {
-            isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+            this.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
             console.log(isMobile)
         },
         data(){

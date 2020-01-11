@@ -84,6 +84,7 @@ class PaymentsController extends Controller
         $data["subject"]=$request['subject'];
         $data["client_name"]=$request['client_name'];
         $data["from_email"]=$request['email'];
+        $data["email_type"]=$request['email_type'];
         // $dataPDF = getPayslipDetails($request['employee'],'current');
         //  $data['PDFcaption']=$dataPDF->employee_number.$dataPDF->last_names;
         //print_r($data);

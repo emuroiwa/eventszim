@@ -35,10 +35,10 @@ class PaynowController extends Controller
         $paynow = new Paynow(
             env('PAYNOW_INTEGRATION_ID', '5214'),
             env('PAYNOW_INTEGRATION_KEY', '5534bfbf-30d3-408a-876e-14ea26b00ad9'),
-            env('PAYNOW_RETURN_URL', 'http://localhost:9092/home?z14ea26b00ad9='.$paymentRef),
+            env('PAYNOW_RETURN_URL', 'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef),
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
-            'http://localhost:9092/home?z14ea26b00ad9='.$paymentRef
+            'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef
         );
 
         
@@ -73,6 +73,7 @@ class PaynowController extends Controller
             Orders::where('user_id', $request['user_id'])
             ->where('status', 0)
             ->update( array('status'=>1, 'reference'=>$paymentRef) );
+            
             Payments::create([
                 'order_ref' => $paymentRef,
                 'amount' => $total,
@@ -131,10 +132,10 @@ class PaynowController extends Controller
         $paynow = new Paynow(
             env('PAYNOW_INTEGRATION_ID', '5214'),
             env('PAYNOW_INTEGRATION_KEY', '5534bfbf-30d3-408a-876e-14ea26b00ad9'),
-            env('PAYNOW_RETURN_URL', 'http://localhost:9092/home?z14ea26b00ad9='.$paymentRef),
+            env('PAYNOW_RETURN_URL', 'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef),
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
-            'http://localhost:9092/home?z14ea26b00ad9='.$paymentRef
+            'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef
         );
         $pollUrl = "";
 

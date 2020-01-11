@@ -36,24 +36,7 @@
                     swal.fire("Failed!", "There was something wrong in getEvents "+ error, "warning");
                     })
             },
-            verifyPayment(ref){
-                this.ticketsEmail('data')
-                axios.get("api/paynow/"+ ref).then(({ data }) => {
-                    this.ticketsEmail(data)
-                }).catch((error)=>{
-                    // console.log(rror.response)
-                swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
-                })
-            },
-            ticketsEmail(response){
-                   axios.post('api/sendemail', {
-                    email: 'emuroiwa@gmail.com',
-                    client_name: 'Test',
-                    subject: 'Test'
-                }).then((response) => {
-                   swal.fire("Failed!", "There was something wrong in ticketsEmail "+ error, "warning");
-                });
-            },
+            
        },
        created(){
             Fire.$emit('indexLoaded') 
