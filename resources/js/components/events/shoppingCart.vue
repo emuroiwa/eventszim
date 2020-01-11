@@ -176,12 +176,6 @@
             
              },
             
-            cancelOrder(){
-                Fire.$emit('cancelOrder');
-                //$('#shoppingCartModal').modal('hide');
-                this.paymentMethod="";
-            },
-            
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);

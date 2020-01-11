@@ -2499,6 +2499,11 @@ __webpack_require__.r(__webpack_exports__);
           return user;
         }
       }
+    },
+    cancelOrder: function cancelOrder() {
+      Fire.$emit('cancelOrder'); //$('#shoppingCartModal').modal('hide');
+
+      this.paymentMethod = "";
     }
   },
   computed: {},
@@ -3040,11 +3045,6 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       });
-    },
-    cancelOrder: function cancelOrder() {
-      Fire.$emit('cancelOrder'); //$('#shoppingCartModal').modal('hide');
-
-      this.paymentMethod = "";
     },
     getCookie: function getCookie(cname) {
       var name = cname + "=";

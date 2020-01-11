@@ -167,6 +167,11 @@
                     }
                 }
             },
+            cancelOrder(){
+                Fire.$emit('cancelOrder');
+                //$('#shoppingCartModal').modal('hide');
+                this.paymentMethod="";
+            },
         
         },
         computed: {
