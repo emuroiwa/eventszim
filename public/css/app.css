@@ -17337,7 +17337,7 @@ readers do not read off random characters that represent icons */
   .carousel-caption {
     display: block !important;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     z-index: 3;
     color: #fff;
@@ -17524,32 +17524,61 @@ figure {
   vertical-align: middle;
 }
 
-.mobile-header {
+.mobile-on {
   /* Large devices (laptops/desktops, 992px and up) */
   /* Large devices (laptops/desktops, 992px and up) */
 }
 
 @media only screen and (max-width: 600px) {
-  .mobile-header {
+  .mobile-on {
     display: block !important;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  .mobile-header {
+  .mobile-on {
     display: block !important;
   }
 }
 
 @media only screen and (min-width: 992px) {
-  .mobile-header {
+  .mobile-on {
     display: none !important;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .mobile-header {
+  .mobile-on {
     display: none !important;
+  }
+}
+
+.mobile-off {
+  /* Large devices (laptops/desktops, 992px and up) */
+  /* Large devices (laptops/desktops, 992px and up) */
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-off {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mobile-off {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .mobile-off {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .mobile-off {
+    display: block !important;
   }
 }
 

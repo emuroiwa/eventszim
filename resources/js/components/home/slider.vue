@@ -8,18 +8,22 @@
             </ol>
             <div class="carousel-inner gm58-carousel-inner">
                 <div class="carousel-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
-                    <div class="overlay"></div>
-                    <img class="d-block w-100" :src="event.event_img" :alt="event.event_name">
-                    <div class="carousel-caption d-none d-md-block">
-                        
-                        <h2>{{event.event_name}}</h2>
-                        <h3>{{event.start_date | myDate}}</h3>
-                            <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
-                                <button class="btn-lg btn-primary">
-                                    Get tickets <i class="fas fa-ticket-alt"></i>
-                                </button>
-                            </router-link>
-                    </div>
+                    <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
+                        <div class="overlay"></div>
+                        <img class="d-block w-100" :src="event.event_img" :alt="event.event_name" height="600">
+                        <div class="carousel-caption d-none d-md-block">
+                            
+                            <h2>{{event.event_name}}</h2>
+                            <h3>{{event.start_date | myDate}}</h3>
+                                
+                                    <button class="btn-lg btn-primary mobile-off">
+                                        Get tickets <i class="fas fa-ticket-alt"></i>
+                                    </button>
+                                    <button class="btn btn-primary mobile-on">
+                                        Get tickets
+                                    </button>
+                        </div>
+                     </router-link>
                 </div>
 
                 

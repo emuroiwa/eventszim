@@ -5,7 +5,7 @@
             <div class="row gm58-event">
                 
                 <div class="col-md-5">
-                    <div class="card h-100 border-primary mb-3">
+                    <div class="card h-100 border-primary mb-4 mt-3">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
                             <!-- <h5>Choose Venue & Date/Time</h5> -->
@@ -17,7 +17,7 @@
                     </div> 
                 </div>
                 <div class="col-md-7">
-                    <div class="card h-100 border-primary mb-3">
+                    <div class="card h-100 border-primary mb-4 mt-3">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">{{eventData.events[0].event_name}}</h4>
                         </div>

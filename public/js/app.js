@@ -3179,6 +3179,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3474,6 +3475,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -66477,7 +66482,7 @@ var render = function() {
     [
       _c("div", { staticClass: "row gm58-event" }, [
         _c("div", { staticClass: "col-md-5" }, [
-          _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+          _c("div", { staticClass: "card h-100 border-primary mb-4 mt-3" }, [
             _vm._m(0),
             _vm._v(" "),
             _c(
@@ -66490,7 +66495,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-7" }, [
-          _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+          _c("div", { staticClass: "card h-100 border-primary mb-4 mt-3" }, [
             _c("div", { staticClass: "card-header event-card-header mb-1" }, [
               _c("h4", { staticClass: "card-title" }, [
                 _vm._v(_vm._s(_vm.eventData.events[0].event_name))
@@ -67767,14 +67772,14 @@ var render = function() {
                   ]
                 )
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "row w-100 mobile-on" }, [
+              _c("div", { staticClass: "col-md-12" }, [_c("search")], 1)
+            ])
           ],
           1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "row w-100 mobile-header" }, [
-          _c("div", { staticClass: "col-md-12" }, [_c("search")], 1)
-        ])
+        )
       ]
     )
   ])
@@ -68249,41 +68254,61 @@ var render = function() {
               class: { active: idx == 0 }
             },
             [
-              _c("div", { staticClass: "overlay" }),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "d-block w-100",
-                attrs: { src: event.event_img, alt: event.event_name }
-              }),
-              _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "carousel-caption d-none d-md-block" },
+                "router-link",
+                {
+                  attrs: {
+                    to: { path: "indexEvent", query: { event: event.id } }
+                  }
+                },
                 [
-                  _c("h2", [_vm._v(_vm._s(event.event_name))]),
+                  _c("div", { staticClass: "overlay" }),
                   _vm._v(" "),
-                  _c("h3", [
-                    _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
-                  ]),
+                  _c("img", {
+                    staticClass: "d-block w-100",
+                    attrs: {
+                      src: event.event_img,
+                      alt: event.event_name,
+                      height: "600"
+                    }
+                  }),
                   _vm._v(" "),
                   _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: { path: "indexEvent", query: { event: event.id } }
-                      }
-                    },
+                    "div",
+                    { staticClass: "carousel-caption d-none d-md-block" },
                     [
-                      _c("button", { staticClass: "btn-lg btn-primary" }, [
-                        _vm._v("\n                            Get tickets "),
-                        _c("i", { staticClass: "fas fa-ticket-alt" })
-                      ])
+                      _c("h2", [_vm._v(_vm._s(event.event_name))]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "btn-lg btn-primary mobile-off" },
+                        [
+                          _vm._v(
+                            "\n                                Get tickets "
+                          ),
+                          _c("i", { staticClass: "fas fa-ticket-alt" })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "btn btn-primary mobile-on" },
+                        [
+                          _vm._v(
+                            "\n                                Get tickets\n                            "
+                          )
+                        ]
+                      )
                     ]
                   )
-                ],
-                1
+                ]
               )
-            ]
+            ],
+            1
           )
         }),
         0

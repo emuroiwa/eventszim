@@ -26,14 +26,15 @@
                 
                     
                 </div>
-            </div>
-            <div class="row w-100 mobile-header" >
-                <div class="col-md-12">
-                    <!-- <li class="nav-item search-nav-element"> -->
-                        <search></search>
-                    <!-- </li> -->
+                <div class="row w-100 mobile-on" >
+                    <div class="col-md-12">
+                        <!-- <li class="nav-item search-nav-element"> -->
+                            <search></search>
+                        <!-- </li> -->
+                    </div>
                 </div>
             </div>
+            
         </nav>
 
 
