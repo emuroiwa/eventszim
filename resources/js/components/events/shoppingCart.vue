@@ -69,11 +69,11 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-4">
+                        <!-- <div class="col-md-4">
                             <div class="card card-body  border-primary grow"  @click="selectPayment('paypal',$event)">
                                 <img  :src="'/img/paymentlogo/paypal.png'" >
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-4">
                             <div class="card card-body  border-warning grow"  @click="selectPayment('paynow',$event)">
                                 <img  :src="'/img/paymentlogo/zimswitch.jpg'" >

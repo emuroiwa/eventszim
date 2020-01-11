@@ -4,7 +4,7 @@
         
         <div class="nav-link font-weight-bold" href="#" v-if="this.cartPage=='header'">
             <router-link to="/cart">
-                <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger d-inline">{{itemsInCart}}</span>
+                <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger">{{itemsInCart}}</span>
             </router-link>
         </div>
         <div v-else-if="this.cartPage=='priceCategory'">

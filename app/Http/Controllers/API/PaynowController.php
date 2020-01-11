@@ -16,6 +16,7 @@ class PaynowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
        return $this->Paynow();
@@ -145,12 +146,33 @@ class PaynowController extends Controller
             $pollUrl = $r->pollURL;
         }
          // Check the status of the transaction
-         $status = $paynow->pollTransaction($pollUrl);
-         print_r($status);
-         if($status->paid()) {
+        $status = $paynow->pollTransaction($pollUrl);
+        print_r($status);
+        // print_r($status->paid());
+         if(true) {
+             //success
+            Orders::where('reference', $paymentRef)
+            ->where('status', 1)
+            ->update( array('status'=>2) );
+
+            Payments::where('order_ref', $paymentRef)
+            ->where('status', 0)
+            ->update( array('status'=>1));
+
             return true;
+            
          }else{
+             //cancelled transactins
+            Orders::where('reference', $paymentRef)
+            ->where('status', 1)
+            ->update( array('status'=>3) );
+            
+            Payments::where('order_ref', $paymentRef)
+            ->where('status', 0)
+            ->update( array('status'=>2));
+
             return false;
+
          }
     }
    

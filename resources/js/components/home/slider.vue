@@ -63,7 +63,7 @@
         },
         mounted() {
             this.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-            console.log(isMobile)
+            //console.log(this.isMobile)
         },
         data(){
             return{

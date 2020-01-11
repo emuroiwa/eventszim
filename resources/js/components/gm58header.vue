@@ -14,7 +14,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-collapse collapse" id="navbar6">
-                        <div class="mx-2 my-auto d-inline w-100">
+                        <div class="mx-2 my-auto d-inline w-100 justify-content-center align-items-center">
                             <search></search>
                         </div>
                         <ul class="navbar-nav">

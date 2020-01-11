@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
+use App\Payments;
 use DateTime;
 use PDF;
 // use Mail;
@@ -69,34 +70,51 @@ class PaymentsController extends Controller
     {
         //
     }
-    public function mail()
-    {
-        $objDemo = new \stdClass();
-        $objDemo->demo_one = 'Demo One Value';
-        $objDemo->demo_two = 'Demo Two Value';
-        $objDemo->sender = 'SenderUserName';
-        $objDemo->receiver = 'ReceiverUserName';
- 
-        Mail::to("emuroiwa@gmail.com")->send(new SendMailable($objDemo));
-    }
-    public function sendmail(Request $request){
-        $data["email"]=$request['email'];
-        $data["subject"]=$request['subject'];
-        $data["client_name"]=$request['client_name'];
-        $data["from_email"]=$request['email'];
-        $data["email_type"]=$request['email_type'];
-        // $dataPDF = getPayslipDetails($request['employee'],'current');
-        //  $data['PDFcaption']=$dataPDF->employee_number.$dataPDF->last_names;
-        //print_r($data);
-        // $pdf = PDF::loadView('reports.payslip.payslip', $dataPDF);
+    public function getTicketDetails($id){
+    
+            
+        return Payments::Join('orders', 'orders.reference', '=', 'payments.order_ref')
+        ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
+        ->where('payments.order_ref','=',$id)
+        ->where('payments.status','=',1)
+        ->orderby('orders.id', 'DESC')->get();
+             
+     }
 
+    public function sendmail(Request $request){
+        $data["email"] = $request['email'];
+        $data["subject"] = $request['subject'];
+        $data["client_name"] = $request['client_name'];
+        $data["from_email"] = $request['email'];
+        $data["email_type"] = $request['email_type'];
+        $data["order_id"] = $request['order_id'];
+
+        if($request['email_type'] == "success"){
+            $dataPDF = $this->getTicketDetails($request['order_id']);
+            $data['PDFcaption']=$request['client_name'].$request['subject'];
+           print_r($data);
+           //$pdf = PDF::loadView('email.ticket', $dataPDF);
+   
+        }
+       
         try{
-            Mail::send('email.emailbody', $data, function($message)use($data) {
-            $message->to($data['email'], $data["client_name"])
-            ->subject($data["subject"])
-            ->from($data['from_email']);
-            //->attachData($pdf->output(), "Payslip_GM58.pdf");
-            });
+            if($request['email_type'] == "success"){
+                Mail::send('email.emailbody', $data, function($message)use($data) {
+                $message->to($data['email'], $data["client_name"])
+                ->subject($data["subject"])
+                ->from($data['from_email']);
+               // ->attachData($pdf->output(), $data["subject"].".pdf");
+                });
+            }else{
+               Mail::send('email.emailbody', $data, function($message)use($data) {
+                $message->to($data['email'], $data["client_name"])
+                ->subject($data["subject"])
+                ->from($data['from_email']);
+                }); 
+            }
         }catch(JWTException $exception){
             $this->serverstatuscode = "0";
             $this->serverstatusdes = $exception->getMessage();

@@ -3670,8 +3670,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
-    this.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-    console.log(isMobile);
+    this.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches; //console.log(this.isMobile)
   }
 }, _defineProperty(_props$data$computed$, "data", function data() {
   return {};
@@ -3822,13 +3821,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/customers/" + this.getCookie('gm58baba')).then(function (_ref) {
         var data = _ref.data;
         _this.userData = data;
-
-        _this.ticketsEmail('success');
-
         axios.get("api/paynow/" + ref).then(function (_ref2) {
           var data = _ref2.data;
 
-          _this.ticketsEmail(data);
+          _this.ticketsEmail(data, ref);
 
           _this.isLoading = false;
         })["catch"](function (error) {
@@ -3840,21 +3836,25 @@ __webpack_require__.r(__webpack_exports__);
         swal("Failed!", "There was something wrong in getUserData " + error, "warning");
       });
     },
-    ticketsEmail: function ticketsEmail(response) {
+    ticketsEmail: function ticketsEmail(response, ref) {
       console.log(this.userData);
       var emailType = "";
+      var emailHeading = "";
 
-      if (response == 'success') {
+      if (response) {
         emailType = 'success';
+        emailHeading = ':-) Ticketbook Confimation of Ticket Purchase';
       } else {
         emailType = 'cancel';
+        emailHeading = ' :-( Ticketbook Cancellation of Ticket Purchase';
       }
 
       axios.post('api/sendemail', {
         email: this.userData.email,
         client_name: this.userData.fullname,
-        subject: 'Ticketbook ' + this.order_id,
-        email_type: emailType
+        subject: emailHeading + this.order_id,
+        email_type: emailType,
+        order_id: this.order_id
       }).then(function (response) {
         swal.fire("Success", "zvinenge zvaita izvi hamuone kudaro ", "success");
       })["catch"](function (error) {
@@ -66469,7 +66469,7 @@ var render = function() {
                 staticClass: "fas fa-shopping-cart d-inline fas-header"
               }),
               _vm._v(" "),
-              _c("span", { staticClass: "badge badge-danger d-inline" }, [
+              _c("span", { staticClass: "badge badge-danger" }, [
                 _vm._v(_vm._s(_vm.itemsInCart))
               ])
             ])
@@ -67692,25 +67692,6 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "card card-body  border-primary grow",
-                          on: {
-                            click: function($event) {
-                              return _vm.selectPayment("paypal", $event)
-                            }
-                          }
-                        },
-                        [
-                          _c("img", {
-                            attrs: { src: "/img/paymentlogo/paypal.png" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-4" }, [
-                      _c(
-                        "div",
-                        {
                           staticClass: "card card-body  border-warning grow",
                           on: {
                             click: function($event) {
@@ -68221,7 +68202,10 @@ var render = function() {
                   [
                     _c(
                       "div",
-                      { staticClass: "mx-2 my-auto d-inline w-100" },
+                      {
+                        staticClass:
+                          "mx-2 my-auto d-inline w-100 justify-content-center align-items-center"
+                      },
                       [_c("search")],
                       1
                     ),

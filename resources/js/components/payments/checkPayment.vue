@@ -39,9 +39,9 @@
                 axios.get("api/customers/" + this.getCookie('gm58baba')).then(({ data }) => {
                     this.userData = data;
 
-                        this.ticketsEmail('success')
+                        
                         axios.get("api/paynow/"+ ref).then(({ data }) => {
-                            this.ticketsEmail(data)
+                            this.ticketsEmail(data,ref)
                             this.isLoading = false
                         }).catch((error)=>{
                             // console.log(rror.response)
@@ -54,19 +54,24 @@
                 })
             },
 
-            ticketsEmail(response){
+            ticketsEmail(response,ref){
                 console.log(this.userData)
                 var emailType = ""
-                   if(response == 'success'){
-                       emailType = 'success'
+                var emailHeading = ""
+                   if(response){
+                       emailType = 'success';
+                       emailHeading = ':-) Ticketbook Confimation of Ticket Purchase'
+
                    }else{
                        emailType = 'cancel'
+                       emailHeading = ' :-( Ticketbook Cancellation of Ticket Purchase'
                    }
                    axios.post('api/sendemail', {
                     email: this.userData.email,
                     client_name: this.userData.fullname,
-                    subject: 'Ticketbook ' + this.order_id,
-                    email_type: emailType
+                    subject: emailHeading + this.order_id,
+                    email_type: emailType,
+                    order_id: this.order_id
                 }).then((response) => {
                    swal.fire("Success", "zvinenge zvaita izvi hamuone kudaro ", "success");
                 }).catch((error)=>{
