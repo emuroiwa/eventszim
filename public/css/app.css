@@ -17524,7 +17524,32 @@ figure {
   vertical-align: middle;
 }
 
-.navbar-toggler {
-  width: 100%;
+.mobile-header {
+  /* Large devices (laptops/desktops, 992px and up) */
+  /* Large devices (laptops/desktops, 992px and up) */
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-header {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mobile-header {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .mobile-header {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .mobile-header {
+    display: none !important;
+  }
 }
 

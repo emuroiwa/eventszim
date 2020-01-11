@@ -1,6 +1,4 @@
-.navbar-toggler{
-    width: 100%;
-}
+
 // div.navbar-brand{
 //     @media only screen and (max-width: 600px) {
 //         display: block !important;
@@ -50,20 +48,20 @@
 //         display: none !important;
 //     }
 // }
-// #mobile-header{
-//     @media only screen and (max-width: 600px) {
-//         display: none !important;
-//     }
-//     @media only screen and (min-width: 600px){
-//         display: none !important;
-//     }
-//     /* Large devices (laptops/desktops, 992px and up) */
-//     @media only screen and (min-width: 992px){
-//         display: block !important;
-//     }
-//      /* Large devices (laptops/desktops, 992px and up) */
-//      @media only screen and (min-width: 1200px){
-//         display: block !important;
-//     }
-// }
+.mobile-header{
+    @media only screen and (max-width: 600px) {
+        display: block !important;
+    }
+    @media only screen and (min-width: 600px){
+        display: block !important;
+    }
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px){
+        display: none !important;
+    }
+     /* Large devices (laptops/desktops, 992px and up) */
+     @media only screen and (min-width: 1200px){
+        display: none !important;
+    }
+}
 

@@ -1,9 +1,11 @@
     
    <div id="app">
-         @include('layouts.header')        
-        <main id="main">
-            <router-view></router-view>
-        </main>
+         @include('layouts.header')   
+         <gm58header></gm58header>     
+            <main id="main">
+                <router-view></router-view>
+            </main>
+        <gm58footer></gm58footer>
     </div>
 
 

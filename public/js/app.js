@@ -1913,10 +1913,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     Fire.$emit('indexLoaded');
@@ -1936,10 +1932,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -1991,10 +1983,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     Fire.$emit('indexLoaded');
@@ -2030,10 +2018,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     Fire.$emit('indexLoaded');
@@ -2053,10 +2037,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -2432,10 +2412,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -3154,6 +3130,40 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10346,6 +10356,25 @@ for (var i = 0; i < DOMIterables.length; i++) {
   if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
   Iterators[NAME] = Iterators.Array;
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.gm58-hack[data-v-74d1d756]{\n    width: 100px;\n}\n.navbar-light .navbar-nav .nav-link[data-v-74d1d756]{\n    color: cornflowerblue\n}\n.fas-header[data-v-74d1d756]{\n    font-size: x-large;\n}\n", ""]);
+
+// exports
 
 
 /***/ }),
@@ -58984,6 +59013,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/eventDetails.vue?vue&type=style&index=0&id=1ae00e83&scoped=true&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/eventDetails.vue?vue&type=style&index=0&id=1ae00e83&scoped=true&lang=css& ***!
@@ -65687,7 +65746,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("gm58footer")], 1)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -65704,7 +65763,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                        I'm an example component.\n                    "
+                "\n                    I'm an example component.\n                "
               )
             ])
           ])
@@ -65734,7 +65793,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("gm58footer")], 1)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -65751,7 +65810,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                        I'm an example component.\n                    "
+                "\n                    I'm an example component.\n                "
               )
             ])
           ])
@@ -65781,7 +65840,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("gm58footer")], 1)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -65798,7 +65857,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                        I'm an example component.\n                    "
+                "\n                    I'm an example component.\n                "
               )
             ])
           ])
@@ -65828,7 +65887,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("gm58footer")], 1)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -65845,7 +65904,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                        I'm an example component.\n                    "
+                "\n                    I'm an example component.\n                "
               )
             ])
           ])
@@ -65875,7 +65934,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("gm58footer")], 1)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -65896,31 +65955,31 @@ var staticRenderFns = [
               _c("ul", [
                 _c("li", [
                   _vm._v(
-                    "\n                                    Any information collected by the TicketBook website will only be used internally by TicketBook and the promoter(s) of the event(s) that you buy tickets for. TicketBook and promoter(s) will use your information to send you confirmation of your purchase(s) and information on the event(s) and to compile a generalised profile of the people attending the event(s).\n                                "
+                    "\n                                Any information collected by the TicketBook website will only be used internally by TicketBook and the promoter(s) of the event(s) that you buy tickets for. TicketBook and promoter(s) will use your information to send you confirmation of your purchase(s) and information on the event(s) and to compile a generalised profile of the people attending the event(s).\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n                                    TicketBook shall not rent, sell or otherwise disclose your personal information to any third party other than the promoter(s) of the event(s) that you buy ticket(s) for without your consent, provided that, by utilising the TicketBook website and/or subscribing to any services offered by TicketBook and/or the promoter(s), you expressly consent to TicketBook utilising your personal information for the purpose of providing the services and for billing and advertising purposes (unless you have opted out) and to other third parties where necessary, or to comply with any law or regulation, to prevent fraud or abuse, misuse or unauthorised use of the TicketBook website and to protect TicketBook's rights and those of its customers.\n                                "
+                    "\n                                TicketBook shall not rent, sell or otherwise disclose your personal information to any third party other than the promoter(s) of the event(s) that you buy ticket(s) for without your consent, provided that, by utilising the TicketBook website and/or subscribing to any services offered by TicketBook and/or the promoter(s), you expressly consent to TicketBook utilising your personal information for the purpose of providing the services and for billing and advertising purposes (unless you have opted out) and to other third parties where necessary, or to comply with any law or regulation, to prevent fraud or abuse, misuse or unauthorised use of the TicketBook website and to protect TicketBook's rights and those of its customers.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n                                    TicketBook may use your personal information to personalise your profile on TicketBook's internal system.\n                                "
+                    "\n                                TicketBook may use your personal information to personalise your profile on TicketBook's internal system.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n                                    TicketBook may receive information about you from reliable third parties and add it to its database purely for ticketing purposes. TicketBook shall ensure that such third parties operate a similar ethical policy in relation to your privacy.\n                                "
+                    "\n                                TicketBook may receive information about you from reliable third parties and add it to its database purely for ticketing purposes. TicketBook shall ensure that such third parties operate a similar ethical policy in relation to your privacy.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    You may receive invitations to buy tickets for related events or other related products, but you may unsubscribe from these invitations at any time.\n                                "
+                    "\n\n                                You may receive invitations to buy tickets for related events or other related products, but you may unsubscribe from these invitations at any time.\n                            "
                   )
                 ])
               ]),
@@ -65932,103 +65991,103 @@ var staticRenderFns = [
               _c("ul", [
                 _c("li", [
                   _vm._v(
-                    "\n                                    You must be 18 years or older to make use of this website and the services, and by doing so you warrant that you are a major.\n                                "
+                    "\n                                You must be 18 years or older to make use of this website and the services, and by doing so you warrant that you are a major.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    '\n\n                                    The general terms and conditions of the holder(s) of the event(s) and/or the organiser(s) of the event(s) ["promoter"], in addition to TicketBooks\' terms and conditions, apply.\n                                '
+                    '\n\n                                The general terms and conditions of the holder(s) of the event(s) and/or the organiser(s) of the event(s) ["promoter"], in addition to TicketBooks\' terms and conditions, apply.\n                            '
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    These standard terms and conditions apply to all persons making use of the TicketBook website and its services.\n                                "
+                    "\n\n                                These standard terms and conditions apply to all persons making use of the TicketBook website and its services.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    If you do not wish to abide by these terms and conditions, please do not make use of this website/services and do not accept them below.\n                                "
+                    "\n\n                                If you do not wish to abide by these terms and conditions, please do not make use of this website/services and do not accept them below.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    TicketBook acts as a ticketing agent only and does not attract any liability as a promoter to you, but simply offers the service of facilitating ticket sales on behalf of the promoter(s) of the event in respect of which you are purchasing ticket(s).\n                                "
+                    "\n\n                                TicketBook acts as a ticketing agent only and does not attract any liability as a promoter to you, but simply offers the service of facilitating ticket sales on behalf of the promoter(s) of the event in respect of which you are purchasing ticket(s).\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Tickets cancellations, refunds, exchanges and/or returns are dealt with in accordance with the promoter(s)'s terms and conditions.\n                                "
+                    "\n\n                                Tickets cancellations, refunds, exchanges and/or returns are dealt with in accordance with the promoter(s)'s terms and conditions.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    TicketBook accepts no liability whatsoever arising from the postponement or cancellation of the event and in that regard, any recourse you may have in law is only against the promoter, although we provide no representation or undertaking that the promoter will refund you.\n                                "
+                    "\n\n                                TicketBook accepts no liability whatsoever arising from the postponement or cancellation of the event and in that regard, any recourse you may have in law is only against the promoter, although we provide no representation or undertaking that the promoter will refund you.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Tickets are not replaceable due to damage, loss, theft or any other reason.\n                                "
+                    "\n\n                                Tickets are not replaceable due to damage, loss, theft or any other reason.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    A ticket is void and all rights connected herewith nullified unless purchased from an authorised TicketBook sales point or agent.\n                                "
+                    "\n\n                                A ticket is void and all rights connected herewith nullified unless purchased from an authorised TicketBook sales point or agent.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    TicketBook accepts no liability whatsoever arising from the postponement or cancellation of the event(s) and in that regard, any recourse you may have in law is only against the promoter(s), although we provide no representation or undertaking that the promoter(s) will refund you.\n                                "
+                    "\n\n                                TicketBook accepts no liability whatsoever arising from the postponement or cancellation of the event(s) and in that regard, any recourse you may have in law is only against the promoter(s), although we provide no representation or undertaking that the promoter(s) will refund you.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Right of admission to the event(s) is reserved by the promoter(s), and the promoter(s) has the right to alter the programme or the seating thereof.\n                                "
+                    "\n\n                                Right of admission to the event(s) is reserved by the promoter(s), and the promoter(s) has the right to alter the programme or the seating thereof.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Most venues have restricted items including but not limited to alcohol, weapons, cameras and glass bottles.\n                                "
+                    "\n\n                                Most venues have restricted items including but not limited to alcohol, weapons, cameras and glass bottles.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Tickets can be damaged by sunlight or heat.\n                                "
+                    "\n\n                                Tickets can be damaged by sunlight or heat.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    You must separate tickets from one another prior to arriving at the venue. No duplicate tickets will be issued to replace lost or stolen tickets.\n                                "
+                    "\n\n                                You must separate tickets from one another prior to arriving at the venue. No duplicate tickets will be issued to replace lost or stolen tickets.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    The first person to enter the venue with a printed e-ticket or other hard ticket is the only person admitted by the ticket. Therefore do not share or duplicate the ticket, guard it like cash.\n                                "
+                    "\n\n                                The first person to enter the venue with a printed e-ticket or other hard ticket is the only person admitted by the ticket. Therefore do not share or duplicate the ticket, guard it like cash.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Any attempt to reproduce or duplicate the ticket will constitute fraud and will result in persecution in a court of law.\n                                "
+                    "\n\n                                Any attempt to reproduce or duplicate the ticket will constitute fraud and will result in persecution in a court of law.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    By using this website and subscribing to the services, you consent to your personal information being processed further and transmitted onwards by TicketBook to the promoter of the event for which you have purchased a ticket(s), who may use this information for purposes of liaising with you regarding further offers, provide you with information and/or promotional material in accordance with its own terms and conditions.\n                                "
+                    "\n\n                                By using this website and subscribing to the services, you consent to your personal information being processed further and transmitted onwards by TicketBook to the promoter of the event for which you have purchased a ticket(s), who may use this information for purposes of liaising with you regarding further offers, provide you with information and/or promotional material in accordance with its own terms and conditions.\n                            "
                   )
                 ]),
                 _vm._v(" "),
@@ -66036,25 +66095,25 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    TicketBook acts merely as the custodian of your personal information on behalf of the promoter(s) which TicketBook shall utilise purely for the purposes of ticket sales and providing you with its services.\n                                "
+                    "\n\n                                TicketBook acts merely as the custodian of your personal information on behalf of the promoter(s) which TicketBook shall utilise purely for the purposes of ticket sales and providing you with its services.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    TicketBook will not pass on your personal information to any third party other than the promoter of the event for which you purchase a ticket(s).\n                                "
+                    "\n\n                                TicketBook will not pass on your personal information to any third party other than the promoter of the event for which you purchase a ticket(s).\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    TicketBook may, from time to time send you advertising material and information, including but not limited to special offers by e-mail, via SMS, WAP Push, newsletters, telephonically, or through other promotional offers.\n                                "
+                    "\n\n                                TicketBook may, from time to time send you advertising material and information, including but not limited to special offers by e-mail, via SMS, WAP Push, newsletters, telephonically, or through other promotional offers.\n                            "
                   )
                 ]),
                 _vm._v(" "),
                 _c("li", [
                   _vm._v(
-                    "\n\n                                    Opt-out Clause: If you do not wish to receive offers or information, whether from TicketBook or the promoter(s), please notify us by sending an e-mail to comms@ticketbook.co.zw. Due to possible delays, you may still receive promotional material up to a month after your notification\n                                "
+                    "\n\n                                Opt-out Clause: If you do not wish to receive offers or information, whether from TicketBook or the promoter(s), please notify us by sending an e-mail to comms@ticketbook.co.zw. Due to possible delays, you may still receive promotional material up to a month after your notification\n                            "
                   )
                 ])
               ])
@@ -66071,10 +66130,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -66086,7 +66145,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "float-right" }, [
+  return _c("div", { staticClass: "float-right gm58-hack" }, [
     this.cartPage == "header"
       ? _c(
           "a",
@@ -66099,8 +66158,10 @@ var render = function() {
             }
           },
           [
-            _c("i", { staticClass: "fas fa-shopping-cart d-inline " }),
-            _vm._v(" Cart"),
+            _c("i", {
+              staticClass: "fas fa-shopping-cart d-inline fas-header"
+            }),
+            _vm._v(" "),
             _c("span", { staticClass: "badge badge-danger d-inline" }, [
               _vm._v(_vm._s(_vm.itemsInCart))
             ])
@@ -66407,112 +66468,96 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass: "event",
+      style: {
+        "background-image": "url(" + _vm.eventData.events[0].event_img + ")"
+      }
+    },
     [
-      _c(
-        "div",
-        {
-          staticClass: "event",
-          style: {
-            "background-image": "url(" + _vm.eventData.events[0].event_img + ")"
-          }
-        },
-        [
-          _c("div", { staticClass: "row gm58-event" }, [
-            _c("div", { staticClass: "col-md-5" }, [
-              _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "card-body" },
-                  [
-                    _c("priceCategory", {
-                      attrs: { eventData: this.eventData }
-                    })
-                  ],
-                  1
-                )
+      _c("div", { staticClass: "row gm58-event" }, [
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [_c("priceCategory", { attrs: { eventData: this.eventData } })],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-7" }, [
+          _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
+            _c("div", { staticClass: "card-header event-card-header mb-1" }, [
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(_vm.eventData.events[0].event_name))
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-7" }, [
-              _c("div", { staticClass: "card h-100 border-primary mb-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "card-header event-card-header mb-1" },
-                  [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.eventData.events[0].event_name))
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _vm._m(1),
+            _c("div", { staticClass: "card-body" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tab-content",
+                  attrs: { id: "pills-tabContent" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade show active",
+                      attrs: {
+                        id: "pills-home",
+                        role: "tabpanel",
+                        "aria-labelledby": "pills-home-tab"
+                      }
+                    },
+                    [
+                      _c("eventDetails", {
+                        attrs: { eventData: this.eventData }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
                     {
-                      staticClass: "tab-content",
-                      attrs: { id: "pills-tabContent" }
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "pills-profile",
+                        role: "tabpanel",
+                        "aria-labelledby": "pills-profile-tab"
+                      }
                     },
                     [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade show active",
-                          attrs: {
-                            id: "pills-home",
-                            role: "tabpanel",
-                            "aria-labelledby": "pills-home-tab"
-                          }
-                        },
-                        [
-                          _c("eventDetails", {
-                            attrs: { eventData: this.eventData }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade",
-                          attrs: {
-                            id: "pills-profile",
-                            role: "tabpanel",
-                            "aria-labelledby": "pills-profile-tab"
-                          }
-                        },
-                        [
-                          _c("eventAddtional", {
-                            attrs: { eventData: this.eventData }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "pills-contact",
-                          role: "tabpanel",
-                          "aria-labelledby": "pills-contact-tab"
-                        }
+                      _c("eventAddtional", {
+                        attrs: { eventData: this.eventData }
                       })
-                    ]
-                  )
-                ])
-              ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "tab-pane fade",
+                    attrs: {
+                      id: "pills-contact",
+                      role: "tabpanel",
+                      "aria-labelledby": "pills-contact-tab"
+                    }
+                  })
+                ]
+              )
             ])
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("gm58footer")
-    ],
-    1
+        ])
+      ])
+    ]
   )
 }
 var staticRenderFns = [
@@ -67655,14 +67700,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row w-100" }, [
-    _c("div", { staticClass: "col-md-9" }, [_c("search")], 1),
-    _vm._v(" "),
+  return _c("div", [
     _c(
-      "div",
-      { staticClass: "col-md-3 float-right haya" },
-      [_c("cartItems", { attrs: { cartPage: this.cartPage } })],
-      1
+      "nav",
+      {
+        staticClass: "navbar navbar-expand-md navbar-light bg-white shadow-sm"
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "container" },
+          [
+            _c("router-link", { attrs: { to: "/home" } }, [
+              _c("img", {
+                staticClass: "navbar-brand",
+                attrs: { src: "img/logo.png", alt: "Ticketbook Logo" }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "navbar-toggler",
+                attrs: {
+                  "aria-controls": "navbarSupportedContent",
+                  "aria-expanded": "false"
+                }
+              },
+              [_c("cartItems", { attrs: { cartPage: this.cartPage } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarSupportedContent" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "navbar-collapse collapse",
+                    attrs: { id: "navbar6" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "mx-2 my-auto d-inline w-100" },
+                      [_c("search")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("ul", { staticClass: "navbar-nav" }, [
+                      _c(
+                        "li",
+                        { staticClass: "nav-item dropdown" },
+                        [
+                          _c("cartItems", {
+                            attrs: { cartPage: this.cartPage }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "row w-100 mobile-header" }, [
+          _c("div", { staticClass: "col-md-12" }, [_c("search")], 1)
+        ])
+      ]
     )
   ])
 }
@@ -67896,9 +68009,7 @@ var render = function() {
       _vm._v(" "),
       _c("slider", { attrs: { eventData: this.eventData } }),
       _vm._v(" "),
-      _c("catergories", { attrs: { eventData: this.eventData } }),
-      _vm._v(" "),
-      _c("gm58footer")
+      _c("catergories", { attrs: { eventData: this.eventData } })
     ],
     1
   )
@@ -84386,9 +84497,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cartItems_vue_vue_type_template_id_74d1d756___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cartItems.vue?vue&type=template&id=74d1d756& */ "./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&");
+/* harmony import */ var _cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cartItems.vue?vue&type=template&id=74d1d756&scoped=true& */ "./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&scoped=true&");
 /* harmony import */ var _cartItems_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cartItems.vue?vue&type=script&lang=js& */ "./resources/js/components/events/cartItems.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css& */ "./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -84396,13 +84509,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _cartItems_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _cartItems_vue_vue_type_template_id_74d1d756___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _cartItems_vue_vue_type_template_id_74d1d756___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "74d1d756",
   null
   
 )
@@ -84428,19 +84541,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css& ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=style&index=0&id=74d1d756&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_style_index_0_id_74d1d756_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&scoped=true& ***!
+  \*************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./cartItems.vue?vue&type=template&id=74d1d756& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./cartItems.vue?vue&type=template&id=74d1d756&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/cartItems.vue?vue&type=template&id=74d1d756&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

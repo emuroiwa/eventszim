@@ -1,8 +1,6 @@
 <template>
-    <div>
-        
- 
-        <div class="event" :style="{ 'background-image': 'url(' + eventData.events[0].event_img + ')' }">
+  
+          <div class="event" :style="{ 'background-image': 'url(' + eventData.events[0].event_img + ')' }">
             
             <div class="row gm58-event">
                 
@@ -54,8 +52,6 @@
                 </div>
             </div>
         </div>
-        <gm58footer></gm58footer>
-    </div>
 
 </template>
 

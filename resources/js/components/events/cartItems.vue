@@ -1,9 +1,9 @@
 <template>
 
-    <div class="float-right">
+    <div class="float-right gm58-hack">
         
         <a class="nav-link font-weight-bold" href="#"  data-toggle="modal" data-target="#shoppingCartModal" v-if="this.cartPage=='header'">
-            <i class="fas fa-shopping-cart d-inline "></i> Cart<span class="badge badge-danger d-inline">{{itemsInCart}}</span>
+            <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger d-inline">{{itemsInCart}}</span>
         </a>
         <div v-else-if="this.cartPage=='priceCategory'">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shoppingCartModal">
@@ -128,4 +128,15 @@
        }
     }
 </script>
+<style scoped>
+.gm58-hack{
+    width: 100px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: cornflowerblue
+}
+.fas-header{
+    font-size: x-large;
+}
+</style>
 
