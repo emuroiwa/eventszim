@@ -69,11 +69,12 @@
                             </div>
                         </div>
                         
-                        <!-- <div class="col-md-4">
-                            <div class="card card-body  border-primary grow"  @click="selectPayment('paypal',$event)">
+                        <div class="col-md-4">
+                            <div class="card card-body  border-secondary notworking">
+                                
                                 <img  :src="'/img/paymentlogo/paypal.png'" >
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-md-4">
                             <div class="card card-body  border-warning grow"  @click="selectPayment('paynow',$event)">
                                 <img  :src="'/img/paymentlogo/zimswitch.jpg'" >
@@ -266,6 +267,19 @@
         -ms-transform: scale(1.05);
         transform: scale(1.05);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    }
+    .notworking:hover
+    {
+       
+        /* box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey; */
+    }
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);
+        opacity: .1;
     }
     a:hover{
         color: #000 !important;

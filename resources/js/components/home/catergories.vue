@@ -6,9 +6,10 @@
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
-                        <div class="card grow gm58-slider-card" >
+                        
+                        <!-- <div class="card grow gm58-slider-card" >
                             <div> 
-                                <!-- <div class="overlay"></div> -->
+                                
                                 <img class="card-img-top" :src="event.event_img" :alt="event.event_name">
                             </div>
                             <div class="card-body">
@@ -22,6 +23,23 @@
                             <div class="card-footer gm58-footer footer-caption" v-else>
                                 Read More
                             </div>
+                        </div>
+                         -->
+                          <div class="card grow gm58-slider-card" >
+               
+                            <img class="card-img min-card" :src="event.event_img" :alt="event.event_name">
+                            <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                                <h4 class="card-title">{{event.event_name}}</h4>
+                                <h5 class="card-subtitle mb-2">{{event.venue}}</h5>
+                                <p class="card-text">{{event.start_date | myDate}} </p>
+                            <div class="card-footer footer-caption" v-if="event.price_categories[0]">
+                                From {{event.price_categories[0].price_usd | formatNumber}}
+                            </div>
+                            <div class="card-footer footer-caption" v-else>
+                                Read More
+                            </div>
+                            </div>
+                            
                         </div>
                     </router-link>
                 </div>
@@ -93,6 +111,12 @@
   }
 </script>
 <style scoped>
+.min-card{
+    min-height: 270;
+}
+.card-img-overlay {
+  background-color: rgba(#000, 0.4);
+}
 .footer-caption{
     color: #fff;
     text-align: center;
