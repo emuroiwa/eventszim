@@ -3033,6 +3033,15 @@ __webpack_require__.r(__webpack_exports__);
       return this.orders.reduce(function (total, item) {
         return total + item.quantity;
       }, 0);
+    },
+    getEventType: function getEventType() {
+      var xxx = '';
+      this.orders.forEach(function (element) {
+        if (element.event_type == 'marathon') {
+          xxx = 'marathon';
+        }
+      });
+      return xxx;
     }
   },
   methods: {
@@ -3131,11 +3140,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/orders/" + user).then(function (_ref) {
         var data = _ref.data;
         _this2.orders = data;
-
-        if (_this2.orders.event_type == 'marathon') {
-          _this2.EventType = _this2.orders.event_type;
-        }
-
         _this2.isLoading = false;
       })["catch"](function (error) {
         swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
@@ -10773,7 +10777,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.grow[data-v-3aba163a]:hover\n{\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\n.notworking[data-v-3aba163a]:hover\n{\n   \n    /* box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey; */\n}\n.overlay[data-v-3aba163a] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\na[data-v-3aba163a]:hover{\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a]{\n    /* color: #000 !important; */\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n        -webkit-transform: scale(1.10);\n        transform: scale(1.10);\n\n        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\n", ""]);
+exports.push([module.i, "\n.grow[data-v-3aba163a]:hover\n{\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\n.notworking[data-v-3aba163a]:hover\n{\n   \n    /* box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey; */\n}\n.overlay[data-v-3aba163a] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\na[data-v-3aba163a]:hover{\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a]{\n    /* color: #000 !important; */\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n        -webkit-transform: scale(1.10);\n        transform: scale(1.10);\n\n        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\nth[data-v-3aba163a]{\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -66809,7 +66813,7 @@ var render = function() {
                 { staticClass: "form-group" },
                 [
                   _c("label", { attrs: { for: "confirm_email" } }, [
-                    _vm._v("Confirm Email")
+                    _vm._v("Confirm Email" + _vm._s(this.event_type))
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -66846,7 +66850,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          (this.event_type = "marathon")
+          this.event_type == "marathon"
             ? _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-6" }, [
                   _c(
@@ -67783,7 +67787,7 @@ var render = function() {
                 "div",
                 { staticClass: "card card-body  border-success mt-1" },
                 [
-                  _c("h4", [_vm._v("Select Payment Method")]),
+                  _c("h4", [_vm._v("Select Payment Method ")]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-4" }, [
@@ -67843,59 +67847,61 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _c("div", { attrs: { id: "customer" } }, [
-            _c(
-              "div",
-              {
-                staticClass: "modal",
-                attrs: {
-                  id: "customerDetails",
-                  "data-backdrop": "static",
-                  "data-keyboard": "false"
-                }
-              },
-              [
-                _c("div", { staticClass: "modal-dialog  modal-lg" }, [
-                  _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
+          _vm.orders.length
+            ? _c("div", { attrs: { id: "customer" } }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal",
+                    attrs: {
+                      id: "customerDetails",
+                      "data-backdrop": "static",
+                      "data-keyboard": "false"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-dialog  modal-lg" }, [
+                      _c("div", { staticClass: "modal-content" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "modal-body" },
+                          [
+                            _c("addCustomer", {
+                              attrs: {
+                                paymentType: this.paymentMethod,
+                                total_USD: _vm.totalUSD,
+                                total_ZWL: _vm.totalZWL
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.isNotMobile
+                  ? _c(
                       "div",
-                      { staticClass: "modal-body" },
+                      { staticClass: "card card-body border-info mt-1" },
                       [
                         _c("addCustomer", {
                           attrs: {
                             paymentType: this.paymentMethod,
                             total_USD: _vm.totalUSD,
-                            total_ZWL: _vm.totalZWL
+                            total_ZWL: _vm.totalZWL,
+                            event_type: _vm.getEventType
                           }
                         })
                       ],
                       1
                     )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _vm.isNotMobile
-              ? _c(
-                  "div",
-                  { staticClass: "card card-body border-info mt-1" },
-                  [
-                    _c("addCustomer", {
-                      attrs: {
-                        paymentType: this.paymentMethod,
-                        total_USD: _vm.totalUSD,
-                        total_ZWL: _vm.totalZWL,
-                        event_type: this.EventType
-                      }
-                    })
-                  ],
-                  1
-                )
-              : _vm._e()
-          ])
+                  : _vm._e()
+              ])
+            : _vm._e()
         ])
       ])
     ],
@@ -67908,7 +67914,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header event-card-header mb-1" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("Shopping Cart")])
+      _c("h4", { staticClass: "card-title" }, [_vm._v("Shopping Cart ")])
     ])
   },
   function() {

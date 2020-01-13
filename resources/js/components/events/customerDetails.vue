@@ -37,14 +37,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="confirm_email">Confirm Email</label>
+                                        <label for="confirm_email">Confirm Email{{this.event_type}}</label>
                                         <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
                                         <has-error :form="form" field="confirm_email"></has-error>
                                     </div>
                                 </div>
                                     
                             </div>
-                            <div class="row" v-if="this.event_type='marathon'">
+                            <div class="row" v-if="this.event_type=='marathon'">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="gender"><b>Gender</b></label>

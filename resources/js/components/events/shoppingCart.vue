@@ -9,7 +9,7 @@
         :width="150" class="text-center"></loading>
         <div class="card border-primary mb-4 mt-3">
             <div class="card-header event-card-header mb-1">
-                <h4 class="card-title">Shopping Cart</h4>
+                <h4 class="card-title">Shopping Cart </h4>
                                 <!-- <h5>Choose Venue & Date/Time</h5> -->
             </div>
             <div class="card-body">
@@ -24,7 +24,7 @@
                 <div class="card card-body border-info" v-if="orders.length">
             
                     <table class="table table-hover table-responsive">
-                        <thead>
+                        <thead> 
                             <tr>
                                 <th>Description</th>
                                 <th>Quantity</th>
@@ -60,7 +60,7 @@
                     </table>
                 </div>
                 <div class="card card-body  border-success mt-1" v-if="orders.length">
-                    <h4>Select Payment Method</h4>
+                    <h4>Select Payment Method </h4>
                     <div class="row">
                         
                         <div class="col-md-4">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="customer"> 
+                <div id="customer" v-if="orders.length"> 
                     <!-- modal for mobile -->
                     <div class="modal" id="customerDetails" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog  modal-lg">
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="card card-body border-info mt-1" v-if="isNotMobile">
-                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="this.EventType"></addCustomer>
+                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="getEventType"></addCustomer>
                     </div>
                     
                 </div>
@@ -141,6 +141,15 @@
                 return total + item.quantity; 
                 },0);
             },
+            getEventType: function(){ 
+                let xxx='';
+                this.orders.forEach(element => {
+                    if(element.event_type=='marathon'){
+                        xxx= 'marathon';
+                    } 
+                });
+                return xxx;
+            }
 
         },
         methods: {
@@ -239,9 +248,6 @@
                 var user = this.checkCookie();
                 axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
-                        if(this.orders.event_type == 'marathon'){
-                            this.EventType = this.orders.event_type 
-                        }
                         this.isLoading = false;
                     }).catch((error)=>{
                     swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
@@ -312,6 +318,9 @@
     .empty-cart {
         align-items: center;
         max-width: 60%;
+    }
+    th{
+        width: 100%;
     }
 </style>
 <style lang="scss" scoped>
