@@ -46,6 +46,7 @@ class CustomerController extends Controller
                 'contact' => $request['contact'],
                 'email' => $request['email_ticket'],
                 'payment_type' => $request['payment_type'],
+                'gender' => $request['gender'],
             
             ]);
 

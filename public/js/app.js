@@ -2395,9 +2395,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paymentType: String,
+    event_type: String,
     total_USD: Number,
     total_ZWL: Number
   },
@@ -2415,7 +2431,8 @@ __webpack_require__.r(__webpack_exports__);
         payment_ref: '',
         total_ZWL: '',
         total_USD: '',
-        terms: false
+        terms: false,
+        gender: ''
       })
     };
   },
@@ -2997,7 +3014,8 @@ __webpack_require__.r(__webpack_exports__);
       paymentMethod: '',
       isLoading: false,
       fullPage: true,
-      isNotMobile: false
+      isNotMobile: false,
+      EventType: ''
     };
   },
   computed: {
@@ -3113,6 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/orders/" + user).then(function (_ref) {
         var data = _ref.data;
         _this2.orders = data;
+
+        if (_this2.orders.event_type == 'marathon') {
+          _this2.EventType = _this2.orders.event_type;
+        }
+
         _this2.isLoading = false;
       })["catch"](function (error) {
         swal.fire("Failed!", "There was something wrong in getOrders " + error, "warning");
@@ -66823,6 +66846,73 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
+          (this.event_type = "marathon")
+            ? _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.gender,
+                              expression: "form.gender"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "gender", id: "gender", required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "gender",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Please select Gender")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "male" } }, [
+                            _vm._v("Male")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "female" } }, [
+                            _vm._v("Female")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "gender" }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
@@ -66884,7 +66974,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _vm._m(1),
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "a",
@@ -66913,6 +67003,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "email_ticket" } }, [
       _c("b", [_vm._v("Email To Send Tickets To")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "gender" } }, [
+      _c("b", [_vm._v("Gender")])
     ])
   },
   function() {
@@ -67789,7 +67887,8 @@ var render = function() {
                       attrs: {
                         paymentType: this.paymentMethod,
                         total_USD: _vm.totalUSD,
-                        total_ZWL: _vm.totalZWL
+                        total_ZWL: _vm.totalZWL,
+                        event_type: this.EventType
                       }
                     })
                   ],

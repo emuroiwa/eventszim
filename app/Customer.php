@@ -14,7 +14,9 @@ class Customer extends Model implements Auditable
         'fullname',
         'contact',
         'email',
-        'payment_type'
+        'payment_type',
+        'gender',
+        
         
     ];
 }

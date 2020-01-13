@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="card card-body border-info mt-1" v-if="isNotMobile">
-                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL"></addCustomer>
+                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="this.EventType"></addCustomer>
                     </div>
                     
                 </div>
@@ -120,7 +120,8 @@
                 paymentMethod:'',
                 isLoading: false,
                 fullPage: true,
-                isNotMobile:false
+                isNotMobile:false,
+                EventType:''
 
             }
         },
@@ -238,6 +239,9 @@
                 var user = this.checkCookie();
                 axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
+                        if(this.orders.event_type == 'marathon'){
+                            this.EventType = this.orders.event_type 
+                        }
                         this.isLoading = false;
                     }).catch((error)=>{
                     swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");

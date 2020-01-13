@@ -44,6 +44,21 @@
                                 </div>
                                     
                             </div>
+                            <div class="row" v-if="this.event_type='marathon'">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="gender"><b>Gender</b></label>
+                                            <select name="gender" id="gender" v-model="form.gender" class="form-control" required>
+                                                <option value="">Please select Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                            
+                                            <has-error :form="form" field="gender"></has-error>
+                                    </div>
+                                </div>
+                               
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -65,6 +80,7 @@
     export default {
         props: {
             paymentType: String,
+            event_type: String,
             total_USD: Number,
             total_ZWL: Number
         },
@@ -83,6 +99,7 @@
                     total_ZWL:'',
                     total_USD:'',
                     terms:false,
+                    gender:'',
                     }),
             }
         },

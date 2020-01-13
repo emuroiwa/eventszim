@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2020-01-10 22:23:25
+Date: 2020-01-13 14:33:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `audits` (
   PRIMARY KEY (`id`),
   KEY `audits_auditable_type_auditable_id_index` (`auditable_type`,`auditable_id`),
   KEY `audits_user_id_user_type_index` (`user_id`,`user_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=272 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=334 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of audits
@@ -313,6 +313,68 @@ INSERT INTO `audits` VALUES ('268', null, null, 'created', 'App\\Payments', '21'
 INSERT INTO `audits` VALUES ('269', null, null, 'created', 'App\\Orders', '54', '[]', '{\"category_id\":\"9\",\"quantity\":\"2\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":54}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-10 14:57:49', '2020-01-10 14:57:49');
 INSERT INTO `audits` VALUES ('270', null, null, 'created', 'App\\Customer', '26', '[]', '{\"user_id\":\"1578045598785\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":26}', 'http://127.0.0.1:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-10 14:57:57', '2020-01-10 14:57:57');
 INSERT INTO `audits` VALUES ('271', null, null, 'created', 'App\\Payments', '22', '[]', '{\"order_ref\":1578668278,\"amount\":1000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=d75d8a32-f708-4e06-9483-d9dd45e7536b\",\"id\":22}', 'http://127.0.0.1:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-10 14:57:58', '2020-01-10 14:57:58');
+INSERT INTO `audits` VALUES ('272', null, null, 'created', 'App\\Orders', '55', '[]', '{\"category_id\":\"6\",\"quantity\":\"1\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":55}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 04:45:07', '2020-01-11 04:45:07');
+INSERT INTO `audits` VALUES ('273', null, null, 'created', 'App\\Orders', '56', '[]', '{\"category_id\":\"9\",\"quantity\":\"1\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":56}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1', null, '2020-01-11 05:57:17', '2020-01-11 05:57:17');
+INSERT INTO `audits` VALUES ('274', null, null, 'created', 'App\\Customer', '27', '[]', '{\"user_id\":\"1578045598785\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":27}', 'http://127.0.0.1:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1', null, '2020-01-11 08:32:09', '2020-01-11 08:32:09');
+INSERT INTO `audits` VALUES ('275', null, null, 'created', 'App\\Payments', '23', '[]', '{\"order_ref\":1578731529,\"amount\":1000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=e03876e7-5afc-4138-a0cb-456f04b0220f\",\"id\":23}', 'http://127.0.0.1:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1', null, '2020-01-11 08:32:10', '2020-01-11 08:32:10');
+INSERT INTO `audits` VALUES ('276', null, null, 'created', 'App\\Orders', '57', '[]', '{\"category_id\":\"1\",\"quantity\":\"1\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":57}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1', null, '2020-01-11 08:37:50', '2020-01-11 08:37:50');
+INSERT INTO `audits` VALUES ('277', null, null, 'created', 'App\\Customer', '28', '[]', '{\"user_id\":\"1578045598785\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":28}', 'http://127.0.0.1:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1', null, '2020-01-11 09:10:01', '2020-01-11 09:10:01');
+INSERT INTO `audits` VALUES ('278', null, null, 'created', 'App\\Payments', '24', '[]', '{\"order_ref\":1578733802,\"amount\":1500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=b4a0bd9c-2ae6-4a31-b249-a5f39c1fbc61\",\"id\":24}', 'http://127.0.0.1:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1', null, '2020-01-11 09:10:02', '2020-01-11 09:10:02');
+INSERT INTO `audits` VALUES ('279', null, null, 'created', 'App\\Orders', '58', '[]', '{\"category_id\":\"8\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":58}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 11:58:43', '2020-01-11 11:58:43');
+INSERT INTO `audits` VALUES ('280', null, null, 'created', 'App\\Customer', '29', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":29}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 11:59:05', '2020-01-11 11:59:05');
+INSERT INTO `audits` VALUES ('281', null, null, 'created', 'App\\Payments', '25', '[]', '{\"order_ref\":1578743945,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=e480786f-5fdc-40e3-8f59-f1903eeb42b4\",\"id\":25}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 11:59:06', '2020-01-11 11:59:06');
+INSERT INTO `audits` VALUES ('282', null, null, 'created', 'App\\Orders', '59', '[]', '{\"category_id\":\"9\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":59}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 12:04:35', '2020-01-11 12:04:35');
+INSERT INTO `audits` VALUES ('283', null, null, 'created', 'App\\Customer', '30', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":30}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 12:05:36', '2020-01-11 12:05:36');
+INSERT INTO `audits` VALUES ('284', null, null, 'created', 'App\\Payments', '26', '[]', '{\"order_ref\":1578744336,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=4057c42b-2ad3-415b-be46-194d7656188c\",\"id\":26}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 12:05:37', '2020-01-11 12:05:37');
+INSERT INTO `audits` VALUES ('285', null, null, 'created', 'App\\Orders', '60', '[]', '{\"category_id\":\"8\",\"quantity\":\"2\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":60}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 12:08:17', '2020-01-11 12:08:17');
+INSERT INTO `audits` VALUES ('286', null, null, 'created', 'App\\Customer', '31', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":31}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 12:08:36', '2020-01-11 12:08:36');
+INSERT INTO `audits` VALUES ('287', null, null, 'created', 'App\\Payments', '27', '[]', '{\"order_ref\":1578744516,\"amount\":1000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=1bc9a7f3-6701-4de3-ac57-45101068693d\",\"id\":27}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 12:08:37', '2020-01-11 12:08:37');
+INSERT INTO `audits` VALUES ('288', null, null, 'created', 'App\\Orders', '61', '[]', '{\"category_id\":\"8\",\"quantity\":\"1\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":61}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 14:40:35', '2020-01-11 14:40:35');
+INSERT INTO `audits` VALUES ('289', null, null, 'created', 'App\\Orders', '62', '[]', '{\"category_id\":\"8\",\"quantity\":\"2\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":62}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 16:42:34', '2020-01-11 16:42:34');
+INSERT INTO `audits` VALUES ('290', null, null, 'created', 'App\\Customer', '32', '[]', '{\"user_id\":\"1578045598785\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":32}', 'http://127.0.0.1:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 16:45:10', '2020-01-11 16:45:10');
+INSERT INTO `audits` VALUES ('291', null, null, 'created', 'App\\Payments', '28', '[]', '{\"order_ref\":1578761110,\"amount\":1500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=635e4c17-d3b1-4230-b5ee-e91045e2262b\",\"id\":28}', 'http://127.0.0.1:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 16:45:13', '2020-01-11 16:45:13');
+INSERT INTO `audits` VALUES ('292', null, null, 'created', 'App\\Orders', '63', '[]', '{\"category_id\":\"6\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":63}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 17:17:37', '2020-01-11 17:17:37');
+INSERT INTO `audits` VALUES ('293', null, null, 'created', 'App\\Customer', '33', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":33}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 17:17:57', '2020-01-11 17:17:57');
+INSERT INTO `audits` VALUES ('294', null, null, 'created', 'App\\Payments', '29', '[]', '{\"order_ref\":1578763077,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=6b73fc1d-0be2-45f7-8ce0-73ef7abd735e\",\"id\":29}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-11 17:17:58', '2020-01-11 17:17:58');
+INSERT INTO `audits` VALUES ('295', null, null, 'created', 'App\\Orders', '64', '[]', '{\"category_id\":\"9\",\"quantity\":\"1\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":64}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 05:58:18', '2020-01-12 05:58:18');
+INSERT INTO `audits` VALUES ('296', null, null, 'created', 'App\\Orders', '65', '[]', '{\"category_id\":\"9\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":65}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:52:02', '2020-01-12 07:52:02');
+INSERT INTO `audits` VALUES ('297', null, null, 'created', 'App\\Customer', '34', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":34}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:52:26', '2020-01-12 07:52:26');
+INSERT INTO `audits` VALUES ('298', null, null, 'created', 'App\\Payments', '30', '[]', '{\"order_ref\":1578815546,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=01f19355-ae8b-477a-87b6-673f55d72545\",\"id\":30}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:52:27', '2020-01-12 07:52:27');
+INSERT INTO `audits` VALUES ('299', null, null, 'created', 'App\\Orders', '66', '[]', '{\"category_id\":\"9\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":66}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:53:08', '2020-01-12 07:53:08');
+INSERT INTO `audits` VALUES ('300', null, null, 'created', 'App\\Customer', '35', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":35}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:53:24', '2020-01-12 07:53:24');
+INSERT INTO `audits` VALUES ('301', null, null, 'created', 'App\\Payments', '31', '[]', '{\"order_ref\":1578815604,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=2d6ce586-3fb3-4cb8-afaf-40b57f0448e8\",\"id\":31}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:53:25', '2020-01-12 07:53:25');
+INSERT INTO `audits` VALUES ('302', null, null, 'created', 'App\\Orders', '67', '[]', '{\"category_id\":\"1\",\"quantity\":\"2\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":67}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:54:43', '2020-01-12 07:54:43');
+INSERT INTO `audits` VALUES ('303', null, null, 'created', 'App\\Customer', '36', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":36}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:55:02', '2020-01-12 07:55:02');
+INSERT INTO `audits` VALUES ('304', null, null, 'created', 'App\\Payments', '32', '[]', '{\"order_ref\":1578815702,\"amount\":3000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=a64b6131-7661-4042-9309-302e68d60b16\",\"id\":32}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:55:03', '2020-01-12 07:55:03');
+INSERT INTO `audits` VALUES ('305', null, null, 'created', 'App\\Orders', '68', '[]', '{\"category_id\":\"1\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":68}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:56:46', '2020-01-12 07:56:46');
+INSERT INTO `audits` VALUES ('306', null, null, 'created', 'App\\Customer', '37', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":37}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:57:07', '2020-01-12 07:57:07');
+INSERT INTO `audits` VALUES ('307', null, null, 'created', 'App\\Payments', '33', '[]', '{\"order_ref\":1578815828,\"amount\":1500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=6eabe23f-da43-441d-bbf3-0e7513044427\",\"id\":33}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 07:57:09', '2020-01-12 07:57:09');
+INSERT INTO `audits` VALUES ('308', null, null, 'created', 'App\\Orders', '69', '[]', '{\"category_id\":\"1\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":69}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 08:02:53', '2020-01-12 08:02:53');
+INSERT INTO `audits` VALUES ('309', null, null, 'created', 'App\\Customer', '38', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":38}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 08:03:16', '2020-01-12 08:03:16');
+INSERT INTO `audits` VALUES ('310', null, null, 'created', 'App\\Payments', '34', '[]', '{\"order_ref\":1578816196,\"amount\":1500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=fcd266e3-977d-412e-8257-ccd1a56c5c2e\",\"id\":34}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 08:03:17', '2020-01-12 08:03:17');
+INSERT INTO `audits` VALUES ('311', null, null, 'created', 'App\\Customer', '39', '[]', '{\"user_id\":\"1578045598785\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":39}', 'http://127.0.0.1:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 09:45:44', '2020-01-12 09:45:44');
+INSERT INTO `audits` VALUES ('312', null, null, 'created', 'App\\Payments', '35', '[]', '{\"order_ref\":1578822345,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=6f84fe9d-e52e-48aa-bbe5-6a03159af9c0\",\"id\":35}', 'http://127.0.0.1:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 09:45:46', '2020-01-12 09:45:46');
+INSERT INTO `audits` VALUES ('313', null, null, 'created', 'App\\Orders', '70', '[]', '{\"category_id\":\"1\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":70}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:15:46', '2020-01-12 10:15:46');
+INSERT INTO `audits` VALUES ('314', null, null, 'created', 'App\\Customer', '40', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":40}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:16:01', '2020-01-12 10:16:01');
+INSERT INTO `audits` VALUES ('315', null, null, 'created', 'App\\Payments', '36', '[]', '{\"order_ref\":1578824161,\"amount\":1500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=1ad9cf8e-31ad-4783-aa0e-6285a2caf2d3\",\"id\":36}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:16:03', '2020-01-12 10:16:03');
+INSERT INTO `audits` VALUES ('316', null, null, 'created', 'App\\Orders', '71', '[]', '{\"category_id\":\"8\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":71}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:16:48', '2020-01-12 10:16:48');
+INSERT INTO `audits` VALUES ('317', null, null, 'created', 'App\\Customer', '41', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":41}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:17:03', '2020-01-12 10:17:03');
+INSERT INTO `audits` VALUES ('318', null, null, 'created', 'App\\Payments', '37', '[]', '{\"order_ref\":1578824223,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=0fa97fb1-e600-498c-b46b-8dc26c0445e8\",\"id\":37}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:17:04', '2020-01-12 10:17:04');
+INSERT INTO `audits` VALUES ('319', null, null, 'created', 'App\\Orders', '72', '[]', '{\"category_id\":\"8\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":72}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:22:22', '2020-01-12 10:22:22');
+INSERT INTO `audits` VALUES ('320', null, null, 'created', 'App\\Customer', '42', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":42}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:22:38', '2020-01-12 10:22:38');
+INSERT INTO `audits` VALUES ('321', null, null, 'created', 'App\\Payments', '38', '[]', '{\"order_ref\":1578824558,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=a8b1a36e-4308-4232-89bd-89f3699623d1\",\"id\":38}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 10:22:39', '2020-01-12 10:22:39');
+INSERT INTO `audits` VALUES ('322', null, null, 'created', 'App\\Orders', '73', '[]', '{\"category_id\":\"9\",\"quantity\":\"2\",\"user_id\":\"1578045598785\",\"status\":0,\"id\":73}', 'http://127.0.0.1:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 14:55:42', '2020-01-12 14:55:42');
+INSERT INTO `audits` VALUES ('323', null, null, 'created', 'App\\Customer', '43', '[]', '{\"user_id\":\"1578045598785\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":43}', 'http://127.0.0.1:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 14:56:02', '2020-01-12 14:56:02');
+INSERT INTO `audits` VALUES ('324', null, null, 'created', 'App\\Payments', '39', '[]', '{\"order_ref\":1578840962,\"amount\":1000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=0aa740b4-498e-47ec-ab09-739a8f878c66\",\"id\":39}', 'http://127.0.0.1:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-12 14:56:04', '2020-01-12 14:56:04');
+INSERT INTO `audits` VALUES ('325', null, null, 'created', 'App\\Orders', '74', '[]', '{\"category_id\":\"9\",\"quantity\":\"2\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":74}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:27:30', '2020-01-13 12:27:30');
+INSERT INTO `audits` VALUES ('326', null, null, 'created', 'App\\Customer', '44', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":44}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:28:27', '2020-01-13 12:28:27');
+INSERT INTO `audits` VALUES ('327', null, null, 'created', 'App\\Payments', '40', '[]', '{\"order_ref\":1578918508,\"amount\":1000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=92e72794-e0f9-45a4-b16e-69877dffd17c\",\"id\":40}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:28:29', '2020-01-13 12:28:29');
+INSERT INTO `audits` VALUES ('328', null, null, 'created', 'App\\Orders', '75', '[]', '{\"category_id\":\"9\",\"quantity\":\"1\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":75}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:30:18', '2020-01-13 12:30:18');
+INSERT INTO `audits` VALUES ('329', null, null, 'created', 'App\\Customer', '45', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"id\":45}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:30:33', '2020-01-13 12:30:33');
+INSERT INTO `audits` VALUES ('330', null, null, 'created', 'App\\Payments', '41', '[]', '{\"order_ref\":1578918633,\"amount\":500,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=c2b8feca-8c6a-45c8-af70-fcb25b6766c6\",\"id\":41}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:30:34', '2020-01-13 12:30:34');
+INSERT INTO `audits` VALUES ('331', null, null, 'created', 'App\\Orders', '76', '[]', '{\"category_id\":\"9\",\"quantity\":\"2\",\"user_id\":\"1577892256265\",\"status\":0,\"id\":76}', 'http://localhost:9092/api/orders', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:31:50', '2020-01-13 12:31:50');
+INSERT INTO `audits` VALUES ('332', null, null, 'created', 'App\\Customer', '46', '[]', '{\"user_id\":\"1577892256265\",\"order_id\":null,\"fullname\":\"Ernest Muroiwa\",\"contact\":\"0671564731\",\"email\":\"emuroiwa@gmail.com\",\"payment_type\":\"paynow\",\"gender\":\"female\",\"id\":46}', 'http://localhost:9092/api/customers', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:32:04', '2020-01-13 12:32:04');
+INSERT INTO `audits` VALUES ('333', null, null, 'created', 'App\\Payments', '42', '[]', '{\"order_ref\":1578918725,\"amount\":1000,\"currency\":\"ZWL\",\"paygate\":\"paynow\",\"status\":0,\"pollURL\":\"https:\\/\\/www.paynow.co.zw\\/Interface\\/CheckPayment\\/?guid=fccd769d-c4d0-445d-ada2-ab67fc645d98\",\"id\":42}', 'http://localhost:9092/api/paynow', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36', null, '2020-01-13 12:32:06', '2020-01-13 12:32:06');
 
 -- ----------------------------
 -- Table structure for customers
@@ -325,41 +387,62 @@ CREATE TABLE `customers` (
   `fullname` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `contact` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `payment_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of customers
 -- ----------------------------
-INSERT INTO `customers` VALUES ('1', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 12:32:30', '2020-01-03 12:32:30');
-INSERT INTO `customers` VALUES ('2', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 12:34:47', '2020-01-03 12:34:47');
-INSERT INTO `customers` VALUES ('3', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 13:07:08', '2020-01-03 13:07:08');
-INSERT INTO `customers` VALUES ('4', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paypal', '2020-01-03 15:02:05', '2020-01-03 15:02:05');
-INSERT INTO `customers` VALUES ('5', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'ecocash', '2020-01-03 15:02:17', '2020-01-03 15:02:17');
-INSERT INTO `customers` VALUES ('6', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 15:03:13', '2020-01-03 15:03:13');
-INSERT INTO `customers` VALUES ('7', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 15:04:55', '2020-01-03 15:04:55');
-INSERT INTO `customers` VALUES ('8', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 15:25:54', '2020-01-03 15:25:54');
-INSERT INTO `customers` VALUES ('9', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-03 17:06:21', '2020-01-03 17:06:21');
-INSERT INTO `customers` VALUES ('10', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-04 08:49:07', '2020-01-04 08:49:07');
-INSERT INTO `customers` VALUES ('11', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-04 16:17:17', '2020-01-04 16:17:17');
-INSERT INTO `customers` VALUES ('12', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-04 16:19:43', '2020-01-04 16:19:43');
-INSERT INTO `customers` VALUES ('13', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-04 18:42:50', '2020-01-04 18:42:50');
-INSERT INTO `customers` VALUES ('14', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-04 18:44:03', '2020-01-04 18:44:03');
-INSERT INTO `customers` VALUES ('15', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-04 19:35:36', '2020-01-04 19:35:36');
-INSERT INTO `customers` VALUES ('16', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-05 07:57:52', '2020-01-05 07:57:52');
-INSERT INTO `customers` VALUES ('17', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-05 18:08:08', '2020-01-05 18:08:08');
-INSERT INTO `customers` VALUES ('18', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-06 08:02:36', '2020-01-06 08:02:36');
-INSERT INTO `customers` VALUES ('19', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-06 14:25:17', '2020-01-06 14:25:17');
-INSERT INTO `customers` VALUES ('20', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-07 07:22:36', '2020-01-07 07:22:36');
-INSERT INTO `customers` VALUES ('21', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com1', 'paynow', '2020-01-07 12:22:21', '2020-01-07 12:22:21');
-INSERT INTO `customers` VALUES ('22', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-07 14:59:48', '2020-01-07 14:59:48');
-INSERT INTO `customers` VALUES ('23', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-08 15:42:44', '2020-01-08 15:42:44');
-INSERT INTO `customers` VALUES ('24', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-09 19:44:38', '2020-01-09 19:44:38');
-INSERT INTO `customers` VALUES ('25', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-10 09:57:08', '2020-01-10 09:57:08');
-INSERT INTO `customers` VALUES ('26', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'paynow', '2020-01-10 14:57:57', '2020-01-10 14:57:57');
+INSERT INTO `customers` VALUES ('1', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 12:32:30', '2020-01-03 12:32:30');
+INSERT INTO `customers` VALUES ('2', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 12:34:47', '2020-01-03 12:34:47');
+INSERT INTO `customers` VALUES ('3', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 13:07:08', '2020-01-03 13:07:08');
+INSERT INTO `customers` VALUES ('4', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paypal', '2020-01-03 15:02:05', '2020-01-03 15:02:05');
+INSERT INTO `customers` VALUES ('5', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'ecocash', '2020-01-03 15:02:17', '2020-01-03 15:02:17');
+INSERT INTO `customers` VALUES ('6', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 15:03:13', '2020-01-03 15:03:13');
+INSERT INTO `customers` VALUES ('7', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 15:04:55', '2020-01-03 15:04:55');
+INSERT INTO `customers` VALUES ('8', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 15:25:54', '2020-01-03 15:25:54');
+INSERT INTO `customers` VALUES ('9', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-03 17:06:21', '2020-01-03 17:06:21');
+INSERT INTO `customers` VALUES ('10', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-04 08:49:07', '2020-01-04 08:49:07');
+INSERT INTO `customers` VALUES ('11', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-04 16:17:17', '2020-01-04 16:17:17');
+INSERT INTO `customers` VALUES ('12', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-04 16:19:43', '2020-01-04 16:19:43');
+INSERT INTO `customers` VALUES ('13', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-04 18:42:50', '2020-01-04 18:42:50');
+INSERT INTO `customers` VALUES ('14', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-04 18:44:03', '2020-01-04 18:44:03');
+INSERT INTO `customers` VALUES ('15', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-04 19:35:36', '2020-01-04 19:35:36');
+INSERT INTO `customers` VALUES ('16', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-05 07:57:52', '2020-01-05 07:57:52');
+INSERT INTO `customers` VALUES ('17', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-05 18:08:08', '2020-01-05 18:08:08');
+INSERT INTO `customers` VALUES ('18', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-06 08:02:36', '2020-01-06 08:02:36');
+INSERT INTO `customers` VALUES ('19', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-06 14:25:17', '2020-01-06 14:25:17');
+INSERT INTO `customers` VALUES ('20', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-07 07:22:36', '2020-01-07 07:22:36');
+INSERT INTO `customers` VALUES ('21', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com1', null, 'paynow', '2020-01-07 12:22:21', '2020-01-07 12:22:21');
+INSERT INTO `customers` VALUES ('22', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-07 14:59:48', '2020-01-07 14:59:48');
+INSERT INTO `customers` VALUES ('23', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-08 15:42:44', '2020-01-08 15:42:44');
+INSERT INTO `customers` VALUES ('24', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-09 19:44:38', '2020-01-09 19:44:38');
+INSERT INTO `customers` VALUES ('25', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-10 09:57:08', '2020-01-10 09:57:08');
+INSERT INTO `customers` VALUES ('26', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-10 14:57:57', '2020-01-10 14:57:57');
+INSERT INTO `customers` VALUES ('27', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 08:32:09', '2020-01-11 08:32:09');
+INSERT INTO `customers` VALUES ('28', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 09:10:01', '2020-01-11 09:10:01');
+INSERT INTO `customers` VALUES ('29', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 11:59:04', '2020-01-11 11:59:04');
+INSERT INTO `customers` VALUES ('30', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 12:05:36', '2020-01-11 12:05:36');
+INSERT INTO `customers` VALUES ('31', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 12:08:36', '2020-01-11 12:08:36');
+INSERT INTO `customers` VALUES ('32', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 16:45:10', '2020-01-11 16:45:10');
+INSERT INTO `customers` VALUES ('33', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-11 17:17:57', '2020-01-11 17:17:57');
+INSERT INTO `customers` VALUES ('34', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 07:52:26', '2020-01-12 07:52:26');
+INSERT INTO `customers` VALUES ('35', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 07:53:24', '2020-01-12 07:53:24');
+INSERT INTO `customers` VALUES ('36', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 07:55:02', '2020-01-12 07:55:02');
+INSERT INTO `customers` VALUES ('37', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 07:57:07', '2020-01-12 07:57:07');
+INSERT INTO `customers` VALUES ('38', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 08:03:16', '2020-01-12 08:03:16');
+INSERT INTO `customers` VALUES ('39', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 09:45:44', '2020-01-12 09:45:44');
+INSERT INTO `customers` VALUES ('40', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 10:16:01', '2020-01-12 10:16:01');
+INSERT INTO `customers` VALUES ('41', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 10:17:03', '2020-01-12 10:17:03');
+INSERT INTO `customers` VALUES ('42', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 10:22:38', '2020-01-12 10:22:38');
+INSERT INTO `customers` VALUES ('43', '1578045598785', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-12 14:56:02', '2020-01-12 14:56:02');
+INSERT INTO `customers` VALUES ('44', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-13 12:28:27', '2020-01-13 12:28:27');
+INSERT INTO `customers` VALUES ('45', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', null, 'paynow', '2020-01-13 12:30:32', '2020-01-13 12:30:32');
+INSERT INTO `customers` VALUES ('46', '1577892256265', null, 'Ernest Muroiwa', '0671564731', 'emuroiwa@gmail.com', 'female', 'paynow', '2020-01-13 12:32:04', '2020-01-13 12:32:04');
 
 -- ----------------------------
 -- Table structure for event_infos
@@ -424,6 +507,25 @@ CREATE TABLE `event_locations` (
 INSERT INTO `event_locations` VALUES ('1', '1', 'HICC', null, 'Harare', null, null, null, null, null);
 
 -- ----------------------------
+-- Table structure for event_types
+-- ----------------------------
+DROP TABLE IF EXISTS `event_types`;
+CREATE TABLE `event_types` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `event_id` int(11) DEFAULT NULL,
+  `event_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of event_types
+-- ----------------------------
+INSERT INTO `event_types` VALUES ('1', '1', 'marathon', 'marathon', null, null);
+
+-- ----------------------------
 -- Table structure for failed_jobs
 -- ----------------------------
 DROP TABLE IF EXISTS `failed_jobs`;
@@ -450,11 +552,32 @@ CREATE TABLE `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of migrations
 -- ----------------------------
+INSERT INTO `migrations` VALUES ('1', '2014_10_12_000000_create_users_table', '1');
+INSERT INTO `migrations` VALUES ('2', '2019_08_20_112705_create_audits_table', '1');
+INSERT INTO `migrations` VALUES ('3', '2019_08_20_112705_create_customers_table', '1');
+INSERT INTO `migrations` VALUES ('4', '2019_08_20_112705_create_event_infos_table', '1');
+INSERT INTO `migrations` VALUES ('5', '2019_08_20_112705_create_event_locations_table', '1');
+INSERT INTO `migrations` VALUES ('6', '2019_08_19_000000_create_failed_jobs_table', '1');
+INSERT INTO `migrations` VALUES ('7', '2019_08_20_112705_create_orders_table', '1');
+INSERT INTO `migrations` VALUES ('8', '2014_10_12_100000_create_password_resets_table', '1');
+INSERT INTO `migrations` VALUES ('9', '2019_08_20_112705_create_payments_table', '1');
+INSERT INTO `migrations` VALUES ('10', '2019_08_20_112705_create_price_categories_table', '1');
+INSERT INTO `migrations` VALUES ('11', '2019_08_20_112705_create_price_sub_categories_table', '1');
+INSERT INTO `migrations` VALUES ('12', '2019_12_25_150209_create_zim_events_table', '1');
+INSERT INTO `migrations` VALUES ('13', '2019_12_26_152501_create_event_infos_table', '1');
+INSERT INTO `migrations` VALUES ('14', '2019_12_26_154523_create_event_locations_table', '1');
+INSERT INTO `migrations` VALUES ('15', '2019_12_26_154827_create_price_categories_table', '1');
+INSERT INTO `migrations` VALUES ('16', '2019_12_26_161230_create_price_sub_categories_table', '1');
+INSERT INTO `migrations` VALUES ('17', '2019_12_28_072548_create_orders_table', '1');
+INSERT INTO `migrations` VALUES ('18', '2019_12_28_073356_create_payments_table', '1');
+INSERT INTO `migrations` VALUES ('19', '2019_12_28_094213_create_audits_table', '1');
+INSERT INTO `migrations` VALUES ('20', '2019_12_30_090620_create_customers_table', '1');
+INSERT INTO `migrations` VALUES ('21', '2020_01_13_092330_create_event_types_table', '2');
 
 -- ----------------------------
 -- Table structure for orders
@@ -470,7 +593,7 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of orders
@@ -515,6 +638,28 @@ INSERT INTO `orders` VALUES ('51', '1578045598785', '6', '2', '1578599079', '1',
 INSERT INTO `orders` VALUES ('52', '1578045598785', '9', '1', '1578599079', '1', '2020-01-09 17:55:34', '2020-01-09 19:44:40');
 INSERT INTO `orders` VALUES ('53', '1578045598785', '9', '2', '1578650229', '1', '2020-01-10 09:11:44', '2020-01-10 09:57:10');
 INSERT INTO `orders` VALUES ('54', '1578045598785', '9', '2', '1578668278', '1', '2020-01-10 14:57:48', '2020-01-10 14:57:58');
+INSERT INTO `orders` VALUES ('55', '1578045598785', '6', '1', '1578731529', '1', '2020-01-11 04:45:07', '2020-01-11 08:32:10');
+INSERT INTO `orders` VALUES ('56', '1578045598785', '9', '1', '1578731529', '1', '2020-01-11 05:57:17', '2020-01-11 08:32:10');
+INSERT INTO `orders` VALUES ('57', '1578045598785', '1', '1', '1578733802', '1', '2020-01-11 08:37:50', '2020-01-11 09:10:02');
+INSERT INTO `orders` VALUES ('58', '1577892256265', '8', '1', '1578743945', '1', '2020-01-11 11:58:42', '2020-01-11 11:59:06');
+INSERT INTO `orders` VALUES ('59', '1577892256265', '9', '1', '1578744336', '1', '2020-01-11 12:04:35', '2020-01-11 12:05:37');
+INSERT INTO `orders` VALUES ('60', '1577892256265', '8', '2', '1578744516', '1', '2020-01-11 12:08:16', '2020-01-11 12:08:37');
+INSERT INTO `orders` VALUES ('61', '1578045598785', '8', '1', '1578761110', '2', '2020-01-11 14:40:35', '2020-01-11 16:46:48');
+INSERT INTO `orders` VALUES ('62', '1578045598785', '8', '2', '1578761110', '2', '2020-01-11 16:42:34', '2020-01-11 17:00:22');
+INSERT INTO `orders` VALUES ('63', '1577892256265', '6', '1', '1578763077', '2', '2020-01-11 17:17:37', '2020-01-11 17:51:05');
+INSERT INTO `orders` VALUES ('64', '1578045598785', '9', '1', '1578822345', '2', '2020-01-12 05:58:17', '2020-01-12 09:46:38');
+INSERT INTO `orders` VALUES ('65', '1577892256265', '9', '1', '1578815546', '1', '2020-01-12 07:52:02', '2020-01-12 07:52:27');
+INSERT INTO `orders` VALUES ('66', '1577892256265', '9', '1', '1578815604', '1', '2020-01-12 07:53:08', '2020-01-12 07:53:25');
+INSERT INTO `orders` VALUES ('67', '1577892256265', '1', '2', '1578815702', '1', '2020-01-12 07:54:43', '2020-01-12 07:55:03');
+INSERT INTO `orders` VALUES ('68', '1577892256265', '1', '1', '1578815828', '1', '2020-01-12 07:56:46', '2020-01-12 07:57:08');
+INSERT INTO `orders` VALUES ('69', '1577892256265', '1', '1', '1578816196', '2', '2020-01-12 08:02:53', '2020-01-12 08:04:25');
+INSERT INTO `orders` VALUES ('70', '1577892256265', '1', '1', '1578824161', '1', '2020-01-12 10:15:46', '2020-01-12 10:16:02');
+INSERT INTO `orders` VALUES ('71', '1577892256265', '8', '1', '1578824223', '1', '2020-01-12 10:16:48', '2020-01-12 10:17:04');
+INSERT INTO `orders` VALUES ('72', '1577892256265', '8', '1', '1578824558', '3', '2020-01-12 10:22:22', '2020-01-12 10:34:51');
+INSERT INTO `orders` VALUES ('73', '1578045598785', '9', '2', '1578840962', '3', '2020-01-12 14:55:42', '2020-01-12 15:10:53');
+INSERT INTO `orders` VALUES ('74', '1577892256265', '9', '2', '1578918508', '1', '2020-01-13 12:27:30', '2020-01-13 12:28:29');
+INSERT INTO `orders` VALUES ('75', '1577892256265', '9', '1', '1578918633', '1', '2020-01-13 12:30:18', '2020-01-13 12:30:33');
+INSERT INTO `orders` VALUES ('76', '1577892256265', '9', '2', '1578918725', '1', '2020-01-13 12:31:50', '2020-01-13 12:32:05');
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -546,7 +691,7 @@ CREATE TABLE `payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of payments
@@ -573,6 +718,26 @@ INSERT INTO `payments` VALUES ('19', 'https://www.paynow.co.zw/Interface/CheckPa
 INSERT INTO `payments` VALUES ('20', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=5610621f-4dab-4909-8ffd-0bed5d3a33f5', '1578599079', '1500', 'ZWL', 'paynow', '0', '2020-01-09 19:44:40', '2020-01-09 19:44:40');
 INSERT INTO `payments` VALUES ('21', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=bc08d72e-1bf7-4774-b3fe-937ca6c147f9', '1578650229', '1000', 'ZWL', 'paynow', '0', '2020-01-10 09:57:10', '2020-01-10 09:57:10');
 INSERT INTO `payments` VALUES ('22', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=d75d8a32-f708-4e06-9483-d9dd45e7536b', '1578668278', '1000', 'ZWL', 'paynow', '0', '2020-01-10 14:57:58', '2020-01-10 14:57:58');
+INSERT INTO `payments` VALUES ('23', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=e03876e7-5afc-4138-a0cb-456f04b0220f', '1578731529', '1000', 'ZWL', 'paynow', '0', '2020-01-11 08:32:10', '2020-01-11 08:32:10');
+INSERT INTO `payments` VALUES ('24', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=b4a0bd9c-2ae6-4a31-b249-a5f39c1fbc61', '1578733802', '1500', 'ZWL', 'paynow', '0', '2020-01-11 09:10:02', '2020-01-11 09:10:02');
+INSERT INTO `payments` VALUES ('25', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=e480786f-5fdc-40e3-8f59-f1903eeb42b4', '1578743945', '500', 'ZWL', 'paynow', '0', '2020-01-11 11:59:06', '2020-01-11 11:59:06');
+INSERT INTO `payments` VALUES ('26', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=4057c42b-2ad3-415b-be46-194d7656188c', '1578744336', '500', 'ZWL', 'paynow', '0', '2020-01-11 12:05:37', '2020-01-11 12:05:37');
+INSERT INTO `payments` VALUES ('27', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=1bc9a7f3-6701-4de3-ac57-45101068693d', '1578744516', '1000', 'ZWL', 'paynow', '0', '2020-01-11 12:08:37', '2020-01-11 12:08:37');
+INSERT INTO `payments` VALUES ('28', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=635e4c17-d3b1-4230-b5ee-e91045e2262b', '1578761110', '1500', 'ZWL', 'paynow', '1', '2020-01-11 16:45:13', '2020-01-11 17:00:22');
+INSERT INTO `payments` VALUES ('29', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=6b73fc1d-0be2-45f7-8ce0-73ef7abd735e', '1578763077', '500', 'ZWL', 'paynow', '1', '2020-01-11 17:17:58', '2020-01-11 17:51:05');
+INSERT INTO `payments` VALUES ('30', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=01f19355-ae8b-477a-87b6-673f55d72545', '1578815546', '500', 'ZWL', 'paynow', '0', '2020-01-12 07:52:27', '2020-01-12 07:52:27');
+INSERT INTO `payments` VALUES ('31', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=2d6ce586-3fb3-4cb8-afaf-40b57f0448e8', '1578815604', '500', 'ZWL', 'paynow', '0', '2020-01-12 07:53:25', '2020-01-12 07:53:25');
+INSERT INTO `payments` VALUES ('32', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=a64b6131-7661-4042-9309-302e68d60b16', '1578815702', '3000', 'ZWL', 'paynow', '0', '2020-01-12 07:55:03', '2020-01-12 07:55:03');
+INSERT INTO `payments` VALUES ('33', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=6eabe23f-da43-441d-bbf3-0e7513044427', '1578815828', '1500', 'ZWL', 'paynow', '0', '2020-01-12 07:57:09', '2020-01-12 07:57:09');
+INSERT INTO `payments` VALUES ('34', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=fcd266e3-977d-412e-8257-ccd1a56c5c2e', '1578816196', '1500', 'ZWL', 'paynow', '1', '2020-01-12 08:03:17', '2020-01-12 08:04:25');
+INSERT INTO `payments` VALUES ('35', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=6f84fe9d-e52e-48aa-bbe5-6a03159af9c0', '1578822345', '500', 'ZWL', 'paynow', '1', '2020-01-12 09:45:46', '2020-01-12 09:46:38');
+INSERT INTO `payments` VALUES ('36', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=1ad9cf8e-31ad-4783-aa0e-6285a2caf2d3', '1578824161', '1500', 'ZWL', 'paynow', '0', '2020-01-12 10:16:03', '2020-01-12 10:16:03');
+INSERT INTO `payments` VALUES ('37', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=0fa97fb1-e600-498c-b46b-8dc26c0445e8', '1578824223', '500', 'ZWL', 'paynow', '0', '2020-01-12 10:17:04', '2020-01-12 10:17:04');
+INSERT INTO `payments` VALUES ('38', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=a8b1a36e-4308-4232-89bd-89f3699623d1', '1578824558', '500', 'ZWL', 'paynow', '1', '2020-01-12 10:22:39', '2020-01-12 10:30:40');
+INSERT INTO `payments` VALUES ('39', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=0aa740b4-498e-47ec-ab09-739a8f878c66', '1578840962', '1000', 'ZWL', 'paynow', '2', '2020-01-12 14:56:04', '2020-01-12 15:10:53');
+INSERT INTO `payments` VALUES ('40', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=92e72794-e0f9-45a4-b16e-69877dffd17c', '1578918508', '1000', 'ZWL', 'paynow', '0', '2020-01-13 12:28:29', '2020-01-13 12:28:29');
+INSERT INTO `payments` VALUES ('41', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=c2b8feca-8c6a-45c8-af70-fcb25b6766c6', '1578918633', '500', 'ZWL', 'paynow', '0', '2020-01-13 12:30:34', '2020-01-13 12:30:34');
+INSERT INTO `payments` VALUES ('42', 'https://www.paynow.co.zw/Interface/CheckPayment/?guid=fccd769d-c4d0-445d-ada2-ab67fc645d98', '1578918725', '1000', 'ZWL', 'paynow', '0', '2020-01-13 12:32:05', '2020-01-13 12:32:05');
 
 -- ----------------------------
 -- Table structure for price_categories
@@ -656,6 +821,7 @@ INSERT INTO `users` VALUES ('1', 'Ernest Muroiwa', 'admin@admin.com', null, '$2y
 DROP TABLE IF EXISTS `zim_events`;
 CREATE TABLE `zim_events` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `event_type_id` int(11) DEFAULT NULL,
   `catergory_id` int(11) DEFAULT NULL,
   `event_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
@@ -669,10 +835,10 @@ CREATE TABLE `zim_events` (
 -- ----------------------------
 -- Records of zim_events
 -- ----------------------------
-INSERT INTO `zim_events` VALUES ('1', '1', 'Winky D Ablum Launch', '2019-12-25 20:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
-INSERT INTO `zim_events` VALUES ('2', '1', 'Madirirano', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
-INSERT INTO `zim_events` VALUES ('3', '1', 'Jah Prayza', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
-INSERT INTO `zim_events` VALUES ('4', '1', 'Winky D', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
-INSERT INTO `zim_events` VALUES ('5', '1', 'Zifm Judgement', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
-INSERT INTO `zim_events` VALUES ('6', '1', 'Star Fm Awards', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
-INSERT INTO `zim_events` VALUES ('7', '1', 'Econet Marathon', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('1', null, '1', 'Winky D Ablum Launch', '2019-12-25 20:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('2', null, '1', 'Madirirano', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('3', null, '1', 'Jah Prayza', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('4', null, '1', 'Winky D', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('5', null, '1', 'Zifm Judgement', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('6', null, '1', 'Star Fm Awards', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
+INSERT INTO `zim_events` VALUES ('7', '1', '1', 'Econet Marathon', '2019-12-25 00:00:00', '2019-12-26 00:00:00', '1.0000', null, null);
