@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
+use Paynow\Payments\Paynow;
+use App\Orders;
 use App\Payments;
 use DateTime;
 use PDF;
@@ -129,6 +131,52 @@ class PaymentsController extends Controller
            $this->statuscode  =   "1";
         }
         return response()->json(compact('this'));
+    }
+    public function CheckPayment($paymentRef){
+        $paynow = new Paynow(
+            env('PAYNOW_INTEGRATION_ID', '5214'),
+            env('PAYNOW_INTEGRATION_KEY', '5534bfbf-30d3-408a-876e-14ea26b00ad9'),
+            env('PAYNOW_RETURN_URL', 'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef),
+
+            // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
+            'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef
+        );
+        $pollUrl = "";
+
+        $transactions = Payments::where('order_ref','=',$paymentRef)
+        ->get();
+        foreach($transactions as $r){
+            $pollUrl = $r->pollURL;
+        }
+         // Check the status of the transaction
+        $status = $paynow->pollTransaction($pollUrl);
+        print_r($status->paid());
+        // print_r($status->paid());
+         if(true) {
+             //success
+            Orders::where('reference', $paymentRef)
+            ->where('status', 1)
+            ->update( array('status'=>2) );
+
+            Payments::where('order_ref', $paymentRef)
+            ->where('status', 0)
+            ->update( array('status'=>1));
+
+            return true;
+            
+         }else{
+             //cancelled transactins
+            Orders::where('reference', $paymentRef)
+            ->where('status', 1)
+            ->update( array('status'=>3) );
+            
+            Payments::where('order_ref', $paymentRef)
+            ->where('status', 0)
+            ->update( array('status'=>2));
+
+            return false;
+
+         }
     }
     
 }

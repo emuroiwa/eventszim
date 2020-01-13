@@ -44,8 +44,8 @@
                             this.ticketsEmail(data,ref)
                             this.isLoading = false
                         }).catch((error)=>{
-                            // console.log(rror.response)
-                        swal.fire("Failed!", "There was something wrong in verifyPayment "+ error, "warning");
+                            console.log(error)
+                        swal.fire("Failed!", "There was something wrong in verifyPayment "+ error.exception, "warning");
                         })
 
                 }).catch((error)=>{

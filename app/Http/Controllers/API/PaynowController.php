@@ -42,7 +42,7 @@ class PaynowController extends Controller
             'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef
         );
 
-        
+       // print_r($paynow);
         $payment = $paynow->createPayment($paymentRef, $request['email_ticket']);
        // $payment = $paynow->createPayment('Invoice', 'emuroiwa@gmail.com');
 
@@ -70,7 +70,7 @@ class PaynowController extends Controller
 
             $pollUrl = $response->pollUrl();
             //print_r($response);
-
+            $status = $paynow->pollTransaction($pollUrl);
             Orders::where('user_id', $request['user_id'])
             ->where('status', 0)
             ->update( array('status'=>1, 'reference'=>$paymentRef) );
@@ -149,7 +149,7 @@ class PaynowController extends Controller
         $status = $paynow->pollTransaction($pollUrl);
         print_r($status);
         // print_r($status->paid());
-         if(true) {
+         if($status->paid()) {
              //success
             Orders::where('reference', $paymentRef)
             ->where('status', 1)

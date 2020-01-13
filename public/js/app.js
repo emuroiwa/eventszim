@@ -3847,8 +3847,8 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.isLoading = false;
         })["catch"](function (error) {
-          // console.log(rror.response)
-          swal.fire("Failed!", "There was something wrong in verifyPayment " + error, "warning");
+          console.log(error);
+          swal.fire("Failed!", "There was something wrong in verifyPayment " + error.exception, "warning");
         });
       })["catch"](function (error) {
         // console.log(rror.response)
@@ -10712,7 +10712,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */\r\n    background-position: center; /* Center the image */\r\n    background-repeat: no-repeat; /* Do not repeat the image */\r\n    background-size: cover;\n}\n.container[data-v-0ae701e3]{\r\n    max-width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */\r\n    background-position: center; /* Center the image */\r\n    background-repeat: no-repeat; /* Do not repeat the image */\r\n    background-size: cover;\n}\n.container[data-v-0ae701e3]{\r\n    max-width: 100%;\r\n  /* Full height */\r\n  /* height: 100%; */\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\r\n", ""]);
 
 // exports
 
