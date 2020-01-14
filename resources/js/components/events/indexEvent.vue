@@ -76,9 +76,9 @@
             }
         },
         methods: {
-             getEvent(){
+             getEvent(id){
                  this.isLoading = true;
-                 axios.get("api/events/" + this.$route.query.event).then(({ data }) => {
+                 axios.get("api/events/" + id).then(({ data }) => {
                         this.eventData = data;
                         this.isLoading = false;
                     }).catch((error)=>{
@@ -92,6 +92,10 @@
                 }, 1000)
             }
         },
+        beforeRouteUpdate (to, from, next) {
+             console.log(to)
+            next();
+        },
         created(){
 
             Fire.$on('user',(user) =>{
@@ -103,7 +107,7 @@
                 this.selectedEvent()
             });
 
-            this.getEvent();
+            this.getEvent(this.$route.query.event);
             
         }
     }
