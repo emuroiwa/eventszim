@@ -52,9 +52,7 @@ window.swal = swal;
 Vue.use(VueAnalytics,{
     id:'UA-156298357-1',
     router
-
 })
-
 
 let routes = [
     { path: '/', component: require('./components/home/indexComponent.vue').default },
