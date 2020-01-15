@@ -84570,18 +84570,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_18__["default"]({
-  mode: 'history',
-  routes: routes // short for `routes: routes`
-
-});
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_18__["default"]);
 Vue.prototype.$gate = new _Gate__WEBPACK_IMPORTED_MODULE_2__["default"](window.user);
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
-Vue.use(vue_analytics__WEBPACK_IMPORTED_MODULE_19___default.a, {
-  id: 'UA-156298357-1',
-  router: router
-});
 var routes = [{
   path: '/',
   component: __webpack_require__(/*! ./components/home/indexComponent.vue */ "./resources/js/components/home/indexComponent.vue")["default"]
@@ -84632,6 +84623,15 @@ var routes = [{
   props: true,
   name: 'sell'
 }];
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_18__["default"]({
+  mode: 'history',
+  routes: routes // short for `routes: routes`
+
+});
+Vue.use(vue_analytics__WEBPACK_IMPORTED_MODULE_19___default.a, {
+  id: 'UA-156298357-1',
+  router: router
+});
 var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   toast: true,
   position: 'top-end',
