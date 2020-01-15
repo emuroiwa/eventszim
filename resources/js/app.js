@@ -44,12 +44,11 @@ import VueAnalytics from 'vue-analytics'
 Vue.use(VueRouter)
 Vue.prototype.$gate = new Gate(window.user);
 window.swal = swal;
-Vue.use(VueAnalytics,{
-    id:'UA-156298357-1',
-    router
 
+Vue.use(VueAnalytics, {
+  id: 'UA-156298357-1',
+  checkDuplicatedScript: true
 })
-
 
 let routes = [
     { path: '/', component: require('./components/home/indexComponent.vue').default },

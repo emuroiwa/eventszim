@@ -84575,7 +84575,7 @@ Vue.prototype.$gate = new _Gate__WEBPACK_IMPORTED_MODULE_2__["default"](window.u
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 Vue.use(vue_analytics__WEBPACK_IMPORTED_MODULE_19___default.a, {
   id: 'UA-156298357-1',
-  router: router
+  checkDuplicatedScript: true
 });
 var routes = [{
   path: '/',
