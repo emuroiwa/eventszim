@@ -39,10 +39,16 @@ import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
 import addCustomer from './components/events/customerDetails';
 import VueRouter from 'vue-router'
+import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueRouter)
 Vue.prototype.$gate = new Gate(window.user);
 window.swal = swal;
+Vue.use(VueAnalytics,{
+    id:'UA-156298357-1',
+    router
+
+})
 
 
 let routes = [
