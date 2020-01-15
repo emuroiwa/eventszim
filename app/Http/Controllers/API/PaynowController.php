@@ -34,12 +34,12 @@ class PaynowController extends Controller
         // $paymentRef = sha1(time());
         $paymentRef = time();
         $paynow = new Paynow(
-            env('PAYNOW_INTEGRATION_ID', '5214'),
-            env('PAYNOW_INTEGRATION_KEY', '5534bfbf-30d3-408a-876e-14ea26b00ad9'),
-            env('PAYNOW_RETURN_URL', 'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef),
+            '8927',
+            'ab9476aa-1127-4751-a146-21300ea7500e',
+            env('PAYNOW_RETURN_URL', 'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef),
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
-            'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef
+            'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
         );
 
        // print_r($paynow);
@@ -131,12 +131,12 @@ class PaynowController extends Controller
     }
     public function CheckPayment($paymentRef){
         $paynow = new Paynow(
-            env('PAYNOW_INTEGRATION_ID', '5214'),
-            env('PAYNOW_INTEGRATION_KEY', '5534bfbf-30d3-408a-876e-14ea26b00ad9'),
-            env('PAYNOW_RETURN_URL', 'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef),
+            '8927',
+            'ab9476aa-1127-4751-a146-21300ea7500e',
+            env('PAYNOW_RETURN_URL', 'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef),
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
-            'http://209.97.129.235/payments?z14ea26b00ad9='.$paymentRef
+            'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
         );
         $pollUrl = "";
 
