@@ -41,13 +41,20 @@ import addCustomer from './components/events/customerDetails';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 
+const router = new VueRouter({
+  mode: 'history',
+  routes // short for `routes: routes`
+})
+
 Vue.use(VueRouter)
 Vue.prototype.$gate = new Gate(window.user);
 window.swal = swal;
-Vue.use(VueAnalytics, {
-  id: 'UA-156298357-1',
-  checkDuplicatedScript: true
+Vue.use(VueAnalytics,{
+    id:'UA-156298357-1',
+    router
+
 })
+
 
 let routes = [
     { path: '/', component: require('./components/home/indexComponent.vue').default },
@@ -63,10 +70,7 @@ let routes = [
     { path: '/sell', component: require('./components/company/sell.vue').default,props: true,name: 'sell' },
     ]; 
 
-const router = new VueRouter({
-    mode: 'history',
-    routes // short for `routes: routes`
-  })
+
 const toast = swal.mixin({
   toast: true,
   position: 'top-end',
