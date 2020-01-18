@@ -80,18 +80,18 @@
         methods: {
             onChangeTickets(e){
                 var user = this.getCookie('gm58baba');
-                Fire.$emit('checkAvaliablity');
-                Fire.$emit('user',user);
-                this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
-                this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
-                this.form.user_id = user
-                this.form.post('api/orders')
-                .then((data)=>{
-                    Fire.$emit('orderCreated');
-                    this.getOrders();
-                    $('#priceOverview').collapse('show');
+                if(e.target.options[e.target.options.selectedIndex].value > 0){
+                    this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
+                    this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
+                    this.form.user_id = user
+                    this.form.post('api/orders')
+                    .then((data)=>{
+                        Fire.$emit('indexLoaded');
+                        this.getOrders();
+                        $('#priceOverview').collapse('show');
 
-                })
+                    })
+                }
             },
             getCookie(cname) {
                 var name = cname + "=";

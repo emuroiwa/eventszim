@@ -123,9 +123,7 @@
             Fire.$on('indexLoaded',() => {
                 this.getCartItems();
             });
-            Fire.$on('orderCreated',() => {
-                this.getCartItems();
-            });
+           
             Fire.$on('cancelOrder',() => {
                 this.cancelOrder();
             });

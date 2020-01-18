@@ -14,6 +14,7 @@
             </div>
             <div class="card-body">
                 <div class="card card-body border-danger align-items-center" v-if="!orders.length" >
+                    <!-- <testdetails></testdetails> -->
                     <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
                     <router-link to="/home"> 
                         <button type="button" class="btn btn-primary" >
@@ -84,28 +85,25 @@
                 </div>
                 <div id="customer" v-if="orders.length"> 
                     <!-- modal for mobile -->
-                    <div class="modal" id="customerDetails" data-backdrop="static" data-keyboard="false">
+                    <!-- <div class="modal" id="customerDetails" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog  modal-lg">
                             <div class="modal-content">
 
-                                <!-- Modal Header -->
+                                
                                 <div class="modal-header event-card-header">
                                     <h4 class="modal-title">Shopping Cart</h4>
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
 
-                                <!-- Modal body -->
+                              
                                 <div class="modal-body">
-                                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL"></addCustomer>
+                                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="this.orders"></addCustomer>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="card card-body border-info mt-1" v-if="isNotMobile">
-                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="getEventType"></addCustomer>
-                    </div>
-                    
+                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="getEventType" :orders="orders"></addCustomer>
                 </div>
             </div>
         </div>

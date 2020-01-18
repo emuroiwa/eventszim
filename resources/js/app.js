@@ -38,6 +38,7 @@ import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
 import addCustomer from './components/events/customerDetails';
+import testdetails from './components/events/testdetails';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 
@@ -107,6 +108,7 @@ Vue.component('catergories', catergories)
 Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
+Vue.component('testdetails', testdetails)
 Vue.component('priceCategory', priceCategory)
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));

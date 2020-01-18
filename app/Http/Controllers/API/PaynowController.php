@@ -34,8 +34,8 @@ class PaynowController extends Controller
         // $paymentRef = sha1(time());
         $paymentRef = time();
         $paynow = new Paynow(
-            '8927',
-            'ab9476aa-1127-4751-a146-21300ea7500e',
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             env('PAYNOW_RETURN_URL', 'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef),
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
@@ -60,7 +60,7 @@ class PaynowController extends Controller
         if($request['payment_type'] == 'paynow'){
             $response = $paynow->send($payment);
         }else{
-            $response = $paynow->sendMobile($payment, '0771111111', 'ecocash');
+            $response = $paynow->sendMobile($payment, $request['ecocash'], 'ecocash');
         }
         //print_r($response);
        // 
@@ -131,8 +131,8 @@ class PaynowController extends Controller
     }
     public function CheckPayment($paymentRef){
         $paynow = new Paynow(
-            '8927',
-            'ab9476aa-1127-4751-a146-21300ea7500e',
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             env('PAYNOW_RETURN_URL', 'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef),
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
@@ -147,10 +147,11 @@ class PaynowController extends Controller
         }
          // Check the status of the transaction
         $status = $paynow->pollTransaction($pollUrl);
-        print_r($status);
-        // print_r($status->paid());
-         if($status->paid()) {
+        $paynowStatues = array("awaiting delivery", "paid", "delivered");
+        
+         if((in_array($status->status(), $paynowStatues))) {
              //success
+            //print_r(in_array($status->status(), $paynowStatues));
             Orders::where('reference', $paymentRef)
             ->where('status', 1)
             ->update( array('status'=>2) );
@@ -159,7 +160,7 @@ class PaynowController extends Controller
             ->where('status', 0)
             ->update( array('status'=>1));
 
-            return true;
+            return ['message'=>'done'];
             
          }else{
              //cancelled transactins
@@ -171,7 +172,8 @@ class PaynowController extends Controller
             ->where('status', 0)
             ->update( array('status'=>2));
 
-            return false;
+            return ['message'=>'cancel'];
+
 
          }
     }

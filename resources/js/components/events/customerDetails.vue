@@ -7,14 +7,15 @@
         :color="'#3490DC'"
         :height="150"
         :width="150" class="text-center"></loading>
-        <h5> Complete the payment details below to secure your tickets.</h5>
-                        <form @submit.prevent="submitPayment()">
+                <form @submit.prevent="submitPayment()" v-if="paymentType">
+                    <div class="card card-body border-info mt-1" v-if="this.event_type!='marathon'" > 
+                        <h5> Complete the payment details below to secure your tickets.</h5>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="fullname">Full Name</label>
                                         <input v-model="form.fullname" type="text" name="fullname"  class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }">
-                                        <has-error :form="form" field="fullname"></has-error>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -22,7 +23,6 @@
                                         <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
                                         <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>
                                         <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
-                                        <has-error :form="form" field="contact"></has-error>
                                     </div>
                                 </div>
 
@@ -32,14 +32,12 @@
                                     <div class="form-group">
                                         <label for="email_ticket"><b>Email To Send Tickets To</b></label>
                                         <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
-                                        <has-error :form="form" field="email_ticket"></has-error>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="confirm_email">Confirm Email{{this.event_type}}</label>
                                         <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
-                                        <has-error :form="form" field="confirm_email"></has-error>
                                     </div>
                                 </div>
                                     
@@ -53,8 +51,6 @@
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
                                             </select>
-                                            
-                                            <has-error :form="form" field="gender"></has-error>
                                     </div>
                                 </div>
                                
@@ -73,7 +69,124 @@
                                 <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
                                 
                             </div>
-                        </form>
+                            
+                    </div>
+                    <div v-else>
+                                <div class="card card-body border-warning mt-1"  v-for="(ticketDetails, index) in  ticketDetails">  
+                                        <h5> Complete Details.{{ticketDetails.event}} Ticket {{index}}</h5>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="fullname">Full Name</label>
+                 
+                                                         <input v-model="ticketDetails.fullname" type="text"
+                                                            name="ticketDetails[][fullname]" class="form-control" :class="{ 'is-invalid': form.errors.has('ticketDetails[][fullname]') }" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="contact">Contact Number</label>
+                                                       <input v-model="ticketDetails.contact" type="number"
+                                                        name="ticketDetails[][contact]"  class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="pack"><b>Gender</b></label>
+                                                            <select name="ticketDetails[][gender]" v-model="ticketDetails.gender" class="form-control" required>
+                                                                <option value="">Please select </option>
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="category"><b>Race Category</b></label>
+                                                            <select name="ticketDetails[][category]"  v-model="ticketDetails.category" class="form-control" required>
+                                                                <option value="">Please select </option>
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                               
+                                                    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="pack"><b>Race Pack</b></label>
+                                                            <select name="ticketDetails[][pack]" v-model="ticketDetails.pack" class="form-control" required>
+                                                                <option value="">Please select </option>
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="tshirtsize"><b>Tshirt Size</b></label>
+                                                            <select name="ticketDetails[][tshirtsize]" v-model="form.tshirtsize" class="form-control" required>
+                                                                <option value="">Please select</option>
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                            </select>
+                                                            
+                                                    </div>
+                                                </div>
+                                            
+                            </div>
+                                
+                        </div>
+                        <div class="card card-body border-info mt-1">  
+                            <h5> Complete the payment details below to secure your tickets.</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
+                                            <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>
+                                            <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email_ticket"><b>Email To Send Tickets To</b></label>
+                                            <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                   
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="confirm_email">Confirm Email{{this.event_type}}</label>
+                                            <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
+                                        </div>
+                                    </div>
+                                        
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="terms" v-model="form.terms"> <a href="#" @click="terms()"> I accept terms and conditions </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    
+                                    <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Check Out</button>
+                                    <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </form>
     </div>
 </template>
 <script>
@@ -82,12 +195,26 @@
             paymentType: String,
             event_type: String,
             total_USD: Number,
-            total_ZWL: Number
+            total_ZWL: Number,
+            orders:Array
         },
+       
         data() {
             return {
                 isLoading: false,
                 fullPage: true,
+                email:'',
+                contact:'',
+                ticketDetail: {
+                    fullname: '',
+                    contact: '',
+                    email:'',
+                    tshirtsize:'',
+                    pack:'',
+                    category:'',
+                    event:'',
+                    }, 
+                ticketDetails:[],
                 form: new Form({
                     user_id:'',
                     order_id:'',
@@ -103,6 +230,7 @@
                     }),
             }
         },
+        
         methods: {
             terms(){
                 let routeData = this.$router.resolve({name: 'terms'});
@@ -111,6 +239,7 @@
             submitPayment(){
                 //refactor here for v2
                 if(this.form.email_ticket != this.form.confirm_email){
+        
                     swal.fire("Failed!", "Make sure emails match ", "warning");
                     return;
                 }
@@ -124,6 +253,45 @@
                     this.form.total_ZWL = this.total_ZWL;
                     
                     this.isLoading = true;
+
+                if(this.ticketDetails.length > 0){
+
+                    axios.post('api/customers', {
+                        ticketDetails:this.ticketDetails,
+                        ecocash: this.form.contact,
+                        email: this.form.email_ticket ,
+                        payment_type: this.payment_type,
+                        total_USD: this.total_USD,
+                        total_ZWL: this.total_ZWL,
+                        user_id: this.form.user_id,
+
+                    }).then((response) => {
+
+                         if(this.paymentType != 'paypal'){
+                            //paynow endpoint
+                            axios.post('api/paynow', {
+                                ticketDetails:this.ticketDetails,
+                                ecocash: this.form.contact,
+                                email_ticket: this.form.email_ticket ,
+                                payment_type: this.payment_type,
+                                user_id: this.form.user_id,
+                            }).then((response)=>{
+
+                                window.location.href = response.data
+                            })
+                            .catch((error)=>{
+                                console.log(error)
+                                swal.fire("Failed!", "There was something wrong paynow. "+error, "warning");
+                                
+                            })
+                        }    
+                    }).catch((error)=>{
+                        // console.log(rror.response)
+                    swal.fire("Failed!", "There was something wrong in paynow "+ error, "warning");
+                    });
+
+
+                }else{
                     this.form.post('api/customers')
                     .then(()=>{
 
@@ -145,7 +313,7 @@
                             
                     })
 
-                    
+                }
             },
             getCookie(cname) {
                 var name = cname + "=";
@@ -189,13 +357,32 @@
                 //$('#shoppingCartModal').modal('hide');
                 this.paymentMethod="";
             },
+            setTickets(){
+                for (var i = 0; i < this.orders.length; i++) {
+                    if(this.orders[i].event_type == 'marathon'){
+                        var orderQty = this.orders[i].quantity;
+                        var event_name = this.orders[i].event_name;
+                        for (var i = 0; i < orderQty; i++) {
+                            var obj = {};
+                            obj['fullname'] = '';
+                            obj['contact'] = '';
+                            obj['category'] = '';
+                            obj['pack'] = '';
+                            obj['tshirtsize'] = '';
+                            obj['event'] = event_name;
+                            this.ticketDetails.push(obj);
+                        }
+                    }
+                }
+            }
         
         },
         computed: {
 
         },
+        
         created() {
-         
+            this.setTickets()
         }
 
     }
