@@ -262,7 +262,7 @@
                     axios.post('api/customers', {
                         ticketDetails:this.ticketDetails,
                         ecocash: this.form.contact,
-                        email: this.form.email_ticket ,
+                        email_ticket: this.form.email_ticket ,
                         payment_type: this.paymentType,
                         total_USD: this.total_USD,
                         total_ZWL: this.total_ZWL,

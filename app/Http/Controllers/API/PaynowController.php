@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Paynow\Payments\Paynow;
 use App\Orders;
 use App\Payments;
+use App\PaymentDetails;
 use App\Customer;
 use DB;
 
@@ -81,6 +82,11 @@ class PaynowController extends Controller
             Customer::where('user_id', $request['user_id'])
             ->where('order_id', '11111')
             ->update( array('order_id'=>$paymentRef) );
+
+            PaymentDetails::where('user_id', $request['user_id'])
+            ->where('order_id', '11111')
+            ->update( array('order_id'=>$paymentRef) );
+
             
             //create payment record
             Payments::create([

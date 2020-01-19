@@ -123,13 +123,13 @@
 										<table border="0" cellpadding="0" cellspacing="0">
 											<tr>
 												<td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-													<a href="http://www.twitter.com/" style="color: #ffffff;">
+													<a href="http://www.twitter.com/ticketbookzw" style="color: #ffffff;">
 														<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
 													</a>
 												</td>
 												<td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
 												<td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-													<a href="http://www.twitter.com/" style="color: #ffffff;">
+													<a href="http://www.twitter.com/ticketbookzw" style="color: #ffffff;">
 														<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
 													</a>
 												</td>
@@ -142,7 +142,7 @@
 						</td>
 						<tr>
 							<td style="padding: 20px 20px 30px 20px; color: grey; font-family: Arial, sans-serif; font-size: 8px; line-height: 20px;">
-								Disclaimer: 1) Confidentiality: This email, sent from INFO@TICKETBOOK.CO.ZW to emuroiwa@gmail.com on Fri Jan 10 15:23:29 2020 , is confidential and may contain privileged or copyright information. You may not present this message to another party without consent from the sender If you are not emuroiwa@gmail.com please notify INFO@TICKETBOOK.CO.ZW and delete this email, and you are notified that disclosing, copying, distributing or taking any action in reliance on the contents of this information is strictly prohibited. 2) Liability: This email is not a binding agreement and does not conclude an agreement without the express confirmation by the sender's superior or a director of the Company. 3) Viruses: The Company does not certify that this email is free of viruses or defects. 4) Requested: The Company does not consent to its employees sending un-asked for emails which contravene the law. In the event that you feel this email is such, please notify the Company in order for the appropriate corrective action to be taken. 5) Advice: Any views or opinions presented in this email are solely those of the author and do not necessarily represent those of the company. Any actions taken on the basis of this email are at the reader's own risk. 6) Other: The sender of this email is expressly required not to make any defamatory statements. Any such communication is contrary to company policy and outside the scope of the employment of the individual concerned. The company will not accept any liability in respect of such communication, and the employee responsible will be personally liable for any damages or other liability arising.
+								Disclaimer: 1) Confidentiality: This email, sent from INFO@TICKETBOOK.CO.ZW to {{ $data2["email"] }}   , is confidential and may contain privileged or copyright information. You may not present this message to another party without consent from the sender If you are not {{ $data2["email"] }}  please notify INFO@TICKETBOOK.CO.ZW and delete this email, and you are notified that disclosing, copying, distributing or taking any action in reliance on the contents of this information is strictly prohibited. 2) Liability: This email is not a binding agreement and does not conclude an agreement without the express confirmation by the sender's superior or a director of the Company. 3) Viruses: The Company does not certify that this email is free of viruses or defects. 4) Requested: The Company does not consent to its employees sending un-asked for emails which contravene the law. In the event that you feel this email is such, please notify the Company in order for the appropriate corrective action to be taken. 5) Advice: Any views or opinions presented in this email are solely those of the author and do not necessarily represent those of the company. Any actions taken on the basis of this email are at the reader's own risk. 6) Other: The sender of this email is expressly required not to make any defamatory statements. Any such communication is contrary to company policy and outside the scope of the employment of the individual concerned. The company will not accept any liability in respect of such communication, and the employee responsible will be personally liable for any damages or other liability arising.
 							</td>
 						</tr>
 					</tr>
