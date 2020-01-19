@@ -42,7 +42,7 @@
                         
                         axios.get("api/paynow/"+ ref).then(({ data }) => {
                             this.ticketsEmail(data,ref)
-                            this.isLoading = false
+                            
                         }).catch((error)=>{
                             console.log(error)
                         swal.fire("Failed!", "There was something wrong in verifyPayment "+ error.exception, "warning");
@@ -55,10 +55,11 @@
             },
 
             ticketsEmail(response,ref){
-                console.log(this.userData)
+                
                 var emailType = ""
                 var emailHeading = ""
-                   if(response){
+                var paymentResponse = response.message;
+                   if(paymentResponse == 'done'){
                        emailType = 'success';
                        emailHeading = ':-) Ticketbook Confimation of Ticket Purchase'
 
@@ -73,10 +74,15 @@
                     email_type: emailType,
                     order_id: this.order_id
                 }).then((response) => {
-                   swal.fire("Success", "zvinenge zvaita izvi hamuone kudaro ", "success");
+                    this.isLoading = false
+                    if(paymentResponse == 'done'){
+                        swal.fire("Success", "Thank you for your purchase, please check your email for tickets", "success");
+                    }else{
+                        swal.fire("Oops", "Payment cancelled.....", "error");
+                    }
                 }).catch((error)=>{
                     // console.log(rror.response)
-                swal.fire("Failed!", "There was something wrong in getUserData "+ error, "warning");
+                swal.fire("Failed!", "There was something wrong in ticketsEmail  "+ error, "warning");
                 });
             },
             getCookie(cname) {

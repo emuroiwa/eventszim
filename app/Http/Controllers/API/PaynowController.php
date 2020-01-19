@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Paynow\Payments\Paynow;
 use App\Orders;
 use App\Payments;
+use App\Customer;
 use DB;
 
 class PaynowController extends Controller
@@ -71,10 +72,17 @@ class PaynowController extends Controller
             $pollUrl = $response->pollUrl();
             //print_r($response);
             $status = $paynow->pollTransaction($pollUrl);
+
+            //set order IDs in orders and customers table
             Orders::where('user_id', $request['user_id'])
             ->where('status', 0)
             ->update( array('status'=>1, 'reference'=>$paymentRef) );
+
+            Customer::where('user_id', $request['user_id'])
+            ->where('order_id', '11111')
+            ->update( array('order_id'=>$paymentRef) );
             
+            //create payment record
             Payments::create([
                 'order_ref' => $paymentRef,
                 'amount' => $total,

@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="fullname">Full Name</label>
+                                        <label for="fullname">Full Name*</label>
                                         <input v-model="form.fullname" type="text" name="fullname"  class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }">
                                         
                                     </div>
@@ -21,7 +21,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
-                                        <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>
+                                        <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>*
                                         <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
                                     </div>
                                 </div>
@@ -30,13 +30,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="email_ticket"><b>Email To Send Tickets To</b></label>
+                                        <label for="email_ticket"><b>Email To Send Tickets To</b>*</label>
                                         <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="confirm_email">Confirm Email{{this.event_type}}</label>
+                                        <label for="confirm_email">Confirm Email*</label>
                                         <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
                                     </div>
                                 </div>
@@ -73,21 +73,21 @@
                     </div>
                     <div v-else>
                                 <div class="card card-body border-warning mt-1"  v-for="(ticketDetails, index) in  ticketDetails">  
-                                        <h5> Complete Details.{{ticketDetails.event}} Ticket {{index}}</h5>
+                                        <h5> Complete Details <b>{{ticketDetails.event}} Ticket {{index +1}}</b></h5>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="fullname">Full Name</label>
+                                                        <label for="fullname"><b>Full Name</b>*</label>
                  
                                                          <input v-model="ticketDetails.fullname" type="text"
-                                                            name="ticketDetails[][fullname]" class="form-control" :class="{ 'is-invalid': form.errors.has('ticketDetails[][fullname]') }" >
+                                                            name="ticketDetails[][fullname]" class="form-control" :class="{ 'is-invalid': form.errors.has('ticketDetails[][fullname]') }" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact">Contact Number</label>
+                                                        <label for="contact"><b>Contact Number</b>*</label>
                                                        <input v-model="ticketDetails.contact" type="number"
-                                                        name="ticketDetails[][contact]"  class="form-control" placeholder="">
+                                                        name="ticketDetails[][contact]"  class="form-control" placeholder="" required>
                                                     </div>
                                                 </div>
 
@@ -95,7 +95,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="pack"><b>Gender</b></label>
+                                                        <label for="pack"><b>Gender</b>*</label>
                                                             <select name="ticketDetails[][gender]" v-model="ticketDetails.gender" class="form-control" required>
                                                                 <option value="">Please select </option>
                                                                 <option value="male">Male</option>
@@ -105,7 +105,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="category"><b>Race Category</b></label>
+                                                        <label for="category"><b>Race Category</b>*</label>
                                                             <select name="ticketDetails[][category]"  v-model="ticketDetails.category" class="form-control" required>
                                                                 <option value="">Please select </option>
                                                                 <option value="male">Male</option>
@@ -119,7 +119,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="pack"><b>Race Pack</b></label>
+                                                        <label for="pack"><b>Race Pack</b>*</label>
                                                             <select name="ticketDetails[][pack]" v-model="ticketDetails.pack" class="form-control" required>
                                                                 <option value="">Please select </option>
                                                                 <option value="male">Male</option>
@@ -129,7 +129,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="tshirtsize"><b>Tshirt Size</b></label>
+                                                        <label for="tshirtsize"><b>Tshirt Size</b>*</label>
                                                             <select name="ticketDetails[][tshirtsize]" v-model="form.tshirtsize" class="form-control" required>
                                                                 <option value="">Please select</option>
                                                                 <option value="male">Male</option>
@@ -148,13 +148,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
-                                            <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>
+                                            <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>*
                                             <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email_ticket"><b>Email To Send Tickets To</b></label>
+                                            <label for="email_ticket"><b>Email To Send Tickets To</b>*</label>
                                             <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
                                    
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="confirm_email">Confirm Email{{this.event_type}}</label>
+                                            <label for="confirm_email">Confirm Email*</label>
                                             <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
                                         </div>
                                     </div>
@@ -260,7 +260,7 @@
                         ticketDetails:this.ticketDetails,
                         ecocash: this.form.contact,
                         email: this.form.email_ticket ,
-                        payment_type: this.payment_type,
+                        payment_type: this.paymentType,
                         total_USD: this.total_USD,
                         total_ZWL: this.total_ZWL,
                         user_id: this.form.user_id,
@@ -273,11 +273,11 @@
                                 ticketDetails:this.ticketDetails,
                                 ecocash: this.form.contact,
                                 email_ticket: this.form.email_ticket ,
-                                payment_type: this.payment_type,
+                                payment_type: this.paymentType,
                                 user_id: this.form.user_id,
                             }).then((response)=>{
-
-                                window.location.href = response.data
+                                console.log(response)
+                               //window.location.href = response
                             })
                             .catch((error)=>{
                                 console.log(error)

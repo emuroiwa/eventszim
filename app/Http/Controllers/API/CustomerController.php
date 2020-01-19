@@ -29,13 +29,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+
         if($request['ticketDetails']){
             foreach($request['ticketDetails'] as $r){
-                print_r($r);
+                
                 Customer::create([
                     'user_id' => $request['user_id'],
                     'fullname' => $r['fullname'],
                     'contact' => $r['contact'],
+                    'order_id' => '11111',
                     'payment_type' => $r['fullname'],
                     'category' => $r['category'],
                     'tshirtsize' => $r['tshirtsize'],

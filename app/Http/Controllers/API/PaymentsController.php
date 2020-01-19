@@ -104,14 +104,14 @@ class PaymentsController extends Controller
        
         try{
             if($request['email_type'] == "success"){
-                Mail::send('email.emailbody', $data, function($message)use($data) {
+                Mail::send('email.emailbody', ["data1"=>$data], function($message)use($data) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])
                 ->from($data['from_email']);
                // ->attachData($pdf->output(), $data["subject"].".pdf");
                 });
             }else{
-               Mail::send('email.emailbody', $data, function($message)use($data) {
+               Mail::send('email.emailbody', ["data1"=>$data], function($message)use($data) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])
                 ->from($data['from_email']);

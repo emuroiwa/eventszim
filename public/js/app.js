@@ -2591,7 +2591,7 @@ __webpack_require__.r(__webpack_exports__);
           ticketDetails: this.ticketDetails,
           ecocash: this.form.contact,
           email: this.form.email_ticket,
-          payment_type: this.payment_type,
+          payment_type: this.paymentType,
           total_USD: this.total_USD,
           total_ZWL: this.total_ZWL,
           user_id: this.form.user_id
@@ -2602,10 +2602,10 @@ __webpack_require__.r(__webpack_exports__);
               ticketDetails: _this.ticketDetails,
               ecocash: _this.form.contact,
               email_ticket: _this.form.email_ticket,
-              payment_type: _this.payment_type,
+              payment_type: _this.paymentType,
               user_id: _this.form.user_id
             }).then(function (response) {
-              window.location.href = response.data;
+              console.log(response); //window.location.href = response
             })["catch"](function (error) {
               console.log(error);
               swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
@@ -4161,8 +4161,6 @@ __webpack_require__.r(__webpack_exports__);
           var data = _ref2.data;
 
           _this.ticketsEmail(data, ref);
-
-          _this.isLoading = false;
         })["catch"](function (error) {
           console.log(error);
           swal.fire("Failed!", "There was something wrong in verifyPayment " + error.exception, "warning");
@@ -4173,11 +4171,13 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     ticketsEmail: function ticketsEmail(response, ref) {
-      console.log(this.userData);
+      var _this2 = this;
+
       var emailType = "";
       var emailHeading = "";
+      var paymentResponse = response.message;
 
-      if (response) {
+      if (paymentResponse == 'done') {
         emailType = 'success';
         emailHeading = ':-) Ticketbook Confimation of Ticket Purchase';
       } else {
@@ -4192,10 +4192,16 @@ __webpack_require__.r(__webpack_exports__);
         email_type: emailType,
         order_id: this.order_id
       }).then(function (response) {
-        swal.fire("Success", "zvinenge zvaita izvi hamuone kudaro ", "success");
+        _this2.isLoading = false;
+
+        if (paymentResponse == 'done') {
+          swal.fire("Success", "Thank you for your purchase, please check your email for tickets", "success");
+        } else {
+          swal.fire("Oops", "Payment cancelled.....", "error");
+        }
       })["catch"](function (error) {
         // console.log(rror.response)
-        swal.fire("Failed!", "There was something wrong in getUserData " + error, "warning");
+        swal.fire("Failed!", "There was something wrong in ticketsEmail  " + error, "warning");
       });
     },
     getCookie: function getCookie(cname) {
@@ -66984,7 +66990,7 @@ var render = function() {
                         _c("div", { staticClass: "col-md-6" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "fullname" } }, [
-                              _vm._v("Full Name")
+                              _vm._v("Full Name*")
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -67031,7 +67037,7 @@ var render = function() {
                                   _vm._v("Contact Number")
                                 ])
                               : _vm._e(),
-                            _vm._v(" "),
+                            _vm._v("*\n                                    "),
                             _c("input", {
                               directives: [
                                 {
@@ -67110,7 +67116,7 @@ var render = function() {
                         _c("div", { staticClass: "col-md-6" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "confirm_email" } }, [
-                              _vm._v("Confirm Email" + _vm._s(this.event_type))
+                              _vm._v("Confirm Email*")
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -67308,20 +67314,20 @@ var render = function() {
                           { staticClass: "card card-body border-warning mt-1" },
                           [
                             _c("h5", [
-                              _vm._v(
-                                " Complete Details." +
+                              _vm._v(" Complete Details "),
+                              _c("b", [
+                                _vm._v(
                                   _vm._s(ticketDetails.event) +
-                                  " Ticket " +
-                                  _vm._s(index)
-                              )
+                                    " Ticket " +
+                                    _vm._s(index + 1)
+                                )
+                              ])
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-md-6" }, [
                                 _c("div", { staticClass: "form-group" }, [
-                                  _c("label", { attrs: { for: "fullname" } }, [
-                                    _vm._v("Full Name")
-                                  ]),
+                                  _vm._m(3, true),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -67340,7 +67346,8 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      name: "ticketDetails[][fullname]"
+                                      name: "ticketDetails[][fullname]",
+                                      required: ""
                                     },
                                     domProps: { value: ticketDetails.fullname },
                                     on: {
@@ -67361,9 +67368,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("div", { staticClass: "col-md-6" }, [
                                 _c("div", { staticClass: "form-group" }, [
-                                  _c("label", { attrs: { for: "contact" } }, [
-                                    _vm._v("Contact Number")
-                                  ]),
+                                  _vm._m(4, true),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -67378,7 +67383,8 @@ var render = function() {
                                     attrs: {
                                       type: "number",
                                       name: "ticketDetails[][contact]",
-                                      placeholder: ""
+                                      placeholder: "",
+                                      required: ""
                                     },
                                     domProps: { value: ticketDetails.contact },
                                     on: {
@@ -67401,7 +67407,7 @@ var render = function() {
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-md-6" }, [
                                 _c("div", { staticClass: "form-group" }, [
-                                  _vm._m(3, true),
+                                  _vm._m(5, true),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -67468,7 +67474,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("div", { staticClass: "col-md-6" }, [
                                 _c("div", { staticClass: "form-group" }, [
-                                  _vm._m(4, true),
+                                  _vm._m(6, true),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -67537,7 +67543,7 @@ var render = function() {
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-md-6" }, [
                                 _c("div", { staticClass: "form-group" }, [
-                                  _vm._m(5, true),
+                                  _vm._m(7, true),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -67604,7 +67610,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("div", { staticClass: "col-md-6" }, [
                                 _c("div", { staticClass: "form-group" }, [
-                                  _vm._m(6, true),
+                                  _vm._m(8, true),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -67697,7 +67703,9 @@ var render = function() {
                                       _vm._v("Contact Number")
                                     ])
                                   : _vm._e(),
-                                _vm._v(" "),
+                                _vm._v(
+                                  "*\n                                        "
+                                ),
                                 _c("input", {
                                   directives: [
                                     {
@@ -67736,7 +67744,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-md-6" }, [
                               _c("div", { staticClass: "form-group" }, [
-                                _vm._m(7),
+                                _vm._m(9),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -67781,11 +67789,7 @@ var render = function() {
                                 _c(
                                   "label",
                                   { attrs: { for: "confirm_email" } },
-                                  [
-                                    _vm._v(
-                                      "Confirm Email" + _vm._s(this.event_type)
-                                    )
-                                  ]
+                                  [_vm._v("Confirm Email*")]
                                 ),
                                 _vm._v(" "),
                                 _c("input", {
@@ -67892,7 +67896,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
-                            _vm._m(8),
+                            _vm._m(10),
                             _vm._v(" "),
                             _c(
                               "a",
@@ -67926,7 +67930,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "email_ticket" } }, [
-      _c("b", [_vm._v("Email To Send Tickets To")])
+      _c("b", [_vm._v("Email To Send Tickets To")]),
+      _vm._v("*")
     ])
   },
   function() {
@@ -67951,8 +67956,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "fullname" } }, [
+      _c("b", [_vm._v("Full Name")]),
+      _vm._v("*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "contact" } }, [
+      _c("b", [_vm._v("Contact Number")]),
+      _vm._v("*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "pack" } }, [
-      _c("b", [_vm._v("Gender")])
+      _c("b", [_vm._v("Gender")]),
+      _vm._v("*")
     ])
   },
   function() {
@@ -67960,7 +67984,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "category" } }, [
-      _c("b", [_vm._v("Race Category")])
+      _c("b", [_vm._v("Race Category")]),
+      _vm._v("*")
     ])
   },
   function() {
@@ -67968,7 +67993,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "pack" } }, [
-      _c("b", [_vm._v("Race Pack")])
+      _c("b", [_vm._v("Race Pack")]),
+      _vm._v("*")
     ])
   },
   function() {
@@ -67976,7 +68002,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "tshirtsize" } }, [
-      _c("b", [_vm._v("Tshirt Size")])
+      _c("b", [_vm._v("Tshirt Size")]),
+      _vm._v("*")
     ])
   },
   function() {
@@ -67984,7 +68011,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "email_ticket" } }, [
-      _c("b", [_vm._v("Email To Send Tickets To")])
+      _c("b", [_vm._v("Email To Send Tickets To")]),
+      _vm._v("*")
     ])
   },
   function() {
