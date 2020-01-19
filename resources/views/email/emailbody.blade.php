@@ -36,11 +36,11 @@
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">	
 		<tr>
 			<td style="padding: 10px 0 30px 0;">
-				<table align="center" border="0" cellpadding="0" cellspacing="0" width="700" style="border: 1px solid #cccccc; border-collapse: collapse;">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="850" style="border: 1px solid #cccccc; border-collapse: collapse;">
 					<tr>
 						<td align="center">
 		
-							<img src="{{url('http://209.97.129.235/img/email/emailheader.jpg')}}" alt="Creating Email Magic" width="100%" height="230" style="display: block;"/>
+							<img src="{{url('http://209.97.129.235/img/email/emailheader.jpg')}}" alt="Ticketbook" width="100%" height="230" style="display: block;"/>
 						</td>
 					</tr>
 					<tr>
@@ -49,39 +49,60 @@
 
 								<tr>
 									<td style="color: #153643; font-family: Arial, sans-serif; font-size: 14px;">
-										<b>Hi </b>
+										<b>Hi {{ $data2["client_name"] }} </b>
 									</td>
 								</tr>
 								<tr>
-									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
+									<td style="padding: 20px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
 											Thank you for using Ticketbook,
 									</td>
 								</tr>
 								<tr>
 									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-										The total cost of the transaction has been debited from your account. Details of your booking appear below. Please check all details carefully, especially dates, times, venues and quantities. If the ticket details are incorrect, please phone our call centre on 0861 915 4000 (calls charged at 65 cent per minute).
+										The total cost of the transaction has been debited from your account. Details of your booking appear below. Please check all details carefully, especially dates, times, venues and quantities. If the ticket details are incorrect, please phone our call centre on  +263774366481.
 									</td>
 								</tr>
 								<tr>
 									<td>
-										 <div>{!!DNS1D::getBarcodeHTML(1578163443, 'I25',3,33,"green",true)!!}</div>
-										 <div>{!!DNS2D::getBarcodeHTML(1578163443, 'PDF417',3,1)!!}</div>
-										<table border="0" class="customers" cellpadding="0" cellspacing="0" width="100%">
-											<tr>
-												<th>Ticket Reference</th>
-												<th>Ticket Details</th>
-												<th>Number of tickets</th>
-												<th>Cost</th>
+										 {{-- <div>{!!DNS1D::getBarcodeHTML(1578163443, 'I25',3,33,"green",true)!!}</div>
+										 <div>{!!DNS2D::getBarcodeHTML(1578163443, 'PDF417',3,1)!!}</div> --}}
+										@if($data1)
+											<table border="1" style="border: 1px solid black;" class="customers" cellpadding="0" cellspacing="0" width="100%">
+												<tr  bgcolor="#ee4c50">
+													<th>Ticket Reference</th>
+													<th>Marathon</th>
+													<th>Fullname</th>
+													<th>Contact</th>
+													<th>Race</th>
+													<th>Race Pickup</th>
+													<th>Race Category</th>
+													<th>Cost</th>
 
-											</tr>
-											<tr>
-												<td  class="gm58-td">Ticket Reference</td>
-												<td class="gm58-td">Ticket Details</td>
-												<td class="gm58-td">Number of tickets</td>
-												<td class="gm58-td">Cost</td>
+												</tr>
+												<tr>
+													@foreach($data1 as $ticketdetail)
+														<td>{{ $ticketdetail->order_ref }}</td>
+														<td>{{ $ticketdetail->event_name }}</td>
+														<td>{{ $ticketdetail->fullname }}</td>
+														<td>{{ $ticketdetail->contact }}</td>
+														<td>{{ $ticketdetail->marathon_type }}</td>
+														<td>{{ $ticketdetail->marathon_pickup }}</td>
+														<td>{{ $ticketdetail->description }}</td>
+														<td>{{ $ticketdetail->price_zwl }}</td>
+										
+													@endforeach
+													{{-- <td  class="gm58-td">Ticket Reference</td>
+													<td class="gm58-td">Ticket Details</td>
+													<td class="gm58-td">Number of tickets</td>
+													<td class="gm58-td">Cost</td> --}}
 
-											</tr>
-										</table>
+												</tr>
+											</table>
+										@else	
+											<p style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
+												You made an attempt to purchase a ticket(s). However on this specific attempt we did not receive the payment. Please ignore this email if you later made a payment as another email will follow with your ticket(s).
+											</p>
+										@endif
 									</td>
 								</tr>
 								<td style="padding: 20px 0 30px 0; color: red; font-family: Arial, sans-serif; font-size: 9px; line-height: 20px;">
@@ -95,7 +116,7 @@
 							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
 									<td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">
-										&reg; GM58 Investments PTY LTD<br/>
+										&reg; HypeNation Investments Private LTD<br/>
 									
 									</td>
 									<td align="right" width="25%">

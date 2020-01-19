@@ -74,6 +74,15 @@ class PaymentsController extends Controller
     }
     public function getTicketDetails($id){
     
+        return Orders::Join('customers', 'customers.order_id', '=', 'orders.reference')
+        ->Join('payments', 'payments.order_ref', '=', 'orders.reference')
+        ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->Join('zim_events', 'zim_events.id', '=', 'price_sub_categories.event_id')
+        ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->select(DB::raw('orders.id,payments.order_ref,event_name,customers.fullname,customers.contact,customers.marathon_type,customers.marathon_pickup,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
+        ->where('payments.order_ref','=',$id)
+        ->where('payments.status','=',1)
+        ->orderby('orders.id', 'DESC')->get();
             
         return Payments::Join('orders', 'orders.reference', '=', 'payments.order_ref')
         ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
@@ -104,14 +113,14 @@ class PaymentsController extends Controller
        
         try{
             if($request['email_type'] == "success"){
-                Mail::send('email.emailbody', $data, function($message)use($data) {
+                Mail::send('email.emailbody', ["data1"=>$dataPDF, "data2"=>$data], function($message)use($data) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])
                 ->from($data['from_email']);
                // ->attachData($pdf->output(), $data["subject"].".pdf");
                 });
             }else{
-               Mail::send('email.emailbody', $data, function($message)use($data) {
+               Mail::send('email.emailbody', ["data2"=>$data], function($message)use($data) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])
                 ->from($data['from_email']);

@@ -29,16 +29,34 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $this->validate($request,[
-            'fullname' => 'required|max:255',
-            'contact' => 'required|max:50',
-            'email_ticket' => 'required|email',
-            'confirm_email' => 'required|email',
-            'payment_type' => 'required',
-       
-        ]);
-        
+
+        if($request['ticketDetails']){
+            foreach($request['ticketDetails'] as $r){
+                
+                Customer::create([
+                    'user_id' => $request['user_id'],
+                    'fullname' => $r['fullname'],
+                    'contact' => $r['contact'],
+                    'order_id' => '11111',
+                    'payment_type' => $r['fullname'],
+                    'category' => $r['category'],
+                    'tshirtsize' => $r['tshirtsize'],
+                    'gender' => $r['gender'],
+                
+                ]);
+            }
+
+        }else{
+
+            $this->validate($request,[
+                'fullname' => 'required|max:255',
+                'contact' => 'required|max:50',
+                'email_ticket' => 'required|email',
+                'confirm_email' => 'required|email',
+                'payment_type' => 'required',
+           
+            ]);
+                    
             return Customer::create([
                 'user_id' => $request['user_id'],
                 'order_id' => $request['order_id'],
@@ -49,7 +67,8 @@ class CustomerController extends Controller
                 'gender' => $request['gender'],
             
             ]);
-
+        }
+       
     }
 
     /**

@@ -22,7 +22,7 @@ class EventsController extends Controller
         // ->orderby('zim_events.id', 'DESC')
         // ->get();
         
-        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id`  ORDER BY `zim_events`.`id` DESC"));
+        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id`  ORDER BY `zim_events`.`popular_rank` ASC"));
         $jsonResult = array();
 
         for($i = 0;$i < count($tableIds);$i++)
@@ -78,7 +78,7 @@ class EventsController extends Controller
     {
         
           
-        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` WHERE zim_events.id = $id   ORDER BY `zim_events`.`id` DESC"));
+        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` WHERE zim_events.id = $id   ORDER BY `popular_rank` ASC"));
         $jsonResult = array();
 
         for($i = 0;$i < count($tableIds);$i++)

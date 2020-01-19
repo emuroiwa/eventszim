@@ -37,14 +37,34 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        Orders::create([
-            'category_id' => $request['category_id'],
-            'quantity' => $request['quantity'],
-            'user_id' => $request['user_id'],
-            'status' => 0,
-         
-        ]);
+        $results = Orders::where('category_id','=',$request['category_id'])
+        ->where('user_id','=',$request['user_id'])
+        ->where('status','=',0)
+        ->get();
+        // print_r(is_null($results));
+        // return true;
+        if(count($results)){
+            $order_id = "";
+            $newQuantity = 0;
 
+            foreach($results as $r){
+                $newQuantity = $r->quantity;
+                $order_id = $r->id;
+            }
+            $newQuantity += $request['quantity'];
+            Orders::where('id', $order_id)
+            ->update( array('quantity'=>$newQuantity));
+
+        }else{
+
+            Orders::create([
+                'category_id' => $request['category_id'],
+                'quantity' => $request['quantity'],
+                'user_id' => $request['user_id'],
+                'status' => 0,
+            
+            ]);
+        }
     }
 
     /**
