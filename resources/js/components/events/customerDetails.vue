@@ -279,8 +279,8 @@
                                 payment_type: this.paymentType,
                                 user_id: this.form.user_id,
                             }).then((response)=>{
-                                //console.log(response)
-                               window.location.href = response
+                                console.log(response)
+                               window.location.href = response.data
                             })
                             .catch((error)=>{
                                 console.log(error)

@@ -2608,8 +2608,8 @@ __webpack_require__.r(__webpack_exports__);
               payment_type: _this.paymentType,
               user_id: _this.form.user_id
             }).then(function (response) {
-              //console.log(response)
-              window.location.href = response;
+              console.log(response);
+              window.location.href = response.data;
             })["catch"](function (error) {
               console.log(error);
               swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
