@@ -68,7 +68,7 @@
                        emailHeading = ' :-( Ticketbook Cancellation of Ticket Purchase'
                    }
                    axios.post('api/sendemail', {
-                    email:'emuroiwa@gmail.com',
+                    email:this.userData.email,
                     client_name: this.userData.fullname,
                     subject: emailHeading + this.order_id,
                     email_type: emailType,
