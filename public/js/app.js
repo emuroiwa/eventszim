@@ -2520,6 +2520,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paymentType: String,
@@ -2605,7 +2608,8 @@ __webpack_require__.r(__webpack_exports__);
               payment_type: _this.paymentType,
               user_id: _this.form.user_id
             }).then(function (response) {
-              console.log(response); //window.location.href = response
+              //console.log(response)
+              window.location.href = response;
             })["catch"](function (error) {
               console.log(error);
               swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
@@ -67523,17 +67527,21 @@ var render = function() {
                                         _vm._v("Please select ")
                                       ]),
                                       _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "male" } },
-                                        [_vm._v("Male")]
-                                      ),
+                                      _c("option", [_vm._v("Junior Under 18")]),
                                       _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "female" } },
-                                        [_vm._v("Female")]
-                                      )
+                                      _c("option", [_vm._v(" Open (18 - 39)")]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("Veteran (40 - 49)")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("Master (50 - 59)")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v(" Grandmaster (60 and above)")
+                                      ])
                                     ]
                                   )
                                 ])
@@ -67592,84 +67600,13 @@ var render = function() {
                                         _vm._v("Please select ")
                                       ]),
                                       _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "male" } },
-                                        [_vm._v("Male")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "female" } },
-                                        [_vm._v("Female")]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-md-6" }, [
-                                _c("div", { staticClass: "form-group" }, [
-                                  _vm._m(8, true),
-                                  _vm._v(" "),
-                                  _c(
-                                    "select",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.form.tshirtsize,
-                                          expression: "form.tshirtsize"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        name: "ticketDetails[][tshirtsize]",
-                                        required: ""
-                                      },
-                                      on: {
-                                        change: function($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                            .call(
-                                              $event.target.options,
-                                              function(o) {
-                                                return o.selected
-                                              }
-                                            )
-                                            .map(function(o) {
-                                              var val =
-                                                "_value" in o
-                                                  ? o._value
-                                                  : o.value
-                                              return val
-                                            })
-                                          _vm.$set(
-                                            _vm.form,
-                                            "tshirtsize",
-                                            $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("option", { attrs: { value: "" } }, [
-                                        _vm._v("Please select")
+                                      _c("option", [
+                                        _vm._v("Westgate Shopping Centre")
                                       ]),
                                       _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "male" } },
-                                        [_vm._v("Male")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "female" } },
-                                        [_vm._v("Female")]
-                                      )
+                                      _c("option", [
+                                        _vm._v("Old Mutual Greenzone Town")
+                                      ])
                                     ]
                                   )
                                 ])
@@ -67744,7 +67681,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-md-6" }, [
                               _c("div", { staticClass: "form-group" }, [
-                                _vm._m(9),
+                                _vm._m(8),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -67896,7 +67833,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
-                            _vm._m(10),
+                            _vm._m(9),
                             _vm._v(" "),
                             _c(
                               "a",
@@ -67993,16 +67930,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "pack" } }, [
-      _c("b", [_vm._v("Race Pack")]),
-      _vm._v("*")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "tshirtsize" } }, [
-      _c("b", [_vm._v("Tshirt Size")]),
+      _c("b", [_vm._v("Race Pickup")]),
       _vm._v("*")
     ])
   },

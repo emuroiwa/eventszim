@@ -108,8 +108,11 @@
                                                         <label for="category"><b>Race Category</b>*</label>
                                                             <select name="ticketDetails[][category]"  v-model="ticketDetails.category" class="form-control" required>
                                                                 <option value="">Please select </option>
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
+                                                                <option>Junior Under 18</option>
+                                                                <option> Open (18 - 39)</option>
+                                                                <option>Veteran (40 - 49)</option>
+                                                                <option>Master (50 - 59)</option>
+                                                                <option> Grandmaster (60 and above)</option>
                                                             </select>
                                                     </div>
                                                 </div>
@@ -119,15 +122,15 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="pack"><b>Race Pack</b>*</label>
+                                                        <label for="pack"><b>Race Pickup</b>*</label>
                                                             <select name="ticketDetails[][pack]" v-model="ticketDetails.pack" class="form-control" required>
                                                                 <option value="">Please select </option>
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
+                                                                <option>Westgate Shopping Centre</option>
+                                                                <option>Old Mutual Greenzone Town</option>
                                                             </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <!-- <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="tshirtsize"><b>Tshirt Size</b>*</label>
                                                             <select name="ticketDetails[][tshirtsize]" v-model="form.tshirtsize" class="form-control" required>
@@ -137,7 +140,7 @@
                                                             </select>
                                                             
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             
                             </div>
                                 
@@ -276,8 +279,8 @@
                                 payment_type: this.paymentType,
                                 user_id: this.form.user_id,
                             }).then((response)=>{
-                                console.log(response)
-                               //window.location.href = response
+                                //console.log(response)
+                               window.location.href = response
                             })
                             .catch((error)=>{
                                 console.log(error)
