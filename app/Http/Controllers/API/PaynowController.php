@@ -37,7 +37,7 @@ class PaynowController extends Controller
         $paynow = new Paynow(
             '8915',
             'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
-            env('PAYNOW_RETURN_URL', 'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef),
+            'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
@@ -141,7 +141,7 @@ class PaynowController extends Controller
         $paynow = new Paynow(
             '8915',
             'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
-            env('PAYNOW_RETURN_URL', 'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef),
+            'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
