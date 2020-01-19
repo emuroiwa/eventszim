@@ -2593,7 +2593,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post('api/customers', {
           ticketDetails: this.ticketDetails,
           ecocash: this.form.contact,
-          email: this.form.email_ticket,
+          email_ticket: this.form.email_ticket,
           payment_type: this.paymentType,
           total_USD: this.total_USD,
           total_ZWL: this.total_ZWL,
@@ -4158,7 +4158,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      axios.get("api/customers/" + this.getCookie('gm58baba')).then(function (_ref) {
+      axios.get("api/paymentsdetails/" + ref).then(function (_ref) {
         var data = _ref.data;
         _this.userData = data;
         axios.get("api/paynow/" + ref).then(function (_ref2) {
@@ -4190,8 +4190,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.post('api/sendemail', {
-        email: this.userData.email,
-        client_name: this.userData.fullname,
+        email: this.userData[0].email,
+        client_name: this.userData[0].fullname,
         subject: emailHeading + this.order_id,
         email_type: emailType,
         order_id: this.order_id

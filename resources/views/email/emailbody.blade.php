@@ -123,13 +123,13 @@
 										<table border="0" cellpadding="0" cellspacing="0">
 											<tr>
 												<td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-													<a href="http://www.twitter.com/" style="color: #ffffff;">
+													<a href="http://www.twitter.com/ticketbookzw" style="color: #ffffff;">
 														<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
 													</a>
 												</td>
 												<td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
 												<td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-													<a href="http://www.twitter.com/" style="color: #ffffff;">
+													<a href="http://www.twitter.com/ticketbookzw" style="color: #ffffff;">
 														<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
 													</a>
 												</td>

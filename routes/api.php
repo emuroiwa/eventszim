@@ -22,6 +22,7 @@ Route::apiResources(['locations' => 'API\EventLocationController ']);
 Route::apiResources(['pricecategory' => 'API\PriceCategoryController']);
 Route::apiResources(['eventinfo' => 'API\EventInfoController']);
 Route::apiResources(['payments' => 'API\PaymentsController']);
+Route::apiResources(['paymentsdetails' => 'API\PaymentDetailsController']);
 Route::apiResources(['orders' => 'API\OrderController']);
 Route::apiResources(['customers' => 'API\CustomerController']);
 Route::apiResources(['paynow' => 'API\PaynowController']);

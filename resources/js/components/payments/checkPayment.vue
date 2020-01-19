@@ -36,7 +36,7 @@
             verifyPayment(ref){
                 this.isLoading = true;
                 
-                axios.get("api/customers/" + this.getCookie('gm58baba')).then(({ data }) => {
+                axios.get("api/paymentsdetails/" + ref).then(({ data }) => {
                     this.userData = data;
 
                         
@@ -68,8 +68,8 @@
                        emailHeading = ' :-( Ticketbook Cancellation of Ticket Purchase'
                    }
                    axios.post('api/sendemail', {
-                    email:this.userData.email,
-                    client_name: this.userData.fullname,
+                    email:this.userData[0].email,
+                    client_name: this.userData[0].fullname,
                     subject: emailHeading + this.order_id,
                     email_type: emailType,
                     order_id: this.order_id

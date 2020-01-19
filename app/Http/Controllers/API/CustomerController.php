@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Payments;
+use App\PaymentDetails;
 use App\Orders;
 use Illuminate\Support\Str;
 
@@ -38,8 +39,8 @@ class CustomerController extends Controller
                     'fullname' => $r['fullname'],
                     'contact' => $r['contact'],
                     'order_id' => '11111',
-                    'payment_type' => $r['fullname'],
-                    'category' => $r['category'],
+                    'marathon_type' => $r['category'],
+                    'marathon_pickup' => $r['pack'],
                     'tshirtsize' => $r['tshirtsize'],
                     'gender' => $r['gender'],
                 
@@ -57,9 +58,9 @@ class CustomerController extends Controller
            
             ]);
                     
-            return Customer::create([
+            Customer::create([
                 'user_id' => $request['user_id'],
-                'order_id' => $request['order_id'],
+                'order_id' => '11111',
                 'fullname' => $request['fullname'],
                 'contact' => $request['contact'],
                 'email' => $request['email_ticket'],
@@ -68,6 +69,13 @@ class CustomerController extends Controller
             
             ]);
         }
+        return   PaymentDetails::create([
+            'user_id' => $request['user_id'],
+            'order_id' => '11111',
+            'contact' => $request['ecocash'],
+            'email' => $request['email_ticket'],
+                    
+        ]);
        
     }
 
