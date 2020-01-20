@@ -66,7 +66,7 @@
 									<td>
 										 {{-- <div>{!!DNS1D::getBarcodeHTML(1578163443, 'I25',3,33,"green",true)!!}</div>
 										 <div>{!!DNS2D::getBarcodeHTML(1578163443, 'PDF417',3,1)!!}</div> --}}
-										@if($data1)
+										@if(isset($data1))
 											<table border="1" style="border: 1px solid black;" class="customers" cellpadding="0" cellspacing="0" width="100%">
 												<tr  bgcolor="#ee4c50">
 													<th>Ticket Reference</th>
