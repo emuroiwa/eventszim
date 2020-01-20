@@ -87,7 +87,7 @@
                                                     <div class="form-group">
                                                         <label for="contact"><b>Contact Number</b>*</label>
                                                        <input v-model="ticketDetails.contact" type="number"
-                                                        name="ticketDetails[][contact]"  class="form-control" placeholder="" required>
+                                                        name="ticketDetails[][contact]" maxlength="10" minlength="10"  class="form-control" placeholder="" required>
                                                     </div>
                                                 </div>
 
@@ -152,7 +152,7 @@
                                         <div class="form-group">
                                             <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
                                             <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>*
-                                            <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
+                                            <input v-model="form.contact" type="number" name="contact" maxlength="10" minlength="10"  placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -213,6 +213,7 @@
                     contact: '',
                     email:'',
                     tshirtsize:'',
+                    gender:'',
                     pack:'',
                     category:'',
                     event:'',
@@ -242,7 +243,6 @@
             submitPayment(){
                 //refactor here for v2
                 if(this.form.email_ticket != this.form.confirm_email){
-        
                     swal.fire("Failed!", "Make sure emails match ", "warning");
                     return;
                 }
@@ -363,7 +363,11 @@
             setTickets(){
                 for (var i = 0; i < this.orders.length; i++) {
                     if(this.orders[i].event_type == 'marathon'){
-                        var orderQty = this.orders[i].quantity;
+                        var addDetails = 0;
+                        if(this.orders[i].quantity > 1){
+                            addDetails +=1;
+                        }
+                        var orderQty = this.orders[i].quantity  + addDetails;
                         var event_name = this.orders[i].event_name;
                         for (var i = 0; i < orderQty; i++) {
                             var obj = {};
@@ -372,6 +376,7 @@
                             obj['category'] = '';
                             obj['pack'] = '';
                             obj['tshirtsize'] = '';
+                            obj['gender'] = '';
                             obj['event'] = event_name;
                             this.ticketDetails.push(obj);
                         }
