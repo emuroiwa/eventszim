@@ -79,8 +79,8 @@
 													<th>Cost</th>
 
 												</tr>
-												<tr>
-													@foreach($data1 as $ticketdetail)
+												@foreach($data1 as $ticketdetail)
+													<tr>
 														<td>{{ $ticketdetail->order_ref }}</td>
 														<td>{{ $ticketdetail->event_name }}</td>
 														<td>{{ $ticketdetail->fullname }}</td>
@@ -90,13 +90,13 @@
 														<td>{{ $ticketdetail->description }}</td>
 														<td>{{ $ticketdetail->price_zwl }}</td>
 										
-													@endforeach
 													{{-- <td  class="gm58-td">Ticket Reference</td>
 													<td class="gm58-td">Ticket Details</td>
 													<td class="gm58-td">Number of tickets</td>
 													<td class="gm58-td">Cost</td> --}}
 
-												</tr>
+													</tr>
+												@endforeach
 											</table>
 										@else	
 											<p style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
