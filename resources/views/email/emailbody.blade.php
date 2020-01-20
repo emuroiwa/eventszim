@@ -57,11 +57,13 @@
 											Thank you for using Ticketbook,
 									</td>
 								</tr>
-								<tr>
-									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-										The total cost of the transaction has been debited from your account. Details of your booking appear below. Please check all details carefully, especially dates, times, venues and quantities. If the ticket details are incorrect, please phone our call centre on  +263774366481.
-									</td>
-								</tr>
+								@if(isset($data1))
+									<tr>
+										<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
+											The total cost of the transaction has been debited from your account. Details of your booking appear below. Please check all details carefully, especially dates, times, venues and quantities. If the ticket details are incorrect, please phone our call centre on  +263774366481.
+										</td>
+									</tr>
+								@endif
 								<tr>
 									<td>
 										 {{-- <div>{!!DNS1D::getBarcodeHTML(1578163443, 'I25',3,33,"green",true)!!}</div>
