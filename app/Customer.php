@@ -16,8 +16,9 @@ class Customer extends Model implements Auditable
         'email',
         'payment_type',
         'gender',
-        
-        
+        'marathon_type',
+        'marathon_pickup',
+        'tshirtsize'
     ];
 }
 

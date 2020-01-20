@@ -2294,13 +2294,15 @@ __webpack_require__.r(__webpack_exports__);
     getCartItems: function getCartItems() {
       var _this2 = this;
 
-      axios.get("api/cartItems/" + this.getCookie('gm58baba')).then(function (_ref) {
-        var data = _ref.data;
-        _this2.itemsInCart = data;
-      })["catch"](function (error) {
-        // console.log(rror.response)
-        swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
-      });
+      if (this.getCookie('gm58baba')) {
+        axios.get("api/cartItems/" + this.getCookie('gm58baba')).then(function (_ref) {
+          var data = _ref.data;
+          _this2.itemsInCart = data;
+        })["catch"](function (error) {
+          // console.log(rror.response)
+          swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
+        });
+      }
     }
   },
   created: function created() {
@@ -2542,6 +2544,7 @@ __webpack_require__.r(__webpack_exports__);
         contact: '',
         email: '',
         tshirtsize: '',
+        gender: '',
         pack: '',
         category: '',
         event: ''
@@ -2684,7 +2687,13 @@ __webpack_require__.r(__webpack_exports__);
     setTickets: function setTickets() {
       for (var i = 0; i < this.orders.length; i++) {
         if (this.orders[i].event_type == 'marathon') {
-          var orderQty = this.orders[i].quantity;
+          var addDetails = 0;
+
+          if (this.orders[i].quantity > 1) {
+            addDetails += 1;
+          }
+
+          var orderQty = this.orders[i].quantity + addDetails;
           var event_name = this.orders[i].event_name;
 
           for (var i = 0; i < orderQty; i++) {
@@ -2694,6 +2703,7 @@ __webpack_require__.r(__webpack_exports__);
             obj['category'] = '';
             obj['pack'] = '';
             obj['tshirtsize'] = '';
+            obj['gender'] = '';
             obj['event'] = event_name;
             this.ticketDetails.push(obj);
           }
@@ -67387,6 +67397,8 @@ var render = function() {
                                     attrs: {
                                       type: "number",
                                       name: "ticketDetails[][contact]",
+                                      maxlength: "10",
+                                      minlength: "10",
                                       placeholder: "",
                                       required: ""
                                     },
@@ -67660,6 +67672,7 @@ var render = function() {
                                     type: "number",
                                     name: "contact",
                                     maxlength: "10",
+                                    minlength: "10",
                                     placeholder: "eg 0771111111"
                                   },
                                   domProps: { value: _vm.form.contact },

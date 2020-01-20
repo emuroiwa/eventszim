@@ -33,7 +33,7 @@ class CustomerController extends Controller
 
         if($request['ticketDetails']){
             foreach($request['ticketDetails'] as $r){
-                
+                print_r($r['pack']);
                 Customer::create([
                     'user_id' => $request['user_id'],
                     'fullname' => $r['fullname'],

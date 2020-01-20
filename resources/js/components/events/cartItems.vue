@@ -105,12 +105,14 @@
                     })
             },
            getCartItems(){
-                axios.get("api/cartItems/"+ this.getCookie('gm58baba')).then(({ data }) => {
-                    this.itemsInCart = data;
-                }).catch((error)=>{
-                    // console.log(rror.response)
-                swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
-                })
+               if(this.getCookie('gm58baba')){
+                    axios.get("api/cartItems/"+ this.getCookie('gm58baba')).then(({ data }) => {
+                        this.itemsInCart = data;
+                    }).catch((error)=>{
+                        // console.log(rror.response)
+                    swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
+                    })
+               }
            },
 
        },
