@@ -12,19 +12,20 @@
             <div class="row gm58-event">
                 
                 <div class="col-md-5">
-                    <div class="card h-100 border-primary mt-3">
-                        <div class="card-header event-card-header mb-1">
+                    <div class="card border-primary mt-3">
+                        <div class="card-header event-card-header">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
-                            <!-- <h5>Choose Venue & Date/Time</h5> -->
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" v-if="eventData.events[0].event_type != 'marathon'">
                             <priceCategory :eventData="this.eventData"></priceCategory>
                         </div>
-                            
+                        <div class="card-body" v-else>
+                            <marathon :eventData="this.eventData"></marathon>
+                        </div>
                     </div> 
                 </div>
                 <div class="col-md-7">
-                    <div class="card h-100 border-primary mb-4 mt-3">
+                    <div class="card border-primary mb-4 mt-3">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">{{eventData.events[0].event_name}}</h4>
                         </div>

@@ -18,7 +18,8 @@ class Customer extends Model implements Auditable
         'gender',
         'marathon_type',
         'marathon_pickup',
-        'tshirtsize'
+        'tshirtsize',
+        'event_id'
     ];
 }
 

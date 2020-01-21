@@ -69,7 +69,7 @@ class PaynowController extends Controller
         if($response->success()) {
             // Or if you prefer more control, get the link to redirect the user to, then use it as you see fit
             $link = $response->redirectUrl();
-
+            
             $pollUrl = $response->pollUrl();
             //print_r($response);
             $status = $paynow->pollTransaction($pollUrl);

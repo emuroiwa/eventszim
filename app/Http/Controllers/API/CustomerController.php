@@ -33,7 +33,6 @@ class CustomerController extends Controller
 
         if($request['ticketDetails']){
             foreach($request['ticketDetails'] as $r){
-                print_r($r['pack']);
                 Customer::create([
                     'user_id' => $request['user_id'],
                     'fullname' => $r['fullname'],
@@ -43,6 +42,7 @@ class CustomerController extends Controller
                     'marathon_pickup' => $r['pack'],
                     'tshirtsize' => $r['tshirtsize'],
                     'gender' => $r['gender'],
+                    'event_id' => $r['event_id'],
                 
                 ]);
             }

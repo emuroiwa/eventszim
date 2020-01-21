@@ -60,7 +60,7 @@
                             </tr>
                     </table>
                 </div>
-                <div class="card card-body  border-success mt-1" v-if="orders.length">
+                <!-- <div class="card card-body  border-success mt-1" v-if="orders.length">
                     <h4>Select Payment Method </h4>
                     <div class="row">
                         
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div id="customer" v-if="orders.length"> 
                     <!-- modal for mobile -->
                     <!-- <div class="modal" id="customerDetails" data-backdrop="static" data-keyboard="false">
@@ -103,7 +103,7 @@
                         </div>
                     </div> -->
 
-                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="getEventType" :orders="orders"></addCustomer>
+                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="getEventType" :orders="orders"  ref="addCustomer"></addCustomer>
                 </div>
             </div>
         </div>
@@ -172,6 +172,7 @@
                                         this.getOrders();
                                         Fire.$emit('user',this.user);
                                         Fire.$emit('checkAvaliablity');
+                                        this.paymentMethod=""
                                         swal.fire(
                                             'Deleted!',
                                             'Your file has been deleted.',
@@ -238,7 +239,6 @@
                     this.isNotMobile= true;
 
                 }
-                
             },
             
             getOrders(){
@@ -248,13 +248,14 @@
                         this.orders = data;
                         this.isLoading = false;
                     }).catch((error)=>{
-                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                        console.log(error)
+                    // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                 })
             },
            
         },
         created(){
-
+            this.paymentMethod='paynow'
             Fire.$on('user',(user) =>{
                 this.getOrders()
             });

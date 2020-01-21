@@ -8,7 +8,7 @@
         :height="150"
         :width="150" class="text-center"></loading>
                 <form @submit.prevent="submitPayment()" v-if="paymentType">
-                    <div class="card card-body border-info mt-1" v-if="this.event_type!='marathon'" > 
+                    <div class="card card-body border-info mt-1" > 
                         <h5> Complete the payment details below to secure your tickets.</h5>
                             <div class="row">
                                 <div class="col-md-6">
@@ -42,19 +42,8 @@
                                 </div>
                                     
                             </div>
-                            <div class="row" v-if="this.event_type=='marathon'">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="gender"><b>Gender</b></label>
-                                            <select name="gender" id="gender" v-model="form.gender" class="form-control" required>
-                                                <option value="">Please select Gender</option>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                    </div>
-                                </div>
-                               
-                            </div>
+                            
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -71,124 +60,7 @@
                             </div>
                             
                     </div>
-                    <div v-else>
-                                <div class="card card-body border-warning mt-1"  v-for="(ticketDetails, index) in  ticketDetails">  
-                                        <h5> Complete Details <b>{{ticketDetails.event}} Ticket {{index +1}}</b></h5>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="fullname"><b>Full Name</b>*</label>
-                 
-                                                         <input v-model="ticketDetails.fullname" type="text"
-                                                            name="ticketDetails[][fullname]" class="form-control" :class="{ 'is-invalid': form.errors.has('ticketDetails[][fullname]') }" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="contact"><b>Contact Number</b>*</label>
-                                                       <input v-model="ticketDetails.contact" type="number"
-                                                        name="ticketDetails[][contact]" maxlength="10" minlength="10"  class="form-control" placeholder="" required>
-                                                    </div>
-                                                </div>
 
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="pack"><b>Gender</b>*</label>
-                                                            <select name="ticketDetails[][gender]" v-model="ticketDetails.gender" class="form-control" required>
-                                                                <option value="">Please select </option>
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
-                                                            </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="category"><b>Race Category</b>*</label>
-                                                            <select name="ticketDetails[][category]"  v-model="ticketDetails.category" class="form-control" required>
-                                                                <option value="">Please select </option>
-                                                                <option>Junior Under 18</option>
-                                                                <option> Open (18 - 39)</option>
-                                                                <option>Veteran (40 - 49)</option>
-                                                                <option>Master (50 - 59)</option>
-                                                                <option> Grandmaster (60 and above)</option>
-                                                            </select>
-                                                    </div>
-                                                </div>
-                                               
-                                                    
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="pack"><b>Race Pickup</b>*</label>
-                                                            <select name="ticketDetails[][pack]" v-model="ticketDetails.pack" class="form-control" required>
-                                                                <option value="">Please select </option>
-                                                                <option>Westgate Shopping Centre</option>
-                                                                <option>Old Mutual Greenzone Town</option>
-                                                            </select>
-                                                    </div>
-                                                </div>
-                                                <!-- <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tshirtsize"><b>Tshirt Size</b>*</label>
-                                                            <select name="ticketDetails[][tshirtsize]" v-model="form.tshirtsize" class="form-control" required>
-                                                                <option value="">Please select</option>
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
-                                                            </select>
-                                                            
-                                                    </div>
-                                                </div> -->
-                                            
-                            </div>
-                                
-                        </div>
-                        <div class="card card-body border-info mt-1">  
-                            <h5> Complete the payment details below to secure your tickets.</h5>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
-                                            <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>*
-                                            <input v-model="form.contact" type="number" name="contact" maxlength="10" minlength="10"  placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="email_ticket"><b>Email To Send Tickets To</b>*</label>
-                                            <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                   
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="confirm_email">Confirm Email*</label>
-                                            <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
-                                        </div>
-                                    </div>
-                                        
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="checkbox" id="terms" v-model="form.terms"> <a href="#" @click="terms()"> I accept terms and conditions </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    
-                                    <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Check Out</button>
-                                    <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
-                                    
-                                </div>
-                        </div>
-                    </div>
                 </form>
     </div>
 </template>
@@ -318,6 +190,7 @@
 
                 }
             },
+            
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
@@ -360,28 +233,43 @@
                 //$('#shoppingCartModal').modal('hide');
                 this.paymentMethod="";
             },
-            setTickets(){
-                for (var i = 0; i < this.orders.length; i++) {
-                    if(this.orders[i].event_type == 'marathon'){
-                        var addDetails = 0;
-                        if(this.orders[i].quantity > 1){
-                            addDetails +=1;
-                        }
-                        var orderQty = this.orders[i].quantity  + addDetails;
-                        var event_name = this.orders[i].event_name;
-                        for (var i = 0; i < orderQty; i++) {
-                            var obj = {};
-                            obj['fullname'] = '';
-                            obj['contact'] = '';
-                            obj['category'] = '';
-                            obj['pack'] = '';
-                            obj['tshirtsize'] = '';
-                            obj['gender'] = '';
-                            obj['event'] = event_name;
-                            this.ticketDetails.push(obj);
-                        }
-                    }
-                }
+            setTickets(orders){
+                console.log(orders)
+                    for (var i = 0; i < orders; i++) {
+                                var obj = {};
+                                obj['fullname'] = '';
+                                obj['contact'] = '';
+                                obj['category'] = '';
+                                obj['pack'] = '';
+                                obj['tshirtsize'] = '';
+                                obj['gender'] = '';
+                                obj['event'] = '' ;
+                                this.ticketDetails.push(obj);
+                            }
+
+                // for (var i = 0; i < orders.length; i++) {
+                //     if(orders[i].event_type == 'marathon'){
+                //         var addDetails = 0;
+                //         var orderQty = orders[i].quantity ;
+                //         var event_name = orders[i].event_name;
+                //         var description = orders[i].description;
+                //         console.log(description)
+                //        for (var i = 0; i < orderQty; i++) {
+                //             var obj = {};
+                //             obj['fullname'] = '';
+                //             obj['contact'] = '';
+                //             obj['category'] = '';
+                //             obj['pack'] = '';
+                //             obj['tshirtsize'] = '';
+                //             obj['gender'] = '';
+                //             obj['event'] = event_name + description ;
+                //             this.ticketDetails.push(obj);
+
+                //         }
+
+                        
+                //     }
+                // }
             }
         
         },
@@ -389,9 +277,7 @@
 
         },
         
-        created() {
-            this.setTickets()
-        }
+       
 
     }
 </script>
