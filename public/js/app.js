@@ -11425,7 +11425,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.gm58-slider[data-v-75bc62d4]{\r\n    /* max-height: 650px; */\r\n    height:auto;\r\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -69270,7 +69270,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "footer-copyright" }, [
-            _vm._v("© All content is property of GM58")
+            _vm._v("© All content is property of TicketBook")
           ])
         ])
       ]
@@ -69993,12 +69993,8 @@ var render = function() {
                   _c("div", { staticClass: "overlay" }),
                   _vm._v(" "),
                   _c("img", {
-                    staticClass: "d-block w-100",
-                    attrs: {
-                      src: event.event_img,
-                      alt: event.event_name,
-                      height: "600"
-                    }
+                    staticClass: "d-block w-100 gm58-slider",
+                    attrs: { src: event.event_img, alt: event.event_name }
                   }),
                   _vm._v(" "),
                   _c(
