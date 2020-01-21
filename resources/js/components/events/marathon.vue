@@ -37,7 +37,7 @@
                         </div>
                         
                     </div>
-                    <div class=" card card-body  border-primary mt-1" v-if="orders">
+                    <div class=" card card-body gm58-card border-primary mt-1" v-if="orders">
                                 <marathonDetails ref="marathonDetails"></marathonDetails>
                             <!-- <ul class="timeline">
                                 <h3>Tickets Selected</h3>
@@ -155,6 +155,9 @@
 ul.timeline {
     list-style-type: none;
     position: relative;
+}
+.gm58-card{
+    padding: 0.25rem;
 }
 ul.timeline:before {
     content: ' ';

@@ -3426,7 +3426,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       orders: {},
-      paymentMethod: '',
+      paymentMethod: 'paynow',
       isLoading: false,
       fullPage: true,
       isNotMobile: false,
@@ -3482,7 +3482,7 @@ __webpack_require__.r(__webpack_exports__);
 
             Fire.$emit('user', _this.user);
             Fire.$emit('checkAvaliablity');
-            _this.paymentMethod = "";
+            _this.paymentMethod = "paynow";
             swal.fire('Deleted!', 'Your file has been deleted.', 'success');
           })["catch"](function () {
             swal.fire("Failed!", "There was something wrong. " + error, "warning");
@@ -11292,7 +11292,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul.timeline[data-v-51ba315e] {\n    list-style-type: none;\n    position: relative;\n}\nul.timeline[data-v-51ba315e]:before {\n    content: ' ';\n    background: #d4d9df;\n    display: inline-block;\n    position: absolute;\n    left: 29px;\n    width: 2px;\n    height: 100%;\n    z-index: 400;\n}\nul.timeline > li[data-v-51ba315e] {\n    margin: 20px 0;\n    padding-left: 20px;\n}\nul.timeline > li[data-v-51ba315e]:before {\n    content: ' ';\n    background: white;\n    display: inline-block;\n    position: absolute;\n    border-radius: 50%;\n    border: 3px solid #22c0e8;\n    left: 20px;\n    width: 20px;\n    height: 20px;\n    z-index: 400;\n}\n\n", ""]);
+exports.push([module.i, "\nul.timeline[data-v-51ba315e] {\n    list-style-type: none;\n    position: relative;\n}\n.gm58-card[data-v-51ba315e]{\n    padding: 0.25rem;\n}\nul.timeline[data-v-51ba315e]:before {\n    content: ' ';\n    background: #d4d9df;\n    display: inline-block;\n    position: absolute;\n    left: 29px;\n    width: 2px;\n    height: 100%;\n    z-index: 400;\n}\nul.timeline > li[data-v-51ba315e] {\n    margin: 20px 0;\n    padding-left: 20px;\n}\nul.timeline > li[data-v-51ba315e]:before {\n    content: ' ';\n    background: white;\n    display: inline-block;\n    position: absolute;\n    border-radius: 50%;\n    border: 3px solid #22c0e8;\n    left: 20px;\n    width: 20px;\n    height: 20px;\n    z-index: 400;\n}\n\n", ""]);
 
 // exports
 
@@ -68060,7 +68060,10 @@ var render = function() {
               _vm.orders
                 ? _c(
                     "div",
-                    { staticClass: " card card-body  border-primary mt-1" },
+                    {
+                      staticClass:
+                        " card card-body gm58-card border-primary mt-1"
+                    },
                     [_c("marathonDetails", { ref: "marathonDetails" })],
                     1
                   )
@@ -68103,7 +68106,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", [
     _c(
       "form",
       {

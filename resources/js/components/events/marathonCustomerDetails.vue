@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <form @submit.prevent="submitTicket()">
             <div class="card card-body border-warning mt-1" v-for="(ticketDetails, index) in  ticketDetails">
                 <h5> Complete Details </h5> <b> {{ticketDetails.event}} Ticket {{index +1}} </b>
@@ -158,6 +158,7 @@
     }
 </script>
 <style scoped>
+
 input.gm58hack {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;

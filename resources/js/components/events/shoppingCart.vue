@@ -115,7 +115,7 @@
         data(){
             return{
                 orders:{},
-                paymentMethod:'',
+                paymentMethod:'paynow',
                 isLoading: false,
                 fullPage: true,
                 isNotMobile:false,
@@ -172,7 +172,7 @@
                                         this.getOrders();
                                         Fire.$emit('user',this.user);
                                         Fire.$emit('checkAvaliablity');
-                                        this.paymentMethod=""
+                                        this.paymentMethod="paynow"
                                         swal.fire(
                                             'Deleted!',
                                             'Your file has been deleted.',
