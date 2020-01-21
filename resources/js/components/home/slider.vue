@@ -86,7 +86,7 @@ a{
     padding-bottom: 140px;
 }  */
 .gm58-slider{
-    /* max-height: 650px; */
+    max-height: 650px;
     height:auto;
     width: 100%;
   
