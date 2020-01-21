@@ -81,7 +81,7 @@ class EventsController extends Controller
         
           
         $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` 
-        LEFT JOIN `event_types` ON `zim_events`.`event_type_id` = `event_types`.`id`  ORDER BY `zim_events`.`popular_rank` ASC"));
+        LEFT JOIN `event_types` ON `zim_events`.`event_type_id` = `event_types`.`id`  WHERE zim_events.id = $id "));
         $jsonResult = array();
 
         for($i = 0;$i < count($tableIds);$i++)
