@@ -28,5 +28,6 @@ Route::apiResources(['customers' => 'API\CustomerController']);
 Route::apiResources(['paynow' => 'API\PaynowController']);
 Route::apiResources(['paypal' => 'API\PayPalController']);
 Route::get('cartItems/{id}' , 'API\OrderController@cartItems');
+Route::get('marathons/{id}' , 'API\OrderController@marathon');
 Route::get('findEvents', 'API\EventsController@search');
 Route::post('sendemail', 'API\PaymentsController@sendmail');

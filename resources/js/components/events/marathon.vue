@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h5>Price Categories</h5>
+        <h5>Marathon Categories</h5>
         <!-- <div class="card card-body border-primary" data-toggle="collapse" href="#priceCategory" role="button" aria-expanded="false" aria-controls="priceCategory">
                  <div class="row">
                     <div class="col-md-9">
@@ -35,18 +35,20 @@
                                 </select>
                             </div>
                         </div>
+                        
                     </div>
-                    <div class="collapse mt-1" id="priceOverview">
-                        <ul class="timeline">
-                            <h3>Tickets Selected</h3>
-                            <li v-for="order in orders" :key="order.id" class="font-weight-bold">
-                                
-                                {{order.quantity}} X {{order.description}} <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}} <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}} 
-                            </li>
-                            <li>
-                                <cartItems :cartPage="this.cartPage"></cartItems>
-                            </li>
-                        </ul>
+                    <div class=" card card-body  border-primary mt-1" v-if="orders">
+                                <marathonDetails ref="marathonDetails"></marathonDetails>
+                            <!-- <ul class="timeline">
+                                <h3>Tickets Selected</h3>
+                                <li v-for="order in orders" :key="order.id" class="font-weight-bold">
+                                    
+                                    {{order.quantity}} X {{order.description}} <span class="badge badge-info">ZWL</span> {{order.price_zwl | formatNumber}} <span class="badge badge-success">USD</span> {{order.price_usd | formatNumber}} 
+                                </li>
+                                <li>
+                                    <cartItems :cartPage="this.cartPage"></cartItems>
+                                </li>
+                            </ul> -->
                     </div>
                 <!-- </div> -->
 
@@ -79,6 +81,7 @@
         },
         methods: {
             onChangeTickets(e){
+              
                 var user = this.getCookie('gm58baba');
                 if(e.target.options[e.target.options.selectedIndex].value > 0){
                     this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
@@ -88,9 +91,33 @@
                     .then((data)=>{
                         Fire.$emit('indexLoaded');
                         this.getOrders();
-                        $('#priceOverview').collapse('show');
+                        this.$refs.marathonDetails.getMarathon();
 
                     })
+                }
+            },
+             getOrders(){
+                axios.get("api/orders/"+ this.getCookie('gm58baba')).then(({ data }) => {
+                        this.orders = data;
+                    }).catch((error)=>{
+                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                    })
+            },
+            selectPayment(payment,e){
+                if(e!=""){
+                    $('.card').removeClass('gm58-active')
+                    $(e.currentTarget).addClass('gm58-active')
+                }
+                let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+                this.paymentMethod=payment
+                if (isMobile) {
+                    //open modal
+                   // $('#customerDetails').modal('show');
+                    this.isNotMobile= true;
+                }else{
+                    
+                    this.isNotMobile= true;
+
                 }
             },
             getCookie(cname) {
@@ -117,19 +144,10 @@
                 //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
                 //     })
             },
-            getOrders(){
-                axios.get("api/orders/"+ this.getCookie('gm58baba')).then(({ data }) => {
-                        this.orders = data;
-                    }).catch((error)=>{
-                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
-                    })
-            }
+           
         },
         created(){
-            Fire.$on('user',(user) =>{
-               this.getOrders() 
-            })
-            //this.getEvent();
+            this.getOrders();
         }
     }
 </script>

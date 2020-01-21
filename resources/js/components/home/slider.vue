@@ -10,7 +10,7 @@
                 <div class="carousel-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
                         <div class="overlay"></div>
-                        <img class="d-block w-100" :src="event.event_img" :alt="event.event_name" height="600">
+                        <img class="d-block w-100 gm58-slider" :src="event.event_img" :alt="event.event_name">
                         <div class="carousel-caption d-none d-md-block">
                             
                             <h2>{{event.event_name}}</h2>
@@ -85,7 +85,12 @@ a{
 /* .carousel-caption {
     padding-bottom: 140px;
 }  */
-
+.gm58-slider{
+    /* max-height: 650px; */
+    height:auto;
+    width: 100%;
+  
+}
 .overlay {
     position: absolute;
     width: 100%;

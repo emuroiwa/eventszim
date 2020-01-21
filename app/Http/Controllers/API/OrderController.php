@@ -23,7 +23,7 @@ class OrderController extends Controller
         return Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
         ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
         ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
-        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
+        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,price_sub_categories.id as catID'))
         ->where('user_id','=',$value)
         ->where('orders.status','=',0)
         ->orderby('orders.id', 'DESC')->get();
@@ -51,7 +51,7 @@ class OrderController extends Controller
                 $newQuantity = $r->quantity;
                 $order_id = $r->id;
             }
-            $newQuantity += $request['quantity'];
+            $newQuantity = $request['quantity'];
             Orders::where('id', $order_id)
             ->update( array('quantity'=>$newQuantity));
 
@@ -80,9 +80,25 @@ class OrderController extends Controller
         ->leftJoin('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
         ->leftJoin('event_types', 'zim_events.event_type_id', '=', 'event_types.id')
         ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
-        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_type'))
+        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_type,price_sub_categories.id as catID'))
         ->where('user_id','=',$id)
         ->where('orders.status','=',0)
+        ->orderby('orders.id', 'DESC')->get();
+    }
+    public function marathon($id)
+    {
+        
+        return Orders::leftJoin('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->leftJoin('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_types', 'zim_events.event_type_id', '=', 'event_types.id')
+        ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_type,price_sub_categories.id as catID'))
+        ->where('user_id','=',$id)
+        ->where('orders.status','=',0)
+        ->whereNotIn('price_sub_categories.id', function ($query) use ($id){
+            $query->select('event_id')->from('customers')
+            ->where('user_id','=',$id);
+        })
         ->orderby('orders.id', 'DESC')->get();
     }
 

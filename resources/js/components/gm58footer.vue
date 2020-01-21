@@ -103,7 +103,7 @@
                         
                     </section>
                     <!-- Copyright-->
-                    <p class="footer-copyright">© All content is property of GM58</p>
+                    <p class="footer-copyright">© All content is property of TicketBook</p>
                 </div>
             </footer>
 

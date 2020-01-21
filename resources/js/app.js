@@ -39,6 +39,8 @@ import eventAddtional from './components/events/eventAddtional';
 import priceCategory from './components/events/priceCategory';
 import addCustomer from './components/events/customerDetails';
 import testdetails from './components/events/testdetails';
+import marathon from './components/events/marathon';
+import marathonDetails from './components/events/marathonCustomerDetails';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 
@@ -110,6 +112,8 @@ Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
 Vue.component('testdetails', testdetails)
 Vue.component('priceCategory', priceCategory)
+Vue.component('marathon', marathon)
+Vue.component('marathonDetails', marathonDetails)
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
