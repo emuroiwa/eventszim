@@ -9,7 +9,7 @@
         :width="150" class="text-center"></loading>
         <div class="event">
             
-            <div class="row gm58-event">
+            <div class="row">
                 
                 <div class="col-md-5">
                     <div class="card border-primary mt-3">

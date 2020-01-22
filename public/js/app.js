@@ -2903,12 +2903,15 @@ __webpack_require__.r(__webpack_exports__);
         this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
         this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
         this.form.user_id = user;
+        this.form.event_type = 'marathon';
         this.form.post('api/orders').then(function (data) {
+          console.log(data.data);
+
+          _this.$refs.marathonDetails.getMarathon(data.data, 'ref');
+
           Fire.$emit('indexLoaded');
 
           _this.getOrders();
-
-          _this.$refs.marathonDetails.getMarathon();
         });
       }
     },
@@ -3056,6 +3059,7 @@ __webpack_require__.r(__webpack_exports__);
       fullPage: true,
       email: '',
       contact: '',
+      setTicketsHasRun: false,
       ticketDetail: {
         fullname: '',
         contact: '',
@@ -3105,44 +3109,54 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
-    getMarathon: function getMarathon() {
+    getMarathon: function getMarathon(haya, calltype) {
       var _this2 = this;
 
-      axios.get("api/marathons/" + this.getCookie('gm58baba')).then(function (_ref) {
-        var data = _ref.data;
+      if (calltype == 'ref') {
+        location.reload();
+        this.setTickets(haya, calltype);
+      } else {
+        axios.get("api/marathons/" + this.getCookie('gm58baba')).then(function (_ref) {
+          var data = _ref.data;
 
-        _this2.setTickets(data);
-      })["catch"](function (error) {
-        swal.fire("Failed!", "There was something wrong in getMarathon " + error, "warning");
-      });
+          _this2.setTickets(data, calltype);
+        })["catch"](function (error) {
+          swal.fire("Failed!", "There was something wrong in getMarathon " + error, "warning");
+        });
+      }
     },
-    setTickets: function setTickets(orders) {
-      console.log(orders);
-
+    setTickets: function setTickets(orders, calltype) {
       for (var i = 0; i < orders.length; i++) {
-        var addDetails = 0;
-        var orderQty = orders[i].quantity;
-        var event_name = orders[i].event_name;
-        var description = orders[i].description;
-        var catID = orders[i].catID;
+        if (orders[i].event_type == "marathon") {
+          var addDetails = 0;
+          var orderQty = orders[i].quantity;
+          var event_name = orders[i].event_name;
+          var description = orders[i].description;
+          var catID = orders[i].catID;
 
-        for (var ix = 0; ix < orderQty; ix++) {
-          var obj = {};
-          obj['fullname'] = '';
-          obj['contact'] = '';
-          obj['category'] = '';
-          obj['pack'] = '';
-          obj['tshirtsize'] = '';
-          obj['gender'] = '';
-          obj['event'] = event_name + " " + description;
-          obj['event_id'] = catID;
-          this.ticketDetails.push(obj);
+          for (var ix = 0; ix < orderQty; ix++) {
+            console.log('1');
+            var obj = {};
+            obj['fullname'] = '';
+            obj['contact'] = '';
+            obj['category'] = '';
+            obj['pack'] = '';
+            obj['tshirtsize'] = '';
+            obj['gender'] = '';
+            obj['event'] = event_name + " " + description;
+            obj['event_id'] = catID;
+            this.ticketDetails.push(obj);
+          }
         }
       }
-    }
+    } //     if(calltype == "ref"){
+    //         this.setTicketsHasRun = true;
+    //     }
+    // }
+
   },
   created: function created() {
-    this.getMarathon();
+    this.getMarathon('', 'component');
   }
 });
 
@@ -67811,7 +67825,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "event" }, [
-        _c("div", { staticClass: "row gm58-event" }, [
+        _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-5" }, [
             _c("div", { staticClass: "card border-primary mt-3" }, [
               _vm._m(0),

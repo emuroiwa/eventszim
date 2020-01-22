@@ -87,11 +87,14 @@
                     this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
                     this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
                     this.form.user_id = user
+                    this.form.event_type = 'marathon'
                     this.form.post('api/orders')
                     .then((data)=>{
+                        
+                        console.log(data.data)
+                        this.$refs.marathonDetails.getMarathon(data.data,'ref');
                         Fire.$emit('indexLoaded');
                         this.getOrders();
-                        this.$refs.marathonDetails.getMarathon();
 
                     })
                 }
