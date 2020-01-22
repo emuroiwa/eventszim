@@ -37,9 +37,14 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        if($request['event_id'] == "marathon"){
+            $status = 0;
+        }else{
+            $status = 0;
+        }
         $results = Orders::where('category_id','=',$request['category_id'])
         ->where('user_id','=',$request['user_id'])
-        ->where('status','=',0)
+        ->where('status','=',$status)
         ->get();
         // print_r(is_null($results));
         // return true;
@@ -61,10 +66,11 @@ class OrderController extends Controller
                 'category_id' => $request['category_id'],
                 'quantity' => $request['quantity'],
                 'user_id' => $request['user_id'],
-                'status' => 0,
+                'status' => $status,
             
             ]);
         }
+        return $this->marathon($request['user_id']);
     }
 
     /**
