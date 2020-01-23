@@ -101,10 +101,6 @@ class OrderController extends Controller
         ->select(DB::raw('orders.id,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_type,price_sub_categories.id as catID'))
         ->where('user_id','=',$id)
         ->where('orders.status','=',0)
-        ->whereNotIn('price_sub_categories.id', function ($query) use ($id){
-            $query->select('event_id')->from('customers')
-            ->where('user_id','=',$id);
-        })
         ->orderby('orders.id', 'DESC')->get();
     }
 

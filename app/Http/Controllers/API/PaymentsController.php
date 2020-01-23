@@ -82,7 +82,9 @@ class PaymentsController extends Controller
         ->select(DB::raw('orders.id,payments.order_ref,event_name,customers.fullname,customers.contact,customers.marathon_type,customers.marathon_pickup,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
         ->where('payments.order_ref','=',$id)
         ->where('payments.status','=',1)
-        ->orderby('orders.id', 'DESC')->get();
+        ->groupBy(DB::raw('orders.id,payments.order_ref,event_name,customers.fullname,customers.contact,customers.marathon_type,customers.marathon_pickup,COALESCE(price_usd * orders.quantity,0),COALESCE(price_zwl * orders.quantity,0),orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
+        ->orderby('orders.id', 'DESC')
+        ->get();
             
         return Payments::Join('orders', 'orders.reference', '=', 'payments.order_ref')
         ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
@@ -103,7 +105,7 @@ class PaymentsController extends Controller
         $data["email_type"] = $request['email_type'];
         $data["order_id"] = $request['order_id'];
 
-        if($request['email_type'] == "success"){
+        if($request['email_type'] != "success"){
             $dataPDF = $this->getTicketDetails($request['order_id']);
             $data['PDFcaption']=$request['client_name'].$request['subject'];
            print_r($data);
@@ -112,7 +114,7 @@ class PaymentsController extends Controller
         }
        
         try{
-            if($request['email_type'] == "success"){
+            if($request['email_type'] != "success"){
                 Mail::send('email.emailbody', ["data1"=>$dataPDF, "data2"=>$data], function($message)use($data) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])

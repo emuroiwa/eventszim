@@ -36,8 +36,8 @@ class PaynowController extends Controller
         // $paymentRef = sha1(time());
         $paymentRef = time();
         $paynow = new Paynow(
-            '8927',
-            'b9476aa-1127-4751-a146-21300ea7500e',
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
@@ -83,9 +83,13 @@ class PaynowController extends Controller
             ->where('order_id', '11111')
             ->update( array('order_id'=>$paymentRef) );
 
-            PaymentDetails::where('user_id', $request['user_id'])
-            ->where('order_id', '11111')
-            ->update( array('order_id'=>$paymentRef) );
+            PaymentDetails::create([
+                'user_id' => $request['user_id'],
+                'order_id' =>$paymentRef,
+                'contact' => $request['contact'],
+                'email' => $request['email_ticket'],
+                        
+            ]);
 
             
             //create payment record
@@ -145,8 +149,8 @@ class PaynowController extends Controller
     }
     public function CheckPayment($paymentRef){
         $paynow = new Paynow(
-            '8927',
-            'b9476aa-1127-4751-a146-21300ea7500e',
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)

@@ -122,7 +122,8 @@
             },
             getMarathon(haya,calltype){
                 if(calltype =='ref'){
-                location.reload();
+                    
+                    location.reload();
                     this.setTickets(haya,calltype)
                 }else{
                     axios.get("api/marathons/"+ this.getCookie('gm58baba')).then(({ data }) => {
