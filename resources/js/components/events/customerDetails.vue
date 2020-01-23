@@ -126,69 +126,22 @@
                     this.form.payment_type = this.paymentType;
                     this.form.total_USD = this.total_USD;
                     this.form.total_ZWL = this.total_ZWL;
-                    
+
                     this.isLoading = true;
 
-                if(this.ticketDetails.length > 0){
-
-                    axios.post('api/customers', {
-                        ticketDetails:this.ticketDetails,
-                        ecocash: this.form.contact,
-                        email_ticket: this.form.email_ticket ,
-                        payment_type: this.paymentType,
-                        total_USD: this.total_USD,
-                        total_ZWL: this.total_ZWL,
-                        user_id: this.form.user_id,
-
-                    }).then((response) => {
-
-                         if(this.paymentType != 'paypal'){
+                    if(this.paymentType != 'paypal'){
                             //paynow endpoint
-                            axios.post('api/paynow', {
-                                ticketDetails:this.ticketDetails,
-                                ecocash: this.form.contact,
-                                email_ticket: this.form.email_ticket ,
-                                payment_type: this.paymentType,
-                                user_id: this.form.user_id,
-                            }).then((response)=>{
-                                console.log(response)
-                               window.location.href = response.data
-                            })
-                            .catch((error)=>{
-                                console.log(error)
-                                swal.fire("Failed!", "There was something wrong paynow. "+error, "warning");
-                                
-                            })
-                        }    
-                    }).catch((error)=>{
-                        // console.log(rror.response)
-                    swal.fire("Failed!", "There was something wrong in paynow "+ error, "warning");
-                    });
-
-
-                }else{
-                    this.form.post('api/customers')
-                    .then(()=>{
-
-                        if(this.paymentType != 'paypal'){
-                            //paynow endpoint
-                            this.form.post('api/paynow')
+                        this.form.post('api/paynow')
                             .then((response)=>{
+                                console.log(response.data)
                             window.location.href = response.data
-                            })
-                            .catch((error)=>{
-                                console.log(error)
-                                swal.fire("Failed!", "There was something wrong paynow. "+error, "warning");
+                        })
+                        .catch((error)=>{
+                            console.log(error)
+                            swal.fire("Failed!", "There was something wrong paynow. "+error, "warning");
                                 
                             })
-                        }      
-                    })
-                    .catch((error)=>{
-                        swal.fire("Failed!", "There was something wrong customers. "+error, "warning");
-                            
-                    })
-
-                }
+                    }  
             },
             
             getCookie(cname) {

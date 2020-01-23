@@ -2445,8 +2445,6 @@ __webpack_require__.r(__webpack_exports__);
       window.open(routeData.href, '_blank');
     },
     submitPayment: function submitPayment() {
-      var _this = this;
-
       //refactor here for v2
       if (this.form.email_ticket != this.form.confirm_email) {
         swal.fire("Failed!", "Make sure emails match ", "warning");
@@ -2464,49 +2462,14 @@ __webpack_require__.r(__webpack_exports__);
       this.form.total_ZWL = this.total_ZWL;
       this.isLoading = true;
 
-      if (this.ticketDetails.length > 0) {
-        axios.post('api/customers', {
-          ticketDetails: this.ticketDetails,
-          ecocash: this.form.contact,
-          email_ticket: this.form.email_ticket,
-          payment_type: this.paymentType,
-          total_USD: this.total_USD,
-          total_ZWL: this.total_ZWL,
-          user_id: this.form.user_id
-        }).then(function (response) {
-          if (_this.paymentType != 'paypal') {
-            //paynow endpoint
-            axios.post('api/paynow', {
-              ticketDetails: _this.ticketDetails,
-              ecocash: _this.form.contact,
-              email_ticket: _this.form.email_ticket,
-              payment_type: _this.paymentType,
-              user_id: _this.form.user_id
-            }).then(function (response) {
-              console.log(response);
-              window.location.href = response.data;
-            })["catch"](function (error) {
-              console.log(error);
-              swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
-            });
-          }
+      if (this.paymentType != 'paypal') {
+        //paynow endpoint
+        this.form.post('api/paynow').then(function (response) {
+          console.log(response.data);
+          window.location.href = response.data;
         })["catch"](function (error) {
-          // console.log(rror.response)
-          swal.fire("Failed!", "There was something wrong in paynow " + error, "warning");
-        });
-      } else {
-        this.form.post('api/customers').then(function () {
-          if (_this.paymentType != 'paypal') {
-            //paynow endpoint
-            _this.form.post('api/paynow').then(function (response) {
-              window.location.href = response.data;
-            })["catch"](function (error) {
-              console.log(error);
-              swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
-            });
-          }
-        })["catch"](function (error) {
-          swal.fire("Failed!", "There was something wrong customers. " + error, "warning");
+          console.log(error);
+          swal.fire("Failed!", "There was something wrong paynow. " + error, "warning");
         });
       }
     },
@@ -2878,6 +2841,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     eventData: Object
@@ -2886,6 +2860,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       tickets: {},
       orders: {},
+      isLoading: false,
+      fullPage: true,
       cartPage: 'priceCategory',
       form: new Form({
         quantity: '',
@@ -2897,6 +2873,7 @@ __webpack_require__.r(__webpack_exports__);
     onChangeTickets: function onChangeTickets(e) {
       var _this = this;
 
+      this.isLoading = true;
       var user = this.getCookie('gm58baba');
 
       if (e.target.options[e.target.options.selectedIndex].value > 0) {
@@ -67985,109 +67962,157 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h5", [_vm._v("Marathon Categories")]),
-    _vm._v(" "),
-    _vm.eventData.events[0].price_categories.length > 0
-      ? _c("div", [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("loading", {
+        staticClass: "text-center",
+        attrs: {
+          active: _vm.isLoading,
+          "can-cancel": false,
+          loader: "spinner",
+          "is-full-page": _vm.fullPage,
+          color: "#3490DC",
+          height: 150,
+          width: 150
+        },
+        on: {
+          "update:active": function($event) {
+            _vm.isLoading = $event
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Marathon Categories")]),
+      _vm._v(" "),
+      _vm.eventData.events[0].price_categories.length > 0
+        ? _c("div", [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                  }
                 }
-              }
-            },
-            [
-              _vm._l(_vm.eventData.events[0].price_categories, function(event) {
-                return _c(
-                  "div",
-                  {
-                    key: event.id,
-                    staticClass: "card card-body  border-primary mt-1"
-                  },
-                  [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-5 font-weight-bold" }, [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(event.description) +
-                            "\n                        "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-4" }, [
-                        _c("span", { staticClass: "badge badge-info" }, [
-                          _vm._v("ZWL")
-                        ]),
-                        _vm._v(
-                          " " + _vm._s(_vm._f("formatNumber")(event.price_zwl))
-                        ),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "badge badge-success" }, [
-                          _vm._v("USD")
-                        ]),
-                        _vm._v(
-                          " " + _vm._s(_vm._f("formatNumber")(event.price_usd))
-                        ),
-                        _c("br")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-3" }, [
-                        _c(
-                          "select",
-                          {
-                            staticClass: "form-control",
-                            on: {
-                              change: function($event) {
-                                return _vm.onChangeTickets($event)
-                              }
-                            }
-                          },
-                          [
-                            _c("option", [_vm._v("0")]),
-                            _vm._v(" "),
-                            _vm._l(event.max_tickets, function(index) {
-                              return _c(
-                                "option",
-                                { key: index, attrs: { "data-id": event.id } },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(index) +
-                                      "\n                                "
-                                  )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _vm.orders
-                ? _c(
+              },
+              [
+                _vm._l(_vm.eventData.events[0].price_categories, function(
+                  event
+                ) {
+                  return _c(
                     "div",
                     {
-                      staticClass:
-                        " card card-body gm58-card border-primary mt-1"
+                      key: event.id,
+                      staticClass: "card card-body  border-primary mt-1"
                     },
-                    [_c("marathonDetails", { ref: "marathonDetails" })],
-                    1
+                    [
+                      _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-5 font-weight-bold" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(event.description) +
+                                "\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-4" }, [
+                          _c("span", { staticClass: "badge badge-info" }, [
+                            _vm._v("ZWL")
+                          ]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm._f("formatNumber")(event.price_zwl))
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "badge badge-success" }, [
+                            _vm._v("USD")
+                          ]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm._f("formatNumber")(event.price_usd))
+                          ),
+                          _c("br")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-3" }, [
+                          _c(
+                            "select",
+                            {
+                              staticClass: "form-control",
+                              on: {
+                                change: function($event) {
+                                  return _vm.onChangeTickets($event)
+                                }
+                              }
+                            },
+                            [
+                              _c("option", [_vm._v("0")]),
+                              _vm._v(" "),
+                              _vm._l(event.max_tickets, function(index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: index,
+                                    attrs: { "data-id": event.id }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(index) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        ])
+                      ])
+                    ]
                   )
-                : _vm._e()
-            ],
-            2
-          )
-        ])
-      : _c("div", [_vm._m(0)])
-  ])
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: " card card-body gm58-card border-primary mt-1"
+                  },
+                  [
+                    !_vm.orders.length
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              " card card-body gm58-card border-primary mt-1"
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Please enter ticket details for each ticket bought \n                    "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("marathonDetails", { ref: "marathonDetails" })
+                  ],
+                  1
+                )
+              ],
+              2
+            )
+          ])
+        : _c("div", [_vm._m(0)])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

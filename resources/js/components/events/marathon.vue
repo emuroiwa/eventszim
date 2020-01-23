@@ -1,5 +1,12 @@
 <template>
     <div class="container">
+        <loading :active.sync="isLoading" 
+        :can-cancel="false" 
+        :loader="'spinner'"
+        :is-full-page="fullPage"
+        :color="'#3490DC'"
+        :height="150"
+        :width="150" class="text-center"></loading>
         <h5>Marathon Categories</h5>
         <!-- <div class="card card-body border-primary" data-toggle="collapse" href="#priceCategory" role="button" aria-expanded="false" aria-controls="priceCategory">
                  <div class="row">
@@ -37,7 +44,10 @@
                         </div>
                         
                     </div>
-                    <div class=" card card-body gm58-card border-primary mt-1" v-if="orders">
+                    <div class=" card card-body gm58-card border-primary mt-1">
+                        <div class=" card card-body gm58-card border-primary mt-1" v-if="!orders.length">
+                            Please enter ticket details for each ticket bought 
+                        </div>
                                 <marathonDetails ref="marathonDetails"></marathonDetails>
                             <!-- <ul class="timeline">
                                 <h3>Tickets Selected</h3>
@@ -50,6 +60,7 @@
                                 </li>
                             </ul> -->
                     </div>
+                   
                 <!-- </div> -->
 
             </form>
@@ -71,6 +82,8 @@
             return{
                 tickets:{},
                 orders:{},
+                isLoading: false,
+                fullPage: true,
                 cartPage:'priceCategory',
                  form: new Form({
                     quantity:'',
@@ -81,7 +94,7 @@
         },
         methods: {
             onChangeTickets(e){
-              
+                this.isLoading = true
                 var user = this.getCookie('gm58baba');
                 if(e.target.options[e.target.options.selectedIndex].value > 0){
                     this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
