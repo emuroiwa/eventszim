@@ -69,13 +69,7 @@ class CustomerController extends Controller
             
             ]);
         }
-        return   PaymentDetails::create([
-            'user_id' => $request['user_id'],
-            'order_id' => '11111',
-            'contact' => $request['ecocash'],
-            'email' => $request['email_ticket'],
-                    
-        ]);
+
        
     }
 

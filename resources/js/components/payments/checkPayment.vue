@@ -45,7 +45,7 @@
                             
                         }).catch((error)=>{
                             console.log(error)
-                        swal.fire("Failed!", "There was something wrong in verifyPayment "+ error.exception, "warning");
+                        swal.fire("Failed!", "There was something wrong in verifyPayment "+ error, "warning");
                         })
 
                 }).catch((error)=>{

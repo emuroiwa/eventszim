@@ -83,9 +83,13 @@ class PaynowController extends Controller
             ->where('order_id', '11111')
             ->update( array('order_id'=>$paymentRef) );
 
-            PaymentDetails::where('user_id', $request['user_id'])
-            ->where('order_id', '11111')
-            ->update( array('order_id'=>$paymentRef) );
+            PaymentDetails::create([
+                'user_id' => $request['user_id'],
+                'order_id' =>$paymentRef,
+                'contact' => $request['contact'],
+                'email' => $request['email_ticket'],
+                        
+            ]);
 
             
             //create payment record

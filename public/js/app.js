@@ -4392,7 +4392,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.ticketsEmail(data, ref);
         })["catch"](function (error) {
           console.log(error);
-          swal.fire("Failed!", "There was something wrong in verifyPayment " + error.exception, "warning");
+          swal.fire("Failed!", "There was something wrong in verifyPayment " + error, "warning");
         });
       })["catch"](function (error) {
         // console.log(rror.response)
