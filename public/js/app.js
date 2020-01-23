@@ -67556,7 +67556,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-info", attrs: { type: "submit" } },
+      { staticClass: "btn btn-info is-mobile-btn", attrs: { type: "submit" } },
       [_c("i", { staticClass: "fas fa-shopping-cart" }), _vm._v(" Check Out")]
     )
   }
@@ -68759,7 +68759,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-primary",
+                            staticClass: "btn btn-primary is-mobile-btn",
                             attrs: { type: "button" }
                           },
                           [
@@ -68869,7 +68869,7 @@ var render = function() {
                                 _c(
                                   "a",
                                   {
-                                    staticClass: "btn btn-danger",
+                                    staticClass: "btn btn-danger btn-block",
                                     attrs: { href: "#" },
                                     on: {
                                       click: function($event) {

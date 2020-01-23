@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 
-                                <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Check Out</button>
+                                <button  type="submit" class="btn btn-info is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Check Out</button>
                                 <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
                                 
                             </div>

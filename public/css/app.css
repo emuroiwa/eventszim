@@ -17582,3 +17582,36 @@ figure {
   }
 }
 
+.is-mobile-btn {
+  /* Large devices (laptops/desktops, 992px and up) */
+  /* Large devices (laptops/desktops, 992px and up) */
+}
+
+@media only screen and (max-width: 600px) {
+  .is-mobile-btn {
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .is-mobile-btn {
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .is-mobile-btn {
+    color: #fff;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .is-mobile-btn {
+    color: #fff;
+  }
+}
+
