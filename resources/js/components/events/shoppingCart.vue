@@ -28,7 +28,7 @@
                     <!-- <testdetails></testdetails> -->
                     <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
                     <router-link to="/home"> 
-                        <button type="button" class="btn btn-primary" >
+                        <button type="button" class="btn btn-primary is-mobile-btn" >
                             <i class="fas fa-shopping-cart d-inline "></i> Add Tickets 
                         </button>
                     </router-link>
@@ -58,7 +58,7 @@
                                 <p><small>{{order.price_usd | formatNumber}} each </small></p>
                                 <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
                                     </td>
-                                <td><a href="#"  class="btn btn-danger" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
+                                <td><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                             
                         </tbody>
