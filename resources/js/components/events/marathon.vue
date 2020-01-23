@@ -104,8 +104,6 @@
                     this.form.post('api/orders')
                     .then((data)=>{
                         
-                        console.log(data.data)
-                        this.$refs.marathonDetails.getMarathon(data.data,'ref');
                         Fire.$emit('indexLoaded');
                         this.getOrders();
 
