@@ -105,7 +105,7 @@ class PaymentsController extends Controller
         $data["email_type"] = $request['email_type'];
         $data["order_id"] = $request['order_id'];
 
-        if($request['email_type'] != "success"){
+        if($request['email_type'] == "success"){
             $dataPDF = $this->getTicketDetails($request['order_id']);
             $data['PDFcaption']=$request['client_name'].$request['subject'];
            print_r($data);
@@ -114,7 +114,7 @@ class PaymentsController extends Controller
         }
        
         try{
-            if($request['email_type'] != "success"){
+            if($request['email_type'] == "success"){
                 Mail::send('email.emailbody', ["data1"=>$dataPDF, "data2"=>$data], function($message)use($data) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])
