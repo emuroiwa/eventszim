@@ -16,11 +16,8 @@
                         <div class="card-header event-card-header">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
                         </div>
-                        <div class="card-body" v-if="eventData.events[0].event_type != 'marathon'">
+                        <div class="card-body">
                             <priceCategory :eventData="this.eventData"></priceCategory>
-                        </div>
-                        <div class="card-body" v-else>
-                            <marathon :eventData="this.eventData"></marathon>
                         </div>
                     </div> 
                 </div>

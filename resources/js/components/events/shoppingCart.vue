@@ -7,7 +7,18 @@
         :color="'#3490DC'"
         :height="150"
         :width="150" class="text-center"></loading>
-        <div class="card border-primary mb-4 mt-3">
+        
+        <div class="card border-primary mb-4 mt-3" v-if="marathons">
+            <div class="card-header event-card-header mb-1">
+                <h4 class="card-title">Marathon Details</h4>
+                                <!-- <h5>Choose Venue & Date/Time</h5> -->
+            </div>
+            <div class="card-body">
+                 <marathonDetails ref="marathonDetails"></marathonDetails>
+            </div>
+        </div>
+
+        <div class="card border-primary mb-4 mt-3" v-else >
             <div class="card-header event-card-header mb-1">
                 <h4 class="card-title">Shopping Cart </h4>
                                 <!-- <h5>Choose Venue & Date/Time</h5> -->
@@ -119,7 +130,8 @@
                 isLoading: false,
                 fullPage: true,
                 isNotMobile:false,
-                EventType:''
+                EventType:'',
+                marathons:''
 
             }
         },
@@ -139,6 +151,7 @@
                 return total + item.quantity; 
                 },0);
             },
+           
             getEventType: function(){ 
                 let xxx='';
                 this.orders.forEach(element => {
@@ -153,8 +166,6 @@
         methods: {
              deleteTicket(id){
                 var user =this.checkCookie();
-                // swal.fire("Failed!", "There was something wrong in getOrders ", "warning");
-                
                 swal.fire({
                     icon: 'info',
                     title: 'Are you sure?',
@@ -165,22 +176,23 @@
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
-
                         // Send request to the server
-                         if (result.value) {
-                             axios.delete('api/orders/'+id).then(()=>{
-                                        this.getOrders();
-                                        Fire.$emit('user',this.user);
-                                        Fire.$emit('checkAvaliablity');
-                                        this.paymentMethod="paynow"
-                                        swal.fire(
-                                            'Deleted!',
-                                            'Your file has been deleted.',
-                                            'success'
-                                            )
-                                        }).catch(()=> {
-                                                swal.fire("Failed!", "There was something wrong. "+error, "warning");
-                                        });
+                        if (result.value) {
+                            axios.delete('api/orders/'+id).then(()=>{
+
+                            this.getOrders();
+                            Fire.$emit('user',this.user);
+                            Fire.$emit('checkAvaliablity');
+                            this.paymentMethod="paynow"
+
+                            swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                    )
+                                }).catch(()=> {
+                                    swal.fire("Failed!", "There was something wrong. "+error, "warning");
+                                });
                          }
                     })
             
@@ -233,10 +245,10 @@
                 if (isMobile) {
                     //open modal
                    // $('#customerDetails').modal('show');
-                    this.isNotMobile= true;
+                    this.isNotMobile = true;
                 }else{
                     
-                    this.isNotMobile= true;
+                    this.isNotMobile = true;
 
                 }
             },
@@ -247,24 +259,40 @@
                 axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
                         this.isLoading = false;
+                        this.$refs.marathonDetails.setTickets(data);
                     }).catch((error)=>{
                         console.log(error)
                     // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                })
+            },
+
+            checkMarathons(){
+                var user = this.checkCookie();
+                axios.get("api/checkMarathon/"+ user).then(({ data }) => {
+                        this.marathons = data;
+                    }).catch((error)=>{
+                        console.log(error)
                 })
             },
            
         },
         created(){
             this.paymentMethod='paynow'
+            
             Fire.$on('user',(user) =>{
                 this.getOrders()
             });
-            Fire.$emit('indexLoaded') 
-
             Fire.$on('checkAvaliablity',() =>{
             this.getOrders()
-             });
-             this.getOrders()
+            });
+            Fire.$on('marathonSaved',() =>{
+                this.checkMarathons()
+            });
+
+            Fire.$emit('indexLoaded') 
+            this.checkMarathons()
+            this.getOrders()
+
 
         }
     }

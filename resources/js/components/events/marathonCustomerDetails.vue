@@ -59,7 +59,7 @@
             </div>
             <div class="form-group m-2" v-if="ticketDetails.length>0">
                 <input v-model="ticketDetails.event_id" name="ticketDetails[][event_id]" type="text" class="gm58hack">
-                <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Save Details</button>
             </div>
         </form>
     </div>
@@ -97,17 +97,16 @@
                         user_id: this.getCookie("gm58baba")
                        
                     }).then((response) => {
-                        this.getMarathon();
+                        Fire.$emit('marathonSaved');
                         swal.fire("Success!", "Ticket data added and item added to cart ", "success");
                     }).catch((error)=>{
-                        wal.fire("Failed!", "There was something wrong in submitTicket "+ error, "warning");
+                        swal.fire("Failed!", "There was something wrong in submitTicket "+ error, "warning");
                     });
                 
             },
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
-                //sconsole.log(decodedCookie)
                 var ca = decodedCookie.split(';');
                 for(var i = 0; i <ca.length; i++) {
                     var c = ca[i];
@@ -120,21 +119,8 @@
                 }
                 return "";
             },
-            getMarathon(haya,calltype){
-                if(calltype =='ref'){
-                    
-                    location.reload();
-                    this.setTickets(haya,calltype)
-                }else{
-                    axios.get("api/marathons/"+ this.getCookie('gm58baba')).then(({ data }) => {
-                        this.setTickets(data,calltype)
-                    }).catch((error)=>{
-                        swal.fire("Failed!", "There was something wrong in getMarathon "+ error, "warning");
-                    })
-                }
-            },
-            setTickets(orders,calltype){
-                                   
+
+            setTickets(orders){
                 for (var i = 0; i < orders.length; i++) {
                         if(orders[i].event_type == "marathon"){
                             var addDetails = 0;
@@ -144,7 +130,6 @@
                             var catID = orders[i].catID;
                         
                         for (var ix = 0; ix < orderQty; ix++) {
-                                console.log('1')
                                 var obj = {};
                                 obj['fullname'] = '';
                                 obj['contact'] = '';
@@ -159,14 +144,8 @@
                         }
                     }
                 }
-            //     if(calltype == "ref"){
-            //         this.setTicketsHasRun = true;
-            //     }
-            // }
         },
-    created(){
-        this.getMarathon('','component')
-    }
+    
 
     }
 </script>
