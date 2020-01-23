@@ -136,8 +136,15 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-            $Orders = Orders::findOrFail($id);
-            $Orders->delete();
+            
+        $Orders = Orders::findOrFail($id);
+        $catID = $Orders->category_id;
+        $Orders->delete();
+
+        DB::table('customers')
+            ->where('order_id','11111')
+            ->where('event_id',$catID)
+            ->delete();
     }
     public function cartItems($id){
        
