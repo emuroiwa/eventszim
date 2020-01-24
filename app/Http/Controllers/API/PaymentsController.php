@@ -101,7 +101,7 @@ class PaymentsController extends Controller
         $data["email"] = $request['email'];
         $data["subject"] = $request['subject'];
         $data["client_name"] = $request['client_name'];
-        $data["from_email"] = $request['email'];
+        $data["from_email"] = 'admin@ticketbook.co.zw';
         $data["email_type"] = $request['email_type'];
         $data["order_id"] = $request['order_id'];
 
