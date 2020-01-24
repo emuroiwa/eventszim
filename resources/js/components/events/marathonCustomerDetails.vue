@@ -59,7 +59,7 @@
             </div>
             <div class="form-group m-2" v-if="ticketDetails.length>0">
                 <input v-model="ticketDetails.event_id" name="ticketDetails[][event_id]" type="text" class="gm58hack">
-                <button  type="submit" class="btn btn-info" ><i class="fas fa-shopping-cart"></i> Save Details</button>
+                <button  type="submit" class="btn btn-info is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Save Details</button>
             </div>
         </form>
     </div>
@@ -119,33 +119,46 @@
                 }
                 return "";
             },
+            getOrders(){
+                var user = this.getCookie('gm58baba');
+                axios.get("api/marathons/"+ user).then(({ data }) => {
+                        this.orders = data;
+                        this.setTickets(data);
+                    }).catch((error)=>{
+                        console.log(error)
+                    // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                })
+            },
+
 
             setTickets(orders){
                 for (var i = 0; i < orders.length; i++) {
-                        if(orders[i].event_type == "marathon"){
-                            var addDetails = 0;
-                            var orderQty = orders[i].quantity ;
-                            var event_name = orders[i].event_name;
-                            var description = orders[i].description;
-                            var catID = orders[i].catID;
-                        
-                        for (var ix = 0; ix < orderQty; ix++) {
-                                var obj = {};
-                                obj['fullname'] = '';
-                                obj['contact'] = '';
-                                obj['category'] = '';
-                                obj['pack'] = '';
-                                obj['tshirtsize'] = '';
-                                obj['gender'] = '';
-                                obj['event'] = event_name +" "+ description ;
-                                obj['event_id'] = catID ;
-                                this.ticketDetails.push(obj);
+                        if(orders[i].user_id === null){
+                                var addDetails = 0;
+                                var orderQty = orders[i].quantity ;
+                                var event_name = orders[i].event_name;
+                                var description = orders[i].description;
+                                var catID = orders[i].catID;
+                            
+                            for (var ix = 0; ix < orderQty; ix++) {
+                                    var obj = {};
+                                    obj['fullname'] = '';
+                                    obj['contact'] = '';
+                                    obj['category'] = '';
+                                    obj['pack'] = '';
+                                    obj['tshirtsize'] = '';
+                                    obj['gender'] = '';
+                                    obj['event'] = event_name +" "+ description ;
+                                    obj['event_id'] = catID ;
+                                    this.ticketDetails.push(obj);
                             }
                         }
                     }
                 }
         },
-    
+    created(){
+        this.getOrders()
+    }
 
     }
 </script>
