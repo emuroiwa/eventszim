@@ -14,7 +14,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="fullname">Full Name*</label>
-                                        <input v-model="form.fullname" type="text" name="fullname"  class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }">
+                                        <input v-model="form.fullname" type="text" name="fullname"  class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }" required>
                                         
                                     </div>
                                 </div>
@@ -22,7 +22,7 @@
                                     <div class="form-group">
                                         <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
                                         <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>*
-                                        <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }">
+                                        <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }" required> 
                                     </div>
                                 </div>
 
@@ -31,13 +31,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email_ticket"><b>Email To Send Tickets To</b>*</label>
-                                        <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }">
+                                        <input v-model="form.email_ticket" type="email" name="email_ticket"  class="form-control" :class="{ 'is-invalid': form.errors.has('email_ticket') }" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="confirm_email">Confirm Email*</label>
-                                        <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }">
+                                        <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }" required>
                                     </div>
                                 </div>
                                     

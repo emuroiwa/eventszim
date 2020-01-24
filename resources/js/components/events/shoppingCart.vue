@@ -14,7 +14,7 @@
                                 <!-- <h5>Choose Venue & Date/Time</h5> -->
             </div>
             <div class="card-body">
-                 <marathonDetails ref="marathonDetails"></marathonDetails>
+                 <marathonDetails></marathonDetails>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
                     <!-- <testdetails></testdetails> -->
                     <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
                     <router-link to="/home"> 
-                        <button type="button" class="btn btn-primary is-mobile-btn" >
+                        <button type="button" class="btn btn-primary btn-block" >
                             <i class="fas fa-shopping-cart d-inline "></i> Add Tickets 
                         </button>
                     </router-link>
@@ -114,7 +114,7 @@
                         </div>
                     </div> -->
 
-                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :event_type="getEventType" :orders="orders"  ref="addCustomer"></addCustomer>
+                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
                 </div>
             </div>
         </div>
@@ -152,15 +152,7 @@
                 },0);
             },
            
-            getEventType: function(){ 
-                let xxx='';
-                this.orders.forEach(element => {
-                    if(element.event_type=='marathon'){
-                        xxx= 'marathon';
-                    } 
-                });
-                return xxx;
-            }
+        
 
         },
         methods: {
@@ -259,7 +251,7 @@
                 axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
                         this.isLoading = false;
-                        this.$refs.marathonDetails.setTickets(data);
+                        // this.$refs.marathonDetails.setTickets(data);
                     }).catch((error)=>{
                         console.log(error)
                     // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");

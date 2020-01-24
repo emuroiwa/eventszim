@@ -3077,9 +3077,22 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
+    getOrders: function getOrders() {
+      var _this = this;
+
+      var user = this.getCookie('gm58baba');
+      axios.get("api/marathons/" + user).then(function (_ref) {
+        var data = _ref.data;
+        _this.orders = data;
+
+        _this.setTickets(data);
+      })["catch"](function (error) {
+        console.log(error); // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+      });
+    },
     setTickets: function setTickets(orders) {
       for (var i = 0; i < orders.length; i++) {
-        if (orders[i].event_type == "marathon") {
+        if (orders[i].user_id === null) {
           var addDetails = 0;
           var orderQty = orders[i].quantity;
           var event_name = orders[i].event_name;
@@ -3101,6 +3114,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     }
+  },
+  created: function created() {
+    this.getOrders();
   }
 });
 
@@ -3418,15 +3434,6 @@ __webpack_require__.r(__webpack_exports__);
       return this.orders.reduce(function (total, item) {
         return total + item.quantity;
       }, 0);
-    },
-    getEventType: function getEventType() {
-      var xxx = '';
-      this.orders.forEach(function (element) {
-        if (element.event_type == 'marathon') {
-          xxx = 'marathon';
-        }
-      });
-      return xxx;
     }
   },
   methods: {
@@ -3525,9 +3532,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/orders/" + user).then(function (_ref) {
         var data = _ref.data;
         _this2.orders = data;
-        _this2.isLoading = false;
-
-        _this2.$refs.marathonDetails.setTickets(data);
+        _this2.isLoading = false; // this.$refs.marathonDetails.setTickets(data);
       })["catch"](function (error) {
         console.log(error); // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
       });
@@ -67281,7 +67286,7 @@ var render = function() {
                         class: {
                           "is-invalid": _vm.form.errors.has("fullname")
                         },
-                        attrs: { type: "text", name: "fullname" },
+                        attrs: { type: "text", name: "fullname", required: "" },
                         domProps: { value: _vm.form.fullname },
                         on: {
                           input: function($event) {
@@ -67324,7 +67329,8 @@ var render = function() {
                           type: "number",
                           name: "contact",
                           maxlength: "10",
-                          placeholder: "eg 0771111111"
+                          placeholder: "eg 0771111111",
+                          required: ""
                         },
                         domProps: { value: _vm.form.contact },
                         on: {
@@ -67358,7 +67364,11 @@ var render = function() {
                         class: {
                           "is-invalid": _vm.form.errors.has("email_ticket")
                         },
-                        attrs: { type: "email", name: "email_ticket" },
+                        attrs: {
+                          type: "email",
+                          name: "email_ticket",
+                          required: ""
+                        },
                         domProps: { value: _vm.form.email_ticket },
                         on: {
                           input: function($event) {
@@ -67395,7 +67405,11 @@ var render = function() {
                         class: {
                           "is-invalid": _vm.form.errors.has("confirm_email")
                         },
-                        attrs: { type: "email", name: "confirm_email" },
+                        attrs: {
+                          type: "email",
+                          name: "confirm_email",
+                          required: ""
+                        },
                         domProps: { value: _vm.form.confirm_email },
                         on: {
                           input: function($event) {
@@ -68448,7 +68462,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-info", attrs: { type: "submit" } },
+      { staticClass: "btn btn-info is-mobile-btn", attrs: { type: "submit" } },
       [
         _c("i", { staticClass: "fas fa-shopping-cart" }),
         _vm._v(" Save Details")
@@ -68690,12 +68704,7 @@ var render = function() {
         ? _c("div", { staticClass: "card border-primary mb-4 mt-3" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body" },
-              [_c("marathonDetails", { ref: "marathonDetails" })],
-              1
-            )
+            _c("div", { staticClass: "card-body" }, [_c("marathonDetails")], 1)
           ])
         : _c("div", { staticClass: "card border-primary mb-4 mt-3" }, [
             _vm._m(1),
@@ -68718,7 +68727,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-primary is-mobile-btn",
+                            staticClass: "btn btn-primary btn-block",
                             attrs: { type: "button" }
                           },
                           [
@@ -68895,7 +68904,6 @@ var render = function() {
                           paymentType: this.paymentMethod,
                           total_USD: _vm.totalUSD,
                           total_ZWL: _vm.totalZWL,
-                          event_type: _vm.getEventType,
                           orders: _vm.orders
                         }
                       })

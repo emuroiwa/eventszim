@@ -17606,12 +17606,16 @@ figure {
 @media only screen and (min-width: 992px) {
   .is-mobile-btn {
     color: #fff;
+    display: block;
+    width: 40%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .is-mobile-btn {
     color: #fff;
+    display: block;
+    width: 40%;
   }
 }
 
