@@ -61,11 +61,11 @@
                 var paymentResponse = response.message;
                    if(paymentResponse == 'done'){
                        emailType = 'success';
-                       emailHeading = ':-) Ticketbook Confimation of Ticket Purchase'
+                       emailHeading = 'Ticketbook Confimation of Ticket Purchase'
 
                    }else{
                        emailType = 'cancel'
-                       emailHeading = ' :-( Ticketbook Cancellation of Ticket Purchase'
+                       emailHeading = 'Ticketbook Cancellation of Ticket Purchase'
                    }
                    axios.post('api/sendemail', {
                     email:this.userData[0].email,
