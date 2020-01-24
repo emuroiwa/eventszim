@@ -11202,7 +11202,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.gm58-hack[data-v-74d1d756]{\n    width: 100px;\n}\n.navbar-light .navbar-nav .nav-link[data-v-74d1d756]{\n    color: cornflowerblue\n}\n.fas-header[data-v-74d1d756]{\n    font-size: x-large;\n}\n", ""]);
+exports.push([module.i, "\n.gm58-hack[data-v-74d1d756]{\n    width: 100px;\n    text-align: center;\n}\n.navbar-light .navbar-nav .nav-link[data-v-74d1d756]{\n    color: cornflowerblue\n}\n.fas-header[data-v-74d1d756]{\n    font-size: x-large;\n}\n", ""]);
 
 // exports
 

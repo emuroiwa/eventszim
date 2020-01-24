@@ -137,6 +137,8 @@
 <style scoped>
 .gm58-hack{
     width: 100px;
+    text-align: center;
+
 }
 .navbar-light .navbar-nav .nav-link{
     color: cornflowerblue
