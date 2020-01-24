@@ -35,38 +35,38 @@
                 </div>
                 <div class="card card-body border-info" v-if="orders.length">
             
-                    <table class="table table-hover table-responsive">
+                    <table>
                         <thead> 
                             <tr>
-                                <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Local Price</th>
-                                <th>USD</th>
-                                <th></th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Local Price</th>
+                                <th scope="col">USD</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="order in orders" :key="order.id">
-                                <td>{{order.event_name}} <small>{{order.description}}</small>
+                                <td data-label="Description">{{order.event_name}} <small>{{order.description}}</small>
                                     <p v-if="order.venue && order.town" class="font-weight-bold">Venue {{order.venue}} {{order.town}}</p></td>
-                                <td>{{order.quantity}} </td>
-                                <td>  
+                                <td data-label="Quantity">{{order.quantity}} </td>
+                                <td data-label="Local Price">  
                                     <p><small>{{order.price_zwl | formatNumber}} each </small></p>
                                     <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
                                 </td>
-                                <td>
+                                <td data-label="USD">
                                 <p><small>{{order.price_usd | formatNumber}} each </small></p>
                                 <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
                                     </td>
-                                <td><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
+                                <td data-label=""><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                             
                         </tbody>
                             <tr>
-                                <th>Total</th>
-                                <th>{{totalTickets}}</th>
-                                <th><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
-                                <th colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
+                                <th data-label="Description">Total</th>
+                                <th data-label="Quantity">{{totalTickets}}</th>
+                                <th data-label="Local Price"><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
+                                <th data-label="USD" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
 
                             </tr>
                     </table>
@@ -346,56 +346,84 @@
         align-items: center;
         max-width: 60%;
     }
-    th{
-        width: 100%;
+   
+    table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
     }
-</style>
-<style lang="scss" scoped>
-@media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
 
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 
-		/* Now like a table header */
-		display: block;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	/*
-	Label the data
-	*/
-	td:nth-of-type(1):before { content: "Description"; }
-	td:nth-of-type(2):before { content: "Quantity"; }
-	td:nth-of-type(3):before { content: "Local Price"; }
-	td:nth-of-type(4):before { content: "USD"; }
-	td:nth-of-type(5):before { content: ""; }
+    table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+    }
 
-}
+    table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+    }
+
+    table th,
+    table td {
+    padding: .625em;
+    }
+
+    table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
+
+    table caption {
+        font-size: 1.3em;
+    }
+    
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+    
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+    
+    table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    table td:last-child {
+        border-bottom: 0;
+    }
+    }
 </style>
