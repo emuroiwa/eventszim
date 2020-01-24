@@ -2232,6 +2232,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     cartPage: String
@@ -67082,23 +67084,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "float-right gm58-hack" }, [
+  return _c("div", [
     this.cartPage == "header"
       ? _c(
           "div",
           { staticClass: "nav-link font-weight-bold", attrs: { href: "#" } },
           [
-            _c("router-link", { attrs: { to: "/cart" } }, [
-              _c("i", {
-                staticClass: "fas fa-shopping-cart d-inline fas-header"
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "badge badge-danger" }, [
-                _vm._v(_vm._s(_vm.itemsInCart))
-              ])
-            ])
-          ],
-          1
+            _c(
+              "div",
+              { staticClass: "float-right gm58-hack" },
+              [
+                _c("router-link", { attrs: { to: "/cart" } }, [
+                  _c("i", {
+                    staticClass: "fas fa-shopping-cart d-inline fas-header"
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "badge badge-danger" }, [
+                    _vm._v(_vm._s(_vm.itemsInCart))
+                  ])
+                ])
+              ],
+              1
+            )
+          ]
         )
       : this.cartPage == "priceCategory"
       ? _c(
@@ -67184,7 +67192,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-danger",
+          staticClass: "btn btn-danger  btn-block",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
         [_vm._v("Continue Shopping")]

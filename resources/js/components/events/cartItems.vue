@@ -1,11 +1,13 @@
 <template>
 
-    <div class="float-right gm58-hack">
+    <div>
         
         <div class="nav-link font-weight-bold" href="#" v-if="this.cartPage=='header'">
-            <router-link to="/cart">
-                <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger">{{itemsInCart}}</span>
-            </router-link>
+            <div class="float-right gm58-hack">
+                <router-link to="/cart">
+                    <i class="fas fa-shopping-cart d-inline fas-header"></i> <span class="badge badge-danger">{{itemsInCart}}</span>
+                </router-link>
+            </div>
         </div>
         <div v-else-if="this.cartPage=='priceCategory'">
             <router-link to="/cart"> 
@@ -36,7 +38,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
 
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Continue Shopping</button>
+                    <button type="button" class="btn btn-danger  btn-block" data-dismiss="modal">Continue Shopping</button>
                     
                 </div>
 
