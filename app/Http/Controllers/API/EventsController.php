@@ -155,7 +155,8 @@ class EventsController extends Controller
             ->select(DB::raw('DATE_FORMAT(start_date, "%M %d %Y") as start_date'),'event_name','zim_events.id','venue','town')
                 ->where(function($query) use ($search){
                 $query->where('event_name','LIKE',"%$search%")
-                        ->orWhere('popular_rank','LIKE',"%$search%");
+                        ->orWhere('town','LIKE',"%$search%")
+                        ->orWhere('venue','LIKE',"%$search%");
             })->get();
         }else{
             $events = ZimEvents::latest()->get();
