@@ -33,6 +33,7 @@ class CustomerController extends Controller
 
         if($request['ticketDetails']){
             foreach($request['ticketDetails'] as $r){
+                
                 Customer::create([
                     'user_id' => $request['user_id'],
                     'fullname' => $r['fullname'],

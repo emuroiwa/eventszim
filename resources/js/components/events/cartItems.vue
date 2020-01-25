@@ -75,7 +75,7 @@
                 }
                 return "";
             },
-            cancelOrder(){
+            cancelOrder(eventType){
                 swal.fire({
                     icon: 'info',
                     title: 'Are you sure?',
@@ -89,20 +89,28 @@
                           // Send request to the server
                          if (result.value) {
                              axios.put('api/orders/'+ this.getCookie('gm58baba'), {
-                                        status: 3
+                                        status: 3,
+                                        event_type: eventType
                                     }).then(()=>{
                                         this.getCartItems();
-                                        
                                         Fire.$emit('user',this.user);
                                         Fire.$emit('checkAvaliablity');
-                                        swal.fire(
-                                            'Canceled!',
-                                            'Your file has been Canceled.',
-                                            'success'
-                                            )
-                                        }).catch(()=> {
-                                                swal.fire("Failed!", "There was something wrong. "+error, "warning");
+                                 
+                                        swal.fire({
+                                            title: "Canceled!",
+                                            text: "Your order has been Canceled!",
+                                            icon: 'success',
+                                            type: "success",
+                                            confirmButtonText: "OK"
+                                        }).then(okay => {
+                                            if(okay){
+                                                this.$router.push({ name: 'home' })
+                                            }
                                         });
+
+                                    }).catch(()=> {
+                                        swal.fire("Failed!", "There was something wrong. "+error, "warning");
+                            });
                          }
                     })
             },
@@ -111,8 +119,7 @@
                     axios.get("api/cartItems/"+ this.getCookie('gm58baba')).then(({ data }) => {
                         this.itemsInCart = data;
                     }).catch((error)=>{
-                        // console.log(rror.response)
-                    swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
+                        swal.fire("Failed!", "There was something wrong in getCartItems "+ error, "warning");
                     })
                }
            },
@@ -128,8 +135,8 @@
                 this.getCartItems();
             });
            
-            Fire.$on('cancelOrder',() => {
-                this.cancelOrder();
+            Fire.$on('cancelOrder',(eventType) => {
+                this.cancelOrder(eventType);
             });
        }
     }

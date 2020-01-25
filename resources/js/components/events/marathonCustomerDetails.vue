@@ -14,7 +14,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="contact"><b>Contact Number</b>*</label>
-                            <input v-model="ticketDetails.contact" type="number" name="ticketDetails[][contact]" maxlength="10" minlength="10" class="form-control" placeholder="" required>
+                            <input v-model="ticketDetails.contact" type="number" name="ticketDetails[][contact]" maxlength="10" minlength="10" placeholder="eg 0771111111" class="form-control"  required>
                         </div>
                     </div>
                 </div>
@@ -60,6 +60,7 @@
             <div class="form-group m-2" v-if="ticketDetails.length>0">
                 <input v-model="ticketDetails.event_id" name="ticketDetails[][event_id]" type="text" class="gm58hack">
                 <button  type="submit" class="btn btn-info is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Save Details</button>
+                <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
             </div>
         </form>
     </div>
@@ -91,6 +92,11 @@
             }
         },
         methods:{
+            cancelOrder(){
+                Fire.$emit('cancelOrder','marathon');
+                //$('#shoppingCartModal').modal('hide');
+                this.paymentMethod="";
+            },
             submitTicket(){
                     axios.post('api/customers', {
                         ticketDetails:this.ticketDetails,
@@ -126,10 +132,8 @@
                         this.setTickets(data);
                     }).catch((error)=>{
                         console.log(error)
-                    // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                 })
             },
-
 
             setTickets(orders){
                 for (var i = 0; i < orders.length; i++) {

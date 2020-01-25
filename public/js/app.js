@@ -2264,7 +2264,7 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
-    cancelOrder: function cancelOrder() {
+    cancelOrder: function cancelOrder(eventType) {
       var _this = this;
 
       swal.fire({
@@ -2280,13 +2280,26 @@ __webpack_require__.r(__webpack_exports__);
         // Send request to the server
         if (result.value) {
           axios.put('api/orders/' + _this.getCookie('gm58baba'), {
-            status: 3
+            status: 3,
+            event_type: eventType
           }).then(function () {
             _this.getCartItems();
 
             Fire.$emit('user', _this.user);
             Fire.$emit('checkAvaliablity');
-            swal.fire('Canceled!', 'Your file has been Canceled.', 'success');
+            swal.fire({
+              title: "Canceled!",
+              text: "Your order has been Canceled!",
+              icon: 'success',
+              type: "success",
+              confirmButtonText: "OK"
+            }).then(function (okay) {
+              if (okay) {
+                _this.$router.push({
+                  name: 'home'
+                });
+              }
+            });
           })["catch"](function () {
             swal.fire("Failed!", "There was something wrong. " + error, "warning");
           });
@@ -2301,7 +2314,6 @@ __webpack_require__.r(__webpack_exports__);
           var data = _ref.data;
           _this2.itemsInCart = data;
         })["catch"](function (error) {
-          // console.log(rror.response)
           swal.fire("Failed!", "There was something wrong in getCartItems " + error, "warning");
         });
       }
@@ -2316,8 +2328,8 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('indexLoaded', function () {
       _this3.getCartItems();
     });
-    Fire.$on('cancelOrder', function () {
-      _this3.cancelOrder();
+    Fire.$on('cancelOrder', function (eventType) {
+      _this3.cancelOrder(eventType);
     });
   }
 });
@@ -2517,44 +2529,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     cancelOrder: function cancelOrder() {
-      Fire.$emit('cancelOrder'); //$('#shoppingCartModal').modal('hide');
+      Fire.$emit('cancelOrder', 'all'); //$('#shoppingCartModal').modal('hide');
 
       this.paymentMethod = "";
-    },
-    setTickets: function setTickets(orders) {
-      console.log(orders);
-
-      for (var i = 0; i < orders; i++) {
-        var obj = {};
-        obj['fullname'] = '';
-        obj['contact'] = '';
-        obj['category'] = '';
-        obj['pack'] = '';
-        obj['tshirtsize'] = '';
-        obj['gender'] = '';
-        obj['event'] = '';
-        this.ticketDetails.push(obj);
-      } // for (var i = 0; i < orders.length; i++) {
-      //     if(orders[i].event_type == 'marathon'){
-      //         var addDetails = 0;
-      //         var orderQty = orders[i].quantity ;
-      //         var event_name = orders[i].event_name;
-      //         var description = orders[i].description;
-      //         console.log(description)
-      //        for (var i = 0; i < orderQty; i++) {
-      //             var obj = {};
-      //             obj['fullname'] = '';
-      //             obj['contact'] = '';
-      //             obj['category'] = '';
-      //             obj['pack'] = '';
-      //             obj['tshirtsize'] = '';
-      //             obj['gender'] = '';
-      //             obj['event'] = event_name + description ;
-      //             this.ticketDetails.push(obj);
-      //         }
-      //     }
-      // }
-
     }
   },
   computed: {}
@@ -2741,10 +2718,9 @@ __webpack_require__.r(__webpack_exports__);
         swal("Failed!", "There was something wrong in getEvents " + error, "warning");
       });
     },
-    selectedEvent: function selectedEvent() {
-      $('html, body').animate({
-        scrollTop: $("div.gm58-event").offset().top
-      }, 1000);
+    selectedEvent: function selectedEvent() {// $('html, body').animate({
+      //     scrollTop: $("div.gm58-event").offset().top
+      // }, 1000)
     }
   },
   beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
@@ -2932,13 +2908,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return "";
-    },
-    addToCart: function addToCart() {// axios.get("api/payments").then(({ data }) => {
-      //         this.eventData = data;
-      //     }).catch((error)=>{
-      //     // console.log(rror.response)
-      //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
-      //     })
     }
   },
   created: function created() {
@@ -2957,6 +2926,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3047,6 +3017,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    cancelOrder: function cancelOrder() {
+      Fire.$emit('cancelOrder', 'marathon'); //$('#shoppingCartModal').modal('hide');
+
+      this.paymentMethod = "";
+    },
     submitTicket: function submitTicket() {
       axios.post('api/customers', {
         ticketDetails: this.ticketDetails,
@@ -3087,7 +3062,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.setTickets(data);
       })["catch"](function (error) {
-        console.log(error); // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+        console.log(error);
       });
     },
     setTickets: function setTickets(orders) {
@@ -3468,8 +3443,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getCookie: function getCookie(cname) {
       var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie); //sconsole.log(decodedCookie)
-
+      var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(';');
 
       for (var i = 0; i < ca.length; i++) {
@@ -3532,7 +3506,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/orders/" + user).then(function (_ref) {
         var data = _ref.data;
         _this2.orders = data;
-        _this2.isLoading = false; // this.$refs.marathonDetails.setTickets(data);
+        _this2.isLoading = false;
       })["catch"](function (error) {
         console.log(error); // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
       });
@@ -4369,6 +4343,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4391,11 +4366,9 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.ticketsEmail(data, ref);
         })["catch"](function (error) {
-          console.log(error);
           swal.fire("Failed!", "There was something wrong in verifyPayment " + error, "warning");
         });
       })["catch"](function (error) {
-        // console.log(rror.response)
         swal("Failed!", "There was something wrong in getUserData " + error, "warning");
       });
     },
@@ -4424,12 +4397,35 @@ __webpack_require__.r(__webpack_exports__);
         _this2.isLoading = false;
 
         if (paymentResponse == 'done') {
-          swal.fire("Success", "Thank you for your purchase, please check your email for tickets", "success");
+          swal.fire({
+            title: "Success!",
+            text: "Thank you for your purchase, please check your email for tickets",
+            icon: 'success',
+            type: "success",
+            confirmButtonText: "OK"
+          }).then(function (okay) {
+            if (okay) {
+              _this2.$router.push({
+                name: 'home'
+              });
+            }
+          });
         } else {
-          swal.fire("Oops", "Payment cancelled.....", "error");
+          swal.fire({
+            title: "Oops!",
+            text: "That sucks.. Payment cancelled.",
+            icon: 'error',
+            type: "error",
+            confirmButtonText: "OK"
+          }).then(function (okay) {
+            if (okay) {
+              _this2.$router.push({
+                name: 'home'
+              });
+            }
+          });
         }
       })["catch"](function (error) {
-        // console.log(rror.response)
         swal.fire("Failed!", "There was something wrong in ticketsEmail  " + error, "warning");
       });
     },
@@ -11321,7 +11317,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.grow[data-v-3aba163a]:hover\n{\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\n.notworking[data-v-3aba163a]:hover\n{\n   \n    /* box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey; */\n}\n.overlay[data-v-3aba163a] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\na[data-v-3aba163a]:hover{\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a]{\n    /* color: #000 !important; */\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n        -webkit-transform: scale(1.10);\n        transform: scale(1.10);\n\n        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\ntable[data-v-3aba163a] {\nborder: 1px solid #ccc;\nborder-collapse: collapse;\nmargin: 0;\npadding: 0;\nwidth: 100%;\ntable-layout: fixed;\n}\ntable caption[data-v-3aba163a] {\nfont-size: 1.5em;\nmargin: .5em 0 .75em;\n}\ntable tr[data-v-3aba163a] {\nbackground-color: #f8f8f8;\nborder: 1px solid #ddd;\npadding: .35em;\n}\ntable th[data-v-3aba163a],\ntable td[data-v-3aba163a] {\npadding: .625em;\n}\ntable th[data-v-3aba163a] {\nfont-size: .85em;\nletter-spacing: .1em;\ntext-transform: uppercase;\n}\n@media screen and (max-width: 600px) {\ntable[data-v-3aba163a] {\n    border: 0;\n}\ntable caption[data-v-3aba163a] {\n    font-size: 1.3em;\n}\ntable thead[data-v-3aba163a] {\n    border: none;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px;\n}\ntable tr[data-v-3aba163a] {\n    border-bottom: 3px solid #ddd;\n    display: block;\n    margin-bottom: .625em;\n}\ntable td[data-v-3aba163a] {\n    border-bottom: 1px solid #ddd;\n    display: block;\n    font-size: .8em;\n    text-align: right;\n}\ntable td[data-v-3aba163a]::before {\n    /*\n    * aria-label has no advantage, it won't be read inside a table\n    content: attr(aria-label);\n    */\n    content: attr(data-label);\n    float: left;\n    font-weight: bold;\n    text-transform: uppercase;\n}\ntable td[data-v-3aba163a]:last-child {\n    border-bottom: 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n.grow[data-v-3aba163a]:hover{\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\n.overlay[data-v-3aba163a] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\na[data-v-3aba163a]:hover{\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a]{\n    /* color: #000 !important; */\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n    -webkit-transform: scale(1.10);\n    transform: scale(1.10);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\ntable[data-v-3aba163a] {\n    border: 1px solid #ccc;\n    border-collapse: collapse;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n    table-layout: fixed;\n}\ntable caption[data-v-3aba163a] {\n    font-size: 1.5em;\n    margin: .5em 0 .75em;\n}\ntable tr[data-v-3aba163a] {\n    background-color: #f8f8f8;\n    border: 1px solid #ddd;\n    padding: .35em;\n}\ntable th[data-v-3aba163a],\ntable td[data-v-3aba163a] {\n    padding: .625em;\n}\ntable th[data-v-3aba163a] {\n    font-size: .85em;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n}\n@media screen and (max-width: 600px) {\ntable[data-v-3aba163a] {\n        border: 0;\n}\ntable caption[data-v-3aba163a] {\n        font-size: 1.3em;\n}\ntable thead[data-v-3aba163a] {\n        border: none;\n        clip: rect(0 0 0 0);\n        height: 1px;\n        margin: -1px;\n        overflow: hidden;\n        padding: 0;\n        position: absolute;\n        width: 1px;\n}\ntable tr[data-v-3aba163a] {\n        border-bottom: 3px solid #ddd;\n        display: block;\n        margin-bottom: .625em;\n}\ntable td[data-v-3aba163a] {\n        border-bottom: 1px solid #ddd;\n        display: block;\n        font-size: .8em;\n        text-align: right;\n}\ntable td[data-v-3aba163a]::before {\n        /*\n        * aria-label has no advantage, it won't be read inside a table\n        content: attr(aria-label);\n        */\n        content: attr(data-label);\n        float: left;\n        font-weight: bold;\n        text-transform: uppercase;\n}\ntable td[data-v-3aba163a]:last-child {\n        border-bottom: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -68185,7 +68181,7 @@ var render = function() {
                         name: "ticketDetails[][contact]",
                         maxlength: "10",
                         minlength: "10",
-                        placeholder: "",
+                        placeholder: "eg 0771111111",
                         required: ""
                       },
                       domProps: { value: ticketDetails.contact },
@@ -68403,7 +68399,21 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(5),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "text-danger",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.cancelOrder()
+                    }
+                  }
+                },
+                [_vm._v("Cancel")]
+              )
             ])
           : _vm._e()
       ],
@@ -85740,13 +85750,19 @@ Vue.prototype.$gate = new _Gate__WEBPACK_IMPORTED_MODULE_2__["default"](window.u
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 var routes = [{
   path: '/',
-  component: __webpack_require__(/*! ./components/home/indexComponent.vue */ "./resources/js/components/home/indexComponent.vue")["default"]
+  component: __webpack_require__(/*! ./components/home/indexComponent.vue */ "./resources/js/components/home/indexComponent.vue")["default"],
+  props: true,
+  name: 'paden'
 }, {
   path: '/home',
-  component: __webpack_require__(/*! ./components/home/indexComponent.vue */ "./resources/js/components/home/indexComponent.vue")["default"]
+  component: __webpack_require__(/*! ./components/home/indexComponent.vue */ "./resources/js/components/home/indexComponent.vue")["default"],
+  props: true,
+  name: 'home'
 }, {
   path: '/test',
-  component: __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]
+  component: __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"],
+  props: true,
+  name: 'test'
 }, {
   path: '/payments',
   component: __webpack_require__(/*! ./components/payments/checkPayment.vue */ "./resources/js/components/payments/checkPayment.vue")["default"],

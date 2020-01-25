@@ -157,6 +157,7 @@
         },
         methods: {
              deleteTicket(id){
+
                 var user =this.checkCookie();
                 swal.fire({
                     icon: 'info',
@@ -178,13 +179,13 @@
                             this.paymentMethod="paynow"
 
                             swal.fire(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
-                                    'success'
-                                    )
-                                }).catch(()=> {
-                                    swal.fire("Failed!", "There was something wrong. "+error, "warning");
-                                });
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                                )
+                            }).catch(()=> {
+                                swal.fire("Failed!", "There was something wrong. "+error, "warning");
+                            });
                          }
                     })
             
@@ -193,7 +194,6 @@
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
-                //sconsole.log(decodedCookie)
                 var ca = decodedCookie.split(';');
                 for(var i = 0; i <ca.length; i++) {
                     var c = ca[i];
@@ -206,6 +206,7 @@
                 }
                 return "";
             },
+
             setCookie(cname, cvalue, exdays) {
                 var d = new Date();
                 d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -251,7 +252,6 @@
                 axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
                         this.isLoading = false;
-                        // this.$refs.marathonDetails.setTickets(data);
                     }).catch((error)=>{
                         console.log(error)
                     // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
@@ -290,18 +290,13 @@
     }
 </script>
 <style scoped>
-    .grow:hover
-    {
+    .grow:hover{
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     }
-    .notworking:hover
-    {
-       
-        /* box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey; */
-    }
+    
     .overlay {
         position: absolute;
         width: 100%;
@@ -320,11 +315,10 @@
         
     }
     .gm58-active{
-            -webkit-transform: scale(1.10);
-            -ms-transform: scale(1.10);
-            transform: scale(1.10);
-
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;
+        -webkit-transform: scale(1.10);
+        -ms-transform: scale(1.10);
+        transform: scale(1.10);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;
     }
     .overlay {
         /* position: absolute; */
@@ -340,82 +334,82 @@
     }
    
     table {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;
     }
 
     table caption {
-    font-size: 1.5em;
-    margin: .5em 0 .75em;
+        font-size: 1.5em;
+        margin: .5em 0 .75em;
     }
 
     table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: .35em;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .35em;
     }
 
     table th,
     table td {
-    padding: .625em;
+        padding: .625em;
     }
 
     table th {
-    font-size: .85em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+        font-size: .85em;
+        letter-spacing: .1em;
+        text-transform: uppercase;
     }
 
     @media screen and (max-width: 600px) {
-    table {
-        border: 0;
-    }
+        table {
+            border: 0;
+        }
 
-    table caption {
-        font-size: 1.3em;
-    }
-    
-    table thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-    
-    table tr {
-        border-bottom: 3px solid #ddd;
-        display: block;
-        margin-bottom: .625em;
-    }
-    
-    table td {
-        border-bottom: 1px solid #ddd;
-        display: block;
-        font-size: .8em;
-        text-align: right;
-    }
-    
-    table td::before {
-        /*
-        * aria-label has no advantage, it won't be read inside a table
-        content: attr(aria-label);
-        */
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    
-    table td:last-child {
-        border-bottom: 0;
-    }
+        table caption {
+            font-size: 1.3em;
+        }
+        
+        table thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        
+        table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+        }
+        
+        table td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: right;
+        }
+        
+        table td::before {
+            /*
+            * aria-label has no advantage, it won't be read inside a table
+            content: attr(aria-label);
+            */
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        table td:last-child {
+            border-bottom: 0;
+        }
     }
 </style>

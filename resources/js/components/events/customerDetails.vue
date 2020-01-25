@@ -22,7 +22,7 @@
                                     <div class="form-group">
                                         <label for="contact" v-if="paymentType=='ecocash'"><b>ECOCASH NUMBER</b></label>
                                         <label for="contact" v-if="paymentType!='ecocash'">Contact Number</label>*
-                                        <input v-model="form.contact" type="number" name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }" required> 
+                                        <input v-model="form.contact" type="number"   name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }" required> 
                                     </div>
                                 </div>
 
@@ -182,48 +182,11 @@
                 }
             },
             cancelOrder(){
-                Fire.$emit('cancelOrder');
+                Fire.$emit('cancelOrder','all');
                 //$('#shoppingCartModal').modal('hide');
                 this.paymentMethod="";
             },
-            setTickets(orders){
-                console.log(orders)
-                    for (var i = 0; i < orders; i++) {
-                                var obj = {};
-                                obj['fullname'] = '';
-                                obj['contact'] = '';
-                                obj['category'] = '';
-                                obj['pack'] = '';
-                                obj['tshirtsize'] = '';
-                                obj['gender'] = '';
-                                obj['event'] = '' ;
-                                this.ticketDetails.push(obj);
-                            }
 
-                // for (var i = 0; i < orders.length; i++) {
-                //     if(orders[i].event_type == 'marathon'){
-                //         var addDetails = 0;
-                //         var orderQty = orders[i].quantity ;
-                //         var event_name = orders[i].event_name;
-                //         var description = orders[i].description;
-                //         console.log(description)
-                //        for (var i = 0; i < orderQty; i++) {
-                //             var obj = {};
-                //             obj['fullname'] = '';
-                //             obj['contact'] = '';
-                //             obj['category'] = '';
-                //             obj['pack'] = '';
-                //             obj['tshirtsize'] = '';
-                //             obj['gender'] = '';
-                //             obj['event'] = event_name + description ;
-                //             this.ticketDetails.push(obj);
-
-                //         }
-
-                        
-                //     }
-                // }
-            }
         
         },
         computed: {

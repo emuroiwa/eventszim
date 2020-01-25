@@ -50,9 +50,9 @@ window.swal = swal;
 
 
 let routes = [
-    { path: '/', component: require('./components/home/indexComponent.vue').default },
-    { path: '/home', component: require('./components/home/indexComponent.vue').default },
-    { path: '/test', component: require('./components/ExampleComponent.vue').default },
+    { path: '/', component: require('./components/home/indexComponent.vue').default,props: true,name: 'paden' },
+    { path: '/home', component: require('./components/home/indexComponent.vue').default,props: true,name: 'home' },
+    { path: '/test', component: require('./components/ExampleComponent.vue').default,props: true,name: 'test' },
     { path: '/payments', component: require('./components/payments/checkPayment.vue').default,props: true,name: 'payments' },
     { path: '/indexEvent', component: require('./components/events/indexEvent.vue').default,props: true,name: 'indexEvent' },
     { path: '/cart', component: require('./components/events/shoppingCart.vue').default,props: true,name: 'cart' },
