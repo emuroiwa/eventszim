@@ -58,7 +58,7 @@
                                 <p><small>{{order.price_usd | formatNumber}} each </small></p>
                                 <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
                                     </td>
-                                <td data-label=""><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i></a></td>
+                                <td data-label=""><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i>Delete</a></td>
                             </tr>
                             
                         </tbody>

@@ -68878,7 +68878,10 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("i", { staticClass: "fas fa-trash-alt" })]
+                                [
+                                  _c("i", { staticClass: "fas fa-trash-alt" }),
+                                  _vm._v("Delete")
+                                ]
                               )
                             ])
                           ])
