@@ -67766,84 +67766,100 @@ var render = function() {
       _c("div", { staticClass: "event" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-5" }, [
-            _c("div", { staticClass: "card border-primary mt-3" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "card-body" },
-                [_c("priceCategory", { attrs: { eventData: this.eventData } })],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-7" }, [
-            _c("div", { staticClass: "card border-primary mb-4 mt-3" }, [
-              _c("div", { staticClass: "card-header event-card-header mb-1" }, [
-                _c("h4", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(_vm.eventData.events[0].event_name))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _vm._m(1),
+            _c(
+              "div",
+              { staticClass: "card border-primary is-mobile-card mb-4" },
+              [
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "div",
-                  {
-                    staticClass: "tab-content",
-                    attrs: { id: "pills-tabContent" }
-                  },
+                  { staticClass: "card-body" },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active",
-                        attrs: {
-                          id: "pills-home",
-                          role: "tabpanel",
-                          "aria-labelledby": "pills-home-tab"
-                        }
-                      },
-                      [
-                        _c("eventDetails", {
-                          attrs: { eventData: this.eventData }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
+                    _c("priceCategory", {
+                      attrs: { eventData: this.eventData }
+                    })
+                  ],
+                  1
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-7" }, [
+            _c(
+              "div",
+              { staticClass: "card border-primary mb-4 is-mobile-card" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "card-header event-card-header mb-1" },
+                  [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(_vm.eventData.events[0].event_name))
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "pills-tabContent" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active",
+                          attrs: {
+                            id: "pills-home",
+                            role: "tabpanel",
+                            "aria-labelledby": "pills-home-tab"
+                          }
+                        },
+                        [
+                          _c("eventDetails", {
+                            attrs: { eventData: this.eventData }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade",
+                          attrs: {
+                            id: "pills-profile",
+                            role: "tabpanel",
+                            "aria-labelledby": "pills-profile-tab"
+                          }
+                        },
+                        [
+                          _c("eventAddtional", {
+                            attrs: { eventData: this.eventData }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("div", {
                         staticClass: "tab-pane fade",
                         attrs: {
-                          id: "pills-profile",
+                          id: "pills-contact",
                           role: "tabpanel",
-                          "aria-labelledby": "pills-profile-tab"
+                          "aria-labelledby": "pills-contact-tab"
                         }
-                      },
-                      [
-                        _c("eventAddtional", {
-                          attrs: { eventData: this.eventData }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "tab-pane fade",
-                      attrs: {
-                        id: "pills-contact",
-                        role: "tabpanel",
-                        "aria-labelledby": "pills-contact-tab"
-                      }
-                    })
-                  ]
-                )
-              ])
-            ])
+                      })
+                    ]
+                  )
+                ])
+              ]
+            )
           ])
         ])
       ])

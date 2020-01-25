@@ -17425,6 +17425,35 @@ readers do not read off random characters that represent icons */
   }
 }
 
+.is-mobile-card {
+  /* Large devices (laptops/desktops, 992px and up) */
+  /* Large devices (laptops/desktops, 992px and up) */
+}
+
+@media only screen and (max-width: 600px) {
+  .is-mobile-card {
+    margin-top: 1em !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .is-mobile-card {
+    margin-top: 1em !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .is-mobile-card {
+    margin-top: 10em !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .is-mobile-card {
+    margin-top: 10em !important;
+  }
+}
+
 .gm58-footer {
   background-image: linear-gradient(141deg, #db109e 0%, #1fc8db 51%, #2cb5e8 75%);
   color: white;
