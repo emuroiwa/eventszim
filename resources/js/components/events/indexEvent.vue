@@ -12,7 +12,7 @@
             <div class="row">
                 
                 <div class="col-md-5">
-                    <div class="card border-primary mt-3">
+                    <div class="card border-primary is-mobile-card mb-4">
                         <div class="card-header event-card-header">
                             <h4 class="card-title">BOOK YOUR TICKETS</h4>
                         </div>
@@ -22,7 +22,7 @@
                     </div> 
                 </div>
                 <div class="col-md-7">
-                    <div class="card border-primary mb-4 mt-3">
+                    <div class="card border-primary mb-4 is-mobile-card">
                         <div class="card-header event-card-header mb-1">
                             <h4 class="card-title">{{eventData.events[0].event_name}}</h4>
                         </div>
