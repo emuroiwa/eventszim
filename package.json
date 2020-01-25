@@ -30,8 +30,10 @@
         "swiper": "^5.2.1",
         "vform": "^1.0.1",
         "vue-analytics": "^5.22.1",
+        "vue-google-adsense": "^1.8.0",
         "vue-loading-overlay": "^3.2.0",
         "vue-router": "^3.1.3",
+        "vue-script2": "^2.1.0",
         "vue-slick-carousel": "^1.0.0-beta.3",
         "vue-typeahead": "^2.3.2"
     }

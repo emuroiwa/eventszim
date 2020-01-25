@@ -28,6 +28,7 @@
     <link rel="icon" href="{{ url('img/logo.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles -->
+    
 </head>
 <body>
    

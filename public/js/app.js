@@ -3382,6 +3382,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -11222,7 +11226,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.icon-bar[data-v-1ae00e83] {\r\n  width: 100%;\r\n  height: 50%;\r\n  background-color: #fff;\r\n  overflow: auto;\n}\n.gm58_icon[data-v-1ae00e83]{\r\n    width: 50\n}\n.icon-bar a[data-v-1ae00e83] {\r\n  float: left;\r\n  width: 20%;\r\n  text-align: center;\r\n  padding: 12px 0;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n  color: white;\r\n  font-size: 14px;\n}\n.icon-bar img[data-v-1ae00e83]:hover {\r\n    -webkit-transform: scale(1.10);\r\n    transform: scale(1.10);\r\n\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.active[data-v-1ae00e83] {\r\n  background-color: #4CAF50;\n}\n.gm58-parent[data-v-1ae00e83] {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: column;\n}\n.gm58-bottom[data-v-1ae00e83] {\r\n  margin-top: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.icon-bar[data-v-1ae00e83] {\r\n  width: 100%;\r\n  height: 50%;\r\n  background-color: #fff;\r\n  overflow: auto;\n}\n.gm58_icon[data-v-1ae00e83]{\r\n    width: 50px\n}\n.icon-bar a[data-v-1ae00e83] {\r\n  float: left;\r\n  width: 20%;\r\n  text-align: center;\r\n  padding: 12px 0;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n  color: white;\r\n  font-size: 14px;\n}\n.icon-bar img[data-v-1ae00e83]:hover {\r\n    -webkit-transform: scale(1.10);\r\n    transform: scale(1.10);\r\n\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.active[data-v-1ae00e83] {\r\n  background-color: #4CAF50;\n}\n.gm58-parent[data-v-1ae00e83] {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: column;\n}\n.gm58-bottom[data-v-1ae00e83] {\r\n  margin-top: auto;\n}\r\n", ""]);
 
 // exports
 
@@ -11355,7 +11359,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.min-card[data-v-64cbabeb]{\r\n    min-height: 270;\n}\n.card-img-overlay[data-v-64cbabeb] {\r\n  background-color: rgba(#000, 0.4);\n}\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        /* position: absolute; */\r\n        top: 0;\r\n          /*change this with javascript in the future*/\r\n        /* z-index: -1; */\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.min-card[data-v-64cbabeb]{\r\n    min-height: 270px;\n}\n.card-img-overlay[data-v-64cbabeb] {\r\n  background-color: rgba(#000, 0.4);\n}\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        /* position: absolute; */\r\n        top: 0;\r\n          /*change this with javascript in the future*/\r\n        /* z-index: -1; */\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -11393,7 +11397,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.gm58-slider[data-v-75bc62d4]{\r\n    max-height: 650px;\r\n    height:auto;\r\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.gm58-slider[data-v-75bc62d4]{\r\n    max-height: 650px;\r\n    height:650px;\r\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -64876,6 +64880,19 @@ AlertSuccess_component.options.__file = "AlertSuccess.vue"
 
 /***/ }),
 
+/***/ "./node_modules/vue-google-adsense/dist/VueGoogleAdsense.min.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/vue-google-adsense/dist/VueGoogleAdsense.min.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*! VueGoogleAdsense v1.8.0 by Irfan Maulana <github.com/mazipan> */
+!function(t,e){ true?module.exports=e():undefined}(window,function(){return function(t){var e={};function a(n){if(e[n])return e[n].exports;var s=e[n]={i:n,l:!1,exports:{}};return t[n].call(s.exports,s,s.exports,a),s.l=!0,s.exports}return a.m=t,a.c=e,a.d=function(t,e,n){a.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},a.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},a.t=function(t,e){if(1&e&&(t=a(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(a.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var s in t)a.d(n,s,function(e){return t[e]}.bind(null,s));return n},a.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return a.d(e,"a",e),e},a.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},a.p="/dist",a(a.s=8)}([function(t,e,a){"use strict";e.a={ADS_SCRIPT:"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}},function(t,e,a){"use strict";e.a={rootClass:{type:String,default:"adswrapper"},insClass:{type:String,default:""},insStyle:{type:String,default:"display:block;"},isNonPersonalizedAds:{type:Boolean,default:!1},dataAdClient:{type:String,default:""},dataAdSlot:{type:String,default:""},dataAdLayoutKey:{type:String,default:"-fg+5n+6t-e7+r"},dataAdTest:{type:String,default:""},dataAdFormat:{type:String,default:"auto"},dataFullWidthResponsive:{type:Boolean,default:!1}}},function(t,e,a){"use strict";function n(t,e,a,n,s,o,r,d){var i,l="function"==typeof t?t.options:t;if(e&&(l.render=e,l.staticRenderFns=a,l._compiled=!0),n&&(l.functional=!0),o&&(l._scopeId="data-v-"+o),r?(i=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),s&&s.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(r)},l._ssrRegister=i):s&&(i=d?function(){s.call(this,this.$root.$options.shadowRoot)}:s),i)if(l.functional){l._injectStyles=i;var u=l.render;l.render=function(t,e){return i.call(e),u(t,e)}}else{var c=l.beforeCreate;l.beforeCreate=c?[].concat(c,i):[i]}return{exports:t,options:l}}a.d(e,"a",function(){return n})},function(t,e,a){"use strict";e.a={__assign:function(t,e){if(null==t)throw new TypeError("Cannot convert undefined or null to object");for(var a=Object(t),n=1;n<arguments.length;n++){var s=arguments[n];if(null!=s)for(var o in s)Object.prototype.hasOwnProperty.call(s,o)&&(a[o]=s[o])}return a}}},function(t,e,a){"use strict";a.r(e);var n=a(0),s={install:function(t,e){var a=e.adClient,s=void 0===a?"":a,o=document.head,r=document.createElement("script");r.type="text/javascript",r.src=n.a.ADS_SCRIPT,r.onload=function(){(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:s,enable_page_level_ads:!0})},o.appendChild(r)}};e.default=s},function(t,e,a){"use strict";a.r(e);var n=a(0),s=a(1),o={name:"InFeedAdsense",props:a(3).a.__assign(s.a,{dataAdFormat:{type:String,default:"fluid"}}),data:function(){return{ADS_SCRIPT:n.a.ADS_SCRIPT}}},r=a(2),d=Object(r.a)(o,function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",{class:t.rootClass},[a("script2",{attrs:{type:"text/javascript",async:"true",src:t.ADS_SCRIPT}}),t._v(" "),a("ins",{staticClass:"adsbygoogle",class:t.insClass,style:t.insStyle,attrs:{"data-ad-format":t.dataAdFormat,"data-ad-layout-key":t.dataAdLayoutKey,"data-ad-client":t.dataAdClient,"data-ad-slot":t.dataAdSlot,"data-ad-test":t.dataAdTest,"data-full-width-responsive":t.dataFullWidthResponsive}}),t._v(" "),t.isNonPersonalizedAds?a("script2",{attrs:{type:"text/javascript"}},[t._v("\n    (adsbygoogle = window.adsbygoogle || []).push({}).requestNonPersonalizedAds = 1;\n  ")]):t._e(),t._v(" "),a("script2",{attrs:{type:"text/javascript"}},[t._v("\n    (adsbygoogle = window.adsbygoogle || []).push({});\n  ")])],1)},[],!1,null,null,null).exports,i={install:function(t){t.component("InFeedAdsense",d)}};e.default=i},function(t,e,a){"use strict";a.r(e);var n=a(0),s={name:"Adsense",props:a(1).a,data:function(){return{ADS_SCRIPT:n.a.ADS_SCRIPT}}},o=a(2),r=Object(o.a)(s,function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",{class:t.rootClass},[a("script2",{attrs:{type:"text/javascript",async:"true",src:t.ADS_SCRIPT}}),t._v(" "),a("ins",{staticClass:"adsbygoogle",class:t.insClass,style:t.insStyle,attrs:{"data-ad-client":t.dataAdClient,"data-ad-slot":t.dataAdSlot,"data-ad-test":t.dataAdTest,"data-ad-format":t.dataAdFormat,"data-full-width-responsive":t.dataFullWidthResponsive}}),t._v(" "),t.isNonPersonalizedAds?a("script2",{attrs:{type:"text/javascript"}},[t._v("\n    (adsbygoogle = window.adsbygoogle || []).push({}).requestNonPersonalizedAds = 1;\n  ")]):t._e(),t._v(" "),a("script2",{attrs:{type:"text/javascript"}},[t._v("\n    (adsbygoogle = window.adsbygoogle || []).push({});\n  ")])],1)},[],!1,null,null,null).exports,d={install:function(t){t.component("Adsense",r)}};e.default=d},function(t,e,a){"use strict";a.r(e);var n=a(0),s=a(1),o={name:"InArticleAdsense",props:a(3).a.__assign(s.a,{dataAdFormat:{type:String,default:"fluid"}}),data:function(){return{ADS_SCRIPT:n.a.ADS_SCRIPT}}},r=a(2),d=Object(r.a)(o,function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("div",{class:t.rootClass},[a("script2",{attrs:{type:"text/javascript",async:"true",src:t.ADS_SCRIPT}}),t._v(" "),a("ins",{staticClass:"adsbygoogle",class:t.insClass,style:t.insStyle,attrs:{"data-ad-layout":"in-article","data-ad-format":t.dataAdFormat,"data-ad-client":t.dataAdClient,"data-ad-slot":t.dataAdSlot,"data-ad-test":t.dataAdTest,"data-full-width-responsive":t.dataFullWidthResponsive}}),t._v(" "),t.isNonPersonalizedAds?a("script2",{attrs:{type:"text/javascript"}},[t._v("\n    (adsbygoogle = window.adsbygoogle || []).push({}).requestNonPersonalizedAds = 1;\n  ")]):t._e(),t._v(" "),a("script2",{attrs:{type:"text/javascript"}},[t._v("\n    (adsbygoogle = window.adsbygoogle || []).push({});\n  ")])],1)},[],!1,null,null,null).exports,i={install:function(t){t.component("InArticleAdsense",d)}};e.default=i},function(t,e,a){"use strict";a.r(e);var n=a(6),s=a(7),o=a(5),r=a(4);e.default={Adsense:n.default,InArticleAdsense:s.default,InFeedAdsense:o.default,AutoAdsense:r.default}}])});
+//# sourceMappingURL=VueGoogleAdsense.min.js.map
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -68934,6 +68951,13 @@ var render = function() {
                           total_USD: _vm.totalUSD,
                           total_ZWL: _vm.totalZWL,
                           orders: _vm.orders
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("Adsense", {
+                        attrs: {
+                          "data-ad-client": "ca-pub-3540520778119630",
+                          "data-ad-slot": "1234567890"
                         }
                       })
                     ],
@@ -73417,6 +73441,189 @@ if (inBrowser && window.Vue) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-script2/dist/vue-script2.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-script2/dist/vue-script2.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+  * vue-script2 v2.1.0
+  * (c) 2016-2019 Greg Slepak
+  * @license MIT License
+  */
+(function (global, factory) {
+   true ? module.exports = factory() :
+  undefined;
+}(this, function () { 'use strict';
+
+  var Script2 = {
+    installed: false,
+    p: Promise.resolve(),
+    version: '2.1.0',
+    // grunt will overwrite to match package.json
+    loaded: {},
+
+    // keys are the scripts that is loading or loaded, values are promises
+    install(Vue) {
+      if (Script2.installed) return;
+      var customAttrs = ['unload']; // from: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+      // 'async' and 'defer' don't allow document.write according to:
+      // http://www.html5rocks.com/en/tutorials/speed/script-loading/
+      // we ignore 'defer' and handle 'async' specially.
+
+      var props = customAttrs.concat(['src', 'type', 'async', 'integrity', 'text', 'crossorigin']);
+      Vue.component('script2', {
+        props: props,
+
+        // <slot> is important, see: http://vuejs.org/guide/components.html#Named-Slots
+        // template: '<div style="display:none"><slot></slot></div>',
+        // NOTE: Instead of using `template` we can use the `render` function like so:
+        render(h) {
+          return h('div', {
+            style: 'display:none'
+          }, this.$slots.default);
+        },
+
+        mounted() {
+          var parent = this.$el.parentElement;
+
+          if (!this.src) {
+            Script2.p = Script2.p.then(() => {
+              var s = document.createElement('script');
+              var h = this.$el.innerHTML;
+              h = h.replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&amp;/gi, '&');
+              s.type = 'text/javascript';
+              s.appendChild(document.createTextNode(h));
+              parent.appendChild(s);
+              this.$emit('loaded'); // any other proper way to do this or emit error?
+            });
+          } else {
+            var opts = _.omitBy(_.pick(this, props), _.isUndefined);
+
+            opts.parent = parent; // this syntax results in an implicit return
+
+            var load = () => Script2.load(this.src, opts).then(() => this.$emit('loaded'), err => this.$emit('error', err));
+
+            _.isUndefined(this.async) || this.async === 'false' ? Script2.p = Script2.p.then(load) // serialize execution
+            : load(); // inject immediately
+          } // see: https://vuejs.org/v2/guide/migration.html#ready-replaced
+
+
+          this.$nextTick(() => {
+            // code that assumes this.$el is in-document
+            // NOTE: we could've done this.$el.remove(), but IE sucks, see:
+            //       https://github.com/taoeffect/vue-script2/pull/17
+            this.$el.parentElement.removeChild(this.$el); // remove dummy template <div>
+          });
+        },
+
+        destroyed() {
+          if (this.unload) {
+            new Function(this.unload)(); // eslint-disable-line
+
+            delete Script2.loaded[this.src];
+          }
+        }
+
+      });
+      Script2.installed = true;
+    },
+
+    load(src) {
+      let opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+        parent: document.head
+      };
+
+      if (!Script2.loaded[src]) {
+        Script2.loaded[src] = new Promise((resolve, reject) => {
+          var s = document.createElement('script'); // omit the special options that Script2 supports
+
+          _.defaults2(s, _.omit(opts, ['unload', 'parent']), {
+            type: 'text/javascript'
+          }); // according to: http://www.html5rocks.com/en/tutorials/speed/script-loading/
+          // async does not like 'document.write' usage, which we & vue.js make
+          // heavy use of based on the SPA style. Also, async can result
+          // in code getting executed out of order from how it is inlined on the page.
+
+
+          s.async = false; // therefore set this to false
+
+          s.src = src; // crossorigin in HTML and crossOrigin in the DOM per HTML spec
+          // https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-crossorigin
+
+          if (opts.crossorigin) {
+            s.crossOrigin = opts.crossorigin;
+          } // inspiration from: https://github.com/eldargab/load-script/blob/master/index.js
+          // and: https://github.com/ded/script.js/blob/master/src/script.js#L70-L82
+
+
+          s.onload = () => resolve(src); // IE should now support onerror and onload. If necessary, take a look
+          // at this to add older IE support: http://stackoverflow.com/a/4845802/1781435
+
+
+          s.onerror = () => reject(new Error(src));
+
+          opts.parent.appendChild(s);
+        });
+      }
+
+      return Script2.loaded[src];
+    }
+
+  };
+  var _ = {
+    isUndefined(x) {
+      return x === undefined;
+    },
+
+    pick(o, props) {
+      var x = {};
+      props.forEach(k => {
+        x[k] = o[k];
+      });
+      return x;
+    },
+
+    omit(o, props) {
+      var x = {};
+      Object.keys(o).forEach(k => {
+        if (props.indexOf(k) === -1) x[k] = o[k];
+      });
+      return x;
+    },
+
+    omitBy(o, pred) {
+      var x = {};
+      Object.keys(o).forEach(k => {
+        if (!pred(o[k])) x[k] = o[k];
+      });
+      return x;
+    },
+
+    // custom defaults function suited to our specific purpose
+    defaults2(o) {
+      for (var _len = arguments.length, sources = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        sources[_key - 1] = arguments[_key];
+      }
+
+      sources.forEach(s => {
+        Object.keys(s).forEach(k => {
+          if (_.isUndefined(o[k]) || o[k] === '') o[k] = s[k];
+        });
+      });
+    }
+
+  };
+
+  return Script2;
+
+}));
 
 
 /***/ }),
@@ -85723,6 +85930,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-analytics */ "./node_modules/vue-analytics/dist/vue-analytics.js");
 /* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(vue_analytics__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var vue_google_adsense__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! vue-google-adsense */ "./node_modules/vue-google-adsense/dist/VueGoogleAdsense.min.js");
+/* harmony import */ var vue_google_adsense__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(vue_google_adsense__WEBPACK_IMPORTED_MODULE_23__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -85764,6 +85973,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
+
+Vue.use(__webpack_require__(/*! vue-script2 */ "./node_modules/vue-script2/dist/vue-script2.js"));
+Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_23___default.a.Adsense);
+Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_23___default.a.InArticleAdsense);
+Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_23___default.a.InFeedAdsense);
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_21__["default"]);
 Vue.prototype.$gate = new _Gate__WEBPACK_IMPORTED_MODULE_2__["default"](window.user);
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;

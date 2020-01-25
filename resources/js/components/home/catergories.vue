@@ -112,7 +112,7 @@
 </script>
 <style scoped>
 .min-card{
-    min-height: 270;
+    min-height: 270px;
 }
 .card-img-overlay {
   background-color: rgba(#000, 0.4);

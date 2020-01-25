@@ -43,6 +43,13 @@ import marathon from './components/events/marathon';
 import marathonDetails from './components/events/marathonCustomerDetails';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
+import Ads from 'vue-google-adsense'
+ 
+Vue.use(require('vue-script2'))
+ 
+Vue.use(Ads.Adsense)
+Vue.use(Ads.InArticleAdsense)
+Vue.use(Ads.InFeedAdsense)
 
 Vue.use(VueRouter)
 Vue.prototype.$gate = new Gate(window.user);

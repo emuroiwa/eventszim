@@ -1,6 +1,6 @@
+@include('layouts.header')  
 
    <div id="app">
-    @include('layouts.header')  
 
          <gm58header></gm58header>     
             <main id="main">
