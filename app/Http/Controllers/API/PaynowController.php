@@ -24,12 +24,8 @@ class PaynowController extends Controller
        return $this->Paynow();
     }
 
-    //ernest
     // 5214
-    //5534bfbf-30d3-408a-876e-14ea26b00ad9
-
-    //8915
-    //bf2d3b2c-f35e-4341-ba30-7dd8d5949323
+    //
     /**
      * Store a newly created resource in storage.
      *
@@ -42,8 +38,8 @@ class PaynowController extends Controller
         // $paymentRef = sha1(time());
         $paymentRef = time();
         $paynow = new Paynow(
-            '5214',
-            '5534bfbf-30d3-408a-876e-14ea26b00ad9',
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
@@ -154,12 +150,12 @@ class PaynowController extends Controller
        // require_once base_path('vendor\paynow\php-sdk\autoload.php');
        
     }
-    // '5214',
-    //'5534bfbf-30d3-408a-876e-14ea26b00ad9',
+    // '8915',
+    //'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
     public function CheckPayment($paymentRef){
         $paynow = new Paynow(
-            '5214',
-            '5534bfbf-30d3-408a-876e-14ea26b00ad9',
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
 
             // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
