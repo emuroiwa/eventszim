@@ -85,9 +85,9 @@
                     })
             },
             selectedEvent(){
-                $('html, body').animate({
-                    scrollTop: $("div.gm58-event").offset().top
-                }, 1000)
+                // $('html, body').animate({
+                //     scrollTop: $("div.gm58-event").offset().top
+                // }, 1000)
             }
         },
         beforeRouteUpdate (to, from, next) {

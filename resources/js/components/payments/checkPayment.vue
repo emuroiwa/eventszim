@@ -8,6 +8,7 @@
         :color="'#3490DC'"
         :height="150"
         :width="150" class="text-center"></loading>
+        
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -39,17 +40,13 @@
                 axios.get("api/paymentsdetails/" + ref).then(({ data }) => {
                     this.userData = data;
 
-                        
                         axios.get("api/paynow/"+ ref).then(({ data }) => {
                             this.ticketsEmail(data,ref)
-                            
                         }).catch((error)=>{
-                            console.log(error)
-                        swal.fire("Failed!", "There was something wrong in verifyPayment "+ error, "warning");
+                            swal.fire("Failed!", "There was something wrong in verifyPayment "+ error, "warning");
                         })
 
                 }).catch((error)=>{
-                    // console.log(rror.response)
                     swal("Failed!", "There was something wrong in getUserData "+ error, "warning");
                 })
             },
@@ -68,22 +65,45 @@
                        emailHeading = 'Ticketbook Cancellation of Ticket Purchase'
                    }
                    axios.post('api/sendemail', {
-                    email:this.userData[0].email,
-                    client_name: this.userData[0].fullname,
-                    subject: emailHeading + this.order_id,
-                    email_type: emailType,
-                    order_id: this.order_id
-                }).then((response) => {
-                    this.isLoading = false
-                    if(paymentResponse == 'done'){
-                        swal.fire("Success", "Thank you for your purchase, please check your email for tickets", "success");
-                    }else{
-                        swal.fire("Oops", "Payment cancelled.....", "error");
-                    }
-                }).catch((error)=>{
-                    // console.log(rror.response)
-                swal.fire("Failed!", "There was something wrong in ticketsEmail  "+ error, "warning");
-                });
+                        email:this.userData[0].email,
+                        client_name: this.userData[0].fullname,
+                        subject: emailHeading + this.order_id,
+                        email_type: emailType,
+                        order_id: this.order_id
+                    }).then((response) => {
+                        this.isLoading = false
+                        if(paymentResponse == 'done'){
+
+                            swal.fire({
+                                title: "Success!",
+                                text: "Thank you for your purchase, please check your email for tickets",
+                                icon: 'success',
+                                type: "success",
+                                confirmButtonText: "OK"
+                            }).then(okay => {
+                                if(okay){
+                                    this.$router.push({ name: 'home' })
+                                }
+                            });
+
+                        }else{
+                            swal.fire({
+                                title: "Oops!",
+                                text: "That sucks.. Payment cancelled.",
+                                icon: 'error',
+                                type: "error",
+                                confirmButtonText: "OK"
+                            }).then(okay => {
+                                if(okay){
+                                    this.$router.push({ name: 'home' })
+                                }
+                            });
+
+                        }
+                    }).catch((error)=>{
+                        swal.fire("Failed!", "There was something wrong in ticketsEmail  "+ error, "warning");
+                    });
+
             },
             getCookie(cname) {
                 var name = cname + "=";
@@ -110,7 +130,6 @@
             }
         
         },
-
 
     }
 </script>

@@ -10,6 +10,7 @@ class PaymentDetails extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
     protected $fillable = [
         'user_id',
+        'fullname',
         'order_id',
         'contact',
         'email',

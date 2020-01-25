@@ -48,7 +48,7 @@
                         <div class=" card card-body gm58-card border-primary mt-1" v-if="!orders.length">
                             Please enter ticket details for each ticket bought 
                         </div>
-                                <marathonDetails ref="marathonDetails"></marathonDetails>
+                            <marathonDetails ref="marathonDetails"></marathonDetails>
                             <!-- <ul class="timeline">
                                 <h3>Tickets Selected</h3>
                                 <li v-for="order in orders" :key="order.id" class="font-weight-bold">
@@ -149,55 +149,45 @@
                 }
                 return "";
             },
-            addToCart(){
-               
-                // axios.get("api/payments").then(({ data }) => {
-                //         this.eventData = data;
-                //     }).catch((error)=>{
-                //     // console.log(rror.response)
-                //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
-                //     })
-            },
-           
-        },
+       },
         created(){
             this.getOrders();
         }
     }
 </script>
 <style scoped>
-ul.timeline {
-    list-style-type: none;
-    position: relative;
-}
-.gm58-card{
-    padding: 0.25rem;
-}
-ul.timeline:before {
-    content: ' ';
-    background: #d4d9df;
-    display: inline-block;
-    position: absolute;
-    left: 29px;
-    width: 2px;
-    height: 100%;
-    z-index: 400;
-}
-ul.timeline > li {
-    margin: 20px 0;
-    padding-left: 20px;
-}
-ul.timeline > li:before {
-    content: ' ';
-    background: white;
-    display: inline-block;
-    position: absolute;
-    border-radius: 50%;
-    border: 3px solid #22c0e8;
-    left: 20px;
-    width: 20px;
-    height: 20px;
-    z-index: 400;
-}
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+    }
+    .gm58-card{
+        padding: 0.25rem;
+    }
+    ul.timeline:before {
+        content: ' ';
+        background: #d4d9df;
+        display: inline-block;
+        position: absolute;
+        left: 29px;
+        width: 2px;
+        height: 100%;
+        z-index: 400;
+    }
+    ul.timeline > li {
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+    ul.timeline > li:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid #22c0e8;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+        z-index: 400;
+    }
 
 </style>

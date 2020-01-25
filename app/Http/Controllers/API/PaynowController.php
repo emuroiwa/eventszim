@@ -85,6 +85,7 @@ class PaynowController extends Controller
 
             PaymentDetails::create([
                 'user_id' => $request['user_id'],
+                'fullname' => $request['fullname'],
                 'order_id' =>$paymentRef,
                 'contact' => $request['contact'],
                 'email' => $request['email_ticket'],

@@ -79,11 +79,6 @@ class MarathonController extends Controller
     }
     public function checkMarathonDetails($user_id){
 
-        $customers = Customer::select('*')
-        ->where('user_id','=',$user_id)
-        ->where('order_id','=','11111')
-        ->count('id');
-
         $marathonTickets = Orders::leftJoin('customers', function($join){
             $join->on('customers.event_id', '=', 'orders.category_id')
                  ->where('customers.order_id', '=', 11111);

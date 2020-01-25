@@ -60,6 +60,8 @@ class OrderController extends Controller
             Orders::where('id', $order_id)
             ->update( array('quantity'=>$newQuantity));
 
+            $this->deleteCustomer($order_id);
+
         }else{
 
             Orders::create([
@@ -114,17 +116,28 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         //print_r($request['status']);
-       
-        if($request['status'] == 1){
-            Orders::where('user_id', $id)
-            ->where('status', 0)
-            ->update( array('status'=>1) );
+        if($request['event_type'] != 'marathon'){
+            if($request['status'] == 1){
+                Orders::where('user_id', $id)
+                ->where('status', 0)
+                ->update( array('status'=>1) );
+            }else{
+                Orders::where('user_id', $id)
+                ->where('status', 0)
+                ->update( array('status'=> $request['status']));
+            }
         }else{
-            Orders::where('user_id', $id)
-            ->where('status', 0)
-            ->update( array('status'=> $request['status']));
+            if($request['status'] == 1){
+                Orders::where('user_id', $id)
+                ->where('status', 0)
+                ->where('status', 0)
+                ->update( array('status'=>1) );
+            }else{
+                Orders::where('user_id', $id)
+                ->where('status', 0)
+                ->update( array('status'=> $request['status']));
+            } 
         }
-        
 
     }
 
@@ -138,8 +151,13 @@ class OrderController extends Controller
     {
             
         $Orders = Orders::findOrFail($id);
-        $catID = $Orders->category_id;
+        $this->deleteCustomer($id);
         $Orders->delete();
+      
+    }
+    public function deleteCustomer($id){
+        $Orders = Orders::findOrFail($id);
+        $catID = $Orders->category_id;
 
         DB::table('customers')
             ->where('order_id','11111')
