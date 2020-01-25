@@ -87,7 +87,7 @@ a{
 }  */
 .gm58-slider{
     max-height: 650px;
-    height:auto;
+    height:650px;
     width: 100%;
   
 }

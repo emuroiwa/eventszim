@@ -17362,7 +17362,6 @@ readers do not read off random characters that represent icons */
 
 .gm58-carousel-inner {
   width: 100%;
-  max-height: 200px !important;
   /* Smaller than standard 960 (devices and browsers) */
   /* Tablet Portrait size to standard 960 (devices and browsers) */
   /* All Mobile Sizes (devices and browser) */
@@ -17378,7 +17377,7 @@ readers do not read off random characters that represent icons */
 
 @media (min-width: 1200px) {
   .gm58-carousel-inner {
-    max-height: 75% !important;
+    max-height: 35em !important;
   }
 }
 
@@ -17391,7 +17390,7 @@ readers do not read off random characters that represent icons */
 @media (min-width: 1200px) {
   .gm58-slider-item {
     width: 300px;
-    left: 35;
+    left: 35px;
   }
 }
 

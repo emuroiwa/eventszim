@@ -48,7 +48,7 @@
 }
 
 .gm58_icon{
-    width: 50
+    width: 50px
 }
 
 .icon-bar a {
