@@ -68952,13 +68952,6 @@ var render = function() {
                           total_ZWL: _vm.totalZWL,
                           orders: _vm.orders
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("Adsense", {
-                        attrs: {
-                          "data-ad-client": "ca-pub-3540520778119630",
-                          "data-ad-slot": "1234567890"
-                        }
                       })
                     ],
                     1
