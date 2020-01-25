@@ -76,7 +76,7 @@ class PaymentsController extends Controller
     
         return Orders::Join('customers', 'customers.order_id', '=', 'orders.reference')
         ->Join('payments', 'payments.order_ref', '=', 'orders.reference')
-        ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'customers.event_id')
         ->Join('zim_events', 'zim_events.id', '=', 'price_sub_categories.event_id')
         ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
         ->select(DB::raw('customers.id AS cid,orders.id,payments.order_ref,event_name,customers.fullname,customers.contact,customers.marathon_type,customers.marathon_pickup,COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
