@@ -9,6 +9,6 @@
         <gm58footer></gm58footer>
     </div>
 
-
-
 <script src="/js/app.js"></script>
+</body>
+</html>
