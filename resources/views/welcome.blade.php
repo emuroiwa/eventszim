@@ -4,11 +4,13 @@
 
          <gm58header></gm58header>     
             <main id="main">
-                <router-view></router-view>
+                <transition name="slide-fade">
+                    <router-view></router-view>
+                </transition>
             </main>
         <gm58footer></gm58footer>
     </div>
 
-
-
 <script src="/js/app.js"></script>
+</body>
+</html>
