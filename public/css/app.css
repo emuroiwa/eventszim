@@ -17371,13 +17371,32 @@ readers do not read off random characters that represent icons */
 
 @media only screen and (max-width: 959px) {
   .gm58-carousel-inner {
-    max-height: 100% !important;
+    max-height: 20em !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .gm58-carousel-inner {
+    max-height: 18em !important;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .gm58-carousel-inner {
+    max-height: 20em !important;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .gm58-carousel-inner {
+    max-height: 20em !important;
   }
 }
 
 @media (min-width: 1200px) {
   .gm58-carousel-inner {
-    max-height: 35em !important;
+    max-height: 75vh;
+    height: auto;
   }
 }
 
