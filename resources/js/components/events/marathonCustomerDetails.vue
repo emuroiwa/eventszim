@@ -168,6 +168,7 @@
 </script>
 <style scoped>
 
+
 input.gm58hack {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
