@@ -17629,6 +17629,11 @@ figure {
   }
 }
 
+#app {
+  position: relative;
+  min-height: 100vh;
+}
+
 .slide-fade-enter-active {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -17686,6 +17691,44 @@ figure {
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: zoom;
+          animation-name: zoom;
+}
+
+.zoom-leave-active {
+  animation-direction: reverse;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 

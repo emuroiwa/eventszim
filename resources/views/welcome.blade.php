@@ -4,7 +4,7 @@
 
          <gm58header></gm58header>     
             <main id="main">
-                <transition name="slide-fade">
+                <vue-page-transition name="fade-in-right">
                     <router-view></router-view>
                 </transition>
             </main>
