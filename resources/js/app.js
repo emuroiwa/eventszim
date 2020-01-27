@@ -129,6 +129,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 Vue.prototype.$http = Axios
 
+if (location.hostname.indexOf('ticketbook.co.zw') === -1) {
+  Vue.config.debug = true;
+} else {
+  Vue.config.devtools = false;
+  Vue.config.debug = false;
+  Vue.config.silent = true;
+}
 const app = new Vue({
     el: '#app',
     router
