@@ -14,7 +14,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="fullname">Full Name*</label>
-                                        <input v-model="form.fullname" type="text" name="fullname"  class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }" required>
+                                        <input v-model="form.fullname" type="text" name="fullname" class="form-control" :class="{ 'is-invalid': form.errors.has('fullname') }" required>
                                         
                                     </div>
                                 </div>
@@ -40,7 +40,6 @@
                                         <input v-model="form.confirm_email" type="email" name="confirm_email"  class="form-control" :class="{ 'is-invalid': form.errors.has('confirm_email') }" required>
                                     </div>
                                 </div>
-                                    
                             </div>
                             
 
@@ -53,14 +52,10 @@
                             </div>
 
                             <div class="form-group">
-                                
                                 <button  type="submit" class="btn btn-info is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Check Out</button>
                                 <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
-                                
                             </div>
-                            
                     </div>
-
                 </form>
     </div>
 </template>
@@ -108,17 +103,17 @@
         },
         
         methods: {
-            terms(){
+            terms() {
                 let routeData = this.$router.resolve({name: 'terms'});
                 window.open(routeData.href, '_blank');
             },
-            submitPayment(){
+            submitPayment() {
                 //refactor here for v2
-                if(this.form.email_ticket != this.form.confirm_email){
+                if (this.form.email_ticket != this.form.confirm_email) {
                     swal.fire("Failed!", "Make sure emails match ", "warning");
                     return;
                 }
-                if(!this.form.terms){
+                if (!this.form.terms) {
                     swal.fire("Failed!", "Please accept terms and condtions to proceed with transactions ", "warning");
                     return;
                 }
@@ -129,7 +124,7 @@
 
                     this.isLoading = true;
 
-                    if(this.paymentType != 'paypal'){
+                    if (this.paymentType != 'paypal') {
                             //paynow endpoint
                         this.form.post('api/paynow')
                             .then((response)=>{
@@ -147,9 +142,8 @@
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
-                //sconsole.log(decodedCookie)
                 var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
+                for (var i = 0; i <ca.length; i++) {
                     var c = ca[i];
                     while (c.charAt(0) == ' ') {
                     c = c.substring(1);
@@ -169,7 +163,6 @@
             checkCookie() {
                 var user = this.getCookie("gm58baba");
                 if(user != ""){
-                    // console.log(user)
                     return user
                 } 
                 else {
@@ -181,9 +174,8 @@
                     }
                 }
             },
-            cancelOrder(){
+            cancelOrder() {
                 Fire.$emit('cancelOrder','all');
-                //$('#shoppingCartModal').modal('hide');
                 this.paymentMethod="";
             },
 

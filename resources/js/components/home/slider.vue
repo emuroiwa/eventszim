@@ -65,27 +65,17 @@
             this.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
             //console.log(this.isMobile)
         },
-        data(){
-            return{
-                
-            }
-        },
-        methods: {
-            
-        },
-        created(){
-           
-        }
+        
     }
 </script>
 <style scoped>
-a{
+a {
     color: white !important;
 }
 /* .carousel-caption {
     padding-bottom: 140px;
 }  */
-.gm58-slider{
+.gm58-slider { 
     max-height: 650px;
     height:650px;
     width: 100%;
@@ -100,10 +90,10 @@ a{
     opacity: .27;
 }
 
-.carousel-control-prev{
+.carousel-control-prev {
     z-index: 3
 }
-.carousel-control-next{
+.carousel-control-next {
     z-index: 3;
 }
 

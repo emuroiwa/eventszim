@@ -92,12 +92,12 @@
             }
         },
         methods:{
-            cancelOrder(){
+            cancelOrder() {
                 Fire.$emit('cancelOrder','marathon');
                 //$('#shoppingCartModal').modal('hide');
                 this.paymentMethod="";
             },
-            submitTicket(){
+            submitTicket() {
                     axios.post('api/customers', {
                         ticketDetails:this.ticketDetails,
                         user_id: this.getCookie("gm58baba")
@@ -125,7 +125,7 @@
                 }
                 return "";
             },
-            getOrders(){
+            getOrders() { 
                 var user = this.getCookie('gm58baba');
                 axios.get("api/marathons/"+ user).then(({ data }) => {
                         this.orders = data;
@@ -135,7 +135,7 @@
                 })
             },
 
-            setTickets(orders){
+            setTickets(orders) {
                 for (var i = 0; i < orders.length; i++) {
                         if(orders[i].user_id === null){
                                 var addDetails = 0;

@@ -93,10 +93,10 @@
             }
         },
         methods: {
-            onChangeTickets(e){
+            onChangeTickets(e) {
                 this.isLoading = true
                 var user = this.getCookie('gm58baba');
-                if(e.target.options[e.target.options.selectedIndex].value > 0){
+                if (e.target.options[e.target.options.selectedIndex].value > 0) {
                     this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
                     this.form.category_id = e.target.options[e.target.options.selectedIndex].dataset.id;
                     this.form.user_id = user
@@ -110,15 +110,15 @@
                     })
                 }
             },
-             getOrders(){
+             getOrders() {
                 axios.get("api/orders/"+ this.getCookie('gm58baba')).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
-                    swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
+                        swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");
                     })
             },
             selectPayment(payment,e){
-                if(e!=""){
+                if (e!="") {
                     $('.card').removeClass('gm58-active')
                     $(e.currentTarget).addClass('gm58-active')
                 }
@@ -128,7 +128,7 @@
                     //open modal
                    // $('#customerDetails').modal('show');
                     this.isNotMobile= true;
-                }else{
+                } else { 
                     
                     this.isNotMobile= true;
 
@@ -138,7 +138,7 @@
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
                 var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
+                for (var i = 0; i < ca.length; i++) {
                     var c = ca[i];
                     while (c.charAt(0) == ' ') {
                     c = c.substring(1);
@@ -160,7 +160,7 @@
         list-style-type: none;
         position: relative;
     }
-    .gm58-card{
+    .gm58-card { 
         padding: 0.25rem;
     }
     ul.timeline:before {

@@ -31,8 +31,8 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
 
-        if($request['ticketDetails']){
-            foreach($request['ticketDetails'] as $r){
+        if ($request['ticketDetails']) {
+            foreach($request['ticketDetails'] as $r) {
                 
                 Customer::create([
                     'user_id' => $request['user_id'],
@@ -44,12 +44,10 @@ class CustomerController extends Controller
                     'tshirtsize' => $r['tshirtsize'],
                     'gender' => $r['gender'],
                     'event_id' => $r['event_id'],
-                
                 ]);
             }
 
-        }
-        else{
+        } else {
             
             $this->validate($request,[
                 'fullname' => 'required|max:255',
@@ -57,7 +55,6 @@ class CustomerController extends Controller
                 'email_ticket' => 'required|email',
                 'confirm_email' => 'required|email',
                 'payment_type' => 'required',
-           
             ]);
                     
             Customer::create([
@@ -68,7 +65,6 @@ class CustomerController extends Controller
                 'email' => $request['email_ticket'],
                 'payment_type' => $request['payment_type'],
                 'gender' => $request['gender'],
-            
             ]);
         }
 
@@ -83,8 +79,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        return Customer::where('user_id','=',$id)
-        ->latest('id')->first();
+        return Customer::where('user_id','=',$id)->latest('id')->first();
     }
 
     /**

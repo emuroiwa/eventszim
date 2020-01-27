@@ -8,9 +8,7 @@
         :height="150"
         :width="150" class="text-center"></loading>
         <div class="event">
-            
             <div class="row">
-                
                 <div class="col-md-5">
                     <div class="card border-primary is-mobile-card mb-4">
                         <div class="card-header event-card-header">
@@ -31,13 +29,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Event Details</a>
                                 </li>
-                                
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Additional Info</a>
-                                </li> -->
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Show Map</a>
-                                </li> -->
+ 
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -74,7 +66,7 @@
             }
         },
         methods: {
-             getEvent(id){
+             getEvent(id) {
                  this.isLoading = true;
                  axios.get("api/events/" + id).then(({ data }) => {
                         this.eventData = data;
@@ -84,7 +76,7 @@
                     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
                     })
             },
-            selectedEvent(){
+            selectedEvent() { 
                 // $('html, body').animate({
                 //     scrollTop: $("div.gm58-event").offset().top
                 // }, 1000)
@@ -94,7 +86,7 @@
              console.log(to)
             next();
         },
-        created(){
+        created() {
 
             Fire.$on('user',(user) =>{
                 this.selectedEvent()
@@ -111,13 +103,12 @@
     }
 </script>
 <style scoped>
-.event{
-    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */
+.event {
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; 
 }
-.container{
+.container {
     max-width: 100%;
   /* Full height */
   /* height: 100%; */

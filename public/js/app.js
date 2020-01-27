@@ -1948,6 +1948,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     Fire.$emit('indexLoaded');
@@ -2246,8 +2251,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getCookie: function getCookie(cname) {
       var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie); //sconsole.log(decodedCookie)
-
+      var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(';');
 
       for (var i = 0; i < ca.length; i++) {
@@ -2286,7 +2290,8 @@ __webpack_require__.r(__webpack_exports__);
             _this.getCartItems();
 
             Fire.$emit('user', _this.user);
-            Fire.$emit('checkAvaliablity');
+            Fire.$emit('checkAvaliablity'); //alert
+
             swal.fire({
               title: "Canceled!",
               text: "Your order has been Canceled!",
@@ -2345,11 +2350,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2489,8 +2489,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getCookie: function getCookie(cname) {
       var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie); //sconsole.log(decodedCookie)
-
+      var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(';');
 
       for (var i = 0; i < ca.length; i++) {
@@ -2517,7 +2516,6 @@ __webpack_require__.r(__webpack_exports__);
       var user = this.getCookie("gm58baba");
 
       if (user != "") {
-        // console.log(user)
         return user;
       } else {
         user = new Date().valueOf();
@@ -2529,8 +2527,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     cancelOrder: function cancelOrder() {
-      Fire.$emit('cancelOrder', 'all'); //$('#shoppingCartModal').modal('hide');
-
+      Fire.$emit('cancelOrder', 'all');
       this.paymentMethod = "";
     }
   },
@@ -2609,6 +2606,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     eventData: Object
@@ -2632,14 +2635,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3221,13 +3216,6 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
-    addToCart: function addToCart() {// axios.get("api/payments").then(({ data }) => {
-      //         this.eventData = data;
-      //     }).catch((error)=>{
-      //     // console.log(rror.response)
-      //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
-      //     })
-    },
     getOrders: function getOrders() {
       var _this2 = this;
 
@@ -3259,6 +3247,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3780,6 +3769,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4148,10 +4146,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _props$data$computed$;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -4196,7 +4190,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_props$data$computed$ = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     eventData: Object
   },
@@ -4215,9 +4209,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches; //console.log(this.isMobile)
   }
-}, _defineProperty(_props$data$computed$, "data", function data() {
-  return {};
-}), _defineProperty(_props$data$computed$, "methods", {}), _defineProperty(_props$data$computed$, "created", function created() {}), _props$data$computed$);
+});
 
 /***/ }),
 
@@ -11245,7 +11237,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.icon-bar[data-v-1ae00e83] {\r\n  width: 100%;\r\n  height: 50%;\r\n  background-color: #fff;\r\n  overflow: auto;\n}\n.gm58_icon[data-v-1ae00e83]{\r\n    width: 50px\n}\n.icon-bar a[data-v-1ae00e83] {\r\n  float: left;\r\n  width: 20%;\r\n  text-align: center;\r\n  padding: 12px 0;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n  color: white;\r\n  font-size: 14px;\n}\n.icon-bar img[data-v-1ae00e83]:hover {\r\n    -webkit-transform: scale(1.10);\r\n    transform: scale(1.10);\r\n\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.active[data-v-1ae00e83] {\r\n  background-color: #4CAF50;\n}\n.gm58-parent[data-v-1ae00e83] {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: column;\n}\n.gm58-bottom[data-v-1ae00e83] {\r\n  margin-top: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.icon-bar[data-v-1ae00e83] {\r\n  width: 100%;\r\n  height: 50%;\r\n  background-color: #fff;\r\n  overflow: auto;\n}\n.gm58_icon[data-v-1ae00e83] {\r\n    width: 50px\n}\n.icon-bar a[data-v-1ae00e83] {\r\n  float: left;\r\n  width: 20%;\r\n  text-align: center;\r\n  padding: 12px 0;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n  color: white;\r\n  font-size: 14px;\n}\n.icon-bar img[data-v-1ae00e83]:hover {\r\n    -webkit-transform: scale(1.10);\r\n    transform: scale(1.10);\r\n\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.active[data-v-1ae00e83] {\r\n  background-color: #4CAF50;\n}\n.gm58-parent[data-v-1ae00e83] {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: column;\n}\n.gm58-bottom[data-v-1ae00e83] {\r\n  margin-top: auto;\n}\r\n", ""]);
 
 // exports
 
@@ -11264,7 +11256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event[data-v-0ae701e3]{\r\n    /* background-image: url(https://content.computicket.com/site/mobile.computicket.com/peter_pan_ice_cover_image2_apr19rs.jpg); */\r\n    background-position: center; /* Center the image */\r\n    background-repeat: no-repeat; /* Do not repeat the image */\r\n    background-size: cover;\n}\n.container[data-v-0ae701e3]{\r\n    max-width: 100%;\r\n  /* Full height */\r\n  /* height: 100%; */\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\r\n", ""]);
+exports.push([module.i, "\n.event[data-v-0ae701e3] {\r\n    background-position: center; /* Center the image */\r\n    background-repeat: no-repeat; /* Do not repeat the image */\r\n    background-size: cover;\n}\n.container[data-v-0ae701e3] {\r\n    max-width: 100%;\r\n  /* Full height */\r\n  /* height: 100%; */\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\r\n", ""]);
 
 // exports
 
@@ -11283,7 +11275,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul.timeline[data-v-51ba315e] {\n    list-style-type: none;\n    position: relative;\n}\n.gm58-card[data-v-51ba315e]{\n    padding: 0.25rem;\n}\nul.timeline[data-v-51ba315e]:before {\n    content: ' ';\n    background: #d4d9df;\n    display: inline-block;\n    position: absolute;\n    left: 29px;\n    width: 2px;\n    height: 100%;\n    z-index: 400;\n}\nul.timeline > li[data-v-51ba315e] {\n    margin: 20px 0;\n    padding-left: 20px;\n}\nul.timeline > li[data-v-51ba315e]:before {\n    content: ' ';\n    background: white;\n    display: inline-block;\n    position: absolute;\n    border-radius: 50%;\n    border: 3px solid #22c0e8;\n    left: 20px;\n    width: 20px;\n    height: 20px;\n    z-index: 400;\n}\n\n", ""]);
+exports.push([module.i, "\nul.timeline[data-v-51ba315e] {\n    list-style-type: none;\n    position: relative;\n}\n.gm58-card[data-v-51ba315e] { \n    padding: 0.25rem;\n}\nul.timeline[data-v-51ba315e]:before {\n    content: ' ';\n    background: #d4d9df;\n    display: inline-block;\n    position: absolute;\n    left: 29px;\n    width: 2px;\n    height: 100%;\n    z-index: 400;\n}\nul.timeline > li[data-v-51ba315e] {\n    margin: 20px 0;\n    padding-left: 20px;\n}\nul.timeline > li[data-v-51ba315e]:before {\n    content: ' ';\n    background: white;\n    display: inline-block;\n    position: absolute;\n    border-radius: 50%;\n    border: 3px solid #22c0e8;\n    left: 20px;\n    width: 20px;\n    height: 20px;\n    z-index: 400;\n}\n\n", ""]);
 
 // exports
 
@@ -11340,7 +11332,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.grow[data-v-3aba163a]:hover{\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\n.overlay[data-v-3aba163a] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\na[data-v-3aba163a]:hover{\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a]{\n    /* color: #000 !important; */\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a]{\n    -webkit-transform: scale(1.10);\n    transform: scale(1.10);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\ntable[data-v-3aba163a] {\n    border: 1px solid #ccc;\n    border-collapse: collapse;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n    table-layout: fixed;\n}\ntable caption[data-v-3aba163a] {\n    font-size: 1.5em;\n    margin: .5em 0 .75em;\n}\ntable tr[data-v-3aba163a] {\n    background-color: #f8f8f8;\n    border: 1px solid #ddd;\n    padding: .35em;\n}\ntable th[data-v-3aba163a],\ntable td[data-v-3aba163a] {\n    padding: .625em;\n}\ntable th[data-v-3aba163a] {\n    font-size: .85em;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n}\n@media screen and (max-width: 600px) {\ntable[data-v-3aba163a] {\n        border: 0;\n}\ntable caption[data-v-3aba163a] {\n        font-size: 1.3em;\n}\ntable thead[data-v-3aba163a] {\n        border: none;\n        clip: rect(0 0 0 0);\n        height: 1px;\n        margin: -1px;\n        overflow: hidden;\n        padding: 0;\n        position: absolute;\n        width: 1px;\n}\ntable tr[data-v-3aba163a] {\n        border-bottom: 3px solid #ddd;\n        display: block;\n        margin-bottom: .625em;\n}\ntable td[data-v-3aba163a] {\n        border-bottom: 1px solid #ddd;\n        display: block;\n        font-size: .8em;\n        text-align: right;\n}\ntable td[data-v-3aba163a]::before {\n        /*\n        * aria-label has no advantage, it won't be read inside a table\n        content: attr(aria-label);\n        */\n        content: attr(data-label);\n        float: left;\n        font-weight: bold;\n        text-transform: uppercase;\n}\ntable td[data-v-3aba163a]:last-child {\n        border-bottom: 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n.grow[data-v-3aba163a]:hover {\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);\n}\n.overlay[data-v-3aba163a] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\na[data-v-3aba163a]:hover {\n    color: #000 !important;\n    text-decoration: none !important;\n}\na[data-v-3aba163a] {\n    /* color: #000 !important; */\n    text-decoration: none !important;\n}\n.gm58-active[data-v-3aba163a] {\n    -webkit-transform: scale(1.10);\n    transform: scale(1.10);\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.overlay[data-v-3aba163a] {\n    /* position: absolute; */\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .1;\n}\n.empty-cart[data-v-3aba163a] {\n    -webkit-box-align: center;\n            align-items: center;\n    max-width: 60%;\n}\ntable[data-v-3aba163a] {\n    border: 1px solid #ccc;\n    border-collapse: collapse;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n    table-layout: fixed;\n}\ntable caption[data-v-3aba163a] {\n    font-size: 1.5em;\n    margin: .5em 0 .75em;\n}\ntable tr[data-v-3aba163a] {\n    background-color: #f8f8f8;\n    border: 1px solid #ddd;\n    padding: .35em;\n}\ntable th[data-v-3aba163a],\ntable td[data-v-3aba163a] {\n    padding: .625em;\n}\ntable th[data-v-3aba163a] {\n    font-size: .85em;\n    letter-spacing: .1em;\n    text-transform: uppercase;\n}\n@media screen and (max-width: 600px) {\ntable[data-v-3aba163a] {\n        border: 0;\n}\ntable caption[data-v-3aba163a] {\n        font-size: 1.3em;\n}\ntable thead[data-v-3aba163a] {\n        border: none;\n        clip: rect(0 0 0 0);\n        height: 1px;\n        margin: -1px;\n        overflow: hidden;\n        padding: 0;\n        position: absolute;\n        width: 1px;\n}\ntable tr[data-v-3aba163a] {\n        border-bottom: 3px solid #ddd;\n        display: block;\n        margin-bottom: .625em;\n}\ntable td[data-v-3aba163a] {\n        border-bottom: 1px solid #ddd;\n        display: block;\n        font-size: .8em;\n        text-align: right;\n}\ntable td[data-v-3aba163a]::before {\n        /*\n        * aria-label has no advantage, it won't be read inside a table\n        content: attr(aria-label);\n        */\n        content: attr(data-label);\n        float: left;\n        font-weight: bold;\n        text-transform: uppercase;\n}\ntable td[data-v-3aba163a]:last-child {\n        border-bottom: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -11378,7 +11370,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.min-card[data-v-64cbabeb]{\r\n    min-height: 270px;\n}\n.card-img-overlay[data-v-64cbabeb] {\r\n  background-color: rgba(#000, 0.4);\n}\n.footer-caption[data-v-64cbabeb]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover\r\n{\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        /* position: absolute; */\r\n        top: 0;\r\n          /*change this with javascript in the future*/\r\n        /* z-index: -1; */\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb]{\r\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.min-card[data-v-64cbabeb] {\r\n    min-height: 270px;\n}\n.card-img-overlay[data-v-64cbabeb] {\r\n  background-color: rgba(#000, 0.4);\n}\n.footer-caption[data-v-64cbabeb] {\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover {\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover {\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        /* position: absolute; */\r\n        top: 0;\r\n          /*change this with javascript in the future*/\r\n        /* z-index: -1; */\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb] {\r\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb] {\r\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -11416,7 +11408,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\na[data-v-75bc62d4]{\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.gm58-slider[data-v-75bc62d4]{\r\n    max-height: 650px;\r\n    height:650px;\r\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4]{\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4]{\r\n    z-index: 3;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\na[data-v-75bc62d4] {\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.gm58-slider[data-v-75bc62d4] { \r\n    max-height: 650px;\r\n    height:650px;\r\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4] {\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4] {\r\n    z-index: 3;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -66729,17 +66721,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
+    return _c("div", { staticClass: "container mb-4 mt-4" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header mb-1" }, [
-              _vm._v("Example Component")
+              _vm._v("TicketBook")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n                    TicketBook is the leader in online ticket sales in Zimbabwe.We accept Ecocash and OneMoney mobile money payments as well as all major credit cards, as well as Visa Checkout, Masterpass and\n                "
               )
             ])
           ])
@@ -66776,17 +66768,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
+    return _c("div", { staticClass: "container mb-4 mt-4" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header mb-1" }, [
-              _vm._v("Example Component")
+              _vm._v("TicketBook")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
+              _c("b", [_vm._v("TicketBook")]),
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n                    215 Chitepo Heights\n                    Avenues \n                    Zimbabwe\n\n                    +263772591300\n                "
               )
             ])
           ])
@@ -68963,15 +68956,22 @@ var render = function() {
                     "div",
                     { attrs: { id: "customer" } },
                     [
-                      _c("addCustomer", {
-                        ref: "addCustomer",
-                        attrs: {
-                          paymentType: this.paymentMethod,
-                          total_USD: _vm.totalUSD,
-                          total_ZWL: _vm.totalZWL,
-                          orders: _vm.orders
-                        }
-                      })
+                      _c(
+                        "transition",
+                        { attrs: { name: "slide-fade" } },
+                        [
+                          _c("addCustomer", {
+                            ref: "addCustomer",
+                            attrs: {
+                              paymentType: this.paymentMethod,
+                              total_USD: _vm.totalUSD,
+                              total_ZWL: _vm.totalZWL,
+                              orders: _vm.orders
+                            }
+                          })
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -69409,6 +69409,7 @@ var staticRenderFns = [
           _c("h3", { staticClass: "widget-title" }, [
             _vm._v("Follow Us For Updates")
           ]),
+          _vm._v(" "),
           _c(
             "a",
             {
@@ -69510,7 +69511,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-3 col-md-5 padding-bottom-1x" }, [
       _c("p", { staticClass: "text-white opacity-90" }, [
         _vm._v(
-          "We accept Ecocash and OneMoney mobile money payments as well as all major credit cards, as well as Visa Checkout, Masterpass and "
+          "\n                            We accept Ecocash and OneMoney mobile money payments as well as all major credit cards, as well as Visa Checkout, Masterpass and \n                        "
         )
       ])
     ])

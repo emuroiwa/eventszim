@@ -39,8 +39,8 @@ class PaymentDetailsController extends Controller
     public function show($id)
     {
         return PaymentDetails::select('*')
-        ->where('order_id','=',$id)
-        ->get();
+                            ->where('order_id','=',$id)
+                            ->get();
     }
 
     /**

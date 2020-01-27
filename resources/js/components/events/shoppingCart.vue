@@ -113,8 +113,9 @@
                             </div>
                         </div>
                     </div> -->
-
-                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
+                    <transition name="slide-fade">
+                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
+                    </transition>
                     <!-- <Adsense
                         data-ad-client="ca-pub-3540520778119630"
                         data-ad-slot="1234567890">
@@ -127,7 +128,7 @@
 
 <script>
     export default {
-        data(){
+        data() {
             return{
                 orders:{},
                 paymentMethod:'paynow',
@@ -140,17 +141,17 @@
             }
         },
         computed:{
-            totalZWL: function(){
+            totalZWL: function() {
                 return this.orders.reduce(function(total, item){
                 return total + item.total_zwl; 
                 },0);
             },
-            totalUSD: function(){
+            totalUSD: function() {
                 return this.orders.reduce(function(total, item){
                 return total + item.total_usd; 
                 },0);
             },
-            totalTickets: function(){
+            totalTickets: function() {
                 return this.orders.reduce(function(total, item){
                 return total + item.quantity; 
                 },0);
@@ -160,7 +161,7 @@
 
         },
         methods: {
-             deleteTicket(id){
+             deleteTicket(id) {
 
                 var user =this.checkCookie();
                 swal.fire({
@@ -199,7 +200,7 @@
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
                 var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
+                for (var i = 0; i < ca.length; i++) {
                     var c = ca[i];
                     while (c.charAt(0) == ' ') {
                     c = c.substring(1);
@@ -219,11 +220,10 @@
             },
             checkCookie() {
                 var user = this.getCookie("gm58baba");
-                if(user != ""){
+                if (user != "") {
                     // console.log(user)
                     return user
-                } 
-                else {
+                } else {
                     user = new Date().valueOf();
                     if (user != "" && user != null) {
                         this.setCookie("gm58baba", user, 365);
@@ -233,7 +233,7 @@
                 }
             },
             selectPayment(payment,e){
-                if(e!=""){
+                if (e!="") {
                     $('.card').removeClass('gm58-active')
                     $(e.currentTarget).addClass('gm58-active')
                 }
@@ -243,14 +243,14 @@
                     //open modal
                    // $('#customerDetails').modal('show');
                     this.isNotMobile = true;
-                }else{
+                } else {
                     
                     this.isNotMobile = true;
 
                 }
             },
             
-            getOrders(){
+            getOrders() {
                 this.isLoading = true;
                 var user = this.checkCookie();
                 axios.get("api/orders/"+ user).then(({ data }) => {
@@ -262,7 +262,7 @@
                 })
             },
 
-            checkMarathons(){
+            checkMarathons() {
                 var user = this.checkCookie();
                 axios.get("api/checkMarathon/"+ user).then(({ data }) => {
                         this.marathons = data;
@@ -272,7 +272,7 @@
             },
            
         },
-        created(){
+        created() {
             this.paymentMethod='paynow'
             
             Fire.$on('user',(user) =>{
@@ -294,7 +294,7 @@
     }
 </script>
 <style scoped>
-    .grow:hover{
+    .grow:hover {
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
@@ -309,16 +309,16 @@
         background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);
         opacity: .1;
     }
-    a:hover{
+    a:hover {
         color: #000 !important;
         text-decoration: none !important;
     }
-    a{
+    a {
         /* color: #000 !important; */
         text-decoration: none !important;
         
     }
-    .gm58-active{
+    .gm58-active {
         -webkit-transform: scale(1.10);
         -ms-transform: scale(1.10);
         transform: scale(1.10);

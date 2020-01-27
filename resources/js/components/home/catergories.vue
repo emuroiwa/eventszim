@@ -75,7 +75,7 @@
         },
         methods: {
             
-            pageSlider(){
+            pageSlider() {
 
             
                 $('#carousel-example').on('slide.bs.carousel', function (e) {
@@ -102,7 +102,7 @@
                 });
             }, 
         },
-        created(){
+        created() {
             this.pageSlider();
 
         }              
@@ -111,26 +111,25 @@
   }
 </script>
 <style scoped>
-.min-card{
+.min-card {
     min-height: 270px;
 }
 .card-img-overlay {
   background-color: rgba(#000, 0.4);
 }
-.footer-caption{
+.footer-caption {
     color: #fff;
     text-align: center;
     text-transform: uppercase;
     font-size: 1.4em;    
     font-weight: bold;
 }
-.grow:hover
-{
+.grow:hover {
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
 }
-a:hover{
+a:hover {
      color: #000 !important;
      text-decoration: none !important;
 }
@@ -272,11 +271,11 @@ a{
         display: block;
         visibility: visible;
     }
-    .carousel-control-prev{
+    .carousel-control-prev {
         background-image: linear-gradient(-90deg, transparent , #1fc8db);
         width: 70;
     }
-    .carousel-control-next{
+    .carousel-control-next {
         background-image: linear-gradient(90deg, transparent , #1fc8db);
         width: 70;  
     }

@@ -78,7 +78,7 @@
             }
         },
         methods: {
-            onChangeTickets(e){
+            onChangeTickets(e) {
                 var user = this.getCookie('gm58baba');
                 if(e.target.options[e.target.options.selectedIndex].value > 0){
                     this.form.quantity = e.target.options[e.target.options.selectedIndex].value;
@@ -97,7 +97,7 @@
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
                 var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
+                for (var i = 0; i <ca.length; i++) {
                     var c = ca[i];
                     while (c.charAt(0) == ' ') {
                     c = c.substring(1);
@@ -108,16 +108,8 @@
                 }
                 return "";
             },
-            addToCart(){
-               
-                // axios.get("api/payments").then(({ data }) => {
-                //         this.eventData = data;
-                //     }).catch((error)=>{
-                //     // console.log(rror.response)
-                //     swal("Failed!", "There was something wrong in getEvents "+ error, "warning");
-                //     })
-            },
-            getOrders(){
+
+            getOrders() {
                 axios.get("api/orders/"+ this.getCookie('gm58baba')).then(({ data }) => {
                         this.orders = data;
                     }).catch((error)=>{
@@ -125,7 +117,7 @@
                     })
             }
         },
-        created(){
+        created() {
             Fire.$on('user',(user) =>{
                this.getOrders() 
             })
