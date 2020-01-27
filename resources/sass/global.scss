@@ -1,6 +1,6 @@
 #app {
-    // position: relative;
-    // min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
   }
   .slide-fade-enter-active {
     transition: all .3s ease;
@@ -29,6 +29,28 @@
     }
     100% {
       transform: scale(1);
+    }
+  }
+
+  .zoom-enter-active,
+  .zoom-leave-active {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: zoom;
+  }
+  
+  .zoom-leave-active {
+    animation-direction: reverse;
+  }
+  
+  @keyframes zoom {
+    from {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  
+    100% {
+      opacity: 1;
     }
   }
 
