@@ -21,11 +21,10 @@ class PaynowController extends Controller
     
     public function index()
     {
-       return $this->Paynow();
+
     }
 
-    // 8915
-    //
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,45 +34,39 @@ class PaynowController extends Controller
     public function store(Request $request)
     {
         $userID = $request['user_id'];
-        // $paymentRef = sha1(time());
         $paymentRef = time();
         $paynow = new Paynow(
             '8915',
             'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
-
-            // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
         );
 
-       // print_r($paynow);
         $payment = $paynow->createPayment($paymentRef, $request['email_ticket']);
-       // $payment = $paynow->createPayment('Invoice', 'emuroiwa@gmail.com');
 
         $orders = Orders::Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
-        ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        ->select(DB::raw('COALESCE(price_zwl * orders.quantity,0) as total_zwl,event_name'))
-        ->where('user_id','=',$userID)
-        ->where('orders.status','=',0)
-        ->orderby('orders.id', 'DESC')->get();
+                        ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+                        ->select(DB::raw('COALESCE(price_zwl * orders.quantity,0) as total_zwl,event_name'))
+                        ->where('user_id','=',$userID)
+                        ->where('orders.status','=',0)
+                        ->orderby('orders.id', 'DESC')->get();
+
         $total = 0.0;
-        foreach($orders as $r){
+        foreach( $orders as $r) {
             $payment->add($r->event_name, $r->total_zwl);
             $total += $r->total_zwl;
         }
-        if($request['payment_type'] == 'paynow'){
+        
+        if ($request['payment_type'] == 'paynow') {
             $response = $paynow->send($payment);
-        }else{
+        } else {
             $response = $paynow->sendMobile($payment, $request['ecocash'], 'ecocash');
         }
-        //print_r($response);
-       // 
-        if($response->success()) {
-            // Or if you prefer more control, get the link to redirect the user to, then use it as you see fit
+
+        if ($response->success()) {
+
             $link = $response->redirectUrl();
-            
             $pollUrl = $response->pollUrl();
-            //print_r($response);
             $status = $paynow->pollTransaction($pollUrl);
 
             //set order IDs in orders and customers table
@@ -91,10 +84,8 @@ class PaynowController extends Controller
                 'order_id' =>$paymentRef,
                 'contact' => $request['contact'],
                 'email' => $request['email_ticket'],
-                        
             ]);
 
-            
             //create payment record
             Payments::create([
                 'order_ref' => $paymentRef,
@@ -103,7 +94,6 @@ class PaynowController extends Controller
                 'paygate' => 'paynow',
                 'status' => 0,
                 'pollURL'=>  $pollUrl,
-            
             ]);
 
             return $link;
@@ -145,36 +135,28 @@ class PaynowController extends Controller
     {
         //
     }
-    public function Paynow(){
-        //require_once('./paynow/vendor/autoload.php');
-       // require_once base_path('vendor\paynow\php-sdk\autoload.php');
-       
-    }
-    // '8915',
-    //'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
-    public function CheckPayment($paymentRef){
+   
+    public function CheckPayment($paymentRef)
+    {
         $paynow = new Paynow(
             '8915',
             'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
-
-            // The return url can be set at later stages. You might want to do this if you want to pass data to the return url (like the reference of the transaction)
             'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
         );
-        $pollUrl = "";
 
-        $transactions = Payments::where('order_ref','=',$paymentRef)
-        ->get();
-        foreach($transactions as $r){
+        $pollUrl = "";
+        $transactions = Payments::where('order_ref','=',$paymentRef)->get();
+        
+        foreach ($transactions as $r) {
             $pollUrl = $r->pollURL;
         }
          // Check the status of the transaction
         $status = $paynow->pollTransaction($pollUrl);
         $paynowStatues = array("awaiting delivery", "paid", "delivered");
         
-         if((in_array($status->status(), $paynowStatues))) {
-             //success
-            //print_r(in_array($status->status(), $paynowStatues));
+         if ((in_array($status->status(), $paynowStatues))) {
+
             Orders::where('reference', $paymentRef)
             ->where('status', 1)
             ->update( array('status'=>2) );
@@ -185,7 +167,7 @@ class PaynowController extends Controller
 
             return ['message'=>'done'];
             
-         }else{
+         } else {
              //cancelled transactins
             Orders::where('reference', $paymentRef)
             ->where('status', 1)

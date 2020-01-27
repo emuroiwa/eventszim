@@ -17,17 +17,17 @@ class EventsController extends Controller
      */
     public function index()
     {
-        // return ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
-        // ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        // ->orderby('zim_events.id', 'DESC')
-        // ->get();
-        
-        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` 
-        LEFT JOIN `event_types` ON `zim_events`.`event_type_id` = `event_types`.`id`  ORDER BY `zim_events`.`popular_rank` ASC"));
+
+        $tableIds = DB::select( 
+                        DB::raw("SELECT *,zim_events.id AS event_id 
+                                FROM `zim_events`
+                                INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` 
+                                LEFT JOIN  `event_types` ON `zim_events`.`event_type_id` = `event_types`.`id`  
+                                ORDER BY `zim_events`.`popular_rank` ASC"));
         $jsonResult = array();
 
-        for($i = 0;$i < count($tableIds);$i++)
-        {
+        for ($i = 0;$i < count($tableIds);$i++) {
+
             $jsonResult[$i]["catergory_id"] = $tableIds[$i]->catergory_id;
             $jsonResult[$i]["event_name"] = $tableIds[$i]->event_name;
             $jsonResult[$i]["start_date"] = $tableIds[$i]->start_date;
@@ -49,6 +49,7 @@ class EventsController extends Controller
             $jsonResult[$i]["id"] = $tableIds[$i]->event_id;
             $id = $tableIds[$i]->event_id;
             $jsonResult[$i]["price_categories"] = DB::select( DB::raw("SELECT * FROM `price_sub_categories` WHERE event_id = $id"));
+
         }
 
         return Response::json(array(
@@ -80,12 +81,16 @@ class EventsController extends Controller
     {
         
           
-        $tableIds = DB::select( DB::raw("SELECT *,zim_events.id AS event_id FROM 	`zim_events` INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` 
-        LEFT JOIN `event_types` ON `zim_events`.`event_type_id` = `event_types`.`id`  WHERE zim_events.id = $id "));
+        $tableIds = DB::select( 
+            DB::raw("SELECT *,zim_events.id AS event_id 
+                    FROM `zim_events`
+                    INNER JOIN `event_infos` ON `event_infos`.`event_id` = `zim_events`.`id` 
+                    LEFT JOIN  `event_types` ON `zim_events`.`event_type_id` = `event_types`.`id` 
+                    WHERE zim_events.id = $id  
+                    ORDER BY `zim_events`.`popular_rank` ASC"));
         $jsonResult = array();
 
-        for($i = 0;$i < count($tableIds);$i++)
-        {
+        for ($i = 0;$i < count($tableIds);$i++) {
             $jsonResult[$i]["catergory_id"] = $tableIds[$i]->catergory_id;
             $jsonResult[$i]["event_name"] = $tableIds[$i]->event_name;
             $jsonResult[$i]["start_date"] = $tableIds[$i]->start_date;
@@ -144,21 +149,18 @@ class EventsController extends Controller
     {
         //
     }
-    public function search(){
+    public function search()
+    {
         if ($search = \Request::get('q')) {
-        //     ZimEvents::Join('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
-        // ->Join('price_sub_categories', 'price_sub_categories.event_id', '=', 'zim_events.id')
-        // ->where('zim_events.id','=',$id)
-        // ->orderby('zim_events.id', 'DESC')
-        // ->get();
+
             $events = ZimEvents::leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
-            ->select(DB::raw('DATE_FORMAT(start_date, "%M %d %Y") as start_date'),'event_name','zim_events.id','venue','town')
-                ->where(function($query) use ($search){
-                $query->where('event_name','LIKE',"%$search%")
-                        ->orWhere('town','LIKE',"%$search%")
-                        ->orWhere('venue','LIKE',"%$search%");
-            })->get();
-        }else{
+                        ->select(DB::raw('DATE_FORMAT(start_date, "%M %d %Y") as start_date'),'event_name','zim_events.id','venue','town')
+                        ->where(function($query) use ($search){
+                            $query->where('event_name','LIKE',"%$search%")
+                            ->orWhere('town','LIKE',"%$search%")
+                            ->orWhere('venue','LIKE',"%$search%");
+                     })->get();
+        } else {
             $events = ZimEvents::latest()->get();
         }
 

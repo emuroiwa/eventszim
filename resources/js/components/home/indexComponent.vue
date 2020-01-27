@@ -26,7 +26,7 @@
        },
        methods: {
            
-           getEvents(){
+           getEvents() {
                this.isLoading = true;
                  axios.get("api/events").then(({ data }) => {
                         this.eventData = data;
@@ -38,7 +38,7 @@
             },
             
        },
-       created(){
+       created() {
             Fire.$emit('indexLoaded') 
             this.getEvents();
             if(this.$route.query.z14ea26b00ad9){

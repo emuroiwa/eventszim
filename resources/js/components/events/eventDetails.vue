@@ -5,15 +5,21 @@
         <div class="gm58-bottom row  mt-4">
             <h3 v-if="eventData.events[0].website || eventData.events[0].instagram || eventData.events[0].facebook || eventData.events[0].whatsapp || eventData.events[0].whatsapp ">Follow this event</h3>
             <div class="icon-bar">
-                <a :href="eventData.events[0].instagram" target="_blank" v-if="eventData.events[0].instagram"><img class="gm58_icon" :src="'img/socials/instagram.png'" :alt="'instagram'"></a> 
-                <a :href="eventData.events[0].twitter" target="_blank" v-if="eventData.events[0].twitter"><img class="gm58_icon" :src="'img/socials/twitter.png'" :alt="'twitter'"></a> 
-                <a :href="eventData.events[0].facebook" target="_blank" v-if="eventData.events[0].facebook"><img class="gm58_icon" :src="'img/socials/facebook.png'" :alt="'facebook'"></a> 
-                <a :href="eventData.events[0].whatsapp" target="_blank" v-if="eventData.events[0].whatsapp"><img class="gm58_icon" :src="'img/socials/whatsapp.png'" :alt="'whatsapp'"></a> 
-                <a :href="eventData.events[0].website" target="_blank" v-if="eventData.events[0].website"><img class="gm58_icon" :src="'img/socials/seo-and-web.png'" :alt="'website'"></a> 
-                <!-- <a href="#"><i class="fab fa-facebook"></i></a> 
-                <a href="#"><i class="fab fa-twitter"></i></a> 
-                <a href="#"><i class="fab fa-google"></i></a> 
-                <a href="#"><i class="fa fa-globe"></i></a> -->
+                <a :href="eventData.events[0].instagram" target="_blank" v-if="eventData.events[0].instagram">
+                    <img class="gm58_icon" :src="'img/socials/instagram.png'" :alt="'instagram'">
+                </a> 
+                <a :href="eventData.events[0].twitter" target="_blank" v-if="eventData.events[0].twitter">
+                    <img class="gm58_icon" :src="'img/socials/twitter.png'" :alt="'twitter'">
+                </a> 
+                <a :href="eventData.events[0].facebook" target="_blank" v-if="eventData.events[0].facebook">
+                    <img class="gm58_icon" :src="'img/socials/facebook.png'" :alt="'facebook'">
+                </a> 
+                <a :href="eventData.events[0].whatsapp" target="_blank" v-if="eventData.events[0].whatsapp">
+                    <img class="gm58_icon" :src="'img/socials/whatsapp.png'" :alt="'whatsapp'">
+                </a> 
+                <a :href="eventData.events[0].website" target="_blank" v-if="eventData.events[0].website">
+                    <img class="gm58_icon" :src="'img/socials/seo-and-web.png'" :alt="'website'">
+                </a> 
 
             </div>
         </div>
@@ -47,7 +53,7 @@
   overflow: auto;
 }
 
-.gm58_icon{
+.gm58_icon {
     width: 50px
 }
 

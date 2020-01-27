@@ -77,7 +77,8 @@ class MarathonController extends Controller
     {
         //
     }
-    public function checkMarathonDetails($user_id){
+    public function checkMarathonDetails($user_id)
+    {
 
         $marathonTickets = Orders::leftJoin('customers', function($join){
             $join->on('customers.event_id', '=', 'orders.category_id')
@@ -92,17 +93,16 @@ class MarathonController extends Controller
         ->where('event_types.event_type','=','marathon')
         ->whereNull('customers.user_id')
         ->orderby('orders.user_id', 'DESC')->get();
-        //print_r($marathonTickets);
+
         $needMarathon = "";
-        foreach($marathonTickets as $r){
-            if($r->user_id == ""){
+        foreach ($marathonTickets as $r) {
+            if ($r->user_id == "") {
                 $needMarathon = 'true';
-            }else{
+            } else {
                 $needMarathon = 'false';
             }
         }
         return $needMarathon;
-      // print_r($marathonTickets);
         
     }
 }

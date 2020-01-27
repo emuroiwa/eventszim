@@ -53,8 +53,8 @@
         props: {
             cartPage: String
         },
-       data(){
-           return{
+       data() {
+           return {
                itemsInCart:'0'
            }
        },
@@ -62,9 +62,8 @@
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
-                //sconsole.log(decodedCookie)
                 var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
+                for ( var i = 0; i < ca.length; i++ ) {
                     var c = ca[i];
                     while (c.charAt(0) == ' ') {
                     c = c.substring(1);
@@ -75,7 +74,7 @@
                 }
                 return "";
             },
-            cancelOrder(eventType){
+            cancelOrder(eventType) {
                 swal.fire({
                     icon: 'info',
                     title: 'Are you sure?',
@@ -95,7 +94,7 @@
                                         this.getCartItems();
                                         Fire.$emit('user',this.user);
                                         Fire.$emit('checkAvaliablity');
-                                 
+                                        //alert
                                         swal.fire({
                                             title: "Canceled!",
                                             text: "Your order has been Canceled!",
@@ -103,7 +102,7 @@
                                             type: "success",
                                             confirmButtonText: "OK"
                                         }).then(okay => {
-                                            if(okay){
+                                            if (okay) {
                                                 this.$router.push({ name: 'home' })
                                             }
                                         });
@@ -114,8 +113,8 @@
                          }
                     })
             },
-           getCartItems(){
-               if(this.getCookie('gm58baba')){
+           getCartItems() {
+               if (this.getCookie('gm58baba')) {
                     axios.get("api/cartItems/"+ this.getCookie('gm58baba')).then(({ data }) => {
                         this.itemsInCart = data;
                     }).catch((error)=>{
@@ -125,8 +124,7 @@
            },
 
        },
-       created(){
-
+       created() {
             Fire.$on('checkAvaliablity',() =>{
                 this.getCartItems();
             });
