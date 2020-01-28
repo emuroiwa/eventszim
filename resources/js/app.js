@@ -33,6 +33,7 @@ import gm58header from './components/gm58header';
 import shoppingCart from './components/events/shoppingCart';
 import search from './components/home/search';
 import catergories from './components/home/catergories';
+import mobileSlide from './components/home/mobileSlide';
 import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
@@ -46,7 +47,9 @@ import VueAnalytics from 'vue-analytics'
 import Ads from 'vue-google-adsense'
 import Vue from 'vue'
 import VuePageTransition from 'vue-page-transition'
- 
+import carousel from 'vue-owl-carousel'
+
+
 Vue.use(require('vue-script2'))
 
 Vue.use(VuePageTransition)
@@ -109,6 +112,7 @@ Vue.filter('isMobile', function(){
 });
 Vue.component('Loading',Loading)
 
+Vue.component('carousel', carousel)
 Vue.component('gm58footer', gm58footer)
 Vue.component('addCustomer', addCustomer)
 Vue.component('gm58header', gm58header)
@@ -117,6 +121,7 @@ Vue.component('cartItems', cartItems)
 Vue.component('shoppingCart', shoppingCart)
 Vue.component('search', search)
 Vue.component('catergories', catergories)
+Vue.component('mobileSlide', mobileSlide)
 Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)

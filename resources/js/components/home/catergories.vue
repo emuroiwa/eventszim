@@ -2,58 +2,75 @@
 <div class="top-content">
     <div class="container-fluid catergory-container">
         <h3 class="text-primary">Trending</h3>
-        <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
-            <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item gm58-slider-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
-                    <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
-                        
-                        <!-- <div class="card grow gm58-slider-card" >
-                            <div> 
-                                
-                                <img class="card-img-top" :src="event.event_img" :alt="event.event_name">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{event.event_name}} </h5>
-                                <h5 class="card-title  text-center mt-1">{{event.venue}}</h5>
-                                <p class="card-text  text-center">{{event.start_date | myDate}}</p>
-                            </div>
-                            <div class="card-footer gm58-footer footer-caption" v-if="event.price_categories[0]">
-                                From {{event.price_categories[0].price_usd | formatNumber}}
-                            </div>
-                            <div class="card-footer gm58-footer footer-caption" v-else>
-                                Read More
-                            </div>
-                        </div>
-                         -->
-                          <div class="card grow gm58-slider-card" >
-               
-                            <img class="card-img min-card" :src="event.event_img" :alt="event.event_name">
-                            <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                                <h4 class="card-title">{{event.event_name}}</h4>
-                                <h5 class="card-subtitle mb-2">{{event.venue}}</h5>
-                                <p class="card-text">{{event.start_date | myDate}} </p>
-                            <div class="card-footer footer-caption" v-if="event.price_categories[0]">
-                                From {{event.price_categories[0].price_usd | formatNumber}}
-                            </div>
-                            <div class="card-footer footer-caption" v-else>
-                                Read More
-                            </div>
-                            </div>
-                            
-                        </div>
-                    </router-link>
-                </div>
-
-            </div>
-            <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+<div class="owl-carousel owl-theme">
+  <div class="carousel-item">
+    <a href="#">
+      <div class="carousel-item-image">
+        <img src="https://f.i.uol.com.br/fotografia/2016/03/11/594620-970x600-1.jpeg" class="item-image">
+      </div>
+      <div class="carousel-item-text">
+        <span class="item-kicker">Restaurante de São Paulo</span>
+        <h3 class="item-title">Mani</h3>
+      </div>
+    </a>
+  </div>
+  <div class="carousel-item">
+    <a href="#">
+      <div class="carousel-item-image">
+        <img src="https://f.i.uol.com.br/fotografia/2016/03/11/594616-970x600-1.jpeg" class="item-image">
+      </div>
+      <div class="carousel-item-text">
+        <span class="item-kicker">Restaurante de São Paulo</span>
+        <h3 class="item-title">Tordesilhas</h3>
+      </div>
+    </a>
+  </div>
+  <div class="carousel-item">
+    <a href="#">
+      <div class="carousel-item-image">
+        <img src="https://f.i.uol.com.br/fotografia/2016/03/11/594617-970x600-1.jpeg" class="item-image">
+      </div>
+      <div class="carousel-item-text">
+        <span class="item-kicker">Restaurante que você já foi</span>
+        <h3 class="item-title">Bar do Luiz Fernandes</h3>
+      </div>
+    </a>
+  </div>
+  <div class="carousel-item">
+    <a href="#">
+      <div class="carousel-item-image">
+        <img src="https://f.i.uol.com.br/fotografia/2016/03/11/594619-970x600-1.jpeg" class="item-image">
+      </div>
+      <div class="carousel-item-text">
+        <span class="item-kicker">Para ir a dois</span>
+        <h3 class="item-title">A Figueira Rubaiyat</h3>
+      </div>
+    </a>
+  </div>
+  <div class="carousel-item">
+    <a href="#">
+      <div class="carousel-item-image">
+        <img src="https://f.i.uol.com.br/fotografia/2016/03/11/594618-970x600-1.jpeg" class="item-image">
+      </div>
+      <div class="carousel-item-text">
+        <span class="item-kicker">Coxinha</span>
+        <h3 class="item-title">Ragazzo</h3>
+      </div>
+    </a>
+  </div>
+  <div class="carousel-item">
+    <a href="#">
+      <div class="carousel-item-image">
+        <img src="https://f.i.uol.com.br/fotografia/2016/03/11/594615-970x600-1.jpeg" class="item-image">
+      </div>
+      <div class="carousel-item-text">
+        <span class="item-kicker">Cafeteria</span>
+        <h3 class="item-title">Starbucks</h3>
+      </div>
+    </a>
+  </div>
+</div>
+        
     </div>
 </div>
 
@@ -111,173 +128,93 @@
   }
 </script>
 <style scoped>
-.min-card {
-    min-height: 270px;
+/* Carousel */
+
+.owl-carousel .carousel-item {
+  background: #fff;
+  border: 1px solid #D9D7DA;
+  text-align: center;
 }
-.card-img-overlay {
-  background-color: rgba(#000, 0.4);
+
+.owl-carousel .carousel-item-text {
+  padding: 12px;
 }
-.footer-caption {
-    color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.4em;    
-    font-weight: bold;
+
+.owl-carousel .carousel-item .item-kicker {
+  color: #9A5053;
+  display: block;
+  font-size: .8em;
+  font-weight: 600;
+  height: 30px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  text-transform: uppercase;
 }
-.grow:hover {
-        -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-        transform: scale(1.05);
+
+.owl-carousel .carousel-item .item-title {
+  color: #646464;
+  font-size: 1em;
+  font-weight: 600;
+  height: 38px;
+  margin: 0;
+  overflow: hidden;
 }
-a:hover {
-     color: #000 !important;
-     text-decoration: none !important;
+
+.owl-dots {
+  margin-top: 40px;
+  text-align: center;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-a{
-     color: #000 !important;
-     text-decoration: none !important;
+
+.owl-dot {
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  background: rgba(127, 127, 127, 0.5);
+  margin-left: 5px;
+  margin-right: 5px;
 }
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);
-    opacity: .1;
+
+.owl-dot.active {
+  background: rgba(127, 127, 127, 1);
 }
-@media (min-width: 768px) and (max-width: 991px) {
-    /* Show 4th slide on md if col-md-4*/
-    .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
-        top: 0;
-        right: -33.3333%;  /*change this with javascript in the future*/
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
+
+
+/* Tabs */
+
+.nav-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
-@media (min-width: 576px) and (max-width: 768px) {
-    /* Show 3rd slide on sm if col-sm-6*/
-    .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
-        top: 0;
-        right: -50%;  /*change this with javascript in the future*/
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
+
+.nav-tabs>li {
+  display: block;
+  position: relative;
+  text-align: center;
 }
-@media (min-width: 576px) {
-    .carousel-item {
-        margin-right: 0;
-    }
-    /* show 2 items */
-    .carousel-inner .active + .carousel-item {
-        display: block;
-    }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
-        transition: none;
-    }
-    .carousel-inner .carousel-item-next {
-        position: relative;
-        transform: translate3d(0, 0, 0);
-    }
-    /* left or forward direction */
-    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left + .carousel-item,
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-    /* farthest right hidden item must be also positioned for animations */
-    .carousel-inner .carousel-item-prev.carousel-item-right {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
-    /* right or prev direction */
-    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-    .carousel-item-prev.carousel-item-right + .carousel-item,
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
+
+.nav-tabs>li:last-child {
+  margin-right: 0;
 }
-/* MD */
-@media (min-width: 768px) {
-    /* show 3rd of 3 item slide */
-    .carousel-inner .active + .carousel-item + .carousel-item {
-        display: block;
-    }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-        transition: none;
-    }
-    .carousel-inner .carousel-item-next {
-        position: relative;
-        transform: translate3d(0, 0, 0);
-    }
-    /* left or forward direction */
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-    /* right or prev direction */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
+
+.tab-content {
+  display: inline-block;
+  width: 100%;
 }
-/* LG */
-@media (min-width: 991px) {
-    /* show 4th item */
-    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
-        display: block;
-    }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-        transition: none;
-    }
-    /* Show 5th slide on lg if col-lg-3 */
-    .carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        /* position: absolute; */
-        top: 0;
-          /*change this with javascript in the future*/
-        /* z-index: -1; */
-        display: block;
-        visibility: visible;
-    }
-    /* left or forward direction */
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-    /* right or prev direction //t - previous slide direction last item animation fix */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
-    .carousel-control-prev {
-        background-image: linear-gradient(-90deg, transparent , #1fc8db);
-        width: 70;
-    }
-    .carousel-control-next {
-        background-image: linear-gradient(90deg, transparent , #1fc8db);
-        width: 70;  
-    }
+
+.tab-content .tab-pane {
+  display: none;
 }
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+/*  */
 </style>

@@ -8,6 +8,7 @@
         :height="150"
         :width="150" class="text-center"></loading>
         <slider :eventData="this.eventData"></slider>
+        <mobileSlide></mobileSlide>
         <catergories :eventData="this.eventData"></catergories>
         <!-- <catergories :eventData="this.eventData"></catergories> -->
         
