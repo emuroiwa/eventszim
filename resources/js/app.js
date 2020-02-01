@@ -33,6 +33,7 @@ import gm58header from './components/gm58header';
 import shoppingCart from './components/events/shoppingCart';
 import search from './components/home/search';
 import catergories from './components/home/catergories';
+import newcatergories from './components/home/newCatergories';
 import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
@@ -44,12 +45,9 @@ import marathonDetails from './components/events/marathonCustomerDetails';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 import Ads from 'vue-google-adsense'
-import Vue from 'vue'
-import VuePageTransition from 'vue-page-transition'
  
 Vue.use(require('vue-script2'))
-
-Vue.use(VuePageTransition)
+ 
 Vue.use(Ads.Adsense)
 Vue.use(Ads.InArticleAdsense)
 Vue.use(Ads.InFeedAdsense)
@@ -117,6 +115,7 @@ Vue.component('cartItems', cartItems)
 Vue.component('shoppingCart', shoppingCart)
 Vue.component('search', search)
 Vue.component('catergories', catergories)
+Vue.component('new-catergories', newcatergories)
 Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
@@ -129,13 +128,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 Vue.prototype.$http = Axios
 
-if (location.hostname.indexOf('ticketbook.co.zw') === -1) {
-  Vue.config.debug = true;
-} else {
-  Vue.config.devtools = false;
-  Vue.config.debug = false;
-  Vue.config.silent = true;
-}
 const app = new Vue({
     el: '#app',
     router
