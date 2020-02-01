@@ -45,7 +45,9 @@ import marathonDetails from './components/events/marathonCustomerDetails';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 import Ads from 'vue-google-adsense'
+import VuePageTransition from 'vue-page-transition'
  
+Vue.use(VuePageTransition)
 Vue.use(require('vue-script2'))
  
 Vue.use(Ads.Adsense)
