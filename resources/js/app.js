@@ -33,6 +33,7 @@ import gm58header from './components/gm58header';
 import shoppingCart from './components/events/shoppingCart';
 import search from './components/home/search';
 import catergories from './components/home/catergories';
+import newcatergories from './components/home/newCatergories';
 import thisWeek from './components/home/thisWeek';
 import eventDetails from './components/events/eventDetails';
 import eventAddtional from './components/events/eventAddtional';
@@ -114,6 +115,7 @@ Vue.component('cartItems', cartItems)
 Vue.component('shoppingCart', shoppingCart)
 Vue.component('search', search)
 Vue.component('catergories', catergories)
+Vue.component('new-catergories', newcatergories)
 Vue.component('thisWeek', thisWeek)
 Vue.component('eventDetails', eventDetails)
 Vue.component('eventAddtional', eventAddtional)
