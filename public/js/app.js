@@ -11462,7 +11462,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.cards-list[data-v-7a079645] {\r\n  z-index: 0;\r\n  width: 100%;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  flex-wrap: wrap;\n}\n.card[data-v-7a079645] {\r\n  margin: 30px auto;\r\n  width: 300px;\r\n  height: 300px;\r\n  border-radius: 40px;\r\nbox-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);\r\n  cursor: pointer;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.card .card_image[data-v-7a079645] {\r\n  width: inherit;\r\n  height: inherit;\r\n  border-radius: 40px;\n}\n.card .card_image img[data-v-7a079645] {\r\n  width: inherit;\r\n  height: inherit;\r\n  border-radius: 40px;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\na[data-v-7a079645]:hover {\r\n  \r\n  text-decoration: none;\n}\n.card .card_title[data-v-7a079645] {\r\n  text-align: center;\r\n  border-radius: 0px 0px 40px 40px;\r\n  font-family: sans-serif;\r\n  font-weight: bold;\r\n  font-size: 30px;\r\n  margin-top: -90px;\r\n  height: 40px;\n}\n.card[data-v-7a079645]:hover {\r\n  -webkit-transform: scale(0.9, 0.9);\r\n          transform: scale(0.9, 0.9);\r\n  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), \r\n    -5px -5px 30px 15px rgba(0,0,0,0.22);\n}\n.title-white[data-v-7a079645] {\r\n  color: white;\n}\n.title-black[data-v-7a079645] {\r\n  color: black;\n}\n@media all and (max-width: 500px) {\n.card-list[data-v-7a079645] {\r\n    /* On small screens, we are no longer using row direction but column */\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n            flex-direction: column;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.cards-list[data-v-7a079645] {\r\n  z-index: 0;\r\n  width: 100%;\r\n  display: -webkit-box;\r\n  justify-content: space-around;\r\n  flex-wrap: wrap;\n}\n.card[data-v-7a079645] {\r\n  margin: 30px auto;\r\n  width: 300px;\r\n  height: 300px;\r\n  border-radius: 40px;\r\nbox-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);\r\n  cursor: pointer;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.card .card_image[data-v-7a079645] {\r\n  width: inherit;\r\n  height: inherit;\r\n  border-radius: 40px;\n}\n.card .card_image img[data-v-7a079645] {\r\n  width: inherit;\r\n  height: inherit;\r\n  border-radius: 40px;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\na[data-v-7a079645]:hover {\r\n  \r\n  text-decoration: none;\n}\n.card .card_title[data-v-7a079645] {\r\n  text-align: center;\r\n  border-radius: 0px 0px 40px 40px;\r\n  font-weight: bold;\r\n  font-size: 30px;\r\n  margin-top: -90px;\r\n  height: 40px;\n}\n.card[data-v-7a079645]:hover {\r\n  -webkit-transform: scale(0.9, 0.9);\r\n          transform: scale(0.9, 0.9);\r\n  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), \r\n    -5px -5px 30px 15px rgba(0,0,0,0.22);\n}\n.title-white[data-v-7a079645] {\r\n  color: white;\n}\n.title-black[data-v-7a079645] {\r\n  color: black;\n}\n@media all and (max-width: 500px) {\n.card-list[data-v-7a079645] {\r\n    /* On small screens, we are no longer using row direction but column */\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n            flex-direction: column;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -70000,7 +70000,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "cards-list" },
+      { staticClass: "cards-list text-center" },
       _vm._l(_vm.eventData.events, function(event, idx) {
         return _c(
           "div",
@@ -70014,7 +70014,7 @@ var render = function() {
                 }
               },
               [
-                _c("div", { staticClass: "card 1" }, [
+                _c("div", { staticClass: "card 1 m-2" }, [
                   _c("div", { staticClass: "card_image" }, [
                     _c("img", {
                       attrs: { src: event.event_img, alt: event.event_name }
