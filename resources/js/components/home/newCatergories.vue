@@ -1,11 +1,11 @@
 <template>
-<div class="gm58-bg-img">
+<div>
     <h3 class="text-primary mt-2">Trending</h3>
-    <div class="cards-list text-center">
+    <div class="cards-list">
         
         <div  v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
             <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
-                <div class="card 1 m-2">
+                <div class="card 1">
                     <div class="card_image"> <img :src="event.event_img" :alt="event.event_name" /> </div>
                     <div class="card_title title-white">
                         <p>{{event.event_name}}</p>
@@ -75,7 +75,7 @@
 .cards-list {
   z-index: 0;
   width: 100%;
-  display: -webkit-box;
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
