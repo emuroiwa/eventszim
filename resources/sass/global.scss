@@ -2,6 +2,12 @@
     position: relative;
     min-height: 100vh;
   }
+  .gm58-bg-img{
+    background-image: url("/img/bg.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+}
   .slide-fade-enter-active {
     transition: all .3s ease;
   }

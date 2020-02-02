@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="gm58-bg-img">
     <h3 class="text-primary mt-2">Trending</h3>
     <div class="cards-list text-center">
         

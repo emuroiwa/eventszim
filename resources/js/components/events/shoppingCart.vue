@@ -8,7 +8,7 @@
         :height="150"
         :width="150" class="text-center"></loading>
         
-        <div class="card border-primary mb-4 mt-3" v-if="marathons">
+        <div class="card border-primary  justify-content-center" v-if="marathons">
             <div class="card-header event-card-header mb-1">
                 <h4 class="card-title">Marathon Details</h4>
                                 <!-- <h5>Choose Venue & Date/Time</h5> -->
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="card border-primary mb-4 mt-3" v-else >
+        <div class="card border-primary  justify-content-center" v-else >
             <div class="card-header event-card-header mb-1">
                 <h4 class="card-title">Shopping Cart </h4>
                                 <!-- <h5>Choose Venue & Date/Time</h5> -->
