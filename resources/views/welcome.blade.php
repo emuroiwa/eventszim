@@ -3,7 +3,7 @@
    <div id="app">
 
          <gm58header></gm58header>     
-            <main id="main">
+            <main id="main" class="gm58-bg-img">
                 <vue-page-transition name="fade-in-right">
                     <router-view></router-view>
                 </transition>
