@@ -59,8 +59,8 @@
             </div>
             <div class="form-group m-2" v-if="ticketDetails.length>0">
                 <input v-model="ticketDetails.event_id" name="ticketDetails[][event_id]" type="text" class="gm58hack">
-                <button  type="submit" class="btn btn-info is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Save Details</button>
-                <a href="#" class="text-danger"  @click="cancelOrder()">Cancel</a>
+                <button  type="submit" class="btn btn-primary is-mobile-btn" ><i class="fas fa-save"></i> Save Details</button>
+                <a href="#" class="text-danger"  @click="cancelOrder()"><i class="fas fa-ban"></i> Cancel</a>
             </div>
         </form>
     </div>

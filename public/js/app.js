@@ -67287,7 +67287,10 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v(" \n            Cancel order\n        ")]
+              [
+                _c("i", { staticClass: "fas fa-ban" }),
+                _vm._v(" Cancel order\n        ")
+              ]
             )
           ],
           1
@@ -67649,7 +67652,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Cancel")]
+                    [_c("i", { staticClass: "fas fa-ban" }), _vm._v(" Cancel")]
                   )
                 ])
               ])
@@ -67676,7 +67679,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-info is-mobile-btn", attrs: { type: "submit" } },
+      {
+        staticClass: "btn btn-primary is-mobile-btn",
+        attrs: { type: "submit" }
+      },
       [_c("i", { staticClass: "fas fa-shopping-cart" }), _vm._v(" Check Out")]
     )
   }
@@ -68579,7 +68585,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Cancel")]
+                [_c("i", { staticClass: "fas fa-ban" }), _vm._v(" Cancel")]
               )
             ])
           : _vm._e()
@@ -68639,11 +68645,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-info is-mobile-btn", attrs: { type: "submit" } },
-      [
-        _c("i", { staticClass: "fas fa-shopping-cart" }),
-        _vm._v(" Save Details")
-      ]
+      {
+        staticClass: "btn btn-primary is-mobile-btn",
+        attrs: { type: "submit" }
+      },
+      [_c("i", { staticClass: "fas fa-save" }), _vm._v(" Save Details")]
     )
   }
 ]

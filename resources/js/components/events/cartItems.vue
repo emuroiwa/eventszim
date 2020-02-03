@@ -16,7 +16,7 @@
                 </button>
             </router-link>
             <a class="nav-link font-weight-bold" href="#"  @click="cancelOrder()"> 
-                Cancel order
+                <i class="fas fa-ban"></i> Cancel order
             </a>
         </div>
                <!-- The Modal -->
