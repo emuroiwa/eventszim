@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="submitTicket()">
-            <div class="card card-body border-warning mt-1" v-for="(ticketDetails, index) in  ticketDetails">
+            <div class="card card-body border-warning mt-1" v-for="(ticketDetails, index) in  ticketDetails" :key="ticketDetails.id" >
                 <h5> Complete Details </h5> <b> {{ticketDetails.event}} Ticket {{index +1}} </b>
                 <div class="row">
                     <div class="col-md-6">

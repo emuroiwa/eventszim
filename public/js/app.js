@@ -68284,7 +68284,10 @@ var render = function() {
         _vm._l(_vm.ticketDetails, function(ticketDetails, index) {
           return _c(
             "div",
-            { staticClass: "card card-body border-warning mt-1" },
+            {
+              key: ticketDetails.id,
+              staticClass: "card card-body border-warning mt-1"
+            },
             [
               _c("h5", [_vm._v(" Complete Details ")]),
               _vm._v(" "),
