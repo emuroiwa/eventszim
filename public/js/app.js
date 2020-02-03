@@ -3375,6 +3375,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -68886,112 +68889,139 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _vm.marathons
-        ? _c(
-            "div",
-            { staticClass: "card border-primary  justify-content-center" },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "card-body" },
-                [_c("marathonDetails")],
-                1
-              )
-            ]
-          )
-        : _c(
-            "div",
-            { staticClass: "card border-primary  justify-content-center" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                !_vm.orders.length
-                  ? _c(
-                      "div",
-                      {
-                        staticClass:
-                          "card card-body border-danger align-items-center"
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "empty-cart",
-                          attrs: { src: "/img/paymentlogo/emptycart.png" }
-                        }),
-                        _vm._v(" "),
-                        _c("router-link", { attrs: { to: "/home" } }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-block",
-                              attrs: { type: "button" }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fas fa-shopping-cart d-inline "
-                              }),
-                              _vm._v(" Add Tickets \n                    ")
-                            ]
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  : _vm._e(),
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _vm.marathons
+            ? _c("div", { staticClass: "card border-primary m-3" }, [
+                _vm._m(0),
                 _vm._v(" "),
-                _vm.orders.length
-                  ? _c("div", { staticClass: "card card-body border-info" }, [
-                      _c("table", [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.orders, function(order) {
-                            return _c("tr", { key: order.id }, [
-                              _c(
-                                "td",
-                                { attrs: { "data-label": "Description" } },
-                                [
-                                  _vm._v(_vm._s(order.event_name) + " "),
-                                  _c("small", [
-                                    _vm._v(_vm._s(order.description))
-                                  ]),
-                                  _vm._v(" "),
-                                  order.venue && order.town
-                                    ? _c(
-                                        "p",
-                                        { staticClass: "font-weight-bold" },
-                                        [
-                                          _vm._v(
-                                            "Venue " +
-                                              _vm._s(order.venue) +
-                                              " " +
-                                              _vm._s(order.town)
+                _c(
+                  "div",
+                  { staticClass: "card-body" },
+                  [_c("marathonDetails")],
+                  1
+                )
+              ])
+            : _c("div", { staticClass: "card border-primary m-3" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  !_vm.orders.length
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card card-body border-danger align-items-center"
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "empty-cart",
+                            attrs: { src: "/img/paymentlogo/emptycart.png" }
+                          }),
+                          _vm._v(" "),
+                          _c("router-link", { attrs: { to: "/home" } }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary btn-block",
+                                attrs: { type: "button" }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fas fa-shopping-cart d-inline "
+                                }),
+                                _vm._v(
+                                  " Add Tickets \n                            "
+                                )
+                              ]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.orders.length
+                    ? _c("div", { staticClass: "card card-body border-info" }, [
+                        _c("table", [
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.orders, function(order) {
+                              return _c("tr", { key: order.id }, [
+                                _c(
+                                  "td",
+                                  { attrs: { "data-label": "Description" } },
+                                  [
+                                    _vm._v(_vm._s(order.event_name) + " "),
+                                    _c("small", [
+                                      _vm._v(_vm._s(order.description))
+                                    ]),
+                                    _vm._v(" "),
+                                    order.venue && order.town
+                                      ? _c(
+                                          "p",
+                                          { staticClass: "font-weight-bold" },
+                                          [
+                                            _vm._v(
+                                              "Venue " +
+                                                _vm._s(order.venue) +
+                                                " " +
+                                                _vm._s(order.town)
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  { attrs: { "data-label": "Quantity" } },
+                                  [_vm._v(_vm._s(order.quantity) + " ")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  { attrs: { "data-label": "Local Price" } },
+                                  [
+                                    _c("p", [
+                                      _c("small", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm._f("formatNumber")(
+                                              order.price_zwl
+                                            )
+                                          ) + " each "
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "badge badge-info" },
+                                      [_vm._v("ZWL")]
+                                    ),
+                                    _vm._v(
+                                      " " +
+                                        _vm._s(
+                                          _vm._f("formatNumber")(
+                                            order.price_zwl * order.quantity
                                           )
-                                        ]
-                                      )
-                                    : _vm._e()
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                { attrs: { "data-label": "Quantity" } },
-                                [_vm._v(_vm._s(order.quantity) + " ")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                { attrs: { "data-label": "Local Price" } },
-                                [
+                                        ) +
+                                        "\n                                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("td", { attrs: { "data-label": "USD" } }, [
                                   _c("p", [
                                     _c("small", [
                                       _vm._v(
                                         _vm._s(
                                           _vm._f("formatNumber")(
-                                            order.price_zwl
+                                            order.price_usd
                                           )
                                         ) + " each "
                                       )
@@ -69000,32 +69030,75 @@ var render = function() {
                                   _vm._v(" "),
                                   _c(
                                     "span",
-                                    { staticClass: "badge badge-info" },
-                                    [_vm._v("ZWL")]
+                                    { staticClass: "badge badge-success" },
+                                    [_vm._v("USD")]
                                   ),
                                   _vm._v(
                                     " " +
                                       _vm._s(
                                         _vm._f("formatNumber")(
-                                          order.price_zwl * order.quantity
+                                          order.price_usd * order.quantity
                                         )
                                       ) +
-                                      "\n                            "
+                                      "\n                                        "
                                   )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("td", { attrs: { "data-label": "USD" } }, [
-                                _c("p", [
-                                  _c("small", [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm._f("formatNumber")(order.price_usd)
-                                      ) + " each "
-                                    )
-                                  ])
                                 ]),
                                 _vm._v(" "),
+                                _c("td", { attrs: { "data-label": "" } }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "btn btn-danger btn-block",
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteTicket(order.id)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fas fa-trash-alt"
+                                      }),
+                                      _vm._v("Delete")
+                                    ]
+                                  )
+                                ])
+                              ])
+                            }),
+                            0
+                          ),
+                          _vm._v(" "),
+                          _c("tr", [
+                            _c(
+                              "th",
+                              { attrs: { "data-label": "Description" } },
+                              [_vm._v("Total")]
+                            ),
+                            _vm._v(" "),
+                            _c("th", { attrs: { "data-label": "Quantity" } }, [
+                              _vm._v(_vm._s(_vm.totalTickets))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              { attrs: { "data-label": "Local Price" } },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "badge badge-info" },
+                                  [_vm._v("ZWL")]
+                                ),
+                                _vm._v(
+                                  _vm._s(_vm._f("formatNumber")(_vm.totalZWL))
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              { attrs: { "data-label": "USD", colspan: "2" } },
+                              [
                                 _c(
                                   "span",
                                   { staticClass: "badge badge-success" },
@@ -69033,104 +69106,44 @@ var render = function() {
                                 ),
                                 _vm._v(
                                   " " +
-                                    _vm._s(
-                                      _vm._f("formatNumber")(
-                                        order.price_usd * order.quantity
-                                      )
-                                    ) +
-                                    "\n                                "
+                                    _vm._s(_vm._f("formatNumber")(_vm.totalUSD))
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { attrs: { "data-label": "" } }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn btn-danger btn-block",
-                                    attrs: { href: "#" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.deleteTicket(order.id)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "fas fa-trash-alt"
-                                    }),
-                                    _vm._v("Delete")
-                                  ]
-                                )
-                              ])
-                            ])
-                          }),
-                          0
-                        ),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("th", { attrs: { "data-label": "Description" } }, [
-                            _vm._v("Total")
-                          ]),
-                          _vm._v(" "),
-                          _c("th", { attrs: { "data-label": "Quantity" } }, [
-                            _vm._v(_vm._s(_vm.totalTickets))
-                          ]),
-                          _vm._v(" "),
-                          _c("th", { attrs: { "data-label": "Local Price" } }, [
-                            _c("span", { staticClass: "badge badge-info" }, [
-                              _vm._v("ZWL")
-                            ]),
-                            _vm._v(_vm._s(_vm._f("formatNumber")(_vm.totalZWL)))
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "th",
-                            { attrs: { "data-label": "USD", colspan: "2" } },
-                            [
-                              _c(
-                                "span",
-                                { staticClass: "badge badge-success" },
-                                [_vm._v("USD")]
-                              ),
-                              _vm._v(
-                                " " +
-                                  _vm._s(_vm._f("formatNumber")(_vm.totalUSD))
-                              )
-                            ]
-                          )
+                              ]
+                            )
+                          ])
                         ])
                       ])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.orders.length
-                  ? _c(
-                      "div",
-                      { attrs: { id: "customer" } },
-                      [
-                        _c(
-                          "transition",
-                          { attrs: { name: "slide-fade" } },
-                          [
-                            _c("addCustomer", {
-                              ref: "addCustomer",
-                              attrs: {
-                                paymentType: this.paymentMethod,
-                                total_USD: _vm.totalUSD,
-                                total_ZWL: _vm.totalZWL,
-                                orders: _vm.orders
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  : _vm._e()
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.orders.length
+                    ? _c(
+                        "div",
+                        { attrs: { id: "customer" } },
+                        [
+                          _c(
+                            "transition",
+                            { attrs: { name: "slide-fade" } },
+                            [
+                              _c("addCustomer", {
+                                ref: "addCustomer",
+                                attrs: {
+                                  paymentType: this.paymentMethod,
+                                  total_USD: _vm.totalUSD,
+                                  total_ZWL: _vm.totalZWL,
+                                  orders: _vm.orders
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ])
               ])
-            ]
-          )
+        ])
+      ])
     ],
     1
   )

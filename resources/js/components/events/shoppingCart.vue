@@ -7,119 +7,122 @@
         :color="'#3490DC'"
         :height="150"
         :width="150" class="text-center"></loading>
-        
-        <div class="card border-primary  justify-content-center" v-if="marathons">
-            <div class="card-header event-card-header mb-1">
-                <h4 class="card-title">Marathon Details</h4>
-                                <!-- <h5>Choose Venue & Date/Time</h5> -->
-            </div>
-            <div class="card-body">
-                 <marathonDetails></marathonDetails>
-            </div>
-        </div>
-
-        <div class="card border-primary  justify-content-center" v-else >
-            <div class="card-header event-card-header mb-1">
-                <h4 class="card-title">Shopping Cart </h4>
-                                <!-- <h5>Choose Venue & Date/Time</h5> -->
-            </div>
-            <div class="card-body">
-                <div class="card card-body border-danger align-items-center" v-if="!orders.length" >
-                    <!-- <testdetails></testdetails> -->
-                    <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
-                    <router-link to="/home"> 
-                        <button type="button" class="btn btn-primary btn-block" >
-                            <i class="fas fa-shopping-cart d-inline "></i> Add Tickets 
-                        </button>
-                    </router-link>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card border-primary m-3" v-if="marathons">
+                    <div class="card-header event-card-header mb-1">
+                        <h4 class="card-title">Marathon Details</h4>
+                                        <!-- <h5>Choose Venue & Date/Time</h5> -->
+                    </div>
+                    <div class="card-body">
+                        <marathonDetails></marathonDetails>
+                    </div>
                 </div>
-                <div class="card card-body border-info" v-if="orders.length">
-            
-                    <table>
-                        <thead> 
-                            <tr>
-                                <th scope="col">Description</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Local Price</th>
-                                <th scope="col">USD</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="order in orders" :key="order.id">
-                                <td data-label="Description">{{order.event_name}} <small>{{order.description}}</small>
-                                    <p v-if="order.venue && order.town" class="font-weight-bold">Venue {{order.venue}} {{order.town}}</p></td>
-                                <td data-label="Quantity">{{order.quantity}} </td>
-                                <td data-label="Local Price">  
-                                    <p><small>{{order.price_zwl | formatNumber}} each </small></p>
-                                    <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
-                                </td>
-                                <td data-label="USD">
-                                <p><small>{{order.price_usd | formatNumber}} each </small></p>
-                                <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
-                                    </td>
-                                <td data-label=""><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i>Delete</a></td>
-                            </tr>
-                            
-                        </tbody>
-                            <tr>
-                                <th data-label="Description">Total</th>
-                                <th data-label="Quantity">{{totalTickets}}</th>
-                                <th data-label="Local Price"><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
-                                <th data-label="USD" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
 
-                            </tr>
-                    </table>
-                </div>
-                <!-- <div class="card card-body  border-success mt-1" v-if="orders.length">
-                    <h4>Select Payment Method </h4>
-                    <div class="row">
-                        
-                        <div class="col-md-4">
-                            <div class="card card-body  border-danger grow"  @click="selectPayment('ecocash',$event)">
-                                <img  :src="'/img/paymentlogo/ecocash.png'" >
-                            </div>
+                <div class="card border-primary m-3" v-else >
+                    <div class="card-header event-card-header mb-1">
+                        <h4 class="card-title">Shopping Cart </h4>
+                                        <!-- <h5>Choose Venue & Date/Time</h5> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="card card-body border-danger align-items-center" v-if="!orders.length" >
+                            <!-- <testdetails></testdetails> -->
+                            <img  :src="'/img/paymentlogo/emptycart.png'" class="empty-cart" >
+                            <router-link to="/home"> 
+                                <button type="button" class="btn btn-primary btn-block" >
+                                    <i class="fas fa-shopping-cart d-inline "></i> Add Tickets 
+                                </button>
+                            </router-link>
                         </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card card-body  border-secondary notworking">
+                        <div class="card card-body border-info" v-if="orders.length">
+                    
+                            <table>
+                                <thead> 
+                                    <tr>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Local Price</th>
+                                        <th scope="col">USD</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="order in orders" :key="order.id">
+                                        <td data-label="Description">{{order.event_name}} <small>{{order.description}}</small>
+                                            <p v-if="order.venue && order.town" class="font-weight-bold">Venue {{order.venue}} {{order.town}}</p></td>
+                                        <td data-label="Quantity">{{order.quantity}} </td>
+                                        <td data-label="Local Price">  
+                                            <p><small>{{order.price_zwl | formatNumber}} each </small></p>
+                                            <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
+                                        </td>
+                                        <td data-label="USD">
+                                        <p><small>{{order.price_usd | formatNumber}} each </small></p>
+                                        <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
+                                            </td>
+                                        <td data-label=""><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i>Delete</a></td>
+                                    </tr>
+                                    
+                                </tbody>
+                                    <tr>
+                                        <th data-label="Description">Total</th>
+                                        <th data-label="Quantity">{{totalTickets}}</th>
+                                        <th data-label="Local Price"><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
+                                        <th data-label="USD" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
+
+                                    </tr>
+                            </table>
+                        </div>
+                        <!-- <div class="card card-body  border-success mt-1" v-if="orders.length">
+                            <h4>Select Payment Method </h4>
+                            <div class="row">
                                 
-                                <img  :src="'/img/paymentlogo/paypal.png'" >
+                                <div class="col-md-4">
+                                    <div class="card card-body  border-danger grow"  @click="selectPayment('ecocash',$event)">
+                                        <img  :src="'/img/paymentlogo/ecocash.png'" >
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card card-body  border-secondary notworking">
+                                        
+                                        <img  :src="'/img/paymentlogo/paypal.png'" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card card-body  border-warning grow"  @click="selectPayment('paynow',$event)">
+                                        <img  :src="'/img/paymentlogo/zimswitch.jpg'" >
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card card-body  border-warning grow"  @click="selectPayment('paynow',$event)">
-                                <img  :src="'/img/paymentlogo/zimswitch.jpg'" >
-                            </div>
+                        </div> -->
+                        <div id="customer" v-if="orders.length"> 
+                            <!-- modal for mobile -->
+                            <!-- <div class="modal" id="customerDetails" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog  modal-lg">
+                                    <div class="modal-content">
+
+                                        
+                                        <div class="modal-header event-card-header">
+                                            <h4 class="modal-title">Shopping Cart</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                    
+                                        <div class="modal-body">
+                                            <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="this.orders"></addCustomer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <transition name="slide-fade">
+                                <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
+                            </transition>
+                            <!-- <Adsense
+                                data-ad-client="ca-pub-3540520778119630"
+                                data-ad-slot="1234567890">
+                            </Adsense> -->
                         </div>
                     </div>
-                </div> -->
-                <div id="customer" v-if="orders.length"> 
-                    <!-- modal for mobile -->
-                    <!-- <div class="modal" id="customerDetails" data-backdrop="static" data-keyboard="false">
-                        <div class="modal-dialog  modal-lg">
-                            <div class="modal-content">
-
-                                
-                                <div class="modal-header event-card-header">
-                                    <h4 class="modal-title">Shopping Cart</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-
-                              
-                                <div class="modal-body">
-                                    <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="this.orders"></addCustomer>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <transition name="slide-fade">
-                        <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
-                    </transition>
-                    <!-- <Adsense
-                        data-ad-client="ca-pub-3540520778119630"
-                        data-ad-slot="1234567890">
-                    </Adsense> -->
                 </div>
             </div>
         </div>

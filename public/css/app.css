@@ -17462,13 +17462,13 @@ readers do not read off random characters that represent icons */
 
 @media only screen and (min-width: 992px) {
   .is-mobile-card {
-    margin-top: 10em !important;
+    margin-top: 13em !important;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .is-mobile-card {
-    margin-top: 10em !important;
+    margin-top: 13em !important;
   }
 }
 
