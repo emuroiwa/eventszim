@@ -95,8 +95,16 @@ class PaynowController extends Controller
                 'status' => 0,
                 'pollURL'=>  $pollUrl,
             ]);
-
+            
             return $link;
+            // if ($this->checkStock($paymentRef) == "success")
+            // {
+            //     return $link;
+            // }else
+            // {
+            //     return $this->checkStock($paymentRef);
+            // } 
+
 
         }
     }
@@ -146,10 +154,12 @@ class PaynowController extends Controller
         );
 
         $pollUrl = "";
+        $currentStatus = "";
         $transactions = Payments::where('order_ref','=',$paymentRef)->get();
         
         foreach ($transactions as $r) {
             $pollUrl = $r->pollURL;
+            $currentStatus = $r->status;
         }
          // Check the status of the transaction
         $status = $paynow->pollTransaction($pollUrl);
@@ -164,6 +174,8 @@ class PaynowController extends Controller
             Payments::where('order_ref', $paymentRef)
             ->where('status', 0)
             ->update( array('status'=>1));
+            
+            $this->updateStock($paymentRef);
 
             return ['message'=>'done'];
             
@@ -181,6 +193,52 @@ class PaynowController extends Controller
 
 
          }
+    }
+    public function updateStock($paymentRef)
+    {
+        $orders = Orders::Join('payments', 'payments.order_ref', '=', 'payments.reference')
+                    ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+                    ->select(DB::raw('SUM(orders.quantity) as quantity_sold,price_sub_categories.id,price_sub_categories.quantity'))
+                    ->where('order_ref','=',$paymentRef)
+                    ->where('orders.status','=',2)
+                    ->groupBy(DB::raw('price_sub_categories.id'))
+                    ->orderby('orders.id', 'DESC')
+                    ->get();
+                
+                foreach ($orders as $r) {
+                    if ($r->quantity_sold >= $r->quantity_sold) 
+                    {
+                        PriceSubCategoryController::where('id', $r->id)
+                            ->update( array('status'=>'sold_out') );
+                    }
+                }
+
+    }
+
+    public function checkStock($paymentRef)
+    {
+        $orders = Orders::select('description','price_sub_categories.status AS ticketStatus')
+                    ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+                    ->where('reference','=',$paymentRef)
+                    ->orderby('orders.id', 'DESC')
+                    ->get();
+                $soldOut = [];
+                foreach ($orders as $r) {
+                    if ($r->ticketStatus != 'sale') 
+                    {
+                        $soldOut = $r->description . " Tickets have been sold out, Click ok and remove the ticket";
+                    }
+                    
+                }
+                if ($soldOut)
+                {
+                    return $soldOut;
+                }
+                else
+                {
+                    return 'success';
+                }
+
     }
    
 }

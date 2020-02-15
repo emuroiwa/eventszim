@@ -25,7 +25,7 @@
                                 <span class="badge badge-info">ZWL</span> {{event.price_zwl | formatNumber}}<br/>
                                 <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3" v-if="event.status == 'sale'">
                                 <select class="form-control"  @change="onChangeTickets($event)">
                                     <option>0</option>
                                     <option v-for="index in event.max_tickets" :key="index" :data-id="event.id">
@@ -33,6 +33,9 @@
                                     </option>
                                 
                                 </select>
+                            </div>
+                            <div class="col-md-3" v-if="event.status != 'sale'">
+                                <h3><span class="badge badge-danger">Sold Out</span></h3>
                             </div>
                         </div>
                     </div>

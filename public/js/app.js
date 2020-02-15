@@ -3163,6 +3163,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     eventData: Object
@@ -68730,37 +68733,48 @@ var render = function() {
                         _c("br")
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-md-3" }, [
-                        _c(
-                          "select",
-                          {
-                            staticClass: "form-control",
-                            on: {
-                              change: function($event) {
-                                return _vm.onChangeTickets($event)
-                              }
-                            }
-                          },
-                          [
-                            _c("option", [_vm._v("0")]),
-                            _vm._v(" "),
-                            _vm._l(event.max_tickets, function(index) {
-                              return _c(
-                                "option",
-                                { key: index, attrs: { "data-id": event.id } },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(index) +
-                                      "\n                                "
+                      event.status == "sale"
+                        ? _c("div", { staticClass: "col-md-3" }, [
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control",
+                                on: {
+                                  change: function($event) {
+                                    return _vm.onChangeTickets($event)
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", [_vm._v("0")]),
+                                _vm._v(" "),
+                                _vm._l(event.max_tickets, function(index) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      attrs: { "data-id": event.id }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(index) +
+                                          "\n                                "
+                                      )
+                                    ]
                                   )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ])
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      event.status != "sale"
+                        ? _c("div", { staticClass: "col-md-3" }, [
+                            _vm._m(0, true)
+                          ])
+                        : _vm._e()
                     ])
                   ]
                 )
@@ -68833,10 +68847,18 @@ var render = function() {
             2
           )
         ])
-      : _c("div", [_vm._m(0)])
+      : _c("div", [_vm._m(1)])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", [
+      _c("span", { staticClass: "badge badge-danger" }, [_vm._v("Sold Out")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
