@@ -51,13 +51,19 @@
                                         <td data-label="Description">{{order.event_name}} <small>{{order.description}}</small>
                                             <p v-if="order.venue && order.town" class="font-weight-bold">Venue {{order.venue}} {{order.town}}</p></td>
                                         <td data-label="Quantity">{{order.quantity}} </td>
-                                        <td data-label="Local Price">  
-                                            <p><small>{{order.price_zwl | formatNumber}} each </small></p>
-                                            <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
+                                        <td data-label="Local Price"> 
+                                            <div v-if="order.price_zwl > 0"> 
+                                                <p><small>{{order.price_zwl | formatNumber}} each </small></p>
+                                                <span class="badge badge-info">ZWL</span> {{order.price_zwl * order.quantity | formatNumber}}
+                                            </div>
+                                           
                                         </td>
                                         <td data-label="USD">
-                                        <p><small>{{order.price_usd | formatNumber}} each </small></p>
-                                        <span class="badge badge-success">USD</span> {{order.price_usd * order.quantity | formatNumber}}
+                                                <div v-if="order.price_usd > 0"> 
+                                                    <p><small>{{order.price_zwl | formatNumber}} each </small></p>
+                                                    <span class="badge badge-info">USD</span> {{order.price_usd * order.quantity | formatNumber}}
+                                                </div>
+                                                
                                             </td>
                                         <td data-label=""><a href="#"  class="btn btn-danger btn-block" @click="deleteTicket(order.id)"><i class="fas fa-trash-alt"></i>Delete</a></td>
                                     </tr>
@@ -66,8 +72,16 @@
                                     <tr>
                                         <th data-label="Description">Total</th>
                                         <th data-label="Quantity">{{totalTickets}}</th>
-                                        <th data-label="Local Price"><span class="badge badge-info">ZWL</span>{{totalZWL | formatNumber }}</th>
-                                        <th data-label="USD" colspan="2"><span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}</th>
+                                        <th data-label="Local Price">
+                                            <div v-if="totalZWL > 0"> 
+                                                <span class="badge badge-info">ZWL</span> {{totalZWL | formatNumber }}
+                                            </div>
+                                        </th>
+                                        <th data-label="USD" colspan="2">
+                                            <div v-if="totalUSD > 0"> 
+                                                <span class="badge badge-success">USD</span> {{totalUSD | formatNumber }}
+                                            </div>
+                                        </th>
 
                                     </tr>
                             </table>

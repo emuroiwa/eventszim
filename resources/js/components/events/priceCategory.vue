@@ -22,8 +22,12 @@
                                 {{event.description}}
                             </div>
                             <div class="col-md-4">
-                                <span class="badge badge-info">ZWL</span> {{event.price_zwl | formatNumber}}<br/>
-                                <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
+                                <div v-if="event.price_zwl > 0"> 
+                                    <span class="badge badge-info">ZWL</span> {{event.price_zwl | formatNumber}}<br/>
+                                </div>
+                                <div v-if="event.price_usd > 0"> 
+                                    <span class="badge badge-success">USD</span> {{event.price_usd | formatNumber }}<br/>
+                                </div>
                             </div>
                             <div class="col-md-3" v-if="event.status == 'sale'">
                                 <select class="form-control"  @change="onChangeTickets($event)">

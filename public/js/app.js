@@ -3166,6 +3166,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     eventData: Object
@@ -3250,6 +3254,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -68716,21 +68734,37 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-4" }, [
-                        _c("span", { staticClass: "badge badge-info" }, [
-                          _vm._v("ZWL")
-                        ]),
-                        _vm._v(
-                          " " + _vm._s(_vm._f("formatNumber")(event.price_zwl))
-                        ),
-                        _c("br"),
+                        event.price_zwl > 0
+                          ? _c("div", [
+                              _c("span", { staticClass: "badge badge-info" }, [
+                                _vm._v("ZWL")
+                              ]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(
+                                    _vm._f("formatNumber")(event.price_zwl)
+                                  )
+                              ),
+                              _c("br")
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("span", { staticClass: "badge badge-success" }, [
-                          _vm._v("USD")
-                        ]),
-                        _vm._v(
-                          " " + _vm._s(_vm._f("formatNumber")(event.price_usd))
-                        ),
-                        _c("br")
+                        event.price_usd > 0
+                          ? _c("div", [
+                              _c(
+                                "span",
+                                { staticClass: "badge badge-success" },
+                                [_vm._v("USD")]
+                              ),
+                              _vm._v(
+                                " " +
+                                  _vm._s(
+                                    _vm._f("formatNumber")(event.price_usd)
+                                  )
+                              ),
+                              _c("br")
+                            ])
+                          : _vm._e()
                       ]),
                       _vm._v(" "),
                       event.status == "sale"
@@ -69008,62 +69042,71 @@ var render = function() {
                                   "td",
                                   { attrs: { "data-label": "Local Price" } },
                                   [
-                                    _c("p", [
-                                      _c("small", [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm._f("formatNumber")(
-                                              order.price_zwl
-                                            )
-                                          ) + " each "
-                                        )
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "badge badge-info" },
-                                      [_vm._v("ZWL")]
-                                    ),
-                                    _vm._v(
-                                      " " +
-                                        _vm._s(
-                                          _vm._f("formatNumber")(
-                                            order.price_zwl * order.quantity
+                                    order.price_zwl > 0
+                                      ? _c("div", [
+                                          _c("p", [
+                                            _c("small", [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm._f("formatNumber")(
+                                                    order.price_zwl
+                                                  )
+                                                ) + " each "
+                                              )
+                                            ])
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "badge badge-info" },
+                                            [_vm._v("ZWL")]
+                                          ),
+                                          _vm._v(
+                                            " " +
+                                              _vm._s(
+                                                _vm._f("formatNumber")(
+                                                  order.price_zwl *
+                                                    order.quantity
+                                                )
+                                              ) +
+                                              "\n                                        "
                                           )
-                                        ) +
-                                        "\n                                    "
-                                    )
+                                        ])
+                                      : _vm._e()
                                   ]
                                 ),
                                 _vm._v(" "),
                                 _c("td", { attrs: { "data-label": "USD" } }, [
-                                  _c("p", [
-                                    _c("small", [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm._f("formatNumber")(
-                                            order.price_usd
-                                          )
-                                        ) + " each "
-                                      )
-                                    ])
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    { staticClass: "badge badge-success" },
-                                    [_vm._v("USD")]
-                                  ),
-                                  _vm._v(
-                                    " " +
-                                      _vm._s(
-                                        _vm._f("formatNumber")(
-                                          order.price_usd * order.quantity
+                                  order.price_usd > 0
+                                    ? _c("div", [
+                                        _c("p", [
+                                          _c("small", [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm._f("formatNumber")(
+                                                  order.price_zwl
+                                                )
+                                              ) + " each "
+                                            )
+                                          ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "badge badge-info" },
+                                          [_vm._v("USD")]
+                                        ),
+                                        _vm._v(
+                                          " " +
+                                            _vm._s(
+                                              _vm._f("formatNumber")(
+                                                order.price_usd * order.quantity
+                                              )
+                                            ) +
+                                            "\n                                            "
                                         )
-                                      ) +
-                                      "\n                                        "
-                                  )
+                                      ])
+                                    : _vm._e()
                                 ]),
                                 _vm._v(" "),
                                 _c("td", { attrs: { "data-label": "" } }, [
@@ -69106,14 +69149,22 @@ var render = function() {
                               "th",
                               { attrs: { "data-label": "Local Price" } },
                               [
-                                _c(
-                                  "span",
-                                  { staticClass: "badge badge-info" },
-                                  [_vm._v("ZWL")]
-                                ),
-                                _vm._v(
-                                  _vm._s(_vm._f("formatNumber")(_vm.totalZWL))
-                                )
+                                _vm.totalZWL > 0
+                                  ? _c("div", [
+                                      _c(
+                                        "span",
+                                        { staticClass: "badge badge-info" },
+                                        [_vm._v("ZWL")]
+                                      ),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm._f("formatNumber")(_vm.totalZWL)
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]
                             ),
                             _vm._v(" "),
@@ -69121,15 +69172,22 @@ var render = function() {
                               "th",
                               { attrs: { "data-label": "USD", colspan: "2" } },
                               [
-                                _c(
-                                  "span",
-                                  { staticClass: "badge badge-success" },
-                                  [_vm._v("USD")]
-                                ),
-                                _vm._v(
-                                  " " +
-                                    _vm._s(_vm._f("formatNumber")(_vm.totalUSD))
-                                )
+                                _vm.totalUSD > 0
+                                  ? _c("div", [
+                                      _c(
+                                        "span",
+                                        { staticClass: "badge badge-success" },
+                                        [_vm._v("USD")]
+                                      ),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm._f("formatNumber")(_vm.totalUSD)
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]
                             )
                           ])
