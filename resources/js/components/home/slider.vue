@@ -10,7 +10,18 @@
                 <div class="carousel-item" v-for="(event,idx) in eventData.events" :key="event.id" :class="{ active: idx==0 }">
                     <router-link :to="{ path: 'indexEvent', query: { event: event.id } }">
                         <div class="overlay"></div>
-                        <img class="d-block w-100 gm58-slider" :src="event.event_img" :alt="event.event_name">
+                        <img v-if="isMobile && event.event_mobile_img" class="d-block w-100 gm58-slider img-fluid" :src="event.event_mobile_img" :alt="event.event_name">
+                        <img v-else class="d-block w-100 gm58-slider img-fluid" :src="event.event_img" :alt="event.event_name">
+                        <!-- <vue-responsive-image
+                            :width-on-screen="100"
+                            :width-on-screen-tablet="100"
+                            :width-on-screen-smartphone="100"
+                            :image-url="event.event_mobile_img"
+                            :image-ratio="16/9"
+                            :alt="event.event_name"
+                            :image-class="'d-block gm58-slider'"
+                            :mode="'all'"></vue-responsive-image> -->
+
                         <div class="carousel-caption d-none d-md-block">
                             
                             <h2>{{event.event_name}}</h2>
@@ -78,7 +89,7 @@ a {
 }  */
 .gm58-slider { 
     max-height: 650px;
-    height:650px;
+    /* height:650px; */
     width: 100%;
   
 }

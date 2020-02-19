@@ -43,6 +43,8 @@ class EventsController extends Controller
             $jsonResult[$i]["event_details"] = $tableIds[$i]->event_details;
             $jsonResult[$i]["is_slider"] = $tableIds[$i]->is_slider;
             $jsonResult[$i]["event_img"] = $tableIds[$i]->event_img;
+            $jsonResult[$i]["event_card_img"] = $tableIds[$i]->event_card_img;
+            $jsonResult[$i]["event_mobile_img"] = $tableIds[$i]->event_mobile_img;
             $jsonResult[$i]["youtube"] = $tableIds[$i]->youtube;
             $jsonResult[$i]["instagram"] = $tableIds[$i]->instagram;
             $jsonResult[$i]["twitter"] = $tableIds[$i]->twitter;
@@ -106,6 +108,8 @@ class EventsController extends Controller
             $jsonResult[$i]["event_details"] = $tableIds[$i]->event_details;
             $jsonResult[$i]["is_slider"] = $tableIds[$i]->is_slider;
             $jsonResult[$i]["event_img"] = $tableIds[$i]->event_img;
+            $jsonResult[$i]["event_card_img"] = $tableIds[$i]->event_card_img;
+            $jsonResult[$i]["event_mobile_img"] = $tableIds[$i]->event_mobile_img;
             $jsonResult[$i]["youtube"] = $tableIds[$i]->youtube;
             $jsonResult[$i]["instagram"] = $tableIds[$i]->instagram;
             $jsonResult[$i]["twitter"] = $tableIds[$i]->twitter;

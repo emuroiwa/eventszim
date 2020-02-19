@@ -46,7 +46,8 @@ import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 import Ads from 'vue-google-adsense'
 import VuePageTransition from 'vue-page-transition'
- 
+import VueResponsiveImage from 'vue-responsive-image'
+
 Vue.use(VuePageTransition)
 Vue.use(require('vue-script2'))
  
@@ -125,6 +126,7 @@ Vue.component('testdetails', testdetails)
 Vue.component('priceCategory', priceCategory)
 Vue.component('marathon', marathon)
 Vue.component('marathonDetails', marathonDetails)
+Vue.component('vue-responsive-image', VueResponsiveImage)
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
