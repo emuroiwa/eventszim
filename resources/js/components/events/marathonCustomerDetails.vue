@@ -34,8 +34,8 @@
                             <label for="category"><b>Race Category</b>*</label>
                             <select name="ticketDetails[][category]" v-model="ticketDetails.category" class="form-control" required>
                                 <option value="">Please select </option>
-                                <option>Junior Under 18</option>
-                                <option> Open (18 - 39)</option>
+                                <option v-if="ticketDetails.event_id!=12">Junior Under 18</option>
+                                <option>Open (18 - 39)</option>
                                 <option>Veteran (40 - 49)</option>
                                 <option>Master (50 - 59)</option>
                                 <option> Grandmaster (60 and above)</option>

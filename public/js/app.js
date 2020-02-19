@@ -68495,9 +68495,11 @@ var render = function() {
                           _vm._v("Please select ")
                         ]),
                         _vm._v(" "),
-                        _c("option", [_vm._v("Junior Under 18")]),
+                        ticketDetails.event_id != 12
+                          ? _c("option", [_vm._v("Junior Under 18")])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("option", [_vm._v(" Open (18 - 39)")]),
+                        _c("option", [_vm._v("Open (18 - 39)")]),
                         _vm._v(" "),
                         _c("option", [_vm._v("Veteran (40 - 49)")]),
                         _vm._v(" "),
