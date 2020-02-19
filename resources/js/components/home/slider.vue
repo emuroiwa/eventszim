@@ -14,7 +14,8 @@
                         <div class="carousel-caption d-none d-md-block">
                             
                             <h2>{{event.event_name}}</h2>
-                            <h3>{{event.start_date | myDate}}</h3>
+                            <h3 v-if="event.event_details != 'COMING SOON'">{{event.start_date | myDate}}</h3>
+                            <h3 v-else>COMING SOON</h3>
                                 
                                     <button class="btn btn-primary" v-if="isMobile">
                                         Get tickets <i class="fas fa-ticket-alt"></i> 

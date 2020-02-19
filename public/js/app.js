@@ -2978,17 +2978,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3074,7 +3063,7 @@ __webpack_require__.r(__webpack_exports__);
             obj['fullname'] = '';
             obj['contact'] = '';
             obj['category'] = '';
-            obj['pack'] = '';
+            obj['pack'] = 'Bulawayo City Hall Car park';
             obj['tshirtsize'] = '';
             obj['gender'] = '';
             obj['event'] = event_name + " " + description;
@@ -4243,6 +4232,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -68518,58 +68508,6 @@ var render = function() {
                     )
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _vm._m(4, true),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: ticketDetails.pack,
-                            expression: "ticketDetails.pack"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { name: "ticketDetails[][pack]", required: "" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              ticketDetails,
-                              "pack",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          }
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Please select ")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Westgate Shopping Centre")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Old Mutual Greenzone Town")])
-                      ]
-                    )
-                  ])
-                ])
               ])
             ]
           )
@@ -68599,7 +68537,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(5),
+              _vm._m(4),
               _vm._v(" "),
               _c(
                 "a",
@@ -68654,15 +68592,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "category" } }, [
       _c("b", [_vm._v("Race Category")]),
-      _vm._v("*")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "pack" } }, [
-      _c("b", [_vm._v("Race Pickup")]),
       _vm._v("*")
     ])
   },
@@ -70415,9 +70344,11 @@ var render = function() {
                     [
                       _c("h2", [_vm._v(_vm._s(event.event_name))]),
                       _vm._v(" "),
-                      _c("h3", [
-                        _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
-                      ]),
+                      event.event_details != "COMING SOON"
+                        ? _c("h3", [
+                            _vm._v(_vm._s(_vm._f("myDate")(event.start_date)))
+                          ])
+                        : _c("h3", [_vm._v("COMING SOON")]),
                       _vm._v(" "),
                       _vm.isMobile
                         ? _c("button", { staticClass: "btn btn-primary" }, [
