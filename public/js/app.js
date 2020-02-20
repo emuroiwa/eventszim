@@ -2978,6 +2978,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3063,7 +3074,7 @@ __webpack_require__.r(__webpack_exports__);
             obj['fullname'] = '';
             obj['contact'] = '';
             obj['category'] = '';
-            obj['pack'] = 'Bulawayo City Hall Car park';
+            obj['pack'] = '';
             obj['tshirtsize'] = '';
             obj['gender'] = '';
             obj['event'] = event_name + " " + description;
@@ -68827,6 +68838,58 @@ var render = function() {
                     )
                   ])
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(4, true),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: ticketDetails.pack,
+                            expression: "ticketDetails.pack"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "ticketDetails[][pack]", required: "" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              ticketDetails,
+                              "pack",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Please select ")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("PPC Harare office")]),
+                        _vm._v(" "),
+                        _c("option", [_vm._v("PPC Bulawayo Office")])
+                      ]
+                    )
+                  ])
+                ])
               ])
             ]
           )
@@ -68856,7 +68919,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(4),
+              _vm._m(5),
               _vm._v(" "),
               _c(
                 "a",
@@ -68911,6 +68974,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "category" } }, [
       _c("b", [_vm._v("Race Category")]),
+      _vm._v("*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "pack" } }, [
+      _c("b", [_vm._v("Race Pickup")]),
       _vm._v("*")
     ])
   },
