@@ -12,10 +12,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Payment processing</div>
+                    <div class="card-header">Payment processing kindly be patient</div>
 
                     <div class="card-body">
-                        Please dont do anything
+                        <img src="/img/payment-animation.gif"/>
                     </div>
                 </div>
             </div>

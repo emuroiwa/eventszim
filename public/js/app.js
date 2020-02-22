@@ -70989,13 +70989,11 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Payment processing")
+            _vm._v("Payment processing kindly be patient")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _vm._v(
-              "\n                    Please dont do anything\n                "
-            )
+            _c("img", { attrs: { src: "/img/payment-animation.gif" } })
           ])
         ])
       ])
