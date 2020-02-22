@@ -68982,7 +68982,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "pack" } }, [
-      _c("b", [_vm._v("Race Pickup")]),
+      _c("b", [_vm._v("Race Pack Pickup")]),
       _vm._v("*")
     ])
   },
