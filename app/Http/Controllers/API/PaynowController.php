@@ -9,6 +9,7 @@ use App\Orders;
 use App\Payments;
 use App\PaymentDetails;
 use App\Customer;
+use App\PriceSubCategory;
 use DB;
 
 class PaynowController extends Controller
@@ -196,17 +197,16 @@ class PaynowController extends Controller
     }
     public function updateStock($paymentRef)
     {
-        $orders = Orders::Join('payments', 'payments.order_ref', '=', 'payments.reference')
-                    ->Join('zim_events', 'price_sub_categories.event_id', '=', 'zim_events.id')
+        $orders = PriceSubCategory::Join('orders', 'orders.category_id', '=', 'price_sub_categories.id')
                     ->select(DB::raw('SUM(orders.quantity) as quantity_sold,price_sub_categories.id,price_sub_categories.quantity'))
-                    ->where('order_ref','=',$paymentRef)
+                    ->where('orders.reference','=',$paymentRef)
                     ->where('orders.status','=',2)
-                    ->groupBy(DB::raw('price_sub_categories.id'))
+                    ->groupBy(DB::raw('price_sub_categories.id,price_sub_categories.quantity'))
                     ->orderby('orders.id', 'DESC')
                     ->get();
                 
                 foreach ($orders as $r) {
-                    if ($r->quantity_sold >= $r->quantity_sold) 
+                    if ($r->quantity_sold >= $r->quantity) 
                     {
                         PriceSubCategoryController::where('id', $r->id)
                             ->update( array('status'=>'sold_out') );
