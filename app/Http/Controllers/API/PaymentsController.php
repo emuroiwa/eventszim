@@ -74,19 +74,34 @@ class PaymentsController extends Controller
     }
     public function getTicketDetails($id)
     {
-        return Orders::Join('customers', 'customers.order_id', '=', 'orders.reference')
+       $nonMarathon = Orders::Join('payments', 'payments.order_ref', '=', 'orders.reference')
+        ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'orders.category_id')
+        ->Join('zim_events', 'zim_events.id', '=', 'price_sub_categories.event_id')
+        ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_types', 'event_types.event_id', '=', 'zim_events.id')
+        ->select(DB::raw('"" AS cid,orders.id,payments.order_ref,event_name,"" AS  fullname,
+                            "" AS  contact,"" AS  marathon_type,"" AS  marathon_pickup,
+                            COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,
+                            orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_img'))
+        ->where('payments.order_ref','=',$id)
+        ->where('payments.status','=',1)
+        ->where('event_types.event_type','<>','marathon');
+
+        return Orders::leftJoin('customers', 'customers.order_id', '=', 'orders.reference')
         ->Join('payments', 'payments.order_ref', '=', 'orders.reference')
         ->Join('price_sub_categories', 'price_sub_categories.id', '=', 'customers.event_id')
         ->Join('zim_events', 'zim_events.id', '=', 'price_sub_categories.event_id')
         ->leftJoin('event_locations', 'event_locations.event_id', '=', 'zim_events.id')
+        ->leftJoin('event_infos', 'event_infos.event_id', '=', 'zim_events.id')
         ->select(DB::raw('customers.id AS cid,orders.id,payments.order_ref,event_name,customers.fullname,
                             customers.contact,customers.marathon_type,customers.marathon_pickup,
                             COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,
-                            orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town'))
+                            orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_img'))
         ->where('payments.order_ref','=',$id)
         ->where('payments.status','=',1)
+        ->union($nonMarathon)
         ->groupBy(DB::raw('customers.id'))
-        ->orderby('orders.id', 'DESC')
         ->get();
              
      }
@@ -102,16 +117,17 @@ class PaymentsController extends Controller
 
         if ($request['email_type'] == "success") {
             $dataPDF = $this->getTicketDetails($request['order_id']);
+            $pdf = PDF::loadView('email.ticket', ["data1"=>$dataPDF]);
             $data['PDFcaption']=$request['client_name'].$request['subject'];
         }
        
         try {
             if ($request['email_type'] == "success") {
-                Mail::send('email.emailbody', ["data1"=>$dataPDF, "data2"=>$data], function($message)use($data) {
+                Mail::send('email.emailbody', ["data1"=>$dataPDF, "data2"=>$data], function($message)use($data,$pdf) {
                 $message->to($data['email'], $data["client_name"])
                 ->subject($data["subject"])
-                ->from($data['from_email']);
-               // ->attachData($pdf->output(), $data["subject"].".pdf");
+                ->from($data['from_email'])
+                ->attachData($pdf->output(), "Tickets.pdf");
                 });
             } else {
                Mail::send('email.emailbody', ["data2"=>$data], function($message)use($data) {

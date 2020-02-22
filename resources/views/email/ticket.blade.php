@@ -14,7 +14,15 @@
         {{--  transform: rotate(10deg);  --}}
         transform-origin: 50% 50%;
         z-index: -1000;
-        font-size: 20px;
+ 
+      }
+      #logo-watermark {
+
+        text-align: center;
+        opacity: .3;
+        {{--  transform: rotate(10deg);  --}}
+        transform-origin: 50% 50%;
+        z-index: -1000;
       }
     #footer-img {
         position: fixed;
@@ -84,13 +92,13 @@
 
 <body>
     {{--  watermark  --}}
-    <div id="watermark">
+    {{--  <div id="watermark">
         <img style="width: 30px;" height="20px" src="{{ public_path('img/logo.png') }}">
         {{ env('APP.APP_NAME') }}
-    </div>
+    </div>  --}}
     {{--  Footer image  --}}
     <div id="footer-img">
-        <img style="width: 90px;" height="40px" src="{{ public_path('img/gm58payroll.png') }}">
+        <img style="width: 90px;" height="40px" src="{{ public_path('img/logo.png') }}">
 
     </div>
     {{--  Header  --}}
@@ -98,22 +106,39 @@
         {{--  container  --}}
         <div class="container">
             <br>
-            <table cellspacing="0" style="width: 99.7%;  border-bottom: 1px solid black;  border-top: 1px solid black;">
-                <thead>
-                    <tr style="height: 20px">
-                        <td width="60%" height="20px">
-                            <img style="width: 30px;" height="20px" src="{{ public_path('img/slide/mobile/ppc_marathon_mobile.jpg') }}">
-                        </td>
-                        <td width="20%">
-                            <h1>VIP Access</h1>
-                        </td>
-                        <td width="20%"  align="right">
-                            {!!DNS2D::getBarcodeHTML("1578163443", "QRCODE")!!}
-                        </td>
-                       
-                    </tr>
-                </thead>
-            </table>
+            @foreach ($data1 as $ticketdetail)
+                <table cellspacing="0" style="width: 90%;  border-bottom: 1px solid black; margin-bottom:15px">
+                    <thead>
+                        <tr style="height: 20px">
+                            <td width="60%" height="20px">
+                                <img style="width: 300px;" height="260px" src="{{ public_path($ticketdetail->event_img) }}">
+                            </td>
+                            <td width="40%">
+                                <h3>{{ $ticketdetail->description }}</h3>
+                                <h3>{{ $ticketdetail->event_name }}</h3>
+                                <p>{{ $ticketdetail->fullname }}<br>
+                                {{ $ticketdetail->contact }}<br>
+                                {{ $ticketdetail->marathon_type }}<br>
+                                {{ $ticketdetail->marathon_pickup }}</p>
+                                <div id="logo-watermark">
+                                    <img style="width: 30px;" height="20px" src="{{ public_path('img/logo.png') }}">
+                                    <p> Have your ticket ready for scanning </p>
+                                    <h4> T and Cs Apply</h4>
+                                </div>
+                                
+                            </td>
+                            <td width="20%"  align="right">
+                                <div class="qr-code">
+                                    {!!DNS2D::getBarcodeHTML($ticketdetail->order_ref, "QRCODE")!!}
+                                    <h3>ADMIT ONE</h3>
+                                    <small>{{ $ticketdetail->order_ref }}</small>
+                                </div>
+                            </td>
+                        
+                        </tr>
+                    </thead>
+                </table>
+            @endforeach
         </div>
     </div>
 

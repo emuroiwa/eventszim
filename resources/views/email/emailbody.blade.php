@@ -40,7 +40,7 @@
 					<tr>
 						<td align="center">
 		
-							<img src="{{url('https://ticketbook.co.zw/img/email/emailheader.jpg')}}" alt="Ticketbook" width="100%" height="230" style="display: block;"/>
+							<img src="{{  public_path('img/email/emailheader.jpg') }}" alt="Ticketbook" width="100%" height="230" style="display: block;"/>
 						</td>
 					</tr>
 					<tr>
@@ -54,22 +54,22 @@
 								</tr>
 								<tr>
 									<td style="padding: 20px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-											Thank you for using Ticketbook,
+											Thank you for using Ticketbook, kindly find attached your tickets.
 									</td>
 								</tr>
 								@if(isset($data1))
 									<tr>
 										<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
+											
 											The total cost of the transaction has been debited from your account. Details of your booking appear below. Please check all details carefully, especially dates, times, venues and quantities. If the ticket details are incorrect, please phone our call centre on  +263774366481.
 										</td>
 									</tr>
 								@endif
 								<tr>
 									<td>
-										 {{-- <div>{!!DNS1D::getBarcodeHTML(1578163443, 'I25',3,33,"green",true)!!}</div>
-										 <div>{!!DNS2D::getBarcodeHTML(1578163443, 'PDF417',3,1)!!}</div> --}}
+									
 										@if(isset($data1))
-											<table border="1" style="border: 1px solid black;" class="customers" cellpadding="0" cellspacing="0" width="100%">
+											{{--  <table border="1" style="border: 1px solid black;" class="customers" cellpadding="0" cellspacing="0" width="100%">
 												<tr  bgcolor="#ee4c50">
 													<th>Ticket Reference</th>
 													<th>Marathon</th>
@@ -92,14 +92,10 @@
 														<td>{{ $ticketdetail->description }}</td>
 														<td>{{ $ticketdetail->price_zwl }}</td>
 										
-													{{-- <td  class="gm58-td">Ticket Reference</td>
-													<td class="gm58-td">Ticket Details</td>
-													<td class="gm58-td">Number of tickets</td>
-													<td class="gm58-td">Cost</td> --}}
-
+												
 													</tr>
 												@endforeach
-											</table>
+											</table>  --}}
 										@else	
 											<p style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
 												You made an attempt to purchase a ticket(s). However on this specific attempt we did not receive the payment. Please ignore this email if you later made a payment as another email will follow with your ticket(s).

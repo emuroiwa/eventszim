@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="pack"><b>Race Pickup</b>*</label>
+                            <label for="pack"><b>Race Pack Pickup</b>*</label>
                             <select name="ticketDetails[][pack]" v-model="ticketDetails.pack" class="form-control" required>
                                 <option value="">Please select </option>
                                 <option>PPC Harare office</option>
