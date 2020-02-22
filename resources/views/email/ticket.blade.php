@@ -106,6 +106,7 @@
         {{--  container  --}}
         <div class="container">
             <br>
+            {{$ticketNo = 0}}
             @foreach ($data1 as $ticketdetail)
                 <table cellspacing="0" style="width: 90%;  border-bottom: 1px solid black; margin-bottom:15px">
                     <thead>
@@ -129,15 +130,16 @@
                             </td>
                             <td width="20%"  align="right">
                                 <div class="qr-code">
-                                    {!!DNS2D::getBarcodeHTML($ticketdetail->order_ref, "QRCODE")!!}
+                                    {!!DNS2D::getBarcodeHTML($ticketdetail->order_ref.$ticketNo, "QRCODE")!!}
                                     <h3>ADMIT ONE</h3>
-                                    <small>{{ $ticketdetail->order_ref }}</small>
+                                    <small>{{ $ticketdetail->order_ref.$ticketNo }}</small>
                                 </div>
                             </td>
                         
                         </tr>
                     </thead>
                 </table>
+                {{$ticketNo++}}
             @endforeach
         </div>
     </div>
