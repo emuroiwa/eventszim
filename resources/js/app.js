@@ -72,6 +72,7 @@ let routes = [
     { path: '/about', component: require('./components/company/about.vue').default,props: true,name: 'about' },
     { path: '/howto', component: require('./components/company/howto.vue').default,props: true,name: 'howto' },
     { path: '/sell', component: require('./components/company/contact.vue').default,props: true,name: 'sell' },
+    { path: '/hayaa', component: require('./components/hotfixes/customerDetails.vue').default,props: true,name: 'hayaa' },
     ]; 
 
 const router = new VueRouter({
