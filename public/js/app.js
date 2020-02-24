@@ -70989,7 +70989,10 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Payment processing kindly be patient")
+            _vm._v("Payment processing kindly be patient "),
+            _c("p", { staticClass: "text-danger" }, [
+              _vm._v(" Check your SPAM folder if email is not in inbox")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
