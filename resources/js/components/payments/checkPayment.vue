@@ -12,7 +12,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Payment processing kindly be patient</div>
+                    <div class="card-header">Payment processing kindly be patient <p class="text-danger"> Check your SPAM folder if email is not in inbox</p></div>
 
                     <div class="card-body">
                         <img src="/img/payment-animation.gif"/>
