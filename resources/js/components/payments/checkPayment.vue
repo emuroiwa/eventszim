@@ -76,7 +76,7 @@
 
                             swal.fire({
                                 title: "Success!",
-                                text: "Thank you for your purchase, please check your email for tickets",
+                                text: "Thank you for your purchase, please check your email for tickets... Check you spam folder if the email is not in your inbox",
                                 icon: 'success',
                                 type: "success",
                                 confirmButtonText: "OK"
