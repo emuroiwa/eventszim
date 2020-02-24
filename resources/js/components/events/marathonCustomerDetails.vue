@@ -98,6 +98,7 @@
                 this.paymentMethod="";
             },
             submitTicket() {
+                    this.setCookie("isMarathon", 'false', 1);
                     axios.post('api/customers', {
                         ticketDetails:this.ticketDetails,
                         user_id: this.getCookie("gm58baba")
@@ -109,6 +110,12 @@
                         swal.fire("Failed!", "There was something wrong in submitTicket "+ error, "warning");
                     });
                 
+            },
+            setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
             },
             getCookie(cname) {
                 var name = cname + "=";

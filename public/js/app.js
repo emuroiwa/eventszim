@@ -2983,6 +2983,7 @@ __webpack_require__.r(__webpack_exports__);
       this.paymentMethod = "";
     },
     submitTicket: function submitTicket() {
+      this.setCookie("isMarathon", 'false', 1);
       axios.post('api/customers', {
         ticketDetails: this.ticketDetails,
         user_id: this.getCookie("gm58baba")
@@ -2992,6 +2993,12 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         swal.fire("Failed!", "There was something wrong in submitTicket " + error, "warning");
       });
+    },
+    setCookie: function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     },
     getCookie: function getCookie(cname) {
       var name = cname + "=";
@@ -3166,8 +3173,21 @@ __webpack_require__.r(__webpack_exports__);
           _this.getOrders();
 
           $('#priceOverview').collapse('show');
+
+          if (_this.eventData.events[0].event_type == 'marathon') {
+            _this.setMarathon();
+          }
         });
       }
+    },
+    setMarathon: function setMarathon() {
+      this.setCookie("isMarathon", 'true', 1);
+    },
+    setCookie: function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     },
     getCookie: function getCookie(cname) {
       var name = cname + "=";
@@ -3496,10 +3516,17 @@ __webpack_require__.r(__webpack_exports__);
     checkMarathons: function checkMarathons() {
       var _this3 = this;
 
+      var isMarathon = this.getCookie('isMarathon');
       var user = this.checkCookie();
       axios.get("api/checkMarathon/" + user).then(function (_ref2) {
         var data = _ref2.data;
-        _this3.marathons = data;
+        console.log(data);
+
+        if (isMarathon == 'true' || data) {
+          _this3.marathons = true;
+        } else {
+          _this3.marathons = false;
+        }
       })["catch"](function (error) {
         console.log(error);
       });

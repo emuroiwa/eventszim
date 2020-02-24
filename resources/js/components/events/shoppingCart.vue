@@ -280,9 +280,16 @@
             },
 
             checkMarathons() {
+                var isMarathon = this.getCookie('isMarathon');
                 var user = this.checkCookie();
                 axios.get("api/checkMarathon/"+ user).then(({ data }) => {
-                        this.marathons = data;
+                    console.log(data)
+                        if ( isMarathon == 'true' || data ) {
+                            this.marathons = true;
+                        } else {
+                            this.marathons = false;
+                        }
+                        
                     }).catch((error)=>{
                         console.log(error)
                 })
