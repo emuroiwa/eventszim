@@ -1951,8 +1951,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     Fire.$emit('indexLoaded');
@@ -67465,9 +67463,14 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("b", [_vm._v("TicketBook")]),
-              _vm._v(
-                "\n                    215 Chitepo Heights\n                    Avenues \n                    Zimbabwe\n\n                    +263772591300\n                "
-              )
+              _vm._v("\n                    Suite 202 Pollack House,"),
+              _c("br"),
+              _vm._v(" Robson Manyika,"),
+              _c("br"),
+              _vm._v(" Harare"),
+              _c("br"),
+              _vm._v(" "),
+              _c("b", [_vm._v("Hotline +263 77 968 4593")])
             ])
           ])
         ])
@@ -69978,11 +69981,7 @@ var render = function() {
                     _vm._v("Sell Tickets With Us")
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "text-white opacity-90" }, [
-                    _vm._v(
-                      "TicketBook is the leader in online ticket sales in Zimbabwe."
-                    )
-                  ]),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c("router-link", { attrs: { to: "/sell" } }, [
                     _c(
@@ -70084,10 +70083,10 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _vm._m(1)
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(2),
           _vm._v(" "),
           _c("section", { staticClass: "widget widget-light-skin" }, [
             _c("h3", { staticClass: "widget-title" }, [
@@ -70095,7 +70094,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
-              _vm._m(2),
+              _vm._m(3),
               _vm._v(" "),
               _c(
                 "div",
@@ -70123,6 +70122,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-white opacity-90" }, [
+      _vm._v("TicketBook is the leader in online ticket sales in Zimbabwe."),
+      _c("br"),
+      _c("b", [_vm._v("Hotline +263 77 968 4593")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -8,7 +8,7 @@
                         <!-- Sell Tickets-->
                         <section class="widget widget-light-skin">
                             <h3 class="widget-title">Sell Tickets With Us</h3>
-                            <p class="text-white opacity-90">TicketBook is the leader in online ticket sales in Zimbabwe.</p>
+                            <p class="text-white opacity-90">TicketBook is the leader in online ticket sales in Zimbabwe.<br><b>Hotline +263 77 968 4593</b></p>
                             <router-link to="/sell">
                                 <button class="btn btn-primary" href="">Sell With Us</button>
                             </router-link>
