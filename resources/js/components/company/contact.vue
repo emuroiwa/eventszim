@@ -7,11 +7,9 @@
 
                         <div class="card-body">
                            <b>TicketBook</b>
-                            215 Chitepo Heights
-                            Avenues 
-                            Zimbabwe
+                            Suite 202 Pollack House,<br> Robson Manyika,<br> Harare<br>
 
-                            +263772591300
+                           <b>Hotline +263 77 968 4593</b>
                         </div>
                     </div>
                 </div>
