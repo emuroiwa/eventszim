@@ -3206,13 +3206,6 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
-    onLoad: function onLoad() {
-      console.log(this.orders);
-
-      if (this.orders) {
-        $('#priceOverview').collapse('show');
-      }
-    },
     getOrders: function getOrders() {
       var _this2 = this;
 
@@ -3229,8 +3222,7 @@ __webpack_require__.r(__webpack_exports__);
 
     Fire.$on('user', function (user) {
       _this3.getOrders();
-    });
-    this.onLoad();
+    }); //this.getEvent();
   }
 });
 
