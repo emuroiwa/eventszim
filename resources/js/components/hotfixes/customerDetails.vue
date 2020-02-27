@@ -137,7 +137,7 @@
 
             setTickets(orders) {
                 for (var i = 0; i < orders.length; i++) {
-                        // if(orders[i].user_id === null){
+                        if(orders[i].user_id === null){
                                 var addDetails = 0;
                                 var orderQty = orders[i].quantity ;
                                 var event_name = orders[i].event_name;
@@ -156,7 +156,7 @@
                                     obj['event_id'] = catID ;
                                     this.ticketDetails.push(obj);
                             }
-                        // }
+                        }
                     }
                 }
         },
