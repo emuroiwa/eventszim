@@ -40,7 +40,7 @@
 					<tr>
 						<td align="center">
 		
-							<img src="{{  public_path('img/email/emailheader.jpg') }}" alt="Ticketbook" width="100%" height="230" style="display: block;"/>
+							<img src="https://ticketbook.co.zw/img/email/emailheader.jpg" alt="Ticketbook" width="100%" height="230" style="display: block;"/>
 						</td>
 					</tr>
 					<tr>
@@ -54,7 +54,10 @@
 								</tr>
 								<tr>
 									<td style="padding: 20px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-											Thank you for using Ticketbook, kindly find attached your tickets.
+											Thank you for using Ticketbook, 
+											@if(isset($data1))
+												<b>kindly find attached your tickets.</b>
+											@endif
 									</td>
 								</tr>
 								@if(isset($data1))
