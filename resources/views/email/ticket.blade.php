@@ -112,7 +112,7 @@
                     <thead>
                         <tr style="height: 20px">
                             <td width="60%" height="20px">
-                                <img style="width: 300px;" height="260px" src="{{ public_path($ticketdetail->event_img) }}">
+                                <img style="width: 300px;" height="260px" src="{{ public_path($ticketdetail->event_ticket_img) }}">
                             </td>
                             <td width="40%">
                                 <h3>{{ $ticketdetail->description }}</h3>
