@@ -83,7 +83,7 @@ class PaymentsController extends Controller
         ->select(DB::raw('"" AS cid,orders.id,payments.order_ref,event_name,"" AS  fullname,
                             "" AS  contact,"" AS  marathon_type,"" AS  marathon_pickup,
                             COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,
-                            orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_img'))
+                            orders.quantity, price_sub_categories.description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_img,event_ticket_img'))
         ->where('payments.order_ref','=',$id)
         ->where('payments.status','=',1)
         ->where('event_types.event_type','<>','marathon');
@@ -97,7 +97,7 @@ class PaymentsController extends Controller
         ->select(DB::raw('customers.id AS cid,orders.id,payments.order_ref,event_name,customers.fullname,
                             customers.contact,customers.marathon_type,customers.marathon_pickup,
                             COALESCE(price_usd * orders.quantity,0) as total_usd,COALESCE(price_zwl * orders.quantity,0) as total_zwl,
-                            orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_img'))
+                            orders.quantity, description,price_usd,price_zwl,start_date,end_date,event_name,venue,town,event_img,event_ticket_img'))
         ->where('payments.order_ref','=',$id)
         ->where('payments.status','=',1)
         ->union($nonMarathon)
