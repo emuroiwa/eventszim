@@ -3206,6 +3206,13 @@ __webpack_require__.r(__webpack_exports__);
 
       return "";
     },
+    onLoad: function onLoad() {
+      console.log(this.orders);
+
+      if (this.orders) {
+        $('#priceOverview').collapse('show');
+      }
+    },
     getOrders: function getOrders() {
       var _this2 = this;
 
@@ -3222,7 +3229,8 @@ __webpack_require__.r(__webpack_exports__);
 
     Fire.$on('user', function (user) {
       _this3.getOrders();
-    }); //this.getEvent();
+    });
+    this.onLoad();
   }
 });
 
@@ -4559,26 +4567,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     setTickets: function setTickets(orders) {
       for (var i = 0; i < orders.length; i++) {
-        if (orders[i].user_id === null) {
-          var addDetails = 0;
-          var orderQty = orders[i].quantity;
-          var event_name = orders[i].event_name;
-          var description = orders[i].description;
-          var catID = orders[i].catID;
+        // if(orders[i].user_id === null){
+        var addDetails = 0;
+        var orderQty = orders[i].quantity;
+        var event_name = orders[i].event_name;
+        var description = orders[i].description;
+        var catID = orders[i].catID;
 
-          for (var ix = 0; ix < orderQty; ix++) {
-            var obj = {};
-            obj['fullname'] = '';
-            obj['contact'] = '';
-            obj['category'] = '';
-            obj['pack'] = '';
-            obj['tshirtsize'] = '';
-            obj['gender'] = '';
-            obj['event'] = event_name + " " + description;
-            obj['event_id'] = catID;
-            this.ticketDetails.push(obj);
-          }
-        }
+        for (var ix = 0; ix < orderQty; ix++) {
+          var obj = {};
+          obj['fullname'] = '';
+          obj['contact'] = '';
+          obj['category'] = '';
+          obj['pack'] = '';
+          obj['tshirtsize'] = '';
+          obj['gender'] = '';
+          obj['event'] = event_name + " " + description;
+          obj['event_id'] = catID;
+          this.ticketDetails.push(obj);
+        } // }
+
       }
     }
   },
