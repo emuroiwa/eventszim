@@ -50,7 +50,6 @@ class MarathonController extends Controller
         ->select('orders.quantity','zim_events.event_name','price_sub_categories.description','orders.category_id AS catID','customers.user_id')
         ->where('orders.user_id','=',$id)
         ->where('orders.status','=',0)
-        ->where('customers.user_id','=',$id)
         ->where('event_types.event_type','=','marathon')
         ->get();
         return $marathonTickets;
