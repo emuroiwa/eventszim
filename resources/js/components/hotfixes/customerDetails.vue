@@ -137,6 +137,7 @@
 
             setTickets(orders) {
                 for (var i = 0; i < orders.length; i++) {
+                    console.log(orders[i].user_id)
                         if(orders[i].user_id === null){
                                 var addDetails = 0;
                                 var orderQty = orders[i].quantity ;
