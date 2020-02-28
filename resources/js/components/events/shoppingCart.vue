@@ -284,6 +284,7 @@
                 var user = this.checkCookie();
                 axios.get("api/checkMarathon/"+ user).then(({ data }) => {
                     console.log(data)
+                    console.log(isMarathon)
                         if ( isMarathon == 'true' || data ) {
                             this.marathons = true;
                         } else {

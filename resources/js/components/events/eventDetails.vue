@@ -14,7 +14,7 @@
                 <a :href="eventData.events[0].facebook" target="_blank" v-if="eventData.events[0].facebook">
                     <img class="gm58_icon" :src="'img/socials/facebook.png'" :alt="'facebook'">
                 </a> 
-                <a :href="eventData.events[0].whatsapp" target="_blank" v-if="eventData.events[0].whatsapp">
+                <a :href="'https://wa.me/' + eventData.events[0].whatsapp" target="_blank" v-if="eventData.events[0].whatsapp">
                     <img class="gm58_icon" :src="'img/socials/whatsapp.png'" :alt="'whatsapp'">
                 </a> 
                 <a :href="eventData.events[0].website" target="_blank" v-if="eventData.events[0].website">

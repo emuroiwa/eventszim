@@ -98,15 +98,17 @@
                         $('#priceOverview').collapse('show');
 
                         if (this.eventData.events[0].event_type == 'marathon') {
-                            this.setMarathon();
+                            this.setMarathon('true');
+                        } else {
+                            this.setMarathon('false');
                         }
                         
 
                     })
                 }
             },
-            setMarathon(){
-                this.setCookie("isMarathon", 'true', 1);
+            setMarathon(status){
+                this.setCookie("isMarathon", status, 1);
             },
             setCookie(cname, cvalue, exdays) {
                 var d = new Date();
@@ -142,7 +144,7 @@
             Fire.$on('user',(user) =>{
                this.getOrders() 
             })
-           
+           console.log(this.eventData.events[0].event_type)
             //this.getEvent();
         }
     }

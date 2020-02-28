@@ -3173,13 +3173,15 @@ __webpack_require__.r(__webpack_exports__);
           $('#priceOverview').collapse('show');
 
           if (_this.eventData.events[0].event_type == 'marathon') {
-            _this.setMarathon();
+            _this.setMarathon('true');
+          } else {
+            _this.setMarathon('false');
           }
         });
       }
     },
-    setMarathon: function setMarathon() {
-      this.setCookie("isMarathon", 'true', 1);
+    setMarathon: function setMarathon(status) {
+      this.setCookie("isMarathon", status, 1);
     },
     setCookie: function setCookie(cname, cvalue, exdays) {
       var d = new Date();
@@ -3222,7 +3224,8 @@ __webpack_require__.r(__webpack_exports__);
 
     Fire.$on('user', function (user) {
       _this3.getOrders();
-    }); //this.getEvent();
+    });
+    console.log(this.eventData.events[0].event_type); //this.getEvent();
   }
 });
 
@@ -3519,6 +3522,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/checkMarathon/" + user).then(function (_ref2) {
         var data = _ref2.data;
         console.log(data);
+        console.log(isMarathon);
 
         if (isMarathon == 'true' || data) {
           _this3.marathons = true;
@@ -68358,7 +68362,7 @@ var render = function() {
               "a",
               {
                 attrs: {
-                  href: _vm.eventData.events[0].whatsapp,
+                  href: "https://wa.me/" + _vm.eventData.events[0].whatsapp,
                   target: "_blank"
                 }
               },
