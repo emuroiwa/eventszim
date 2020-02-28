@@ -2253,7 +2253,10 @@ __webpack_require__.r(__webpack_exports__);
             _this.getCartItems();
 
             Fire.$emit('user', _this.user);
-            Fire.$emit('checkAvaliablity'); //alert
+            Fire.$emit('checkAvaliablity');
+
+            _this.setCookie("isMarathon", 'false', 1); //alert
+
 
             swal.fire({
               title: "Canceled!",

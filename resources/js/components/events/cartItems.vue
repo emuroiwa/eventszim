@@ -94,6 +94,8 @@
                                         this.getCartItems();
                                         Fire.$emit('user',this.user);
                                         Fire.$emit('checkAvaliablity');
+
+                                        this.setCookie("isMarathon", 'false', 1);
                                         //alert
                                         swal.fire({
                                             title: "Canceled!",
