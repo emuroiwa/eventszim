@@ -61,7 +61,7 @@ class PaynowController extends Controller
         if ($request['payment_type'] == 'paynow') {
             $response = $paynow->send($payment);
         } else {
-            $response = $paynow->sendMobile($payment, $request['contact'], 'ecocash');
+            $response = $paynow->sendMobile($payment, $request['contact'], $request['payment_type']);
             sleep(30);
 
         }
@@ -179,12 +179,12 @@ class PaynowController extends Controller
             
             $this->updateStock($paymentRef);
 
-            if ($request['payment_type'] == 'paynow')
+            if (isset($request['payment_type']))
             {
                 return ['message'=>'done'];
             }else
             {
-                return 'payments?z14ea26b00ad9='+ $paymentRef;
+                return 'payments?z14ea26b00ad9='. $paymentRef;
             } 
             
          } else {
@@ -197,12 +197,12 @@ class PaynowController extends Controller
             ->where('status', 0)
             ->update( array('status'=>2));
 
-            if ($request['payment_type'] == 'paynow')
+            if (isset($request['payment_type']))
             {
                 return ['message'=>'cancel'];
             }else
             {
-                return 'payments?z14ea26b00ad9='+ $paymentRef;
+                return 'payments?z14ea26b00ad9='. $paymentRef;
             } 
 
          }

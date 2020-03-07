@@ -1,20 +1,15 @@
 <template>
     <div>
-        <loading :active.sync="isLoading" 
-        :can-cancel="false" 
-        :loader="'spinner'"
-        :is-full-page="fullPage"
-        :color="'#3490DC'"
-        :height="150"
-        :width="150" class="text-center"></loading>
+                <vue-element-loading :active="isLoading" :is-full-screen="true" :size="'80'" :color="'#FF6700'" :text="'We are waiting for your payment.............Please input your mobile money password on your phone'"/>
+
                     <div class="card card-body border-info mt-1" > 
                         <h5> Complete the payment details below to secure your tickets.</h5>
                             <div class="row mb-1">
                                 <div class="col-md-4 mb-1">
-                                    <button class="btn btn-danger w-100"  @click="setPaymentMethod('ecocash')">Pay with EcoCash</button>
+                                    <button class="btn btn-danger w-100"  @click="setPaymentMethod('ecocash')">Pay {{this.total_ZWL | formatNumber}} with EcoCash</button>
                                 </div>
                                 <div class="col-md-4 mb-1">
-                                    <button class="btn btn-warning w-100"  @click="setPaymentMethod('netone')">Pay with One Money</button>
+                                    <button class="btn btn-warning w-100"  @click="setPaymentMethod('onemoney')">Pay {{this.total_ZWL | formatNumber}} with One Money</button>
                                 </div>
                                 <div class="col-md-4 mb-1">
                                     <button class="btn btn-primary w-100"  @click="setPaymentMethod('paynow')">Pay with Paynow</button>
@@ -32,7 +27,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="contact" v-if="paymentMethod == 'ecocash'"> <b>ECOCASH NUMBER</b> *</label>
-                                        <label for="contact" v-if="paymentMethod == 'netone'"> <b>ONE Money NUMBER</b> *</label>
+                                        <label for="contact" v-if="paymentMethod == 'onemoney'"> <b>ONE Money NUMBER</b> *</label>
                                         <label for="contact" v-if="paymentMethod == 'paynow'"> Contact Number *</label>
                                         <input v-model="form.contact" type="number"   name="contact" maxlength="10" placeholder="eg 0771111111" class="form-control" :class="{ 'is-invalid': form.errors.has('contact') }" required> 
                                     </div>
@@ -135,7 +130,7 @@
                     return;
                 }
                     this.form.user_id = this.checkCookie();
-                    this.form.payment_type = this.paymentType;
+                    this.form.payment_type = this.paymentMethod;
                     this.form.total_USD = this.total_USD;
                     this.form.total_ZWL = this.total_ZWL;
 
@@ -145,7 +140,6 @@
                             //paynow endpoint
                         this.form.post('api/paynow')
                             .then((response)=>{
-                                console.log(response.data)
                             window.location.href = response.data
                         })
                         .catch((error)=>{

@@ -48,6 +48,8 @@ import VueAnalytics from 'vue-analytics'
 import Ads from 'vue-google-adsense'
 import VuePageTransition from 'vue-page-transition'
 import VueResponsiveImage from 'vue-responsive-image'
+import loadingvue from 'vue-full-loading'
+import VueElementLoading from 'vue-element-loading'
 
 Vue.use(VuePageTransition)
 Vue.use(require('vue-script2'))
@@ -112,24 +114,26 @@ Vue.filter('isMobile', function(){
 });
 Vue.component('Loading',Loading)
 
-Vue.component('gm58footer', gm58footer)
-Vue.component('addCustomer', addCustomer)
-Vue.component('gm58header', gm58header)
-Vue.component('slider', slider)
-Vue.component('cartItems', cartItems)
-Vue.component('shoppingCart', shoppingCart)
-Vue.component('search', search)
-Vue.component('catergories', catergories)
-Vue.component('new-catergories', newcatergories)
-Vue.component('thisWeek', thisWeek)
-Vue.component('eventDetails', eventDetails)
-Vue.component('eventAddtional', eventAddtional)
-Vue.component('testdetails', testdetails)
-Vue.component('priceCategory', priceCategory)
-Vue.component('marathon', marathon)
-Vue.component('checkOut', checkOut)
-Vue.component('marathonDetails', marathonDetails)
-Vue.component('vue-responsive-image', VueResponsiveImage)
+Vue.component('gm58footer', gm58footer);
+Vue.component('addCustomer', addCustomer);
+Vue.component('gm58header', gm58header);
+Vue.component('slider', slider);
+Vue.component('cartItems', cartItems);
+Vue.component('shoppingCart', shoppingCart);
+Vue.component('search', search);
+Vue.component('catergories', catergories);
+Vue.component('new-catergories', newcatergories);
+Vue.component('thisWeek', thisWeek);
+Vue.component('eventDetails', eventDetails);
+Vue.component('eventAddtional', eventAddtional);
+Vue.component('testdetails', testdetails);
+Vue.component('priceCategory', priceCategory);
+Vue.component('marathon', marathon);
+Vue.component('checkOut', checkOut);
+Vue.component('marathonDetails', marathonDetails);
+Vue.component('vue-responsive-image', VueResponsiveImage);
+Vue.component('loadingvue', loadingvue);
+Vue.component('VueElementLoading', VueElementLoading);
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 

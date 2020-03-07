@@ -1,21 +1,13 @@
 <template>
     <div class="container">
-            
-        <loading :active.sync="isLoading" 
-        :can-cancel="false" 
-        :loader="'spinner'"
-        :is-full-page="fullPage"
-        :color="'#3490DC'"
-        :height="150"
-        :width="150" class="text-center"></loading>
-        
+        <vue-element-loading :active="isLoading" :is-full-screen="true" :size="'80'" :color="'#FF6700'" :text="'We are now processing your payment.............'"/>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Payment processing kindly be patient <p class="text-danger"> Check your SPAM folder if email is not in inbox</p></div>
 
                     <div class="card-body">
-                        <img src="/img/payment-animation.gif"/>
+                        <!-- <img src="/img/payment-animation.gif"/> -->
                     </div>
                 </div>
             </div>
