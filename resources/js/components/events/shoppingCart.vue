@@ -1,12 +1,7 @@
 <template>
     <div class="container">
-        <loading :active.sync="isLoading" 
-        :can-cancel="false" 
-        :loader="'spinner'"
-        :is-full-page="fullPage"
-        :color="'#3490DC'"
-        :height="150"
-        :width="150" class="text-center"></loading>
+        <vue-element-loading :active="isActive" :is-full-screen="true" :size="'60'" :color="'#FF6700'"/>
+       
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card border-primary m-3" v-if="marathons">
@@ -131,10 +126,7 @@
                             <transition name="slide-fade">
                                 <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
                             </transition>
-                            <!-- <Adsense
-                                data-ad-client="ca-pub-3540520778119630"
-                                data-ad-slot="1234567890">
-                            </Adsense> -->
+                           
                         </div>
                     </div>
                 </div>
@@ -149,7 +141,8 @@
             return{
                 orders:{},
                 paymentMethod:'paynow',
-                isLoading: false,
+                isActive: false,
+                showCustomizeLoader: false,
                 fullPage: true,
                 isNotMobile:false,
                 EventType:'',
@@ -268,11 +261,11 @@
             },
             
             getOrders() {
-                this.isLoading = true;
+                this.isActive = true;
                 var user = this.checkCookie();
                 axios.get("api/orders/"+ user).then(({ data }) => {
                         this.orders = data;
-                        this.isLoading = false;
+                        this.isActive = false;
                     }).catch((error)=>{
                         console.log(error)
                     // swal.fire("Failed!", "There was something wrong in getOrders "+ error, "warning");

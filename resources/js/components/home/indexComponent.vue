@@ -1,12 +1,6 @@
 <template>
     <div>
-        <loading :active.sync="isLoading" 
-        :can-cancel="false" 
-        :loader="'spinner'"
-        :is-full-page="fullPage"
-        :color="'#3490DC'"
-        :height="150"
-        :width="150" class="text-center"></loading>
+        <vue-element-loading :active="isActive" :is-full-screen="true" :size="'80'" :color="'#FF6700'"/>
         <slider :eventData="this.eventData"></slider>
         <new-catergories :eventData="this.eventData"></new-catergories>
         <!-- <catergories :eventData="this.eventData"></catergories> -->
@@ -27,10 +21,10 @@
        methods: {
            
            getEvents(){
-               this.isLoading = true;
+               this.isActive = true;
                  axios.get("api/events").then(({ data }) => {
                         this.eventData = data;
-                        this.isLoading = false;
+                        this.isActive = false;
                     }).catch((error)=>{
                     // console.log(rror.response)
                     swal.fire("Failed!", "There was something wrong in getEvents "+ error, "warning");
