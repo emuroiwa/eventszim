@@ -62,7 +62,7 @@ class PaynowController extends Controller
             $response = $paynow->send($payment);
         } else {
             $response = $paynow->sendMobile($payment, $request['contact'], $request['payment_type']);
-            // wait for customer to input mobile money password
+            // wait 20 sec for customer to input mobile money password
             sleep(20);
 
         }
