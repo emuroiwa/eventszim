@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <vue-element-loading :active="isLoading" :is-full-screen="true" :size="'80'" :color="'#FF6700'" :text="'We are now processing your payment.............'"/>
+        <vue-element-loading :active="isLoading" :is-full-screen="true" :size="'80'" :color="'#FF6700'" :text="'We are now processing your payment.............Check your SPAM folder if email is not in inbox'"/>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
