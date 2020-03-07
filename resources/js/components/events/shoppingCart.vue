@@ -131,10 +131,7 @@
                             <transition name="slide-fade">
                                 <addCustomer :paymentType="this.paymentMethod" :total_USD="totalUSD" :total_ZWL="totalZWL" :orders="orders"  ref="addCustomer"></addCustomer>
                             </transition>
-                            <!-- <Adsense
-                                data-ad-client="ca-pub-3540520778119630"
-                                data-ad-slot="1234567890">
-                            </Adsense> -->
+                           
                         </div>
                     </div>
                 </div>

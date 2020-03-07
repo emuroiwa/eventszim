@@ -61,7 +61,9 @@ class PaynowController extends Controller
         if ($request['payment_type'] == 'paynow') {
             $response = $paynow->send($payment);
         } else {
-            $response = $paynow->sendMobile($payment, $request['ecocash'], 'ecocash');
+            $response = $paynow->sendMobile($payment, $request['contact'], 'ecocash');
+            sleep(30);
+
         }
 
         if ($response->success()) {
@@ -97,14 +99,13 @@ class PaynowController extends Controller
                 'pollURL'=>  $pollUrl,
             ]);
             
-            return $link;
-            // if ($this->checkStock($paymentRef) == "success")
-            // {
-            //     return $link;
-            // }else
-            // {
-            //     return $this->checkStock($paymentRef);
-            // } 
+            if ($request['payment_type'] == 'paynow')
+            {
+                return $link;
+            }else
+            {
+                return $this->CheckPayment($paymentRef);
+            } 
 
 
         }
@@ -178,7 +179,13 @@ class PaynowController extends Controller
             
             $this->updateStock($paymentRef);
 
-            return ['message'=>'done'];
+            if ($request['payment_type'] == 'paynow')
+            {
+                return ['message'=>'done'];
+            }else
+            {
+                return 'payments?z14ea26b00ad9='+ $paymentRef;
+            } 
             
          } else {
              //cancelled transactins
@@ -190,8 +197,13 @@ class PaynowController extends Controller
             ->where('status', 0)
             ->update( array('status'=>2));
 
-            return ['message'=>'cancel'];
-
+            if ($request['payment_type'] == 'paynow')
+            {
+                return ['message'=>'cancel'];
+            }else
+            {
+                return 'payments?z14ea26b00ad9='+ $paymentRef;
+            } 
 
          }
     }
