@@ -31,6 +31,7 @@
         "swiper": "^5.2.1",
         "vform": "^1.0.1",
         "vue-analytics": "^5.22.1",
+        "vue-cookie-law": "^1.12.0",
         "vue-element-loading": "^1.1.5",
         "vue-full-loading": "^1.2.1",
         "vue-google-adsense": "^1.8.0",

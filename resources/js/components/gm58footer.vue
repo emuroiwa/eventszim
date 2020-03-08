@@ -3,6 +3,7 @@
         <!-- Main Footer -->
             <footer id="sticky-footer" class="py-4 text-white-50 gm58-main-footer">
                 <div class="container">
+                    <cookie-law theme="blood-orange--rounded"></cookie-law>
                     <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <!-- Sell Tickets-->
