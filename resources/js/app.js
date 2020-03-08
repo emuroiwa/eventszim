@@ -50,6 +50,7 @@ import VuePageTransition from 'vue-page-transition'
 import VueResponsiveImage from 'vue-responsive-image'
 import loadingvue from 'vue-full-loading'
 import VueElementLoading from 'vue-element-loading'
+import CookieLaw from 'vue-cookie-law'
 
 Vue.use(VuePageTransition)
 Vue.use(require('vue-script2'))
@@ -134,6 +135,7 @@ Vue.component('marathonDetails', marathonDetails);
 Vue.component('vue-responsive-image', VueResponsiveImage);
 Vue.component('loadingvue', loadingvue);
 Vue.component('VueElementLoading', VueElementLoading);
+Vue.component('CookieLaw', CookieLaw);
 Vue.component('not-found',require('./components/NotFound.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
