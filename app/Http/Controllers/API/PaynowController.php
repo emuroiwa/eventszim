@@ -217,12 +217,10 @@ class PaynowController extends Controller
          if ((in_array($status->status(), $paynowStatues))) {
 
             Orders::where('reference', $paymentRef)
-            ->where('status', 1)
             ->update( array('status'=>2) );
 
             Payments::where('order_ref', $paymentRef)
-            ->where('status', 0)
-            ->update( array('status'=>1));
+                ->update( array('status'=>1));
             
             $this->updateStock($paymentRef);
 
@@ -231,11 +229,9 @@ class PaynowController extends Controller
          } else {
              //cancelled transactins
             Orders::where('reference', $paymentRef)
-            ->where('status', 1)
             ->update( array('status'=>3) );
             
             Payments::where('order_ref', $paymentRef)
-            ->where('status', 0)
             ->update( array('status'=>2));
 
             return ['message'=>'cancel'];
