@@ -105,7 +105,7 @@ class PaynowController extends Controller
                 return $link;
             }else
             {
-                return $this->CheckPayment($paymentRef);
+                return $this->CheckMobilePayment($paymentRef);
             } 
 
 
@@ -147,6 +147,52 @@ class PaynowController extends Controller
         //
     }
    
+    public function CheckMobilePayment($paymentRef)
+    {
+        $paynow = new Paynow(
+            '8915',
+            'bf2d3b2c-f35e-4341-ba30-7dd8d5949323',
+            'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef,
+            'http://ticketbook.co.zw/payments?z14ea26b00ad9='.$paymentRef
+        );
+
+        $pollUrl = "";
+        $currentStatus = "";
+        $transactions = Payments::where('order_ref','=',$paymentRef)->get();
+        
+        foreach ($transactions as $r) {
+            $pollUrl = $r->pollURL;
+            $currentStatus = $r->status;
+        }
+         // Check the status of the transaction
+        $status = $paynow->pollTransaction($pollUrl);
+        $paynowStatues = array("awaiting delivery", "paid", "delivered");
+        
+         if ((in_array($status->status(), $paynowStatues))) {
+
+            Orders::where('reference', $paymentRef)
+            ->where('status', 1)
+            ->update( array('status'=>2) );
+
+            Payments::where('order_ref', $paymentRef)
+            ->where('status', 0)
+            ->update( array('status'=>1));
+            
+            $this->updateStock($paymentRef);
+            return 'payments?z14ea26b00ad9='. $paymentRef;
+                     
+         } else {
+             //cancelled transactins
+            Orders::where('reference', $paymentRef)
+            ->where('status', 1)
+            ->update( array('status'=>3) );
+            
+            Payments::where('order_ref', $paymentRef)
+            ->where('status', 0)
+            ->update( array('status'=>2));
+            return 'payments?z14ea26b00ad9='. $paymentRef;
+         }
+    }
     public function CheckPayment($paymentRef)
     {
         $paynow = new Paynow(
@@ -180,13 +226,7 @@ class PaynowController extends Controller
             
             $this->updateStock($paymentRef);
 
-            if (isset($request['payment_type']))
-            {
-                return ['message'=>'done'];
-            }else
-            {
-                return 'payments?z14ea26b00ad9='. $paymentRef;
-            } 
+            return ['message'=>'done'];
             
          } else {
              //cancelled transactins
@@ -198,14 +238,8 @@ class PaynowController extends Controller
             ->where('status', 0)
             ->update( array('status'=>2));
 
-            if (isset($request['payment_type']))
-            {
-                return ['message'=>'cancel'];
-            }else
-            {
-                return 'payments?z14ea26b00ad9='. $paymentRef;
-            } 
-
+            return ['message'=>'cancel'];
+           
          }
     }
     public function updateStock($paymentRef)
