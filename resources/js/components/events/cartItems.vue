@@ -12,7 +12,7 @@
         <div v-else-if="this.cartPage=='priceCategory'">
             <router-link to="/cart"> 
                 <button type="button" class="btn btn-primary" >
-                {{itemsInCart}} <i class="fas fa-shopping-cart d-inline "></i> Checkout 
+                {{itemsInCart}} <i class="fas fa-shopping-cart d-inline "></i> Proceed to payment 
                 </button>
             </router-link>
             <a class="nav-link font-weight-bold" href="#"  @click="cancelOrder()"> 
