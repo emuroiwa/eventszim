@@ -2,14 +2,15 @@
     <div>
                 <vue-element-loading :active="isLoading" :is-full-screen="true" :size="'80'" :color="'#FF6700'" :text="'We are waiting for your payment.............Please input your mobile money password on your phone'"/>
 
-                    <div class="card card-body border-info mt-1" > 
-                        <h5> Complete the payment details below to secure your tickets.</h5>
+                    <div class="card card-body border-info mt-1" >
+                        <h5 v-if="!paymentMethod"> Please select payment method</h5> 
+                        <h5 v-else> Complete the payment details below to secure your tickets.</h5>
                             <div class="row mb-1">
                                 <div class="col-md-4 mb-1">
-                                    <button class="btn btn-danger w-100"  @click="setPaymentMethod('ecocash')">Pay {{this.total_ZWL | formatNumber}} with EcoCash</button>
+                                    <button class="btn btn-danger w-100"  @click="setPaymentMethod('ecocash')">Pay  with EcoCash</button>
                                 </div>
                                 <div class="col-md-4 mb-1">
-                                    <button class="btn btn-warning w-100"  @click="setPaymentMethod('onemoney')">Pay {{this.total_ZWL | formatNumber}} with One Money</button>
+                                    <button class="btn btn-warning w-100"  @click="setPaymentMethod('onemoney')">Pay with One Money</button>
                                 </div>
                                 <div class="col-md-4 mb-1">
                                     <button class="btn btn-primary w-100"  @click="setPaymentMethod('paynow')">Pay with Paynow</button>
@@ -59,7 +60,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button  type="submit" class="btn btn-primary is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Check Out</button>
+                                <button  type="submit" class="btn btn-primary is-mobile-btn" ><i class="fas fa-shopping-cart"></i> Pay {{this.total_ZWL | formatNumber}}</button>
                                 <a href="#" class="text-danger"  @click="cancelOrder()"><i class="fas fa-ban"></i> Cancel</a>
                             </div>
                         </form>
