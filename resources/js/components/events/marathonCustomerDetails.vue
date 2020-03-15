@@ -145,7 +145,7 @@
             setTickets(orders) {
                 console.log(orders);
                 for (var i = 0; i < orders.length; i++) {
-                        if(orders[i].user_id === null){
+                        if(orders[i].user_id === null && orders[i].user_id != this.getCookie("gm58baba")){
                                 var addDetails = 0;
                                 var orderQty = orders[i].quantity ;
                                 var event_name = orders[i].event_name;
