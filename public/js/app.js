@@ -2559,6 +2559,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paymentType: String,
@@ -72000,9 +72001,13 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "card card-body border-info mt-1" }, [
-        _c("h5", [
-          _vm._v(" Complete the payment details below to secure your tickets.")
-        ]),
+        !_vm.paymentMethod
+          ? _c("h5", [_vm._v(" Please select payment method")])
+          : _c("h5", [
+              _vm._v(
+                " Complete the payment details below to secure your tickets."
+              )
+            ]),
         _vm._v(" "),
         _c("div", { staticClass: "row mb-1" }, [
           _c("div", { staticClass: "col-md-4 mb-1" }, [
@@ -72016,13 +72021,7 @@ var render = function() {
                   }
                 }
               },
-              [
-                _vm._v(
-                  "Pay " +
-                    _vm._s(_vm._f("formatNumber")(this.total_ZWL)) +
-                    " with EcoCash"
-                )
-              ]
+              [_vm._v("Pay  with EcoCash")]
             )
           ]),
           _vm._v(" "),
@@ -72037,13 +72036,7 @@ var render = function() {
                   }
                 }
               },
-              [
-                _vm._v(
-                  "Pay " +
-                    _vm._s(_vm._f("formatNumber")(this.total_ZWL)) +
-                    " with One Money"
-                )
-              ]
+              [_vm._v("Pay with One Money")]
             )
           ]),
           _vm._v(" "),
@@ -72306,7 +72299,19 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _vm._m(1),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary is-mobile-btn",
+                      attrs: { type: "submit" }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-shopping-cart" }),
+                      _vm._v(
+                        " Pay " + _vm._s(_vm._f("formatNumber")(this.total_ZWL))
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "a",
@@ -72339,19 +72344,6 @@ var staticRenderFns = [
       _c("b", [_vm._v("Email To Send Tickets To")]),
       _vm._v("*")
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-primary is-mobile-btn",
-        attrs: { type: "submit" }
-      },
-      [_c("i", { staticClass: "fas fa-shopping-cart" }), _vm._v(" Check Out")]
-    )
   }
 ]
 render._withStripped = true
