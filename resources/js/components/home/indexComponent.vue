@@ -21,6 +21,18 @@
        methods: {
            
            getEvents(){
+               //COVID 19
+                swal.fire({
+                    title: "Covid 19",
+                    text: "TicketBook wishes to inform you that all events on our site have been postpone due to the COVID 19 pandemic. If you have already registered and paid, your spot in the race will be secure- no further payments will be required when the event is rescheduled",
+                    icon: 'info',
+                    type: "info",
+                    confirmButtonText: "OK"
+                }).then(okay => {
+                    if(okay){
+                         window.open('https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public', '_blank');
+                    }
+                });               
                this.isActive = true;
                  axios.get("api/events").then(({ data }) => {
                         this.eventData = data;

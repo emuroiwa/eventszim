@@ -38,8 +38,11 @@
                                 
                                 </select>
                             </div>
-                            <div class="col-md-3" v-if="event.status != 'sale'">
+                            <div class="col-md-3" v-else-if="event.status != 'sale'">
                                 <h3><span class="badge badge-danger">Sold Out</span></h3>
+                            </div>
+                            <div class="col-md-3" v-else-if="event.status == 'postpone'">
+                                <h3><span class="badge badge-warning">Event has been postpone</span></h3>
                             </div>
                         </div>
                     </div>

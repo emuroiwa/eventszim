@@ -2313,174 +2313,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/checkout.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    Fire.$emit('indexLoaded');
-  },
-  created: function created() {//$(this).css('background-image','url(../images/compra_normal.png)');
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/customerDetails.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/customerDetails.vue?vue&type=script&lang=js& ***!
@@ -3262,6 +3094,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -4221,6 +4056,18 @@ __webpack_require__.r(__webpack_exports__);
     getEvents: function getEvents() {
       var _this = this;
 
+      //COVID 19
+      swal.fire({
+        title: "Covid 19",
+        text: "TicketBook wishes to inform you that all events on our site have been postpone due to the COVID 19 pandemic. If you have already registered and paid, your spot in the race will be secure- no further payments will be required when the event is rescheduled",
+        icon: 'info',
+        type: "info",
+        confirmButtonText: "OK"
+      }).then(function (okay) {
+        if (okay) {
+          window.open('https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public', '_blank');
+        }
+      });
       this.isActive = true;
       axios.get("api/events").then(function (_ref) {
         var data = _ref.data;
@@ -11698,26 +11545,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.gm58-hack[data-v-74d1d756]{\r\n    width: 100px;\r\n    text-align: center;\n}\n.navbar-light .navbar-nav .nav-link[data-v-74d1d756]{\r\n    color: cornflowerblue\n}\n.fas-header[data-v-74d1d756]{\r\n    font-size: x-large;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /*--------------------\nGeneral Style\n---------------------*/\n*[data-v-33342001],\n*[data-v-33342001]::before,\n*[data-v-33342001]::after {\n  box-sizing: border-box;\n}\nbody[data-v-33342001],\nhtml[data-v-33342001] {\n  height: 100%;\n  font-family: 'Quicksand', sans-serif;\n  font-weight: 400;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\nbody[data-v-33342001] {\n  background: rgba(37,44,65,1);\n  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(37,44,65,1)), color-stop(60%, rgba(37,44,65,1)), color-stop(60%, rgba(221,223,230,1)), color-stop(100%, rgba(221,223,230,1)));\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(37,44,65,1)), color-stop(60%, rgba(37,44,65,1)), color-stop(60%, rgba(221,223,230,1)), to(rgba(221,223,230,1)));\n  background: linear-gradient(to bottom, rgba(37,44,65,1) 0%, rgba(37,44,65,1) 60%, rgba(221,223,230,1) 60%, rgba(221,223,230,1) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#252c41', endColorstr='#dddfe6', GradientType=0 );\n}\n.subject[data-v-33342001] {\n  font-family: 'Playfair Display', serif;\n  color: rgba(255,255,255,0.02);\n  font-size: 180px;\n  font-size: 16vw;\n  letter-spacing: -4px;\n  line-height: 0.9;\n  z-index: -1;\n}\n\n/*--------------------\nText\n---------------------*/\nh1[data-v-33342001], h2[data-v-33342001], h3[data-v-33342001], h4[data-v-33342001], h5[data-v-33342001], h6[data-v-33342001] {\n  margin: 0;\n  line-height: 1.4;\n}\nh1[data-v-33342001] {\n  font-size: 42px;\n\tcolor: #6d819c;\n\ttext-align: left;\n}\nh2[data-v-33342001] {\n  font-size: 28px;\n  letter-spacing: -2px;\n\tcolor: #6d819c;\n\ttext-align: center;\n  line-height: 2.8;\n}\nh3[data-v-33342001] {\n  font-size: 16px;\n\tcolor: #dddfe6;\n  letter-spacing: 1px;\n\ttext-align: left;\n}\nh4[data-v-33342001] {\n  font-size: 16px;\n\tcolor: #7495aa;\n  letter-spacing: 1px;\n\ttext-align: left;\n  line-height: 2;\n}\nh5[data-v-33342001] {\n  font-size: 11px;\n  font-weight: 700;\n\tcolor: #c9d6de;\n  letter-spacing: 1px;\n\ttext-align: left;\n  text-transform: uppercase;\n}\nh5 > span[data-v-33342001] {\n  margin-left: 87px;\n}\nh5.total[data-v-33342001] {\n  margin-top: 20px;\n}\nh6[data-v-33342001] {\n  font-family: 'PT Mono';\n  font-size: 18px;\n  font-weight: 400;\n\tcolor: #f4f5f9;\n  letter-spacing: 0px;\n\ttext-align: left;\n  text-transform: uppercase;\n  line-height: 1.8;\n}\nh6 > span[data-v-33342001] {\n  margin-left: 64px;\n}\n\n/*--------------------\nCheckout\n---------------------*/\n.checkout[data-v-33342001] {\n  width: 670px;\n  height: 485px;\n  position: absolute;\n  top: 38%;\n  left: 50%;\n  background-color: #dddfe6;\n  overflow: hidden;\n  \n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  border-radius: 12px;\n  box-shadow: 0 30px 48px rgba(37,44,65,0.32);\n}\n.order[data-v-33342001] {\n  width: 300px;\n  height: 485px;\n  padding: 0 30px;\n  float: left;\n  background-color: #f4f5f9;\n  z-index: 1;\n  box-shadow: 0 15px 24px rgba(37,44,65,0.16);\n}\nul.order-list[data-v-33342001] {\n  width: 100%;\n  height: 205px;\n  list-style: none;\n  overflow-y: scroll;\n  padding-right: 12px;\n}\nul.order-list li[data-v-33342001] {\n  height: 60px;\n  margin-left: -40px;\n  overflow: hidden;\n  border-bottom: 1px solid #e9ebf2;\n}\nul.order-list li > img[data-v-33342001] {\n  width: 60px;\n  height: 60px;\n  float: left;\n}\nul.order-list li > h4[data-v-33342001] {\n  margin-top: 16px;\n  line-height: 1;\n  letter-spacing: 1px;\n  text-align: right;\n  \n  -webkit-transition: all 0.3s;\n          transition: all 0.3s;\n}\nul.order-list li:hover > h4[data-v-33342001] {\n  margin-top: 8px;\n}\nul.order-list li > h5[data-v-33342001] {\n  margin-top: 0px;\n  text-align: right;\n  display: none;\n  \n  -webkit-transition: all 0.3s;\n          transition: all 0.3s;\n}\nul.order-list li:hover > h5[data-v-33342001] {\n  margin-top: 3px;\n  display: block;\n}\n\n/*--------------------\nPayment\n---------------------*/\n.payment[data-v-33342001] {\n  z-index: 0;\n  width: 370px;\n  position: relative;\n  float: right;\n}\n.card[data-v-33342001] {\n  width: 300px;\n  height: 178px;\n  position: relative;\n  margin: 0 auto;\n  background-color: #f1404b;\n  overflow: hidden;\n  z-index: 1;\n  border-radius: 6px;\n  box-shadow: 0 15px 24px rgba(37,44,65,0.32);\n}\n.card-content[data-v-33342001] {\n  width: 100%;\n  padding: 20px;\n  position: relative;\n  float: left;\n  z-index: 1;\n}\n#logo-visa[data-v-33342001] {\n  position: relative;\n  margin-top: -20px;\n  left: 190px;\n}\n.card-form[data-v-33342001] {\n  width: 100%;\n  position: relative;\n  float: right;\n  padding: 15px 35px;\n}\n.card-form > p.field[data-v-33342001] {\n  height: 48px;\n  padding: 2px 10px;\n  margin-bottom: 2px;\n  background-color: #f4f5f9;\n  border: 1px solid #d2d4de;\n  display: inline-block;\n  border-radius: 6px;\n}\ninput[type=text][data-v-33342001] {\n  height: 32px;\n  position: relative;\n  padding: 0px 10px 0px 6px;\n  background-color: transparent;\n  border: none;\n  color: #000;\n  font-family: 'PT Mono';\n  font-size: 18px;\n  font-weight: 400;\n  z-index: 0;\n}\ninput[type=text][data-v-33342001]:focus {\n    outline: none;\n}\n[data-v-33342001]::-webkit-input-placeholder { color: #dddfe6;\n}\n[data-v-33342001]:-moz-placeholder { color: #dddfe6;\n}\n[data-v-33342001]::-moz-placeholder {  color: #dddfe6;\n}\n[data-v-33342001]:-ms-input-placeholder {  color: #dddfe6;\n}\n#i-cardfront[data-v-33342001], #i-cardback[data-v-33342001], #i-calendar[data-v-33342001] {\n  position: relative;\n  top: 8px;\n  z-index: 1;\n}\n#cardnumber[data-v-33342001] {\n  width: 244px;\n}\n#cardexpiration[data-v-33342001] {\n  width: 114px;\n}\n#cardcvc[data-v-33342001] {\n  width: 60px;\n}\n.space[data-v-33342001] {\n  margin-right: 10px;\n}\nbutton[data-v-33342001]:focus { outline:0;\n}\n.button-cta[data-v-33342001] {\n  width: 100%;\n  height: 65px;\n  position: absolute;\n  float: right;\n  right: 0px;\n  bottom: -68px;\n  padding: 10px 20px;\n  background-color: #f1404b;\n  border: 1px solid #f1404b;\n  font-family: 'Quicksand', sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: #f4f5f9;\n  z-index: -1;\n  \n  -webkit-transition: all 0.3s;\n          transition: all 0.3s;\n}\n.button-cta[data-v-33342001]:hover {\n  background: rgba(193,14,26,1);\n  border: 1px solid rgba(193,14,26,1);\n}\n.button-cta span[data-v-33342001] {\n  display: inline-block;\n  position: relative;\n  \n  -webkit-transition: all 0.3s;\n          transition: all 0.3s;\n}\n.button-cta span[data-v-33342001]:after {\n  content: '\\2192';\n  color: #f4f5f9;\n  position: absolute;\n  opacity: 0;\n  top: 0;\n  right: -40px;\n}\n.button-cta:hover span[data-v-33342001] {\n  padding-right: 45px;\n}\n.button-cta:hover span[data-v-33342001]:after {\n  opacity: 1;\n  right: 0;\n}\n\n/*--------------------\nCredit Card Background\n---------------------*/\n.wave[data-v-33342001] {\n  height: 300px;\n  width: 300px;\n  position: relative;\n  background: #780910;\n  z-index: -1;\n}\n.wave[data-v-33342001]:before, .wave[data-v-33342001]:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  background: rgba(193,14,26,1);\n  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(193,14,26,1)), color-stop(100%, rgba(241,64,76,0.3)));\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(193,14,26,1)), to(rgba(241,64,76,0.3)));\n  background: linear-gradient(to bottom, rgba(193,14,26,1) 0%, rgba(241,64,76,0.3) 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c10e1a', endColorstr='#f1404c', GradientType=0 );\n  border-radius: 50% 50%;\n}\n.wave[data-v-33342001]:after {\n  height: 300px;\n  width: 300px;\n  left: 30%;\n  top: 20%;\n  opacity: 0.8;\n}\n.wave[data-v-33342001]:before {\n  height: 360px;\n  width: 360px;\n  left: -5%;\n  top: -70%;\n}\n\n/*--------------------\nPayment Notification\n---------------------*/\n.paid[data-v-33342001] {\n  z-index: 0;\n  width: 370px;\n  position: relative;\n  float: right;\n  padding: 30px;\n  text-align: center;\n  display: none;\n}\n.paid > h2[data-v-33342001] {\n  line-height: 1;\n  margin-top: 10px;\n  color: #3ac569;\n}\n\n/*--------------------\nCredits\n---------------------*/\n.icon-credits[data-v-33342001] {\n  width: 100%;\n  position: absolute;\n  bottom: 4px;\n  font-family:'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;\n  font-size: 12px;\n  color: rgba(0,0,0,0.08);\n  text-align: center;\n  z-index: -1;\n}\n.icon-credits a[data-v-33342001] {\n  text-decoration: none;\n  color: rgba(0,0,0,0.12);\n}\n", ""]);
+exports.push([module.i, "\n.gm58-hack[data-v-74d1d756]{\n    width: 100px;\n    text-align: center;\n}\n.navbar-light .navbar-nav .nav-link[data-v-74d1d756]{\n    color: cornflowerblue\n}\n.fas-header[data-v-74d1d756]{\n    font-size: x-large;\n}\n", ""]);
 
 // exports
 
@@ -11736,7 +11564,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.icon-bar[data-v-1ae00e83] {\r\n  width: 100%;\r\n  height: 50%;\r\n  background-color: #fff;\r\n  overflow: auto;\n}\n.gm58_icon[data-v-1ae00e83] {\r\n    width: 50px\n}\n.icon-bar a[data-v-1ae00e83] {\r\n  float: left;\r\n  width: 20%;\r\n  text-align: center;\r\n  padding: 12px 0;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\r\n  color: white;\r\n  font-size: 14px;\n}\n.icon-bar img[data-v-1ae00e83]:hover {\r\n    -webkit-transform: scale(1.10);\r\n    transform: scale(1.10);\r\n\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.active[data-v-1ae00e83] {\r\n  background-color: #4CAF50;\n}\n.gm58-parent[data-v-1ae00e83] {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: column;\n}\n.gm58-bottom[data-v-1ae00e83] {\r\n  margin-top: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.icon-bar[data-v-1ae00e83] {\n  width: 100%;\n  height: 50%;\n  background-color: #fff;\n  overflow: auto;\n}\n.gm58_icon[data-v-1ae00e83] {\n    width: 50px\n}\n.icon-bar a[data-v-1ae00e83] {\n  float: left;\n  width: 20%;\n  text-align: center;\n  padding: 12px 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white;\n  font-size: 14px;\n}\n.icon-bar img[data-v-1ae00e83]:hover {\n    -webkit-transform: scale(1.10);\n    transform: scale(1.10);\n\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #1fc8db;\n}\n.active[data-v-1ae00e83] {\n  background-color: #4CAF50;\n}\n.gm58-parent[data-v-1ae00e83] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.gm58-bottom[data-v-1ae00e83] {\n  margin-top: auto;\n}\n", ""]);
 
 // exports
 
@@ -11755,7 +11583,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.event[data-v-0ae701e3] {\r\n    background-position: center; /* Center the image */\r\n    background-repeat: no-repeat; /* Do not repeat the image */\r\n    background-size: cover;\n}\n.container[data-v-0ae701e3] {\r\n    max-width: 100%;\r\n  /* Full height */\r\n  /* height: 100%; */\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\r\n", ""]);
+exports.push([module.i, "\n.event[data-v-0ae701e3] {\n    background-position: center; /* Center the image */\n    background-repeat: no-repeat; /* Do not repeat the image */\n    background-size: cover;\n}\n.container[data-v-0ae701e3] {\n    max-width: 100%;\n  /* Full height */\n  /* height: 100%; */\n\n  /* Center and scale the image nicely */\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n", ""]);
 
 // exports
 
@@ -11793,7 +11621,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\ninput.gm58hack[data-v-022b4f23] {\r\n    -webkit-writing-mode: horizontal-tb !important;\r\n    text-rendering: auto;\r\n    color: -internal-light-dark-color(white, white);\r\n    letter-spacing: normal;\r\n    word-spacing: normal;\r\n    text-transform: none;\r\n    text-indent: 0px;\r\n    text-shadow: none;\r\n    display: inline-block;\r\n    text-align: start;\r\n    -webkit-appearance: textfield;\r\n    background-color: -internal-light-dark-color(white, white);\r\n    -webkit-rtl-ordering: logical;\r\n    cursor: text;\r\n    margin: 0em;\r\n    font: 400 0.1px Arial;\r\n    padding: 1px 0px;\r\n    border-width: 0px;\r\n    border-style: inset;\r\n    border-color: white;\r\n    -webkit-border-image: initial;\r\n         -o-border-image: initial;\r\n            border-image: initial;\n}\r\n", ""]);
+exports.push([module.i, "\ninput.gm58hack[data-v-022b4f23] {\n    -webkit-writing-mode: horizontal-tb !important;\n    text-rendering: auto;\n    color: -internal-light-dark-color(white, white);\n    letter-spacing: normal;\n    word-spacing: normal;\n    text-transform: none;\n    text-indent: 0px;\n    text-shadow: none;\n    display: inline-block;\n    text-align: start;\n    -webkit-appearance: textfield;\n    background-color: -internal-light-dark-color(white, white);\n    -webkit-rtl-ordering: logical;\n    cursor: text;\n    margin: 0em;\n    font: 400 0.1px Arial;\n    padding: 1px 0px;\n    border-width: 0px;\n    border-style: inset;\n    border-color: white;\n    -webkit-border-image: initial;\n         -o-border-image: initial;\n            border-image: initial;\n}\n", ""]);
 
 // exports
 
@@ -11812,7 +11640,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul.timeline[data-v-9b2f2988] {\r\n    list-style-type: none;\r\n    position: relative;\n}\nul.timeline[data-v-9b2f2988]:before {\r\n    content: ' ';\r\n    background: #d4d9df;\r\n    display: inline-block;\r\n    position: absolute;\r\n    left: 29px;\r\n    width: 2px;\r\n    height: 100%;\r\n    z-index: 400;\n}\nul.timeline > li[data-v-9b2f2988] {\r\n    margin: 20px 0;\r\n    padding-left: 20px;\n}\nul.timeline > li[data-v-9b2f2988]:before {\r\n    content: ' ';\r\n    background: white;\r\n    display: inline-block;\r\n    position: absolute;\r\n    border-radius: 50%;\r\n    border: 3px solid #22c0e8;\r\n    left: 20px;\r\n    width: 20px;\r\n    height: 20px;\r\n    z-index: 400;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\nul.timeline[data-v-9b2f2988] {\n    list-style-type: none;\n    position: relative;\n}\nul.timeline[data-v-9b2f2988]:before {\n    content: ' ';\n    background: #d4d9df;\n    display: inline-block;\n    position: absolute;\n    left: 29px;\n    width: 2px;\n    height: 100%;\n    z-index: 400;\n}\nul.timeline > li[data-v-9b2f2988] {\n    margin: 20px 0;\n    padding-left: 20px;\n}\nul.timeline > li[data-v-9b2f2988]:before {\n    content: ' ';\n    background: white;\n    display: inline-block;\n    position: absolute;\n    border-radius: 50%;\n    border: 3px solid #22c0e8;\n    left: 20px;\n    width: 20px;\n    height: 20px;\n    z-index: 400;\n}\n\n", ""]);
 
 // exports
 
@@ -11850,7 +11678,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.haya[data-v-55e4213e]{\r\n    top: 10\n}\n.vertical-center[data-v-55e4213e] {\r\n  margin: 0;\r\n  position: absolute;\r\n  top: 50%;\r\n  -webkit-transform: translateY(-50%);\r\n          transform: translateY(-50%);\n}\r\n", ""]);
+exports.push([module.i, "\n.haya[data-v-55e4213e]{\n    top: 10\n}\n.vertical-center[data-v-55e4213e] {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n", ""]);
 
 // exports
 
@@ -11869,7 +11697,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.min-card[data-v-64cbabeb] {\r\n    min-height: 270px;\n}\n.card-img-overlay[data-v-64cbabeb] {\r\n  background-color: rgba(#000, 0.4);\n}\n.footer-caption[data-v-64cbabeb] {\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover {\r\n        -webkit-transform: scale(1.05);\r\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover {\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        /* position: absolute; */\r\n        top: 0;\r\n          /*change this with javascript in the future*/\r\n        /* z-index: -1; */\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb] {\r\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb] {\r\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\r\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\r\n        width: 70;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.min-card[data-v-64cbabeb] {\n    min-height: 270px;\n}\n.card-img-overlay[data-v-64cbabeb] {\n  background-color: rgba(#000, 0.4);\n}\n.footer-caption[data-v-64cbabeb] {\n    color: #fff;\n    text-align: center;\n    text-transform: uppercase;\n    font-size: 1.4em;    \n    font-weight: bold;\n}\n.grow[data-v-64cbabeb]:hover {\n        -webkit-transform: scale(1.05);\n        transform: scale(1.05);\n}\na[data-v-64cbabeb]:hover {\n     color: #000 !important;\n     text-decoration: none !important;\n}\na[data-v-64cbabeb]{\n     color: #000 !important;\n     text-decoration: none !important;\n}\n.overlay[data-v-64cbabeb] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: absolute;\n        top: 0;\n        right: -33.3333%;  /*change this with javascript in the future*/\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: absolute;\n        top: 0;\n        right: -50%;  /*change this with javascript in the future*/\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-64cbabeb] {\n        margin-right: 0;\n}\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-64cbabeb] {\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-64cbabeb]:not(.carousel-item-right):not(.carousel-item-left),\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-64cbabeb] {\n        -webkit-transition: none;\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(0, 0, 0);\n                transform: translate3d(0, 0, 0);\n}\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-64cbabeb],\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-64cbabeb],\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(-100%, 0, 0);\n                transform: translate3d(-100%, 0, 0);\n        visibility: visible;\n}\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-64cbabeb] {\n        position: absolute;\n        top: 0;\n        left: 0;\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-64cbabeb],\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-64cbabeb],\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(100%, 0, 0);\n                transform: translate3d(100%, 0, 0);\n        visibility: visible;\n        display: block;\n        visibility: visible;\n}\n}\n/* MD */\n@media (min-width: 768px) {\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        -webkit-transition: none;\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(0, 0, 0);\n                transform: translate3d(0, 0, 0);\n}\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(-100%, 0, 0);\n                transform: translate3d(-100%, 0, 0);\n        visibility: visible;\n}\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(100%, 0, 0);\n                transform: translate3d(100%, 0, 0);\n        visibility: visible;\n        display: block;\n        visibility: visible;\n}\n}\n/* LG */\n@media (min-width: 991px) {\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        -webkit-transition: none;\n        transition: none;\n}\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.gm58-slider-item.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        /* position: absolute; */\n        top: 0;\n          /*change this with javascript in the future*/\n        /* z-index: -1; */\n        display: block;\n        visibility: visible;\n}\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(-100%, 0, 0);\n                transform: translate3d(-100%, 0, 0);\n        visibility: visible;\n}\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-64cbabeb] {\n        position: relative;\n        -webkit-transform: translate3d(100%, 0, 0);\n                transform: translate3d(100%, 0, 0);\n        visibility: visible;\n        display: block;\n        visibility: visible;\n}\n.carousel-control-prev[data-v-64cbabeb] {\n        background-image: -webkit-gradient(linear, right top, left top, from(transparent) , to(#1fc8db));\n        background-image: linear-gradient(-90deg, transparent , #1fc8db);\n        width: 70;\n}\n.carousel-control-next[data-v-64cbabeb] {\n        background-image: -webkit-gradient(linear, left top, right top, from(transparent) , to(#1fc8db));\n        background-image: linear-gradient(90deg, transparent , #1fc8db);\n        width: 70;\n}\n}\n", ""]);
 
 // exports
 
@@ -11888,7 +11716,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.cards-list[data-v-7a079645] {\r\n  z-index: 0;\r\n  width: 100%;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  flex-wrap: wrap;\n}\n.card[data-v-7a079645] {\r\n  margin: 30px auto;\r\n  width: 300px;\r\n  height: 300px;\r\n  border-radius: 40px;\r\nbox-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);\r\n  cursor: pointer;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.card .card_image[data-v-7a079645] {\r\n  width: inherit;\r\n  height: inherit;\r\n  border-radius: 40px;\n}\n.card .card_image img[data-v-7a079645] {\r\n  width: inherit;\r\n  height: inherit;\r\n  border-radius: 40px;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\na[data-v-7a079645]:hover {\r\n  \r\n  text-decoration: none;\n}\n.card .card_title[data-v-7a079645] {\r\n  text-align: center;\r\n  border-radius: 0px 0px 40px 40px;\r\n  font-weight: bold;\r\n  font-size: 30px;\r\n  margin-top: -90px;\r\n  height: 40px;\n}\n.card[data-v-7a079645]:hover {\r\n  -webkit-transform: scale(0.9, 0.9);\r\n          transform: scale(0.9, 0.9);\r\n  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), \r\n    -5px -5px 30px 15px rgba(0,0,0,0.22);\n}\n.title-white[data-v-7a079645] {\r\n  color: white;\r\n  text-shadow: 3px 3px 0 #3490dc;\n}\n.title-black[data-v-7a079645] {\r\n  color: black;\n}\n@media all and (max-width: 500px) {\n.card-list[data-v-7a079645] {\r\n    /* On small screens, we are no longer using row direction but column */\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n            flex-direction: column;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.cards-list[data-v-7a079645] {\n  z-index: 0;\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.card[data-v-7a079645] {\n  margin: 30px auto;\n  width: 300px;\n  height: 300px;\n  border-radius: 40px;\nbox-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);\n  cursor: pointer;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.card .card_image[data-v-7a079645] {\n  width: inherit;\n  height: inherit;\n  border-radius: 40px;\n}\n.card .card_image img[data-v-7a079645] {\n  width: inherit;\n  height: inherit;\n  border-radius: 40px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\na[data-v-7a079645]:hover {\n  \n  text-decoration: none;\n}\n.card .card_title[data-v-7a079645] {\n  text-align: center;\n  border-radius: 0px 0px 40px 40px;\n  font-weight: bold;\n  font-size: 30px;\n  margin-top: -90px;\n  height: 40px;\n}\n.card[data-v-7a079645]:hover {\n  -webkit-transform: scale(0.9, 0.9);\n          transform: scale(0.9, 0.9);\n  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), \n    -5px -5px 30px 15px rgba(0,0,0,0.22);\n}\n.title-white[data-v-7a079645] {\n  color: white;\n  text-shadow: 3px 3px 0 #3490dc;\n}\n.title-black[data-v-7a079645] {\n  color: black;\n}\n@media all and (max-width: 500px) {\n.card-list[data-v-7a079645] {\n    /* On small screens, we are no longer using row direction but column */\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n}\n", ""]);
 
 // exports
 
@@ -11907,7 +11735,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\r\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\r\n  width: 100%;\r\n  font-size: 14px;\r\n  color: #2c3e50;\r\n  line-height: 1.42857143;\r\n  box-shadow: inset 0 1px 4px #3490dc;\r\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  font-weight: 300;\r\n  padding: 12px 26px;\r\n  border: none;\r\n  border-radius: 22px;\r\n  letter-spacing: 1px;\r\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\r\n  border-color: #3490dc;\r\n  outline: 0;\r\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\r\n  width: 100% !important;\n}\n.fa-times[data-v-58d9ffdd] {\r\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\r\n  float: right;\r\n  position: relative;\r\n  top: 30px;\r\n  right: 29px;\r\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\r\n  position: absolute;\r\n  padding: 0;\r\n  margin-top: 8px;\r\n  min-width: 100%;\r\n  background-color: #fff;\r\n  list-style: none;\r\n  border-radius: 4px;\r\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\r\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\r\n  padding: 10px 16px;\r\n  border-bottom: 1px solid #ccc;\r\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\r\n  border-top-left-radius: 4px;\r\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\r\n  border-bottom-left-radius: 4px;\r\n  border-bottom-right-radius: 4px;\r\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\r\n  display: block;\r\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\r\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\r\n  color: white;\n}\n.name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-style: italic;\n}\n.screen-name[data-v-58d9ffdd] {\r\n  font-weight: 700;\r\n  font-style: italic;\n}\r\n", ""]);
+exports.push([module.i, "\n.Typeahead[data-v-58d9ffdd] {\n  position: relative;\n}\n.Typeahead__input[data-v-58d9ffdd] {\n  width: 100%;\n  font-size: 14px;\n  color: #2c3e50;\n  line-height: 1.42857143;\n  box-shadow: inset 0 1px 4px #3490dc;\n  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\n  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\n  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\n  font-weight: 300;\n  padding: 12px 26px;\n  border: none;\n  border-radius: 22px;\n  letter-spacing: 1px;\n  box-sizing: border-box;\n}\n.Typeahead__input[data-v-58d9ffdd]:focus {\n  border-color: #3490dc;\n  outline: 0;\n  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3490dc;\n  width: 100% !important;\n}\n.fa-times[data-v-58d9ffdd] {\n  cursor: pointer;\n}\ni[data-v-58d9ffdd] {\n  float: right;\n  position: relative;\n  top: 30px;\n  right: 29px;\n  opacity: 0.4;\n}\nul[data-v-58d9ffdd] {\n  position: absolute;\n  padding: 0;\n  margin-top: 8px;\n  min-width: 100%;\n  background-color: #fff;\n  list-style: none;\n  border-radius: 4px;\n  box-shadow: 0 0 10px rgba(0,0,0, 0.25);\n  z-index: 1000;\n}\nli[data-v-58d9ffdd] {\n  padding: 10px 16px;\n  border-bottom: 1px solid #ccc;\n  cursor: pointer;\n}\nli[data-v-58d9ffdd]:first-child {\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n}\nli[data-v-58d9ffdd]:last-child {\n  border-bottom-left-radius: 4px;\n  border-bottom-right-radius: 4px;\n  border-bottom: 0;\n}\nspan[data-v-58d9ffdd] {\n  display: block;\n  color: #2c3e50;\n}\n.active[data-v-58d9ffdd] {\n  background-color: #3490dc;\n}\n.active span[data-v-58d9ffdd] {\n  color: white;\n}\n.name[data-v-58d9ffdd] {\n  font-weight: 700;\n  font-size: 18px;\n}\n.screen-name[data-v-58d9ffdd] {\n  font-style: italic;\n}\n.screen-name[data-v-58d9ffdd] {\n  font-weight: 700;\n  font-style: italic;\n}\n", ""]);
 
 // exports
 
@@ -11926,7 +11754,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\na[data-v-75bc62d4] {\r\n    color: white !important;\n}\r\n/* .carousel-caption {\r\n    padding-bottom: 140px;\r\n}  */\n.gm58-slider[data-v-75bc62d4] { \r\n    max-height: 650px;\r\n    /* height:650px; */\r\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\r\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4] {\r\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4] {\r\n    z-index: 3;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\na[data-v-75bc62d4] {\n    color: white !important;\n}\n/* .carousel-caption {\n    padding-bottom: 140px;\n}  */\n.gm58-slider[data-v-75bc62d4] { \n    max-height: 650px;\n    /* height:650px; */\n    width: 100%;\n}\n.overlay[data-v-75bc62d4] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 0%, #1fc8db 51%, #2cb5e8 75%);\n    opacity: .27;\n}\n.carousel-control-prev[data-v-75bc62d4] {\n    z-index: 3\n}\n.carousel-control-next[data-v-75bc62d4] {\n    z-index: 3;\n}\n\n", ""]);
 
 // exports
 
@@ -11945,7 +11773,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.footer-caption[data-v-6727f5a7]{\r\n    color: #fff;\r\n    text-align: center;\r\n    text-transform: uppercase;\r\n    font-size: 1.4em;    \r\n    font-weight: bold;\n}\n.grow[data-v-6727f5a7]:hover\r\n{\r\n        -webkit-transform: scale(1.1);\r\n        transform: scale(1.1);\n}\na[data-v-6727f5a7]:hover{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\na[data-v-6727f5a7]{\r\n     color: #000 !important;\r\n     text-decoration: none !important;\n}\n.overlay[data-v-6727f5a7] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 2;\r\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\r\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\r\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -33.3333%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\r\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -50%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-6727f5a7] {\r\n        margin-right: 0;\n}\r\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-6727f5a7] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-6727f5a7]:not(.carousel-item-right):not(.carousel-item-left),\r\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-6727f5a7] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-6727f5a7],\r\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-6727f5a7],\r\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-6727f5a7] {\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-6727f5a7],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-6727f5a7],\r\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* MD */\n@media (min-width: 768px) {\r\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(0, 0, 0);\r\n                transform: translate3d(0, 0, 0);\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n/* LG */\n@media (min-width: 991px) {\r\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        -webkit-transition: none;\r\n        transition: none;\n}\r\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: absolute;\r\n        top: 0;\r\n        right: -25%;  /*change this with javascript in the future*/\r\n        z-index: -1;\r\n        display: block;\r\n        visibility: visible;\n}\r\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(-100%, 0, 0);\r\n                transform: translate3d(-100%, 0, 0);\r\n        visibility: visible;\n}\r\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\r\n        position: relative;\r\n        -webkit-transform: translate3d(100%, 0, 0);\r\n                transform: translate3d(100%, 0, 0);\r\n        visibility: visible;\r\n        display: block;\r\n        visibility: visible;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.footer-caption[data-v-6727f5a7]{\n    color: #fff;\n    text-align: center;\n    text-transform: uppercase;\n    font-size: 1.4em;    \n    font-weight: bold;\n}\n.grow[data-v-6727f5a7]:hover\n{\n        -webkit-transform: scale(1.1);\n        transform: scale(1.1);\n}\na[data-v-6727f5a7]:hover{\n     color: #000 !important;\n     text-decoration: none !important;\n}\na[data-v-6727f5a7]{\n     color: #000 !important;\n     text-decoration: none !important;\n}\n.overlay[data-v-6727f5a7] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    z-index: 2;\n    background-image: linear-gradient(141deg,#db109e 45%, #fff 0%, #fff 75%);\n    opacity: .1;\n}\n@media (min-width: 768px) and (max-width: 991px) {\n    /* Show 4th slide on md if col-md-4*/\n.carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: absolute;\n        top: 0;\n        right: -33.3333%;  /*change this with javascript in the future*/\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n}\n@media (min-width: 576px) and (max-width: 768px) {\n    /* Show 3rd slide on sm if col-sm-6*/\n.carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: absolute;\n        top: 0;\n        right: -50%;  /*change this with javascript in the future*/\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n}\n@media (min-width: 576px) {\n.carousel-item[data-v-6727f5a7] {\n        margin-right: 0;\n}\n    /* show 2 items */\n.carousel-inner .active + .carousel-item[data-v-6727f5a7] {\n        display: block;\n}\n.carousel-inner .carousel-item.active[data-v-6727f5a7]:not(.carousel-item-right):not(.carousel-item-left),\n    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item[data-v-6727f5a7] {\n        -webkit-transition: none;\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(0, 0, 0);\n                transform: translate3d(0, 0, 0);\n}\n    /* left or forward direction */\n.active.carousel-item-left + .carousel-item-next.carousel-item-left[data-v-6727f5a7],\n    .carousel-item-next.carousel-item-left + .carousel-item[data-v-6727f5a7],\n    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(-100%, 0, 0);\n                transform: translate3d(-100%, 0, 0);\n        visibility: visible;\n}\n    /* farthest right hidden item must be also positioned for animations */\n.carousel-inner .carousel-item-prev.carousel-item-right[data-v-6727f5a7] {\n        position: absolute;\n        top: 0;\n        left: 0;\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n    /* right or prev direction */\n.active.carousel-item-right + .carousel-item-prev.carousel-item-right[data-v-6727f5a7],\n    .carousel-item-prev.carousel-item-right + .carousel-item[data-v-6727f5a7],\n    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(100%, 0, 0);\n                transform: translate3d(100%, 0, 0);\n        visibility: visible;\n        display: block;\n        visibility: visible;\n}\n}\n/* MD */\n@media (min-width: 768px) {\n    /* show 3rd of 3 item slide */\n.carousel-inner .active + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        -webkit-transition: none;\n        transition: none;\n}\n.carousel-inner .carousel-item-next[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(0, 0, 0);\n                transform: translate3d(0, 0, 0);\n}\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(-100%, 0, 0);\n                transform: translate3d(-100%, 0, 0);\n        visibility: visible;\n}\n    /* right or prev direction */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(100%, 0, 0);\n                transform: translate3d(100%, 0, 0);\n        visibility: visible;\n        display: block;\n        visibility: visible;\n}\n}\n/* LG */\n@media (min-width: 991px) {\n    /* show 4th item */\n.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        display: block;\n}\n.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        -webkit-transition: none;\n        transition: none;\n}\n    /* Show 5th slide on lg if col-lg-3 */\n.carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: absolute;\n        top: 0;\n        right: -25%;  /*change this with javascript in the future*/\n        z-index: -1;\n        display: block;\n        visibility: visible;\n}\n    /* left or forward direction */\n.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(-100%, 0, 0);\n                transform: translate3d(-100%, 0, 0);\n        visibility: visible;\n}\n    /* right or prev direction //t - previous slide direction last item animation fix */\n.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item[data-v-6727f5a7] {\n        position: relative;\n        -webkit-transform: translate3d(100%, 0, 0);\n                transform: translate3d(100%, 0, 0);\n        visibility: visible;\n        display: block;\n        visibility: visible;\n}\n}\n", ""]);
 
 // exports
 
@@ -11964,7 +11792,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\ninput.gm58hack[data-v-32c47d96] {\r\n    -webkit-writing-mode: horizontal-tb !important;\r\n    text-rendering: auto;\r\n    color: -internal-light-dark-color(white, white);\r\n    letter-spacing: normal;\r\n    word-spacing: normal;\r\n    text-transform: none;\r\n    text-indent: 0px;\r\n    text-shadow: none;\r\n    display: inline-block;\r\n    text-align: start;\r\n    -webkit-appearance: textfield;\r\n    background-color: -internal-light-dark-color(white, white);\r\n    -webkit-rtl-ordering: logical;\r\n    cursor: text;\r\n    margin: 0em;\r\n    font: 400 0.1px Arial;\r\n    padding: 1px 0px;\r\n    border-width: 0px;\r\n    border-style: inset;\r\n    border-color: white;\r\n    -webkit-border-image: initial;\r\n         -o-border-image: initial;\r\n            border-image: initial;\n}\r\n", ""]);
+exports.push([module.i, "\ninput.gm58hack[data-v-32c47d96] {\n    -webkit-writing-mode: horizontal-tb !important;\n    text-rendering: auto;\n    color: -internal-light-dark-color(white, white);\n    letter-spacing: normal;\n    word-spacing: normal;\n    text-transform: none;\n    text-indent: 0px;\n    text-shadow: none;\n    display: inline-block;\n    text-align: start;\n    -webkit-appearance: textfield;\n    background-color: -internal-light-dark-color(white, white);\n    -webkit-rtl-ordering: logical;\n    cursor: text;\n    margin: 0em;\n    font: 400 0.1px Arial;\n    padding: 1px 0px;\n    border-width: 0px;\n    border-style: inset;\n    border-color: white;\n    -webkit-border-image: initial;\n         -o-border-image: initial;\n            border-image: initial;\n}\n", ""]);
 
 // exports
 
@@ -60494,36 +60322,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/eventDetails.vue?vue&type=style&index=0&id=1ae00e83&scoped=true&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/eventDetails.vue?vue&type=style&index=0&id=1ae00e83&scoped=true&lang=css& ***!
@@ -71043,934 +70841,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=template&id=33342001&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/checkout.vue?vue&type=template&id=33342001&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mb-4 mt-4" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "checkout" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c("h2", [_vm._v("Payment")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "payment", attrs: { id: "payment" } }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-content" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  id: "logo-visa",
-                  "enable-background": "new 0 0 50 70",
-                  height: "70px",
-                  version: "1.1",
-                  viewBox: "0 0 50 50",
-                  width: "70px",
-                  "xml:space": "preserve",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  "xmlns:xlink": "http://www.w3.org/1999/xlink"
-                }
-              },
-              [
-                _c("g", [
-                  _c("g", [
-                    _c("polygon", {
-                      attrs: {
-                        "clip-rule": "evenodd",
-                        fill: "#f4f5f9",
-                        "fill-rule": "evenodd",
-                        points:
-                          "17.197,32.598 19.711,17.592 23.733,17.592     21.214,32.598   "
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "clip-rule": "evenodd",
-                        d:
-                          "M35.768,17.967c-0.797-0.287-2.053-0.621-3.596-0.621    c-3.977,0-6.752,2.029-6.776,4.945c-0.023,2.154,1.987,3.358,3.507,4.08c1.568,0.738,2.096,1.201,2.076,1.861    c0,1.018-1.238,1.471-2.395,1.471c-1.604,0-2.455-0.232-3.773-0.787l-0.53-0.248l-0.547,3.348    c0.929,0.441,2.659,0.789,4.462,0.811c4.217,0,6.943-2.012,6.979-5.135c0.025-1.692-1.053-2.999-3.369-4.071    c-1.393-0.685-2.246-1.134-2.246-1.844c0-0.645,0.723-1.306,2.295-1.306c1.314-0.024,2.268,0.271,3.002,0.58l0.365,0.167    L35.768,17.967z",
-                        fill: "#f4f5f9",
-                        "fill-rule": "evenodd"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "clip-rule": "evenodd",
-                        d:
-                          "M46.055,17.616h-3.102c-0.955,0-1.688,0.272-2.117,1.24    l-5.941,13.767h4.201c0,0,0.688-1.869,0.852-2.262c0.469,0,4.547,0,5.133,0c0.123,0.518,0.49,2.262,0.49,2.262h3.711    L46.055,17.616 M41.1,27.277c0.328-0.842,1.609-4.175,1.609-4.175c-0.041,0.043,0.328-0.871,0.529-1.43l0.256,1.281    c0,0,0.773,3.582,0.938,4.324H41.1z",
-                        fill: "#f4f5f9",
-                        "fill-rule": "evenodd"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "clip-rule": "evenodd",
-                        d:
-                          "M13.843,17.616L9.905,27.842l-0.404-2.076    c-0.948-2.467-2.836-4.634-5.53-6.163l3.564,12.995h4.243l6.312-14.982H13.843z",
-                        fill: "#f4f5f9",
-                        "fill-rule": "evenodd"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "clip-rule": "evenodd",
-                        d:
-                          "M7.232,17.174H0.755l-0.037,0.333    c5.014,1.242,8.358,4.237,9.742,7.841l-1.42-6.884C8.798,17.507,8.105,17.223,7.232,17.174L7.232,17.174z",
-                        fill: "#f4f5f9",
-                        "fill-rule": "evenodd"
-                      }
-                    })
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("h5", [_vm._v("Card Number")]),
-            _vm._v(" "),
-            _c("h6", { attrs: { id: "label-cardnumber" } }, [
-              _vm._v("0000 0000 0000 0000")
-            ]),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._m(3)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "wave" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-form" }, [
-          _c("p", { staticClass: "field" }, [
-            _c(
-              "svg",
-              {
-                staticStyle: { "enable-background": "new 0 0 28 28" },
-                attrs: {
-                  id: "i-cardfront",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                  version: "1.1",
-                  x: "0px",
-                  y: "0px",
-                  viewBox: "0 0 512 512",
-                  "xml:space": "preserve",
-                  width: "28px",
-                  height: "28px"
-                }
-              },
-              [
-                _c("g", [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M471.5,88h-432C17.72,88,0,105.72,0,127.5v256C0,405.28,17.72,423,39.5,423h432c21.78,0,39.5-17.72,39.5-39.5v-256   C511,105.72,493.28,88,471.5,88z M496,383.5c0,13.509-10.991,24.5-24.5,24.5h-432C25.991,408,15,397.009,15,383.5v-256   c0-13.509,10.991-24.5,24.5-24.5h432c13.509,0,24.5,10.991,24.5,24.5V383.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M239.5,352h-176c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h176c4.142,0,7.5-3.358,7.5-7.5S243.642,352,239.5,352z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M343.5,352h-72c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h72c4.142,0,7.5-3.358,7.5-7.5S347.642,352,343.5,352z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M79.5,239h48c12.958,0,23.5-10.542,23.5-23.5v-32c0-12.958-10.542-23.5-23.5-23.5h-48C66.542,160,56,170.542,56,183.5v32   C56,228.458,66.542,239,79.5,239z M136,183.5v8.5h-8.5c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h8.5v8.5   c0,4.687-3.813,8.5-8.5,8.5H111v-49h16.5C132.187,175,136,178.813,136,183.5z M79.5,175H96v49H79.5c-4.687,0-8.5-3.813-8.5-8.5V207   h8.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H71v-8.5C71,178.813,74.813,175,79.5,175z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M63.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16C56,315.642,59.358,319,63.5,319   z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M80,295.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5S80,291.358,80,295.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M104,295.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5S104,291.358,104,295.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M128,295.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5S128,291.358,128,295.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M167.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C160,315.642,163.358,319,167.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M191.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C184,315.642,187.358,319,191.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M215.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C208,315.642,211.358,319,215.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M239.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C247,291.358,243.642,288,239.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M271.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C264,315.642,267.358,319,271.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M295.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C288,315.642,291.358,319,295.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M319.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C312,315.642,315.358,319,319.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M343.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C351,291.358,347.642,288,343.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M375.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C383,291.358,379.642,288,375.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M399.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C407,291.358,403.642,288,399.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M423.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C431,291.358,427.642,288,423.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M447.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C455,291.358,451.642,288,447.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M415.5,160h-48c-21.78,0-39.5,17.72-39.5,39.5s17.72,39.5,39.5,39.5h48c21.78,0,39.5-17.72,39.5-39.5S437.28,160,415.5,160   z M415.5,224h-48c-13.509,0-24.5-10.991-24.5-24.5s10.991-24.5,24.5-24.5h48c13.509,0,24.5,10.991,24.5,24.5S429.009,224,415.5,224   z",
-                      fill: "#dddfe6"
-                    }
-                  })
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "text",
-                id: "cardnumber",
-                name: "cardnumber",
-                placeholder: "1234 5678 9123 4567",
-                pattern: "\\d*",
-                title: "Card Number"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "field space" }, [
-            _c(
-              "svg",
-              {
-                staticStyle: { "enable-background": "new 0 0 191.259 191.259" },
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                  version: "1.1",
-                  id: "i-calendar",
-                  x: "0px",
-                  y: "0px",
-                  viewBox: "0 0 191.259 191.259",
-                  "xml:space": "preserve",
-                  width: "28px",
-                  height: "28px"
-                }
-              },
-              [
-                _c("g", [
-                  _c("circle", {
-                    attrs: {
-                      cx: "59.768",
-                      cy: "83.634",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "83.676",
-                      cy: "83.634",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "107.583",
-                      cy: "83.634",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "35.861",
-                      cy: "107.541",
-                      r: "3.984",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "59.768",
-                      cy: "107.541",
-                      r: "3.984",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "83.676",
-                      cy: "107.541",
-                      r: "3.984",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "107.583",
-                      cy: "107.541",
-                      r: "3.984",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "155.398",
-                      cy: "107.541",
-                      r: "3.984",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "131.49",
-                      cy: "83.634",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "155.398",
-                      cy: "83.634",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "35.861",
-                      cy: "131.449",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "59.768",
-                      cy: "131.449",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "83.676",
-                      cy: "131.449",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "107.583",
-                      cy: "131.449",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "131.49",
-                      cy: "131.449",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "155.398",
-                      cy: "131.449",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "35.861",
-                      cy: "155.356",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "59.768",
-                      cy: "155.356",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "83.676",
-                      cy: "155.356",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("circle", {
-                    attrs: {
-                      cx: "107.583",
-                      cy: "155.356",
-                      r: "3.985",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M131.49,119.495c6.603,0,11.954-5.351,11.954-11.954s-5.351-11.954-11.954-11.954   c-6.603,0-11.954,5.351-11.954,11.954S124.887,119.495,131.49,119.495z M131.49,103.557c2.199,0,3.985,1.786,3.985,3.984   s-1.786,3.984-3.985,3.984s-3.984-1.786-3.984-3.984S129.292,103.557,131.49,103.557z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M175.321,15.98h-7.969v-3.985c0-6.601-5.354-11.954-11.954-11.954   c-6.603,0-11.954,5.352-11.954,11.954v3.985h-95.63v-3.985c0-6.601-5.354-11.954-11.954-11.954   c-6.603,0-11.954,5.352-11.954,11.954v3.985h-7.969C7.136,15.98,0,23.116,0,31.918v15.854v7.969v119.537   c0,8.802,7.136,15.938,15.938,15.938h159.382c8.802,0,15.938-7.136,15.938-15.938V55.742v-7.969V31.918   C191.259,23.116,184.123,15.98,175.321,15.98z M151.413,23.949V15.98v-3.985c0-2.201,1.782-3.985,3.985-3.985   c2.198,0,3.984,1.784,3.984,3.985v3.985v7.969v3.984c0,2.2-1.786,3.985-3.984,3.985c-2.202,0-3.985-1.784-3.985-3.985V23.949z    M31.876,23.949V15.98v-3.985c0-2.201,1.782-3.985,3.985-3.985c2.199,0,3.985,1.784,3.985,3.985v3.985v7.969v3.984   c0,2.2-1.786,3.985-3.985,3.985c-2.202,0-3.985-1.784-3.985-3.985V23.949z M183.29,175.279c0,4.399-3.564,7.969-7.969,7.969H15.938   c-4.405,0-7.969-3.57-7.969-7.969V55.742H183.29V175.279z M183.29,47.773H7.969V31.918c0-4.403,3.564-7.969,7.969-7.969h7.969   v3.984c0,6.601,5.35,11.954,11.954,11.954c6.6,0,11.954-5.352,11.954-11.954v-3.984h95.63v3.984c0,6.601,5.35,11.954,11.954,11.954   c6.599,0,11.954-5.352,11.954-11.954v-3.984h7.969c4.405,0,7.969,3.566,7.969,7.969V47.773z",
-                      fill: "#dddfe6"
-                    }
-                  })
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "text",
-                id: "cardexpiration",
-                name: "cardexpiration",
-                placeholder: "MM / YYYY",
-                pattern: "\\d*",
-                title: "Card Expiration Date"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "field" }, [
-            _c(
-              "svg",
-              {
-                staticStyle: { "enable-background": "new 0 0 28 28" },
-                attrs: {
-                  id: "i-cardback",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                  version: "1.1",
-                  x: "0px",
-                  y: "0px",
-                  viewBox: "0 0 512 512",
-                  "xml:space": "preserve",
-                  width: "28px",
-                  height: "28px"
-                }
-              },
-              [
-                _c("g", [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M63.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16C71,291.358,67.642,288,63.5,288   z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M87.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16C95,291.358,91.642,288,87.5,288   z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M111.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C119,291.358,115.642,288,111.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M135.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C143,291.358,139.642,288,135.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M167.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C160,315.642,163.358,319,167.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M199,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S199,315.642,199,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M223,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S223,315.642,223,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M239.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C247,291.358,243.642,288,239.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M271.5,319c4.142,0,7.5-3.358,7.5-7.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16   C264,315.642,267.358,319,271.5,319z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M303,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S303,315.642,303,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M327,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S327,315.642,327,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M351,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S351,315.642,351,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M383,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S383,315.642,383,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M407,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S407,315.642,407,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M431,311.5v-16c0-4.142-3.358-7.5-7.5-7.5s-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5S431,315.642,431,311.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M447.5,288c-4.142,0-7.5,3.358-7.5,7.5v16c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-16   C455,291.358,451.642,288,447.5,288z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M447.5,216h-384C50.542,216,40,226.542,40,239.5v8c0,12.958,10.542,23.5,23.5,23.5h384c12.958,0,23.5-10.542,23.5-23.5v-8   C471,226.542,460.458,216,447.5,216z M456,247.5c0,4.687-3.813,8.5-8.5,8.5h-384c-4.687,0-8.5-3.813-8.5-8.5v-8   c0-4.687,3.813-8.5,8.5-8.5h384c4.687,0,8.5,3.813,8.5,8.5V247.5z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M447.5,352h-176c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h176c4.142,0,7.5-3.358,7.5-7.5S451.642,352,447.5,352z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M239.5,352h-72c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h72c4.142,0,7.5-3.358,7.5-7.5S243.642,352,239.5,352z",
-                      fill: "#dddfe6"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M511,159.498V127.5c0-21.78-17.72-39.5-39.5-39.5h-432C17.72,88,0,105.72,0,127.5v47.998c0,0.001,0,0.003,0,0.005V383.5   C0,405.28,17.72,423,39.5,423h432c21.78,0,39.5-17.72,39.5-39.5V159.502C511,159.501,511,159.499,511,159.498z M496,184h-6.394   l6.394-6.394V184z M449.606,184l41-41H496v13.394L468.394,184H449.606z M409.606,184l41-41h18.787l-41,41H409.606z M369.606,184   l41-41h18.787l-41,41H369.606z M329.606,184l41-41h18.787l-41,41H329.606z M289.606,184l41-41h18.787l-41,41H289.606z M249.606,184   l41-41h18.787l-41,41H249.606z M209.606,184l41-41h18.787l-41,41H209.606z M169.606,184l41-41h18.787l-41,41H169.606z M129.606,184   l41-41h18.787l-41,41H129.606z M89.606,184l41-41h18.787l-41,41H89.606z M49.606,184l41-41h18.787l-41,41H49.606z M15,184v-5.394   L50.606,143h18.787l-41,41H15z M15,143h14.394L15,157.394V143z M39.5,103h432c13.509,0,24.5,10.991,24.5,24.5v0.5h-8.497   c-0.002,0-0.003,0-0.005,0h-39.995c-0.002,0-0.003,0-0.005,0h-39.995c-0.002,0-0.003,0-0.005,0h-39.995c-0.002,0-0.003,0-0.005,0   h-39.995c-0.002,0-0.003,0-0.005,0h-39.995c-0.002,0-0.004,0-0.005,0h-39.995c-0.001,0-0.003,0-0.005,0h-39.995   c-0.001,0-0.003,0-0.005,0h-39.995c-0.001,0-0.003,0-0.005,0h-39.995c-0.001,0-0.003,0-0.005,0H87.502c-0.001,0-0.003,0-0.005,0   H47.502c-0.001,0-0.003,0-0.005,0H15v-0.5C15,113.991,25.991,103,39.5,103z M471.5,408h-432C25.991,408,15,397.009,15,383.5V199   h481v184.5C496,397.009,485.009,408,471.5,408z",
-                      fill: "#dddfe6"
-                    }
-                  })
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "text",
-                id: "cardcvc",
-                name: "cardcvc",
-                placeholder: "123",
-                pattern: "\\d*",
-                title: "CVC Code"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _vm._m(4)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "paid", attrs: { id: "paid" } }, [
-        _c(
-          "svg",
-          {
-            staticStyle: { "enable-background": "new 0 0 310.277 310.277" },
-            attrs: {
-              id: "icon-paid",
-              xmlns: "http://www.w3.org/2000/svg",
-              "xmlns:xlink": "http://www.w3.org/1999/xlink",
-              version: "1.1",
-              x: "0px",
-              y: "0px",
-              viewBox: "0 0 310.277 310.277",
-              "xml:space": "preserve",
-              width: "180px",
-              height: "180px"
-            }
-          },
-          [
-            _c("g", [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M155.139,0C69.598,0,0,69.598,0,155.139c0,85.547,69.598,155.139,155.139,155.139   c85.547,0,155.139-69.592,155.139-155.139C310.277,69.598,240.686,0,155.139,0z M144.177,196.567L90.571,142.96l8.437-8.437   l45.169,45.169l81.34-81.34l8.437,8.437L144.177,196.567z",
-                  fill: "#3ac569"
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("h2", [_vm._v("Your payment was completed.")]),
-        _vm._v(" "),
-        _c("h2", [_vm._v("Thank you!")])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(5)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "subject" }, [
-      _vm._v("DailyUI #002 "),
-      _c("br"),
-      _c("strong", [_vm._v("Credit Card Checkout")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "order" }, [
-      _c("h2", [_vm._v("Checkout")]),
-      _vm._v(" "),
-      _c("h5", [_vm._v("Order #0101")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "order-list" }, [
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src:
-                "http://images.nike.com/is/image/DotCom/PDP_THUMB/JORDAN-ECLIPSE-724010_401_A_PREM.jpg"
-            }
-          }),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Jordan Eclipse")]),
-          _vm._v(" "),
-          _c("h5", [_vm._v("$110")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src:
-                "http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg"
-            }
-          }),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Nike Futura True 2 Snapback")]),
-          _vm._v(" "),
-          _c("h5", [_vm._v("$28")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src:
-                "http://images.nike.com/is/image/DotCom/PDP_THUMB/NIKE-FB-SHOE-BAG-30-BA5101_001_A.jpg"
-            }
-          }),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Nike FB Training 3.0")]),
-          _vm._v(" "),
-          _c("h5", [_vm._v("$20")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("h5", [_vm._v("Shipping")]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("$ 9.50")]),
-      _vm._v(" "),
-      _c("h5", { staticClass: "total" }, [_vm._v("Total")]),
-      _vm._v(" "),
-      _c("h1", [_vm._v("$ 167.50")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", [_vm._v("Expiration"), _c("span", [_vm._v("CVC")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h6", { attrs: { id: "label-cardexpiration" } }, [
-      _vm._v("00 / 0000"),
-      _c("span", [_vm._v("000")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "button-cta", attrs: { title: "Confirm your purchase" } },
-      [_c("span", [_vm._v("PURCHASE")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon-credits" }, [
-      _vm._v("Outlined icons made by "),
-      _c("a", { attrs: { href: "http://www.freepik.com", title: "Freepik" } }, [
-        _vm._v("Freepik")
-      ]),
-      _vm._v(" & "),
-      _c(
-        "a",
-        {
-          attrs: {
-            href: "http://www.flaticon.com/authors/abhimanyu-rana",
-            title: "Abhimanyu Rana"
-          }
-        },
-        [_vm._v("Abhimanyu Rana")]
-      ),
-      _vm._v(" from "),
-      _c(
-        "a",
-        { attrs: { href: "http://www.flaticon.com", title: "Flaticon" } },
-        [_vm._v("www.flaticon.com")]
-      ),
-      _vm._v(" is licensed by "),
-      _c(
-        "a",
-        {
-          attrs: {
-            href: "http://creativecommons.org/licenses/by/3.0/",
-            title: "Creative Commons BY 3.0",
-            target: "_blank"
-          }
-        },
-        [_vm._v("CC 3.0 BY")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/customerDetails.vue?vue&type=template&id=192716ce&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/events/customerDetails.vue?vue&type=template&id=192716ce& ***!
@@ -73439,11 +72309,13 @@ var render = function() {
                               2
                             )
                           ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      event.status != "sale"
+                        : event.status != "sale"
                         ? _c("div", { staticClass: "col-md-3" }, [
                             _vm._m(0, true)
+                          ])
+                        : event.status == "postpone"
+                        ? _c("div", { staticClass: "col-md-3" }, [
+                            _vm._m(1, true)
                           ])
                         : _vm._e()
                     ])
@@ -73518,7 +72390,7 @@ var render = function() {
             2
           )
         ])
-      : _c("div", [_vm._m(1)])
+      : _c("div", [_vm._m(2)])
   ])
 }
 var staticRenderFns = [
@@ -73528,6 +72400,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h3", [
       _c("span", { staticClass: "badge badge-danger" }, [_vm._v("Sold Out")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", [
+      _c("span", { staticClass: "badge badge-warning" }, [
+        _vm._v("Event has been postpone")
+      ])
     ])
   },
   function() {
@@ -74600,13 +73482,13 @@ var render = function() {
                                   { staticClass: "card-footer footer-caption" },
                                   [
                                     _vm._v(
-                                      "\r\n                                From " +
+                                      "\n                                From " +
                                         _vm._s(
                                           _vm._f("formatNumber")(
                                             event.price_categories[0].price_usd
                                           )
                                         ) +
-                                        "\r\n                            "
+                                        "\n                            "
                                     )
                                   ]
                                 )
@@ -74615,7 +73497,7 @@ var render = function() {
                                   { staticClass: "card-footer footer-caption" },
                                   [
                                     _vm._v(
-                                      "\r\n                                Read More\r\n                            "
+                                      "\n                                Read More\n                            "
                                     )
                                   ]
                                 )
@@ -75251,9 +74133,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\r\n                                From " +
+                                "\n                                From " +
                                   _vm._s(_vm._f("formatNumber")(event.price)) +
-                                  "\r\n                            "
+                                  "\n                            "
                               )
                             ]
                           )
@@ -91557,20 +90439,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_events_testdetails__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/events/testdetails */ "./resources/js/components/events/testdetails.vue");
 /* harmony import */ var _components_events_marathon__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/events/marathon */ "./resources/js/components/events/marathon.vue");
 /* harmony import */ var _components_events_marathonCustomerDetails__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/events/marathonCustomerDetails */ "./resources/js/components/events/marathonCustomerDetails.vue");
-/* harmony import */ var _components_events_checkout__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/events/checkout */ "./resources/js/components/events/checkout.vue");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! vue-analytics */ "./node_modules/vue-analytics/dist/vue-analytics.js");
-/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(vue_analytics__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var vue_google_adsense__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! vue-google-adsense */ "./node_modules/vue-google-adsense/dist/VueGoogleAdsense.min.js");
-/* harmony import */ var vue_google_adsense__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(vue_google_adsense__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var vue_page_transition__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! vue-page-transition */ "./node_modules/vue-page-transition/index.js");
-/* harmony import */ var vue_responsive_image__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! vue-responsive-image */ "./node_modules/vue-responsive-image/src/ResponsiveImage.vue");
-/* harmony import */ var vue_full_loading__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! vue-full-loading */ "./node_modules/vue-full-loading/src/index.js");
-/* harmony import */ var vue_full_loading__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(vue_full_loading__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var vue_element_loading__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! vue-element-loading */ "./node_modules/vue-element-loading/lib/vue-element-loading.min.js");
-/* harmony import */ var vue_element_loading__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(vue_element_loading__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var vue_cookie_law__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! vue-cookie-law */ "./node_modules/vue-cookie-law/dist/vue-cookie-law.js");
-/* harmony import */ var vue_cookie_law__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(vue_cookie_law__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! vue-analytics */ "./node_modules/vue-analytics/dist/vue-analytics.js");
+/* harmony import */ var vue_analytics__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(vue_analytics__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var vue_google_adsense__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! vue-google-adsense */ "./node_modules/vue-google-adsense/dist/VueGoogleAdsense.min.js");
+/* harmony import */ var vue_google_adsense__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(vue_google_adsense__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var vue_page_transition__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! vue-page-transition */ "./node_modules/vue-page-transition/index.js");
+/* harmony import */ var vue_responsive_image__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! vue-responsive-image */ "./node_modules/vue-responsive-image/src/ResponsiveImage.vue");
+/* harmony import */ var vue_full_loading__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! vue-full-loading */ "./node_modules/vue-full-loading/src/index.js");
+/* harmony import */ var vue_full_loading__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(vue_full_loading__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var vue_element_loading__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! vue-element-loading */ "./node_modules/vue-element-loading/lib/vue-element-loading.min.js");
+/* harmony import */ var vue_element_loading__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(vue_element_loading__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var vue_cookie_law__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! vue-cookie-law */ "./node_modules/vue-cookie-law/dist/vue-cookie-law.js");
+/* harmony import */ var vue_cookie_law__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(vue_cookie_law__WEBPACK_IMPORTED_MODULE_29__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -91610,6 +90491,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
+ // import checkOut from './components/events/checkout';
 
 
 
@@ -91619,13 +90501,12 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-
-Vue.use(vue_page_transition__WEBPACK_IMPORTED_MODULE_26__["default"]);
+Vue.use(vue_page_transition__WEBPACK_IMPORTED_MODULE_25__["default"]);
 Vue.use(__webpack_require__(/*! vue-script2 */ "./node_modules/vue-script2/dist/vue-script2.js"));
-Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_25___default.a.Adsense);
-Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_25___default.a.InArticleAdsense);
-Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_25___default.a.InFeedAdsense);
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_23__["default"]);
+Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_24___default.a.Adsense);
+Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_24___default.a.InArticleAdsense);
+Vue.use(vue_google_adsense__WEBPACK_IMPORTED_MODULE_24___default.a.InFeedAdsense);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_22__["default"]);
 Vue.prototype.$gate = new _Gate__WEBPACK_IMPORTED_MODULE_2__["default"](window.user);
 window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 var routes = [{
@@ -91689,12 +90570,12 @@ var routes = [{
   props: true,
   name: 'hayaa'
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_23__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_22__["default"]({
   mode: 'history',
   routes: routes // short for `routes: routes`
 
 });
-Vue.use(vue_analytics__WEBPACK_IMPORTED_MODULE_24___default.a, {
+Vue.use(vue_analytics__WEBPACK_IMPORTED_MODULE_23___default.a, {
   id: 'UA-156298357-1',
   router: router
 });
@@ -91733,13 +90614,13 @@ Vue.component('eventDetails', _components_events_eventDetails__WEBPACK_IMPORTED_
 Vue.component('eventAddtional', _components_events_eventAddtional__WEBPACK_IMPORTED_MODULE_16__["default"]);
 Vue.component('testdetails', _components_events_testdetails__WEBPACK_IMPORTED_MODULE_19__["default"]);
 Vue.component('priceCategory', _components_events_priceCategory__WEBPACK_IMPORTED_MODULE_17__["default"]);
-Vue.component('marathon', _components_events_marathon__WEBPACK_IMPORTED_MODULE_20__["default"]);
-Vue.component('checkOut', _components_events_checkout__WEBPACK_IMPORTED_MODULE_22__["default"]);
+Vue.component('marathon', _components_events_marathon__WEBPACK_IMPORTED_MODULE_20__["default"]); // Vue.component('checkOut', checkOut);
+
 Vue.component('marathonDetails', _components_events_marathonCustomerDetails__WEBPACK_IMPORTED_MODULE_21__["default"]);
-Vue.component('vue-responsive-image', vue_responsive_image__WEBPACK_IMPORTED_MODULE_27__["default"]);
-Vue.component('loadingvue', vue_full_loading__WEBPACK_IMPORTED_MODULE_28___default.a);
-Vue.component('VueElementLoading', vue_element_loading__WEBPACK_IMPORTED_MODULE_29___default.a);
-Vue.component('CookieLaw', vue_cookie_law__WEBPACK_IMPORTED_MODULE_30___default.a);
+Vue.component('vue-responsive-image', vue_responsive_image__WEBPACK_IMPORTED_MODULE_26__["default"]);
+Vue.component('loadingvue', vue_full_loading__WEBPACK_IMPORTED_MODULE_27___default.a);
+Vue.component('VueElementLoading', vue_element_loading__WEBPACK_IMPORTED_MODULE_28___default.a);
+Vue.component('CookieLaw', vue_cookie_law__WEBPACK_IMPORTED_MODULE_29___default.a);
 Vue.component('not-found', __webpack_require__(/*! ./components/NotFound.vue */ "./resources/js/components/NotFound.vue"));
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
 Vue.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_5___default.a;
@@ -92291,93 +91172,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cartItems_vue_vue_type_template_id_74d1d756_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/events/checkout.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/events/checkout.vue ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _checkout_vue_vue_type_template_id_33342001_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkout.vue?vue&type=template&id=33342001&scoped=true& */ "./resources/js/components/events/checkout.vue?vue&type=template&id=33342001&scoped=true&");
-/* harmony import */ var _checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkout.vue?vue&type=script&lang=js& */ "./resources/js/components/events/checkout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css& */ "./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _checkout_vue_vue_type_template_id_33342001_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _checkout_vue_vue_type_template_id_33342001_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "33342001",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/events/checkout.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/events/checkout.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/events/checkout.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./checkout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css&":
-/*!**************************************************************************************************************!*\
-  !*** ./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css& ***!
-  \**************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=style&index=0&id=33342001&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_style_index_0_id_33342001_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/events/checkout.vue?vue&type=template&id=33342001&scoped=true&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/events/checkout.vue?vue&type=template&id=33342001&scoped=true& ***!
-  \************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_template_id_33342001_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./checkout.vue?vue&type=template&id=33342001&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/events/checkout.vue?vue&type=template&id=33342001&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_template_id_33342001_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_checkout_vue_vue_type_template_id_33342001_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -93946,8 +92740,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Documents\laravel-projects\ticketbook\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Documents\laravel-projects\ticketbook\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ernest-linux/Documents/laravel-projects/eventszim/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ernest-linux/Documents/laravel-projects/eventszim/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

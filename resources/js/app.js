@@ -42,7 +42,7 @@ import addCustomer from './components/events/customerDetails';
 import testdetails from './components/events/testdetails';
 import marathon from './components/events/marathon';
 import marathonDetails from './components/events/marathonCustomerDetails';
-import checkOut from './components/events/checkout';
+// import checkOut from './components/events/checkout';
 import VueRouter from 'vue-router'
 import VueAnalytics from 'vue-analytics'
 import Ads from 'vue-google-adsense'
@@ -130,7 +130,7 @@ Vue.component('eventAddtional', eventAddtional);
 Vue.component('testdetails', testdetails);
 Vue.component('priceCategory', priceCategory);
 Vue.component('marathon', marathon);
-Vue.component('checkOut', checkOut);
+// Vue.component('checkOut', checkOut);
 Vue.component('marathonDetails', marathonDetails);
 Vue.component('vue-responsive-image', VueResponsiveImage);
 Vue.component('loadingvue', loadingvue);
