@@ -72309,7 +72309,7 @@ var render = function() {
                               2
                             )
                           ])
-                        : event.status != "sale"
+                        : event.status == "sold"
                         ? _c("div", { staticClass: "col-md-3" }, [
                             _vm._m(0, true)
                           ])
@@ -72408,7 +72408,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h3", [
       _c("span", { staticClass: "badge badge-warning" }, [
-        _vm._v("Event has been postpone")
+        _vm._v("Event postponed")
       ])
     ])
   },
