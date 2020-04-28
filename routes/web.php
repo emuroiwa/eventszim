@@ -26,3 +26,11 @@ Route::get('/email', function () {
 Route::get('paynow/{id}', 'PaynowController@show')->name('paynow');
 Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d]+)?' );
 
+Route::get('files/{file_name}', function($file_name = null)
+{
+    $path = storage_path().'/'.'app'.'/ticketBook/'.$file_name;
+    if (file_exists($path)) {
+        return Response::download($path);
+    }
+});
+
