@@ -17,6 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//JWT this in v2
+
 Route::apiResources(['events' => 'API\EventsController']);
 Route::apiResources(['locations' => 'API\EventLocationController ']);
 Route::apiResources(['pricecategory' => 'API\PriceCategoryController']);
