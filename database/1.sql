@@ -1,1 +1,0 @@
-INSERT INTO `eventszim`.`payment_details`(`fullname`, `user_id`, `order_id`, `contact`, `email`, `created_at`, `updated_at`) VALUES ('Ernest Muroiwa', '1583835471324', '1583839257', '0671564731', 'emuroiwa@gmail.com', '2020-03-10 11:21:19', '2020-03-10 11:21:19');
